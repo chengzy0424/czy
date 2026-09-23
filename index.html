@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>程子悦 · 创意开发者作品集 | Unity / Android / UI</title>
+<meta name="description" content="程子悦，数字媒体技术专业 2026 届，求职方向：U3D 游戏开发、Android 人机交互、UI 设计工程师。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space Grotesk:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* ── 深色世界 ── */
+  --canvas:#0A0E18;
+  --world:#0E1525;
+  --surface:#131C30;
+  --surface-2:#182238;
+  /* ── 亮色世界 ── */
+  --paper:#ECF0F6;
+  --paper-card:#FFFFFF;
+  /* ── 文字 ── */
+  --txt:#EAEFF8;
+  --txt-dim:rgba(234,239,248,.58);
+  --txt-faint:rgba(234,239,248,.38);
+  --ink:#0E1525;
+  --ink-dim:#525E78;
+  --ink-faint:#7B859B;
+  /* ── 三方向色 ── */
+  --t-game:#E548B8;
+  --t-android:#2DD8B8;
+  --t-ui:#FFB23E;
+  /* ── 线 ── */
+  --line-dark:rgba(234,239,248,.10);
+  --line-light:rgba(14,21,37,.12);
+  /* ── 圆角 ── */
+  --r-shell:22px;
+  --r-card:10px;
+  --r-control:7px;
+  --r-pill:999px;
+  /* ── 栅格/动效 ── */
+  --gut:clamp(20px,4vw,72px);
+  --ease:cubic-bezier(.22,.61,.36,1);
+  --shadow-card:
+    0 1px 2px rgba(16,24,40,.05),
+    0 10px 26px -10px rgba(16,24,40,.12),
+    0 28px 60px -28px rgba(16,24,40,.18);
+  --shadow-float:
+    0 2px 6px rgba(16,24,40,.06),
+    0 18px 44px -14px rgba(16,24,40,.20);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--canvas);color:var(--txt);
+  font-family:"Manrope","PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif;
+  font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+body.locked{overflow:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+button,a[href]{min-height:24px}
+::selection{background:var(--t-game);color:#fff}
+.ic{width:1em;height:1em;flex:none}
+.font-d{font-family:"Space Grotesk","PingFang SC",sans-serif}
+.font-m{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace}
+.mono{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;
+  font-size:.72rem;letter-spacing:.14em;text-transform:uppercase}
+h1,h2,h3{font-family:"Space Grotesk","PingFang SC",sans-serif;font-weight:700}
+
+header{
+  position:fixed;inset:0 0 auto 0;z-index:80;
+  display:flex;align-items:center;justify-content:space-between;gap:24px;
+  padding:22px var(--gut);color:var(--txt);
+  border-bottom:1px solid transparent;
+  transition:padding .4s var(--ease),background .4s var(--ease),border-color .4s var(--ease);
+}
+header.solid{
+  background:rgba(10,14,24,.78);backdrop-filter:blur(16px) saturate(1.3);
+  -webkit-backdrop-filter:blur(16px) saturate(1.3);
+  padding:13px var(--gut);border-bottom-color:var(--line-dark);
+}
+.brand{display:flex;align-items:center;gap:11px}
+.brand .mark{
+  width:34px;height:34px;border-radius:9px;display:grid;place-items:center;
+  background:linear-gradient(135deg,var(--t-game),var(--t-android));
+  color:#0A0E18;font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:18px;
+}
+.brand b{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:17px;letter-spacing:.01em}
+.brand span{font-size:10px;letter-spacing:.3em;color:var(--txt-dim)}
+nav.mainnav{display:flex;gap:30px}
+nav.mainnav a{font-size:13.5px;color:var(--txt-dim);position:relative;padding-block:5px;transition:color .3s}
+nav.mainnav a:hover{color:var(--txt)}
+nav.mainnav a::after{content:"";position:absolute;left:0;bottom:0;height:1.5px;width:0;
+  background:var(--t-android);transition:width .35s var(--ease)}
+nav.mainnav a:hover::after{width:100%}
+.nav-cta{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line-dark);
+  border-radius:var(--r-pill);padding:9px 18px;font-size:12.5px;letter-spacing:.04em;
+  transition:background .3s,color .3s,border-color .3s}
+.nav-cta:hover{background:var(--txt);color:var(--canvas);border-color:var(--txt)}
+
+.hero{position:relative;height:100svh;min-height:660px;overflow:hidden;background:var(--canvas)}
+.hero-media{position:absolute;inset:0}
+.hero-media img{width:100%;height:100%;object-fit:cover;object-position:62% 40%;
+  transform:scale(1.05);animation:heroIn 2.2s var(--ease) both}
+@keyframes heroIn{from{transform:scale(1.16);opacity:.25}to{transform:scale(1.05);opacity:1}}
+.hero::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:
+    linear-gradient(90deg,rgba(7,10,18,.94) 0%,rgba(7,10,18,.62) 42%,rgba(7,10,18,.18) 72%,rgba(7,10,18,.32) 100%),
+    linear-gradient(180deg,rgba(7,10,18,.5) 0%,transparent 30%,rgba(7,10,18,.2) 60%,rgba(7,10,18,.9) 100%)}
+.hero-inner{position:absolute;z-index:3;left:var(--gut);right:var(--gut);top:50%;
+  transform:translateY(-50%);max-width:760px}
+.hero-eyebrow{display:flex;align-items:center;gap:12px;margin-bottom:26px;color:var(--txt-dim)}
+.hero-eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--t-android);
+  box-shadow:0 0 0 0 rgba(45,216,184,.6);animation:ping 2.2s infinite}
+@keyframes ping{70%{box-shadow:0 0 0 11px rgba(45,216,184,0)}100%{box-shadow:0 0 0 0 rgba(45,216,184,0)}}
+h1.hero-title{font-size:clamp(2.7rem,6.2vw,5.6rem);line-height:1.04;font-weight:700;letter-spacing:0}
+h1.hero-title .alt{color:var(--txt)}
+.hero-sub{margin-top:26px;max-width:52ch;color:var(--txt-dim);font-size:clamp(.95rem,1.1vw,1.05rem);line-height:1.85}
+.hero-tracks{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
+.track-pill{display:inline-flex;align-items:center;gap:9px;border-radius:var(--r-pill);
+  padding:9px 17px;font-size:13px;border:1px solid var(--line-dark);background:rgba(10,14,24,.4);
+  backdrop-filter:blur(6px)}
+.track-pill i{width:8px;height:8px;border-radius:50%}
+.track-pill.game i{background:var(--t-game);box-shadow:0 0 10px var(--t-game)}
+.track-pill.android i{background:var(--t-android);box-shadow:0 0 10px var(--t-android)}
+.track-pill.ui i{background:var(--t-ui);box-shadow:0 0 10px var(--t-ui)}
+.cta-row{display:flex;flex-wrap:wrap;gap:13px;margin-top:36px}
+.btn{display:inline-flex;align-items:center;gap:11px;border-radius:var(--r-pill);
+  padding:15px 28px;font-size:14px;font-weight:700;letter-spacing:.02em;
+  transition:transform .35s var(--ease),background .3s,color .3s,border-color .3s,box-shadow .3s}
+.btn:hover{transform:translateY(-2px)}
+.btn-light{background:var(--txt);color:var(--canvas)}
+.btn-light:hover{background:var(--t-android);color:var(--canvas)}
+.btn-outline{border:1px solid rgba(234,239,248,.35);color:var(--txt)}
+.btn-outline:hover{background:rgba(234,239,248,.1);border-color:var(--txt)}
+.btn-dark{background:var(--ink);color:#fff}
+.btn-dark:hover{background:var(--t-ui);color:var(--ink)}
+.btn .ic{font-size:16px}
+.scrollhint{position:absolute;left:var(--gut);bottom:38px;z-index:4;color:var(--txt-faint);
+  display:flex;align-items:center;gap:11px}
+.scrollhint .barline{display:block;width:36px;height:1px;background:rgba(234,239,248,.4);
+  animation:slide 1.9s var(--ease) infinite}
+@keyframes slide{0%{transform:scaleX(.2);transform-origin:left}
+  50%{transform:scaleX(1);transform-origin:left}51%{transform:scaleX(1);transform-origin:right}
+  100%{transform:scaleX(.2);transform-origin:right}}
+
+.marquee{background:#070B13;color:var(--txt);overflow:hidden;padding:16px 0;border-block:1px solid var(--line-dark)}
+.marquee-track{display:flex;width:max-content;animation:mq 32s linear infinite}
+.marquee:hover .marquee-track{animation-play-state:paused}
+@keyframes mq{to{transform:translateX(-50%)}}
+.marquee-track span{display:inline-flex;align-items:center;gap:44px;white-space:nowrap;
+  padding-right:44px;font-family:"JetBrains Mono",monospace;font-size:13px;letter-spacing:.08em;
+  color:var(--txt-dim)}
+.marquee em{font-style:normal}
+.marquee em.g{color:var(--t-game)}.marquee em.a{color:var(--t-android)}.marquee em.u{color:var(--t-ui)}
+
+section{position:relative}
+.wrap{padding-inline:var(--gut)}
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:30px;flex-wrap:wrap;
+  padding-block:clamp(70px,8vw,110px) 40px}
+.sec-head .idx{display:block;margin-bottom:18px}
+.sec-head h2{font-size:clamp(1.9rem,3.4vw,3.1rem);line-height:1.08;letter-spacing:0}
+.sec-head p{max-width:42ch;font-size:14.5px;line-height:1.8}
+.sec-dark{color:var(--txt)}
+.sec-dark p{color:var(--txt-dim)}
+.sec-light{color:var(--ink)}
+.sec-light p{color:var(--ink-dim)}
+
+.dir-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;padding-bottom:clamp(70px,8vw,110px)}
+.dir-card{position:relative;border:1px solid var(--line-dark);border-radius:var(--r-shell);
+  background:linear-gradient(180deg,var(--surface),var(--world));
+  padding:34px 30px 30px;display:flex;flex-direction:column;overflow:hidden;
+  transition:transform .45s var(--ease),border-color .35s,box-shadow:.45s}
+.dir-card::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;
+  transform:scaleX(0);transform-origin:left;transition:transform .5s var(--ease)}
+.dir-card.game::before{background:var(--t-game)}
+.dir-card.android::before{background:var(--t-android)}
+.dir-card.ui::before{background:var(--t-ui)}
+.dir-card:hover{transform:translateY(-7px)}
+.dir-card.game:hover{border-color:rgba(229,72,184,.5);box-shadow:0 30px 60px -30px rgba(229,72,184,.5)}
+.dir-card.android:hover{border-color:rgba(45,216,184,.5);box-shadow:0 30px 60px -30px rgba(45,216,184,.5)}
+.dir-card.ui:hover{border-color:rgba(255,178,62,.55);box-shadow:0 30px 60px -30px rgba(255,178,62,.5)}
+.dir-card:hover::before{transform:scaleX(1)}
+.dir-icon{width:54px;height:54px;border-radius:15px;display:grid;place-items:center;font-size:26px;margin-bottom:24px}
+.dir-icon.game{background:rgba(229,72,184,.14);color:var(--t-game)}
+.dir-icon.android{background:rgba(45,216,184,.14);color:var(--t-android)}
+.dir-icon.ui{background:rgba(255,178,62,.15);color:var(--t-ui)}
+.dir-card h3{font-size:1.32rem;margin-bottom:12px;letter-spacing:0}
+.dir-card .desc{color:var(--txt-dim);font-size:14px;line-height:1.8;margin-bottom:22px}
+.dir-points{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:24px}
+.dir-points span{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.04em;
+  border:1px solid var(--line-dark);border-radius:var(--r-control);padding:5px 10px;color:var(--txt-dim)}
+.dir-link{margin-top:auto;display:inline-flex;align-items:center;gap:8px;font-size:13.5px;font-weight:700}
+.dir-card.game .dir-link{color:var(--t-game)}
+.dir-card.android .dir-link{color:var(--t-android)}
+.dir-card.ui .dir-link{color:var(--t-ui)}
+.dir-link .ic{transition:transform .3s var(--ease)}
+.dir-card:hover .dir-link .ic{transform:translate(3px,-3px)}
+
+.works-section{background:var(--paper);color:var(--ink)}
+.filters{display:flex;gap:9px;flex-wrap:wrap;padding-block:8px 34px}
+.chip{border:1px solid var(--line-light);border-radius:var(--r-pill);padding:10px 19px;
+  font-size:13.5px;color:var(--ink-dim);background:var(--paper-card);
+  transition:all .28s var(--ease)}
+.chip:hover{border-color:var(--ink);color:var(--ink)}
+.chip[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.works-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:22px;padding-bottom:clamp(70px,8vw,110px)}
+.work-card{background:var(--paper-card);border:1px solid var(--line-light);border-radius:var(--r-shell);
+  overflow:hidden;display:flex;flex-direction:column;box-shadow:var(--shadow-card);
+  transition:transform .45s var(--ease),box-shadow:.45s var(--ease),opacity .4s var(--ease)}
+.work-card.hide{display:none}
+.work-card.featured{grid-column:span 8}
+.work-card.span4{grid-column:span 4}
+.work-card.span8{grid-column:span 8}
+.work-media{position:relative;overflow:hidden;background:#E2E7F0}
+.work-card.featured .work-media,.work-card.span8 .work-media{aspect-ratio:16/9.5}
+.work-card.span4 .work-media{aspect-ratio:4/4.6}
+.work-media img{width:100%;height:100%;object-fit:cover;transition:transform 1s var(--ease)}
+.work-card:hover .work-media img{transform:scale(1.05)}
+.wtag{position:absolute;top:14px;left:14px;display:inline-flex;align-items:center;gap:7px;
+  border-radius:var(--r-pill);padding:6px 13px;font-family:"JetBrains Mono",monospace;
+  font-size:10px;letter-spacing:.1em;color:#fff;backdrop-filter:blur(4px)}
+.wtag.game{background:rgba(229,72,184,.92)}
+.wtag.android{background:rgba(28,160,140,.94)}
+.wtag.ui{background:rgba(172,110,15,.96)}
+.wtag i{width:6px;height:6px;border-radius:50%;background:#fff}
+.work-body{padding:24px 26px 26px;display:flex;flex-direction:column;gap:12px;flex:1}
+.work-body h3{font-size:clamp(1.1rem,1.5vw,1.35rem);letter-spacing:0}
+.work-body .wdesc{color:var(--ink-dim);font-size:14px;line-height:1.8}
+.work-tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:auto;padding-top:14px}
+.work-tags span{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.03em;
+  background:var(--paper);border-radius:var(--r-control);padding:5px 10px;color:var(--ink-dim)}
+.work-foot{display:flex;align-items:center;justify-content:space-between;gap:12px;
+  margin-top:16px;padding-top:16px;border-top:1px solid var(--line-light)}
+.view-link{display:inline-flex;align-items:center;gap:8px;font-size:13.5px;font-weight:700;color:var(--ink)}
+.view-link .ic{transition:transform .3s var(--ease)}
+.work-card:hover .view-link .ic{transform:translate(3px,-3px)}
+.work-year{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--ink-faint)}
+
+.about-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(34px,5vw,80px);
+  align-items:center;padding-block:clamp(70px,8vw,110px)}
+.about-media{position:relative;border-radius:var(--r-shell);overflow:hidden;border:1px solid var(--line-dark)}
+.about-media img{width:100%;aspect-ratio:4/3.4;object-fit:cover}
+.about-media .float-badge{position:absolute;left:20px;bottom:20px;background:rgba(10,14,24,.72);
+  backdrop-filter:blur(10px);border:1px solid var(--line-dark);border-radius:var(--r-pill);
+  padding:11px 18px;display:flex;align-items:center;gap:10px;font-size:13px}
+.about-media .float-badge .ic{color:var(--t-android);font-size:18px}
+.about-copy h2{font-size:clamp(1.8rem,3.2vw,2.8rem);line-height:1.2;margin-bottom:24px}
+.about-copy p{color:var(--txt-dim);font-size:15px;line-height:1.9;margin-bottom:18px}
+.about-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:34px;
+  padding-top:32px;border-top:1px solid var(--line-dark)}
+.astat b{display:block;font-family:"Space Grotesk",sans-serif;font-size:clamp(1.7rem,2.6vw,2.4rem);
+  font-weight:700;line-height:1}
+.astat:nth-child(1) b{color:var(--t-game)}
+.astat:nth-child(2) b{color:var(--t-android)}
+.astat:nth-child(3) b{color:var(--t-ui)}
+.astat:nth-child(4) b{color:var(--txt)}
+.astat span{display:block;margin-top:7px;font-size:11.5px;color:var(--txt-faint);letter-spacing:.03em}
+
+.skills-section{background:var(--paper);color:var(--ink)}
+.skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;padding-bottom:clamp(70px,8vw,110px)}
+.skill-col{background:var(--paper-card);border:1px solid var(--line-light);border-radius:var(--r-shell);
+  padding:30px 28px;box-shadow:var(--shadow-card)}
+.skill-head{display:flex;align-items:center;gap:13px;margin-bottom:26px}
+.skill-head .ic{font-size:24px}
+.skill-head.game .ic{color:var(--t-game)}.skill-head.android .ic{color:#1CA08C}
+.skill-head.ui .ic{color:#E6961E}
+.skill-head h3{font-size:1.2rem}
+.skill-head small{display:block;font-family:"JetBrains Mono",monospace;font-size:10px;
+  letter-spacing:.12em;color:var(--ink-faint);margin-top:3px}
+.skill-item{margin-bottom:17px}
+.skill-item .lab{display:flex;justify-content:space-between;font-size:13px;margin-bottom:8px}
+.skill-item .lab em{font-style:normal;font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--ink-faint)}
+.track{height:6px;border-radius:var(--r-pill);background:#E7EBF2;overflow:hidden}
+.track i{display:block;height:100%;width:0;border-radius:var(--r-pill);
+  transition:width 1.2s var(--ease)}
+.track.game i{background:linear-gradient(90deg,#F07BCB,var(--t-game))}
+.track.android i{background:linear-gradient(90deg,#6FE7D0,var(--t-android))}
+.track.ui i{background:linear-gradient(90deg,#FFCE7A,var(--t-ui))}
+.skill-tools{display:flex;flex-wrap:wrap;gap:7px;margin-top:24px;padding-top:22px;border-top:1px solid var(--line-light)}
+.skill-tools span{font-family:"JetBrains Mono",monospace;font-size:10.5px;background:var(--paper);
+  border-radius:var(--r-control);padding:6px 11px;color:var(--ink-dim)}
+
+.timeline{max-width:880px;padding-bottom:clamp(70px,8vw,110px)}
+.tl-item{position:relative;padding:0 0 40px 42px;border-left:1px solid var(--line-dark)}
+.tl-item:last-child{border-left-color:transparent;padding-bottom:0}
+.tl-item::before{content:"";position:absolute;left:-7px;top:4px;width:13px;height:13px;border-radius:50%;
+  background:var(--canvas);border:2px solid var(--t-android)}
+.tl-item.game::before{border-color:var(--t-game)}
+.tl-item.ui::before{border-color:var(--t-ui)}
+.tl-when{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;color:var(--txt-faint);
+  text-transform:uppercase;margin-bottom:9px}
+.tl-item h3{font-size:1.2rem;margin-bottom:9px}
+.tl-item p{color:var(--txt-dim);font-size:14px;line-height:1.85;max-width:62ch}
+.tl-tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:13px}
+.tl-tags span{font-family:"JetBrains Mono",monospace;font-size:10.5px;border:1px solid var(--line-dark);
+  border-radius:var(--r-control);padding:5px 10px;color:var(--txt-faint)}
+
+.contact-section{background:var(--paper);color:var(--ink)}
+.contact-box{background:var(--paper-card);border:1px solid var(--line-light);border-radius:var(--r-shell);
+  box-shadow:var(--shadow-float);padding:clamp(40px,6vw,84px);
+  display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(34px,5vw,70px);
+  align-items:center;margin-block:clamp(60px,7vw,100px)}
+.contact-left h2{font-size:clamp(2rem,4.4vw,3.6rem);line-height:1.1;margin-bottom:20px}
+.contact-left p{color:var(--ink-dim);font-size:15px;line-height:1.85;max-width:46ch;margin-bottom:30px}
+.contact-list{display:flex;flex-direction:column;gap:4px}
+.contact-list a,.contact-list div{display:flex;align-items:center;gap:14px;padding:13px 4px;
+  border-bottom:1px solid var(--line-light);font-size:14.5px;transition:color .25s}
+.contact-list .ic{font-size:20px;color:var(--ink-faint);transition:color .25s}
+.contact-list a:hover{color:var(--ink)}
+.contact-list a:hover .ic{color:var(--t-ui)}
+.contact-list small{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--ink-faint);margin-left:auto}
+
+footer{background:#060912;color:var(--txt-dim);padding:74px var(--gut) 32px}
+.foot-grid{display:grid;grid-template-columns:1.6fr repeat(3,1fr);gap:38px;
+  padding-bottom:46px;border-bottom:1px solid var(--line-dark)}
+.foot-grid h4{color:var(--txt);font-family:"JetBrains Mono",monospace;font-size:11px;
+  letter-spacing:.16em;text-transform:uppercase;margin-bottom:16px}
+.foot-grid a{display:block;padding:5px 0;font-size:13.5px;transition:color .25s}
+.foot-grid a:hover{color:var(--t-android)}
+.foot-brand p{max-width:34ch;font-size:13.5px;line-height:1.8;margin-top:14px}
+.wordmark{font-family:"Space Grotesk",sans-serif;font-size:clamp(52px,14vw,200px);font-weight:700;
+  line-height:.82;color:rgba(234,239,248,.06);letter-spacing:-.02em;margin-top:44px;user-select:none}
+.foot-legal{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;
+  padding-top:26px;font-size:11px;color:var(--txt-faint);letter-spacing:.03em}
+.social-row{display:flex;gap:11px;margin-top:18px}
+.social-row a{width:38px;height:38px;border-radius:10px;border:1px solid var(--line-dark);
+  display:grid;place-items:center;font-size:18px;transition:all .3s}
+.social-row a:hover{background:var(--txt);color:var(--canvas);border-color:var(--txt)}
+
+.toast{position:fixed;left:50%;bottom:34px;transform:translate(-50%,150%);z-index:120;
+  background:var(--ink);color:#fff;border-radius:var(--r-pill);padding:14px 26px;font-size:13.5px;
+  display:flex;gap:10px;align-items:center;box-shadow:var(--shadow-float);
+  opacity:0;pointer-events:none;
+  transition:transform .5s var(--ease),opacity .4s var(--ease)}
+.toast.on{transform:translate(-50%,0);opacity:1;pointer-events:auto}
+.toast .ic{color:var(--t-android);font-size:17px}
+
+.rv{opacity:0;transform:translateY(26px);
+  transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.rv.in{opacity:1;transform:none}
+
+@media(max-width:1080px){
+  .dir-grid,.skills-grid{grid-template-columns:1fr 1fr}
+  .work-card.featured,.work-card.span8,.work-card.span4{grid-column:span 6}
+  .about-stats{grid-template-columns:repeat(2,1fr);gap:24px}
+  .contact-box{grid-template-columns:1fr}
+}
+@media(max-width:760px){
+  nav.mainnav{display:none}
+  .brand span{display:none}
+  .nav-cta{padding:9px 15px}
+  .dir-grid,.skills-grid{grid-template-columns:1fr}
+  .work-card.featured,.work-card.span8,.work-card.span4{grid-column:span 12}
+  .about-grid{grid-template-columns:1fr}
+  .about-media{order:2}
+  .foot-grid{grid-template-columns:1fr 1fr}
+  .hero-inner{top:auto;bottom:120px;transform:none}
+  .scrollhint{display:none}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition-duration:.01ms!important}
+  .rv{opacity:1;transform:none}
+  .track i{transition:none}
+}
+</style>
+</head>
+<body>
+
+<header id="nav">
+  <a class="brand" href="#top">
+    <span class="mark font-d">C</span>
+    <b>程子悦 CHENG ZIYUE</b><span class="font-m">CREATIVE DEV</span>
+  </a>
+  <nav class="mainnav">
+    <a href="#directions">方向</a>
+    <a href="#works">作品</a>
+    <a href="#about">关于</a>
+    <a href="#skills">技能</a>
+    <a href="#experience">经历</a>
+  </nav>
+  <a class="nav-cta" href="#contact">
+    <svg class="ic" viewBox="0 0 256 256" fill="currentColor"><path d="M224,48H32a8,8,0,0,0-8,8V192a16,16,0,0,0,16,16H216a16,16,0,0,0,16,16V56A8,8,0,0,0,224,48Zm-96,85.15L52.57,64H203.43ZM98.71,128,40,181.81V74.19Zm11.84,10.85,12,11.05a8,8,0,0,0,10.82,0l12-11.05,58,53.15H52.57ZM157.29,128,216,74.18V181.82Z"/></svg>
+    联系我
+  </a>
+</header>
+
+<section class="hero" id="top">
+  <div class="hero-media"><img src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/MzOIbvRdooIbwax9yH0cBcL9nke" alt="数字创作核心 3D 主视觉" width="2730" height="1536"></div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow mono"><span class="dot"></span> 数字媒体技术 · 2026 届 · 寻求实习 / 校招</div>
+    <h1 class="hero-title">构建可交互的<br><span class="alt">数字世界</span></h1>
+    <p class="hero-sub">我在 Unity 游戏开发、Android 人机交互与 UI 设计的交叉地带创作——既能写代码实现，也能做体验与视觉，把一个想法从草图推到可玩、可用的成品。</p>
+    <div class="hero-tracks">
+      <span class="track-pill game"><i></i>U3D 游戏开发</span>
+      <span class="track-pill android"><i></i>Android 人机交互</span>
+      <span class="track-pill ui"><i></i>UI 设计工程师</span>
+    </div>
+    <div class="cta-row">
+      <a class="btn btn-light" href="#works">查看作品
+        <svg class="ic" viewBox="0 0 256 256" fill="currentColor"><path d="M200,64V168a8,8,0,0,1-16,0V83.31L69.66,197.66a8,8,0,0,1-11.32-11.32L172.69,72H88a8,8,0,0,1,0-16H192A8,8,0,0,1,200,64Z"/></svg>
+      </a>
+      <button class="btn btn-outline" id="resumeBtn">
+        <svg class="ic" viewBox="0 0 256 256" fill="currentColor"><path d="M224,144v64a8,8,0,0,1-8,8H40a8,8,0,0,1-8-8V144a8,8,0,0,1,16,0v56H208V144a8,8,0,0,1,16,0Zm-101.66,5.66a8,8,0,0,0,11.32,0l40-40a8,8,0,0,0-11.32-11.32L136,124.69V32a8,8,0,0,0-16,0v92.69L93.66,98.34a8,8,0,0,0-11.32,11.32Z"/></svg>
+        下载简历
+      </button>
+    </div>
+  </div>
+  <div class="scrollhint mono"><span class="barline"></span> SCROLL</div>
+</section>
+
+<div class="marquee">
+  <div class="marquee-track">
+    <span>
+      UNITY / C# <em class="g">✦</em> ANDROID / KOTLIN <em class="a">✦</em> JETPACK COMPOSE <em class="a">✦</em>
+      FIGMA <em class="u">✦</em> 交互设计 <em class="u">✦</em> 3D 渲染 <em class="g">✦</em> SHADER 入门 <em class="g">✦</em>
+      设计系统 <em class="u">✦</em> 手势与传感器 <em class="a">✦</em>
+    </span>
+    <span>
+      UNITY / C# <em class="g">✦</em> ANDROID / KOTLIN <em class="a">✦</em> JETPACK COMPOSE <em class="a">✦</em>
+      FIGMA <em class="u">✦</em> 交互设计 <em class="u">✦</em> 3D 渲染 <em class="g">✦</em> SHADER 入门 <em class="g">✦</em>
+      设计系统 <em class="u">✦</em> 手势与传感器 <em class="a">✦</em>
+    </span>
+  </div>
+</div>
+
+<section id="directions" class="wrap">
+  <div class="sec-head sec-dark rv">
+    <div>
+      <span class="idx mono" style="color:var(--txt-faint)">01 / DIRECTIONS</span>
+      <h2>三个方向，<br>一套完整的创作能力</h2>
+    </div>
+    <p>我不把自己限定在单一岗位，而是围绕“把东西做出来并做好用”构建能力闭环。点击任一方向，可直接筛选对应作品。</p>
+  </div>
+  <div class="dir-grid">
+    <article class="dir-card game rv">
+      <div class="dir-icon game">
+        <svg class="ic" viewBox="0 0 256 256" fill="currentColor"><path d="M176,112H152a8,8,0,0,1,0-16h24a8,8,0,0,1,0,16ZM104,96H96V88a8,8,0,0,0-16,0v8H72a8,8,0,0,0,0,16h8v8a8,8,0,0,0,16,0v-8h8a8,8,0,0,0,0-16ZM241.48,200.65a36,36,0,0,1-54.94,4.81c-.12-.12-.24-.35-.37L146.48,160h-37L69.81,205.09l-.35,.37A36.08,36.08,0,0,1,44,216,36,36,0,0,1,8.56,173.75L24.93,89.52A59.88,59.88,0,0,1,83.89,40H172a60.08,60.08,0,0,1,59,49.25l16.37,84.17A35.74,35.74,0,0,1,241.48,200.65ZM172,144a44,44,0,0,0,0-88H83.89A43.9,43.9,0,0,0,40.68,92.37L24.3,176.59A20,20,0,0,0,58,194.3l41.92-47.59a8,8,0,0,1,6-2.71Zm59.7,32.59-8.74-45A60,60,0,0,1,172,160h-4.2L198,194.31a20.09,20.09,0,0,0,17.46,5.39,20,20,0,0,0,16.23-23.11Z"/></svg>
+      </div>
+      <h3>U3D 游戏开发</h3>
+      <p class="desc">从关卡、角色到操作手感，独立完成可玩的游戏原型与完整项目，理解引擎、物理与渲染的协作。</p>
+      <div class="dir-points"><span>Unity</span><span>C#</span><span>物理 / 动画</span><span>UGUI</span></div>
+      <button class="dir-link" data-jump="game">查看该方向作品
+        <svg class="ic" viewBox="0 0 256 256" fill="currentColor"><path d="M200,64V168a8,8,0,0,1-16,0V83.31L69.66,197.66a8,8,0,0,1-11.32-11.32L172.69,72H88a8,8,0,0,1,0-16H192A8,8,0,0,1,200,64Z"/></svg>
+      </button>
+    </article>
+
+    <article class="dir-card android rv">
+      <div class="dir-icon android">
+        <svg class="ic" viewBox="0 0 256 256" fill="currentColor"><path d="M176,148a12,12,0,1,1-12-12A12,12,0,0,1,176,148ZM92,136a12,12,0,1,0,12,12A12,12,0,0,0,92,136Zm148,24v24a16,16,0,0,1-16,16H32a16,16,0,0,1-16-16V161.13A113.38,113.38,0,0,1,51.4,78.72L26.34,53.66A8,8,0,0,1,37.66,42.34L63.82,68.5a111.43,111.43,0,0,1,128.55-.19l26-26a8,8,0,0,1,11.32,11.32L204.82,78.5c.75,.71,1.5,1.43,2.24,2.17A111.25,111.25,0,0,1,240,160Zm-16,0a96,96,0,0,0-96-96h-.34C74.91,64.18,32,107.75,32,161.13V184H224Z"/></svg>
+      </div>
+      <h3>Android 人机交互</h3>
+      <p class="desc">用手势、传感器与流畅动效，做直觉化的移动端交互；关注反馈、可达性与真实使用场景。</p>
+      <div class="dir-points"><span>Kotlin</span><span>Compose</span><span>自定义手势</span><span>传感器</span></div>
+      <button class="dir-link" data-jump="android">查看该方向作品
+        <svg class="ic" viewBox="0 0 256 256" fill="currentColor"><path d="M200,64V168a8,8,0,0,1-16,0V83.31L69.66,197.66a8,8,0,0,1-11.32-11.32L172.69,72H88a8,8,0,0,1,0-16H192A8,8,0,0,1,200,64Z"/></svg>
+      </button>
+    </article>
+
+    <article class="dir-card ui rv">
+      <div class="dir-icon ui">
+        <svg class="ic" viewBox="0 0 256 256" fill="currentColor"><path d="M200.77,53.89A103.27,103.27,0,0,0,128,24h-1.07A104,104,0,0,0,24,128c0,43,26.58,79.06,69.36,94.17A32,32,0,0,0,136,192a16,16,0,0,1,16-16h46.21a31.81,31.81,0,0,0,31.2-24.88,104.43,104.43,0,0,0,2.59-24A103.28,103.28,0,0,0,200.77,53.89Zm13,93.71A15.89,15.89,0,0,1,198.21,160H152a32,32,0,0,0-32,32,16,16,0,0,1-21.31,15.07C62.49,194.3,40,164,40,128a88,88,0,0,1,87.09-88h.9a88.35,88.35,0,0,1,88,87.25A88.86,88.86,0,0,1,213.81,147.6ZM140,76a12,12,0,1,1-12-12A12,12,0,0,1,140,76ZM96,100A12,12,0,1,1,84,88,12,12,0,0,1,96,100Zm0,56a12,12,0,1,1-12-12,12,12,0,0,1,12,12Zm88-56a12,12,0,1,1-12-12,12,12,0,0,1,12,12Z"/></svg>
+      </div>
+      <h3>UI 设计工程师</h3>
+      <p class="desc">从视觉规范到组件落地，让设计与工程在同一套语言里协作；既出设计稿，也能亲手实现。</p>
+      <div class="dir-points"><span>Figma</span><span>设计系统</span><span>交互原型</span><span>组件化</span></div>
+      <button class="dir-link" data-jump="ui">查看该方向作品
+        <svg class="ic" viewBox="0 0 256 256" fill="currentColor"><path d="M200,64V168a8,8,0,0,1-16,0V83.31L69.66,197.66a8,8,0,0,1-11.32-11.32L172.69,72H88a8,8,0,0,1,0-16H192A8,8,0,0,1,200,64Z"/></svg>
+      </button>
+    </article>
+  </div>
+</section>
+
+<section id="works" class="works-section">
+  <div class="wrap">
+    <div class="sec-head sec-light rv">
+      <div>
+        <span class="idx mono" style="color:var(--ink-faint)">02 / SELECTED WORKS</span>
+        <h2>精选作品</h2>
+      </div>
+      <p>按求职方向筛选。每个项目都包含从需求构思、原型到引擎或代码落地的完整过程。</p>
+    </div>
+    <div class="filters rv" id="filters">
+      <button class="chip" aria-pressed="true" data-f="all">全部 4</button>
+      <button class="chip" aria-pressed="false" data-f="game">U3D 游戏 3</button>
+      <button class="chip" aria-pressed="false" data-f="android">Android 1</button>
+      <button class="chip" aria-pressed="false" data-f="ui">UI 设计 1</button>
+    </div>
+    <div class="works-grid" id="worksGrid">
+
+      <article class="work-card featured" data-f="game">
+        <div class="work-media">
+          <span class="wtag game"><i></i>UNITY · FPS 枪战</span>
+          <img src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/Dn6wbDx3zokgyvxmdzWcwQHAnAh" alt="射击打怪 FPS 枪战游戏">
+        </div>
+        <div class="work-body">
+          <h3>射击打怪（FPS 枪战）游戏 · 独立开发</h3>
+          <p class="wdesc">技术栈 Unity 2020 + C# + UGUI + 状态机。搭建模块化武器拾取 / 切换 / 挂载框架，数据表统一管理伤害参数，拓展 6 类枪械，代码复用率提升 45%；基于寻路搭建敌人 AI 行为树，实现巡逻、追击、近战突袭等行为，同屏 20 个 AI 无卡顿；UGUI 血条、伤害飘字与爆炸粒子特效，对象池复用子弹与特效，移动端稳定 60 帧，场景加载耗时降低 66%。已打包完整安卓端 Demo，适配线下实景互动游戏底层交互。</p>
+          <div class="work-tags"><span>Unity 2020</span><span>C#</span><span>UGUI</span><span>状态机</span><span>AI 行为树</span><span>对象池</span></div>
+          <div class="work-foot">
+            <span class="view-link">查看案例
+              <svg class="ic" viewBox="0 0 256 256" fill="currentColor"><path d="M200,64V168a8,8,0,0,1-16,0V83.31L69.66,197.66a8,8,0,0,1-11.32-11.32L172.69,72H88a8,8,0,0,1,0-16H192A8,8,0,0,1,200,64Z"/></svg>
+            </span>
+            <span class="work-year">2025</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="work-card span4" data-f="game">
+        <div class="work-media">
+          <span class="wtag game"><i></i>UNITY · 2D</span>
+          <img src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/KrDDbpKzLohjP7xElElcEpRin4f" alt="2D 飞船打陨石游戏">
+        </div>
+        <div class="work-body">
+          <h3>2D 飞船打陨石游戏 · 独立开发</h3>
+          <p class="wdesc">技术栈 Unity 2D + 协程 + 对象池。分层管理飞船、子弹、陨石、道具预制体；对象池复用子弹与陨石、控制生命周期，协程实现随机陨石刷新，卡顿频率减少 90%；完成边界限制、死亡重开全套测试，修复 80+ BUG。安装包仅 18MB，全机型稳定 30 帧以上，适配小程序轻量化实景互动项目。</p>
+          <div class="work-tags"><span>Unity 2D</span><span>C#</span><span>协程</span><span>对象池</span></div>
+          <div class="work-foot">
+            <span class="view-link">查看案例
+              <svg class="ic" viewBox="0 0 256 256" fill="currentColor"><path d="M200,64V168a8,8,0,0,1-16,0V83.31L69.66,197.66a8,8,0,0,1-11.32-11.32L172.69,72H88a8,8,0,0,1,0-16H192A8,8,0,0,1,200,64Z"/></svg>
+            </span>
+            <span class="work-year">2025</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="work-card span4" data-f="game">
+        <div class="work-media">
+          <span class="wtag game"><i></i>UNITY · 快速原型</span>
+          <img src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/SbAQb7RdvoqAGjxODvIcHRlYnfg" alt="扫雷加小球吃金币休闲 Demo">
+        </div>
+        <div class="work-body">
+          <h3>扫雷 + 小球吃金币休闲 Demo · 快速原型</h3>
+          <p class="wdesc">技术栈 Unity + UI 系统 + 随机算法。预制体复用 UI 方块、代码动态生成棋盘，随机算法规避开局即踩雷，完成胜负判定、计时与一键重置；C# 实现小球移动拾取、分数统计与碰撞检测。24 小时完成完整可运行原型，可快速复用至文旅研学类轻量实景小游戏。</p>
+          <div class="work-tags"><span>Unity</span><span>C#</span><span>UI 系统</span><span>随机算法</span></div>
+          <div class="work-foot">
+            <span class="view-link">查看案例
+              <svg class="ic" viewBox="0 0 256 256" fill="currentColor"><path d="M200,64V168a8,8,0,0,1-16,0V83.31L69.66,197.66a8,8,0,0,1-11.32-11.32L172.69,72H88a8,8,0,0,1,0-16H192A8,8,0,0,1,200,64Z"/></svg>
+            </span>
+            <span class="work-year">2025</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="work-card span8" data-f="android ui">
+        <div class="work-media">
+          <span class="wtag android"><i></i>ANDROID × UI · 实习作品</span>
+          <img src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/ScdWbChG4oKQzVxFpJsc26PtnLc" alt="工业设备人机交互 Demo 系列">
+        </div>
+        <div class="work-body">
+          <h3>工业设备人机交互 Demo 系列 · UI 设计 + Android 端实现</h3>
+          <p class="wdesc">在精电（河源）显示有限公司 PSV 开发部电子设计岗位实习期间，负责咖啡机、工业 CNC、3D 打印机、洗衣机等人机交互 Demo 的 UI 设计与 Android 端交互实现。参与需求分析与用户流程梳理，输出线框图与高保真界面，制定控件、状态与颜色规范；基于 Android Studio 使用 Kotlin / Java + XML / Compose 搭建可交互 Demo，实现页面导航、参数设置、实时状态、动画反馈与报警提示等核心交互；与产品、硬件、嵌入式及测试协作，经多轮评审迭代，交付多个设备 Demo，用于内部验证与客户演示。</p>
+          <div class="work-tags"><span>Android Studio</span><span>Kotlin / Java</span><span>XML / Compose</span><span>高保真 UI</span><span>设计规范</span><span>跨职能协作</span></div>
+          <div class="work-foot">
+            <span class="view-link">查看案例
+              <svg class="ic" viewBox="0 0 256 256" fill="currentColor"><path d="M200,64V168a8,8,0,0,1-16,0V83.31L69.66,197.66a8,8,0,0,1-11.32-11.32L172.69,72H88a8,8,0,0,1,0-16H192A8,8,0,0,1,200,64Z"/></svg>
+            </span>
+            <span class="work-year">2025 · 精电（河源）</span>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section id="about" class="wrap">
+  <div class="about-grid">
+    <div class="about-media rv">
+      <img src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/Y9OXbiPJCoV36nx4QuLc93lRnbc" alt="创作者工作台">
+      <div class="float-badge">
+        <svg class="ic" viewBox="0 0 256 256" fill="currentColor"><path d="M224,144v64a8,8,0,0,1-8,8H40a8,8,0,0,1-8-8V144a8,8,0,0,1,16,0v56H208V144a8,8,0,0,1,16,0Zm-101.66,5.66a8,8,0,0,0,11.32,0l40-40a8,8,0,0,0-11.32-11.32L136,124.69V32a8,8,0,0,0-16,0v92.69L93.66,98.34a8,8,0,0,0-11.32,11.32Z"/></svg>
+        正在探索：AI + 实时交互
+      </div>
+    </div>
+    <div class="about-copy rv">
+      <span class="idx mono" style="color:var(--txt-faint);display:block;margin-bottom:18px">03 / ABOUT ME</span>
+      <h2>在技术与设计的交界处，把想法做成真实的东西</h2>
+      <p>你好，我是程子悦，数字媒体技术专业 2026 届。课程与自学覆盖了编程、计算机图形、人机交互与视觉设计。我享受把一个模糊的想法，通过 Unity 引擎、Android 代码和画板，一步步变成可玩、可用、可看的成品。</p>
+      <p>相比单一角色，我更喜欢跨领域协作：理解设计师想要的体验，也懂工程师面对的约束，能在两者之间顺畅地翻译与落地。</p>
+      <div class="about-stats">
+        <div class="astat"><b data-count="7" data-suffix="+">0</b><span>完整可运行 Demo</span></div>
+        <div class="astat"><b data-count="3">0</b><span>技术方向</span></div>
+        <div class="astat"><b data-count="4">0</b><span>类工业设备 HMI</span></div>
+        <div class="astat"><b data-count="60" data-suffix="帧">0</b><span>移动端稳定运行</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills" class="skills-section">
+  <div class="wrap">
+    <div class="sec-head sec-light rv">
+      <div>
+        <span class="idx mono" style="color:var(--ink-faint)">04 / SKILL STACK</span>
+        <h2>技能栈</h2>
+      </div>
+      <p>围绕三个求职方向组织的能力轨道，熟练度为当前自评，仍在持续精进。</p>
+    </div>
+    <div class="skills-grid">
+
+      <div class="skill-col rv">
+        <div class="skill-head game">
+          <svg class="ic" viewBox="0 0 256 256" fill="currentColor"><path d="M176,112H152a8,8,0,0,1,0-16h24a8,8,0,0,1,0,16ZM104,96H96V88a8,8,0,0,0-16,0v8H72a8,8,0,0,0,0,16h8v8a8,8,0,0,0,16,0v-8h8a8,8,0,0,0,0-16ZM241.48,200.65a36,36,0,0,1-54.94,4.81c-.12-.12-.24-.35-.37L146.48,160h-37L69.81,205.09l-.35,.37A36.08,36.08,0,0,1,44,216,36,36,0,0,1,8.56,173.75L24.93,89.52A59.88,59.88,0,0,1,83.89,40H172a60.08,60.08,0,0,1,59,49.25l16.37,84.17A35.74,35.74,0,0,1,241.48,200.65ZM172,144a44,44,0,0,0,0-88H83.89A43.9,43.9,0,0,0,40.68,92.37L24.3,176.59A20,20,0,0,0,58,194.3l41.92-47.59a8,8,0,0,1,6-2.71Zm59.7,32.59-8.74-45A60,60,0,0,1,172,160h-4.2L198,194.31a20.09,20.09,0,0,0,17.46,5.39,20,20,0,0,0,16.23-23.11Z"/></svg>
+          <div><h3>U3D 游戏开发</h3><small>GAME / UNITY</small></div>
+        </div>
+        <div class="skill-item"><div class="lab">Unity 引擎 <em>90</em></div><div class="track game"><i data-w="90%"></i></div></div>
+        <div class="skill-item"><div class="lab">C# 编程 <em>85</em></div><div class="track game"><i data-w="85%"></i></div></div>
+        <div class="skill-item"><div class="lab">物理 / 动画系统 <em>80</em></div><div class="track game"><i data-w="80%"></i></div></div>
+        <div class="skill-item"><div class="lab">UGUI / UI 系统 <em>75</em></div><div class="track game"><i data-w="75%"></i></div></div>
+        <div class="skill-item"><div class="lab">Shader / 图形学 <em>60</em></div><div class="track game"><i data-w="60%"></i></div></div>
+        <div class="skill-tools"><span>Unity</span><span>VS / Rider</span><span>Blender</span><span>Git</span></div>
+      </div>
+
+      <div class="skill-col rv">
+        <div class="skill-head android">
+          <svg class="ic" viewBox="0 0 256 256" fill="currentColor"><path d="M176,148a12,12,0,1,1-12-12A12,12,0,0,1,176,148ZM92,136a12,12,0,1,0,12,12A12,12,0,0,0,92,136Zm148,24v24a16,16,0,0,1-16,16H32a16,16,0,0,1-16-16V161.13A113.38,113.38,0,0,1,51.4,78.72L26.34,53.66A8,8,0,0,1,37.66,42.34L63.82,68.5a111.43,111.43,0,0,1,128.55-.19l26-26a8,8,0,0,1,11.32,11.32L204.82,78.5c.75,.71,1.5,1.43,2.24,2.17A111.25,111.25,0,0,1,240,160Zm-16,0a96,96,0,0,0-96-96h-.34C74.91,64.18,32,107.75,32,161.13V184H224Z"/></svg>
+          <div><h3>Android 人机交互</h3><small>ANDROID / KOTLIN</small></div>
+        </div>
+        <div class="skill-item"><div class="lab">Kotlin / Java <em>85</em></div><div class="track android"><i data-w="85%"></i></div></div>
+        <div class="skill-item"><div class="lab">Jetpack Compose <em>80</em></div><div class="track android"><i data-w="80%"></i></div></div>
+        <div class="skill-item"><div class="lab">自定义 View / 手势 <em>80</em></div><div class="track android"><i data-w="80%"></i></div></div>
+        <div class="skill-item"><div class="lab">传感器 / 交互反馈 <em>75</em></div><div class="track android"><i data-w="75%"></i></div></div>
+        <div class="skill-item"><div class="lab">Room / 数据持久化 <em>70</em></div><div class="track android"><i data-w="70%"></i></div></div>
+        <div class="skill-tools"><span>Android Studio</span><span>Material 3</span><span>Coroutines</span><span>Git</span></div>
+      </div>
+
+      <div class="skill-col rv">
+        <div class="skill-head ui">
+          <svg class="ic" viewBox="0 0 256 256" fill="currentColor"><path d="M200.77,53.89A103.27,103.27,0,0,0,128,24h-1.07A104,104,0,0,0,24,128c0,43,26.58,79.06,69.36,94.17A32,32,0,0,0,136,192a16,16,0,0,1,16-16h46.21a31.81,31.81,0,0,0,31.2-24.88,104.43,104.43,0,0,0,2.59-24A103.28,103.28,0,0,0,200.77,53.89Zm13,93.71A15.89,15.89,0,0,1,198.21,160H152a32,32,0,0,0-32,32,16,16,0,0,1-21.31,15.07C62.49,194.3,40,164,40,128a88,88,0,0,1,87.09-88h.9a88.35,88.35,0,0,1,88,87.25A88.86,88.86,0,0,1,213.81,147.6ZM140,76a12,12,0,1,1-12-12A12,12,0,0,1,140,76ZM96,100A12,12,0,1,1,84,88,12,12,0,0,1,96,100Zm0,56a12,12,0,1,1-12-12,12,12,0,0,1,12,12Zm88-56a12,12,0,1,1-12-12,12,12,0,0,1,12,12Z"/></svg>
+          <div><h3>UI 设计工程师</h3><small>UI / UX / FIGMA</small></div>
+        </div>
+        <div class="skill-item"><div class="lab">Figma <em>90</em></div><div class="track ui"><i data-w="90%"></i></div></div>
+        <div class="skill-item"><div class="lab">视觉 / 排版 / 配色 <em>85</em></div><div class="track ui"><i data-w="85%"></i></div></div>
+        <div class="skill-item"><div class="lab">交互原型 / 动效 <em>85</em></div><div class="track ui"><i data-w="85%"></i></div></div>
+        <div class="skill-item"><div class="lab">设计系统 / 组件 <em>80</em></div><div class="track ui"><i data-w="80%"></i></div></div>
+        <div class="skill-item"><div class="lab">用户研究 <em>65</em></div><div class="track ui"><i data-w="65%"></i></div></div>
+        <div class="skill-tools"><span>Figma</span><span>Photoshop</span><span>Illustrator</span><span>墨刀</span></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="experience" class="wrap">
+  <div class="sec-head sec-dark rv">
+    <div>
+      <span class="idx mono" style="color:var(--txt-faint)">05 / EXPERIENCE</span>
+      <h2>学习与实践经历</h2>
+    </div>
+    <p>从课堂到比赛、实习，持续在真实项目中打磨技术与设计能力。</p>
+  </div>
+  <div class="timeline rv">
+    <div class="tl-item">
+      <div class="tl-when">2022 — 2026 · 本科</div>
+      <h3>数字媒体技术 · 工学学士</h3>
+      <p>主修程序设计、数据结构、计算机图形学、人机交互、数字媒体制作与 UI 设计，打下技术与艺术结合的基础。</p>
+      <div class="tl-tags"><span>C++ / C#</span><span>图形学</span><span>交互设计</span></div>
+    </div>
+    <div class="tl-item game">
+      <div class="tl-when">2025 · AI 应用创新大赛 · 软件赛道</div>
+      <h3>团队「代码方舟」· 参赛队员</h3>
+      <p>与团队参加 AI 比赛软件赛道，负责交互原型与前端 / 引擎侧实现，完成从创意方案到可演示成品的交付。</p>
+      <div class="tl-tags"><span>团队协作</span><span>AI 应用</span><span>快速原型</span></div>
+    </div>
+    <div class="tl-item android">
+      <div class="tl-when">2025 · 企业实习 · 广东河源</div>
+      <h3>精电（河源）显示有限公司 · PSV 开发部 · 电子设计岗位（UI 设计 + Android 开发）</h3>
+      <p>负责咖啡机、工业 CNC、3D 打印机、洗衣机等人机交互 Demo 的 UI 设计与 Android 端交互实现。参与需求分析、用户流程梳理，输出线框图与高保真界面，制定控件、状态与颜色规范；基于 Android Studio 使用 Kotlin / Java + XML / Compose 搭建可交互 Demo，实现页面导航、参数设置、实时状态、动画反馈与报警提示；与产品、硬件、嵌入式及测试协作，经多轮评审迭代，交付多个设备 Demo 用于内部验证与客户演示。</p>
+      <div class="tl-tags"><span>Android Studio</span><span>Kotlin / Java</span><span>XML / Compose</span><span>UI 规范</span><span>跨职能协作</span></div>
+    </div>
+    <div class="tl-item ui">
+      <div class="tl-when">2024 · 校园游戏 / 设计创作大赛</div>
+      <h3>游戏创作与 UI 设计 · 获奖</h3>
+      <p>独立完成游戏 Demo 与配套界面设计参赛，在玩法完整性与视觉呈现上获得认可。</p>
+      <div class="tl-tags"><span>独立开发</span><span>游戏美术</span><span>UI</span></div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-when">持续进行 · 个人项目</div>
+      <h3>独立项目与开源学习</h3>
+      <p>保持每月输出，在 GitHub 沉淀游戏、Android 与 UI 实验项目，持续学习实时渲染与 AI 交互。</p>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact-section">
+  <div class="wrap">
+    <div class="contact-box rv">
+      <div class="contact-left">
+        <span class="idx mono" style="color:var(--ink-faint);display:block;margin-bottom:18px">06 / GET IN TOUCH</span>
+        <h2>一起做点酷的东西？</h2>
+        <p>我正在寻找 U3D 游戏开发、Android 人机交互与 UI 设计相关的实习与校招机会，也欢迎技术交流与项目合作。</p>
+        <div class="cta-row" style="margin-top:0">
+          <a class="btn btn-dark" id="emailBtn" href="mailto:434902760@qq.com">
+            <svg class="ic" viewBox="0 0 256 256" fill="currentColor"><path d="M224,48H32a8,8,0,0,0-8,8V192a16,16,0,0,0,16,16H216a16,16,0,0,0,16,16V56a8,8,0,0,0-8-8Zm-96,85.15L52.57,64H203.43ZM98.71,128,40,181.81V74.19Zm11.84,10.85,12,11.05a8,8,0,0,0,10.82,0l12-11.05,58,53.15H52.57ZM157.29,128,216,74.18V181.82Z"/></svg>
+            发送邮件
+          </a>
+          <button class="btn btn-outline" id="resumeBtn2" style="border-color:var(--line-light);color:var(--ink)">下载简历</button>
+        </div>
+      </div>
+      <div class="contact-list">
+        <a href="mailto:434902760@qq.com" id="emailLink">
+          <svg class="ic" viewBox="0 0 256 256" fill="currentColor"><path d="M224,48H32a8,8,0,0,0-8,8V192a16,16,0,0,0,16,16H216a16,16,0,0,0,16,16V56a8,8,0,0,0-8-8Zm-96,85.15L52.57,64H203.43ZM98.71,128,40,181.81V74.19Zm11.84,10.85,12,11.05a8,8,0,0,0,10.82,0l12-11.05,58,53.15H52.57ZM157.29,128,216,74.18V181.82Z"/></svg>
+          434902760@qq.com<small>邮箱 Email</small>
+        </a>
+        <a href="https://github.com/Chengzy0424/CZY" id="ghLink2" target="_blank" rel="noopener">
+          <svg class="ic" viewBox="0 0 256 256" fill="currentColor"><path d="M208.31,75.68A59.78,59.78,0,0,0,202.93,28,8,8,0,0,0,196,24a59.75,59.75,0,0,0-48,24H124A59.75,59.75,0,0,0,76,24a8,8,0,0,0-6.93,4,59.78,59.78,0,0,0-5.38,47.68A58.14,58.14,0,0,0,56,104v8a56.06,56.06,0,0,0,48.44,55.47A39.8,39.8,0,0,0,96,192v8H72a24,24,0,0,1-24-24A40,40,0,0,0,8,136a8,8,0,0,0,0,16,24,24,0,0,1,24,24,40,40,0,0,0,40,40H96v16a8,8,0,0,0,16,0V192a24,24,0,0,1,48,0v40a8,8,0,0,0,16,0V192a39.8,39.8,0,0,0-8.44-24.53A56.06,56.06,0,0,0,216,112v-8A58.14,58.14,0,0,0,208.31,75.68ZM200,112a40,40,0,0,1-40,40H112a40,40,0,0,1-40-40v-8a41.7,41.7,0,0,1,6.9-22.48A8,8,0,0,0,80,73.83a43.81,43.81,0,0,1,.79-33.58,43.88,43.88,0,0,1,32.32,20.06A8,8,0,0,0,119.82,64h32.35a8,8,0,0,0,6.74-3.69,43.87,43.87,0,0,1,32.32-20.06A43.81,43.81,0,0,1,192,73.83a8.09,8.09,0,0,0,1,7.65A41.72,41.72,0,0,1,200,104Z"/></svg>
+          github.com/Chengzy0424/CZY<small>GitHub 主页</small>
+        </a>
+        <div>
+          <svg class="ic" viewBox="0 0 256 256" fill="currentColor"><path d="M128,64a40,40,0,1,0,40,40,40,40,0,0,0-40-40Zm0,64a24,24,0,1,1,24-24,24,24,0,0,1-24,24Zm0-112a88.1,88.1,0,0,0-88,88c0,31.4,14.51,64.68,42,96.25a254.19,254.19,0,0,0,41.45,38.3,8,8,0,0,0,9.18,0A254.19,254.19,0,0,0,174,200.25c27.45-31.57,42-64.85,42-96.25A88.1,88.1,0,0,0,128,16Zm0,206c-16.53-13-72-60.75-72-118a72,72,0,0,1,144,0c0,43.23-55.47,91-72,104Z"/></svg>
+          广东河源 · 可接受异地 / 远程
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-grid">
+    <div class="foot-brand">
+      <a class="brand" href="#top">
+        <span class="mark font-d">C</span><b>程子悦 CHENG ZIYUE</b>
+      </a>
+      <p>数字媒体技术 · 创意开发者。用代码与设计，构建可交互的数字世界。</p>
+      <div class="social-row">
+        <a href="https://github.com/Chengzy0424/CZY" target="_blank" rel="noopener" aria-label="GitHub">
+          <svg class="ic" viewBox="0 0 256 256" fill="currentColor"><path d="M208.31,75.68A59.78,59.78,0,0,0,202.93,28,8,8,0,0,0,196,24a59.75,59.75,0,0,0-48,24H124A59.75,59.75,0,0,0,76,24a8,8,0,0,0-6.93,4,59.78,59.78,0,0,0-5.38,47.68A58.14,58.14,0,0,0,56,104v8a56.06,56.06,0,0,0,48.44,55.47A39.8,39.8,0,0,0,96,192v8H72a24,24,0,0,1-24-24A40,40,0,0,0,8,136a8,8,0,0,0,0,16,24,24,0,0,1,24,24,40,40,0,0,0,40,40H96v16a8,8,0,0,0,16,0V192a24,24,0,0,1,48,0v40a8,8,0,0,0,16,0V192a39.8,39.8,0,0,0-8.44-24.53A56.06,56.06,0,0,0,216,112v-8A58.14,58.14,0,0,0,208.31,75.68ZM200,112a40,40,0,0,1-40,40H112a40,40,0,0,1-40-40v-8a41.7,41.7,0,0,1,6.9-22.48A8,8,0,0,0,80,73.83a43.81,43.81,0,0,1,.79-33.58,43.88,43.88,0,0,1,32.32,20.06A8,8,0,0,0,119.82,64h32.35a8,8,0,0,0,6.74-3.69,43.87,43.87,0,0,1,32.32-20.06A43.81,43.81,0,0,1,192,73.83a8.09,8.09,0,0,0,1,7.65A41.72,41.72,0,0,1,200,104Z"/></svg>
+        </a>
+        <a href="mailto:434902760@qq.com" aria-label="邮箱">
+          <svg class="ic" viewBox="0 0 256 256" fill="currentColor"><path d="M224,48H32a8,8,0,0,0-8,8V192a16,16,0,0,0,16,16H216a16,16,0,0,0,16,16V56a8,8,0,0,0-8-8Zm-96,85.15L52.57,64H203.43ZM98.71,128,40,181.81V74.19Zm11.84,10.85,12,11.05a8,8,0,0,0,10.82,0l12-11.05,58,53.15H52.57ZM157.29,128,216,74.18V181.82Z"/></svg>
+        </a>
+        <a href="#top" aria-label="返回顶部">
+          <svg class="ic" viewBox="0 0 256 256" fill="currentColor"><path d="M128,64a40,40,0,1,0,40,40,40,40,0,0,0-40-40Zm0,64a24,24,0,1,1,24-24,24,24,0,0,1-24,24Zm0-112a88.1,88.1,0,0,0-88,88c0,31.4,14.51,64.68,42,96.25a254.19,254.19,0,0,0,41.45,38.3,8,8,0,0,0,9.18,0A254.19,254.19,0,0,0,174,200.25c27.45-31.57,42-64.85,42-96.25A88.1,88.1,0,0,0,128,16Zm0,206c-16.53-13-72-60.75-72-118a72,72,0,0,1,144,0c0,43.23-55.47,91-72,104Z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div>
+      <h4>导航</h4>
+      <a href="#directions">求职方向</a>
+      <a href="#works">精选作品</a>
+      <a href="#about">关于我</a>
+      <a href="#skills">技能栈</a>
+    </div>
+    <div>
+      <h4>方向</h4>
+      <a href="#works" data-quick="game">U3D 游戏开发</a>
+      <a href="#works" data-quick="android">Android 人机交互</a>
+      <a href="#works" data-quick="ui">UI 设计工程师</a>
+    </div>
+    <div>
+      <h4>更多</h4>
+      <a href="#experience">学习经历</a>
+      <a href="#contact">联系方式</a>
+      <a href="#contact">下载简历</a>
+    </div>
+  </div>
+  <div class="wordmark">CHENG ZIYUE</div>
+  <div class="foot-legal">
+    <span>© 2026 程子悦 CHENG ZIYUE · 个人作品集</span>
+    <span>使用 HTML / CSS / JavaScript 手工构建 · 响应式设计</span>
+  </div>
+</footer>
+
+<div class="toast" id="toast">
+  <svg class="ic" viewBox="0 0 256 256" fill="currentColor"><path d="M200,64V168a8,8,0,0,1-16,0V83.31L69.66,197.66a8,8,0,0,1-11.32-11.32L172.69,72H88a8,8,0,0,1,0-16H192A8,8,0,0,1,200,64Z"/></svg>
+  <span id="toastMsg"></span>
+</div>
+
+<script>
+const reduceMotion = matchMedia('(prefers-reduced-motion:reduce)').matches;
+const filtersEl = document.getElementById('filters');
+const cards = () => document.querySelectorAll('#worksGrid .work-card');
+function applyFilter(f){
+  filtersEl.querySelectorAll('.chip').forEach(x=>
+    x.setAttribute('aria-pressed', String(x.dataset.f===f)));
+  cards().forEach(c=>{
+    const cats=c.dataset.f.split(/[ ]+/);
+    c.classList.toggle('hide', f!=='all' && !cats.includes(f));
+  });
+}
+filtersEl.addEventListener('click', e=>{
+  const c=e.target.closest('.chip'); if(!c) return;
+  applyFilter(c.dataset.f);
+});
+function jumpTo(f){
+  applyFilter(f);
+  document.getElementById('works').scrollIntoView({behavior: reduceMotion?'auto':'smooth'});
+}
+document.querySelectorAll('[data-jump]').forEach(b=>
+  b.addEventListener('click',()=>jumpTo(b.dataset.jump)));
+document.querySelectorAll('[data-quick]').forEach(a=>
+  a.addEventListener('click',()=>setTimeout(()=>applyFilter(a.dataset.quick),350)));
+let tT;
+function toast(msg){
+  const t=document.getElementById('toast');
+  document.getElementById('toastMsg').textContent=msg;
+  t.classList.add('on'); clearTimeout(tT);
+  tT=setTimeout(()=>t.classList.remove('on'),2800);
+}
+function placeholderHint(els,msg){
+  document.querySelectorAll(els).forEach(el=>
+    el.addEventListener('click',e=>{e.preventDefault();toast(msg)}));
+}
+placeholderHint('#resumeBtn,#resumeBtn2','请将简历 PDF 放入仓库并把按钮链接指向它');
+const nav=document.getElementById('nav');
+addEventListener('scroll',()=>nav.classList.toggle('solid',scrollY>40),{passive:true});
+const io=new IntersectionObserver((es)=>{
+  es.forEach((e)=>{
+    if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}
+  });
+},{threshold:.14,rootMargin:'0px 0px -7% 0px'});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+if(!('IntersectionObserver' in window))
+  document.querySelectorAll('.rv').forEach(el=>el.classList.add('in'));
+const cio=new IntersectionObserver(es=>es.forEach(e=>{
+  if(!e.isIntersecting) return; cio.unobserve(e.target);
+  const el=e.target,end=+el.dataset.count,suf=el.dataset.suffix||'';
+  if(reduceMotion){el.textContent=end+suf;return;}
+  const t0=performance.now(),dur=1100;
+  (function step(t){
+    const k=Math.min(1,(t-t0)/dur),v=Math.round(end*(1-Math.pow(1-k,3)));
+    el.textContent=v+suf; if(k<1) requestAnimationFrame(step);
+  })(t0);
+}),{threshold:.55});
+document.querySelectorAll('[data-count]').forEach(el=>cio.observe(el));
+const sio=new IntersectionObserver(es=>es.forEach(e=>{
+  if(!e.isIntersecting) return; sio.unobserve(e.target);
+  const bar=e.target;
+  setTimeout(()=>{bar.style.width=bar.dataset.w;},120);
+}),{threshold:.4});
+document.querySelectorAll('.track i').forEach(el=>sio.observe(el));
+const hm=document.querySelector('.hero-media');
+if(!reduceMotion){
+  let tick=false;
+  addEventListener('scroll',()=>{
+    if(scrollY<innerHeight*1.1 && !tick){
+      tick=true;requestAnimationFrame(()=>{
+        hm.style.transform=`translateY(${scrollY*.22}px) scale(1.05)`;tick=false;
+      });
+    }
+  },{passive:true});
+}
+</script>
+</body>
+</html>

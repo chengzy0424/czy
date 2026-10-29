@@ -1,15 +1,17 @@
 // Download actual compiled Unity files before entering the engine. A transient
 // connection failure retries only that file, keeping completed parts in memory.
-export async function loadGameResources({parts,code,framework,signal,onProgress=()=>{},fetchImpl=fetch,concurrency=3,retryDelay=1000,idleTimeout=45000}) {
+export async function loadGameResources({parts,code,framework,signal,onProgress=()=>{},fetchImpl=fetch,concurrency=3,retryDelay=1000,idleTimeout=45000,fallbackBase=null}) {
  const files=[...parts.map(part=>({...part,kind:'data'})),{...code,kind:'code'},{...framework,kind:'framework'}];
  const controller=new AbortController();
  const abort=()=>controller.abort(signal?.reason);
  if(signal?.aborted)abort();else signal?.addEventListener('abort',abort,{once:true});
  const buffers=new Array(files.length),received=new Array(files.length).fill(0);
- const total=files.reduce((sum,file)=>sum+file.bytes,0);let next=0;
+ const total=files.reduce((sum,file)=>sum+file.bytes,0);let next=0,preferFallback=false;
  const notify=retry=>onProgress({received:received.reduce((sum,n)=>sum+n,0),total,retry});
  async function download(index){
   const file=files[index];
+  const mirror=fallbackBase?new URL(file.url,fallbackBase).href:null;
+  const sources=mirror?(preferFallback?[mirror,file.url,mirror]:[file.url,mirror,mirror]):[file.url,file.url,file.url];
   for(let attempt=0;attempt<3;attempt++){
    controller.signal.throwIfAborted();received[index]=0;
    const attemptController=new AbortController();let timeout;
@@ -17,7 +19,7 @@ export async function loadGameResources({parts,code,framework,signal,onProgress=
    const rearm=()=>{clearTimeout(timeout);timeout=setTimeout(()=>attemptController.abort(new Error('资源连接超时 · '+file.url)),idleTimeout);};
    controller.signal.addEventListener('abort',cancelAttempt,{once:true});rearm();
    try{
-    const response=await fetchImpl(file.url,{signal:attemptController.signal});
+    const response=await fetchImpl(sources[attempt],{signal:attemptController.signal});
     if(!response.ok)throw new Error('HTTP '+response.status+' · '+file.url);
     const chunks=[];let count=0;
     if(response.body?.getReader){
@@ -30,6 +32,7 @@ export async function loadGameResources({parts,code,framework,signal,onProgress=
    }catch(error){
     clearTimeout(timeout);
     if(controller.signal.aborted||attempt===2)throw error;
+    if(mirror&&sources[attempt]===file.url)preferFallback=true;
     received[index]=0;notify(attempt+1);
     await new Promise(resolve=>setTimeout(resolve,retryDelay*(attempt+1)));
    }finally{clearTimeout(timeout);controller.signal.removeEventListener('abort',cancelAttempt);}

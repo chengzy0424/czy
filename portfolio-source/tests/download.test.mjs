@@ -18,3 +18,8 @@ test('a stalled connection times out and retries a bounded number of times',asyn
  await assert.rejects(loadGameResources({parts:[{url:'stalled',bytes:1}],code:{url:'wasm',bytes:1},framework:{url:'framework',bytes:1},concurrency:1,retryDelay:0,idleTimeout:15,fetchImpl:(_url,{signal})=>{calls++;return new Promise((_resolve,reject)=>signal.addEventListener('abort',()=>reject(signal.reason),{once:true}));}}),/资源连接超时/);
  assert.equal(calls,3);
 });
+test('failed primary uses the fixed-revision fallback, and later files prefer the working route',async()=>{
+ const calls=[];const fetchImpl=async url=>{calls.push(url);if(url==='a')throw Error('primary disconnected');return new Response(new Uint8Array([9]));};
+ const resources=await loadGameResources({parts:[{url:'a',bytes:1},{url:'b',bytes:1}],code:{url:'wasm',bytes:1},framework:{url:'framework',bytes:1},concurrency:1,retryDelay:0,fallbackBase:'https://example.invalid/fixed-revision/',fetchImpl});
+ try{assert.deepEqual(calls,['a','https://example.invalid/fixed-revision/a','https://example.invalid/fixed-revision/b','https://example.invalid/fixed-revision/wasm','https://example.invalid/fixed-revision/framework']);assert.deepEqual([...new Uint8Array(await(await fetch(resources.dataUrl)).arrayBuffer())],[9,9]);}finally{resources.dispose();}
+});

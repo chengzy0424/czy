@@ -137,8 +137,9 @@
   "transportVerification": {
     "data": "8 MiB parts; actual compiled game bytes unchanged and reassembled SHA256 verified",
     "requests": "desktop 3, phone 2; retry each failed file up to 3 attempts; 45 second inactivity timeout",
+    "fallback": "Same game files in immutable GitHub revision 52ae0c31372f36557b71fba6e4a8ea1accc79a65; used when primary transport fails; update fallback revision when replacing builds",
     "wasm": "download and verify byte length before engine startup, avoiding incomplete binary fallback",
-    "checks": "3 new tests passed for binary order, truncated transfer retry, bounded concurrency, cancellation and stalled connections",
+    "checks": "4 new tests passed for binary order, truncated transfer retry, bounded concurrency, cancellation, stalled connections and fallback routing",
     "localEngine": "Ash, Csol and Tower load through the new transport; screenshots *-parallel-loaded.png",
     "publicEvidence": "See public-browser-review.json for verification scope and network interruptions"
   }

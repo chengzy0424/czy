@@ -126,8 +126,7 @@
     "physical iPhone/Android devices",
     "Safari and Firefox",
     "full game campaigns or all levels",
-    "slow mobile network load times",
-    "published site until deployment verification"
+    "slow mobile network load times"
   ],
   "knownLimits": [
     "far cry first download about 163 MB; loaded only on request",
@@ -135,5 +134,12 @@
     "reference production sculptures, volumetric glow and optical refraction are more complex than this procedural scene",
     "inherited Unity loaders may log decompression fallback or audio loading messages; not equivalent to website JavaScript exceptions"
   ],
-  "transportVerification": "Ash, Csol and Tower data divided into at most 8 MiB parts; recombined bytes match SHA256 of real compiled builds. Final local wrappers reached Unity runtime, Ash and Tower menus displayed. Public deployment checks recorded separately."
+  "transportVerification": {
+    "data": "8 MiB parts; actual compiled game bytes unchanged and reassembled SHA256 verified",
+    "requests": "desktop 3, phone 2; retry each failed file up to 3 attempts; 45 second inactivity timeout",
+    "wasm": "download and verify byte length before engine startup, avoiding incomplete binary fallback",
+    "checks": "3 new tests passed for binary order, truncated transfer retry, bounded concurrency, cancellation and stalled connections",
+    "localEngine": "Ash, Csol and Tower load through the new transport; screenshots *-parallel-loaded.png",
+    "publicEvidence": "See public-browser-review.json for verification scope and network interruptions"
+  }
 }

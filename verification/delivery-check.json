@@ -1,5 +1,5 @@
 {
-  "at": "2026-10-29T15:02:54.100Z",
+  "at": "2026-10-29T15:57:45.792Z",
   "scope": "Complete personal portfolio: five WebGL chapters, four real Unity builds, BOE experience, two real films, planned ARPG and AIGC",
   "files": [
     {
@@ -87,6 +87,12 @@
       "bytes": 430
     },
     {
+      "file": "games\\download.js",
+      "status": 200,
+      "type": "text/javascript",
+      "bytes": 3138
+    },
+    {
       "file": "licenses\\Noto-OFL.txt",
       "status": 200,
       "type": "text/plain",
@@ -108,19 +114,19 @@
       "file": "games\\ash\\index.html",
       "status": 200,
       "type": "text/html;charset=utf-8",
-      "bytes": 7835
+      "bytes": 7279
     },
     {
       "file": "games\\csol\\index.html",
       "status": 200,
       "type": "text/html;charset=utf-8",
-      "bytes": 6747
+      "bytes": 6220
     },
     {
       "file": "games\\fengshi\\index.html",
       "status": 200,
       "type": "text/html;charset=utf-8",
-      "bytes": 6407
+      "bytes": 5874
     },
     {
       "file": "games\\mines\\index.html",
@@ -435,8 +441,8 @@
       "bytes": 6328936
     }
   ],
-  "buildBytes": 308621095,
-  "jsGzipBytes": 212334,
+  "buildBytes": 308622617,
+  "jsGzipBytes": 213656,
   "preservedBuildFilesHashChecked": 19,
   "browserEvidence": "See browser-review.json; this script checks HTTP bytes and integrity, not gameplay.",
   "maxFileBytes": 21298680

@@ -1,0 +1,9 @@
+Rune09: edited licensed material, not wholly original recording or AI-generated audio.
+Magic Spell SFX / magical_6.ogg by JaggedStone, CC0
+https://opengameart.org/content/magic-spell-sfx
+Fantasy Magic Spell by Almitory, CC0
+https://opengameart.org/content/fantasy-magic-spell
+CC0: https://creativecommons.org/publicdomain/zero/1.0/
+Changed playback pitch, filtering, duration, envelope, mix and reflections.
+Source-page evidence and exact input hashes retained in Sources and manifest.json.
+No Kingdom Rush sounds are part of this material.

@@ -1,0 +1,23 @@
+{
+  "original": "fengshi-chapter12.data.unityweb",
+  "bytes": 33161400,
+  "sha256": "82141d5d4bfa1338bae918ebbc6fedf1048ff3b9298b1117e19972ac750e47c7",
+  "parts": [
+    {
+      "url": "Build/fengshi-chapter12.data.unityweb.part001",
+      "bytes": 8388608
+    },
+    {
+      "url": "Build/fengshi-chapter12.data.unityweb.part002",
+      "bytes": 8388608
+    },
+    {
+      "url": "Build/fengshi-chapter12.data.unityweb.part003",
+      "bytes": 8388608
+    },
+    {
+      "url": "Build/fengshi-chapter12.data.unityweb.part004",
+      "bytes": 7995576
+    }
+  ]
+}

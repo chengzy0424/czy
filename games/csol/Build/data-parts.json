@@ -1,0 +1,27 @@
+{
+  "original": "csol-fixed.data.unityweb",
+  "bytes": 37174574,
+  "sha256": "20a190aa16899b2a9d716f51b62569b1be04a3bdf126013aab93cbf9fe256d82",
+  "parts": [
+    {
+      "url": "Build/csol-fixed.data.unityweb.part001",
+      "bytes": 8388608
+    },
+    {
+      "url": "Build/csol-fixed.data.unityweb.part002",
+      "bytes": 8388608
+    },
+    {
+      "url": "Build/csol-fixed.data.unityweb.part003",
+      "bytes": 8388608
+    },
+    {
+      "url": "Build/csol-fixed.data.unityweb.part004",
+      "bytes": 8388608
+    },
+    {
+      "url": "Build/csol-fixed.data.unityweb.part005",
+      "bytes": 3620142
+    }
+  ]
+}

@@ -1,0 +1,443 @@
+{
+  "at": "2026-10-29T15:02:54.100Z",
+  "scope": "Complete personal portfolio: five WebGL chapters, four real Unity builds, BOE experience, two real films, planned ARPG and AIGC",
+  "files": [
+    {
+      "file": "index.html",
+      "status": 200,
+      "type": "text/html;charset=utf-8",
+      "bytes": 15592
+    },
+    {
+      "file": "mark.svg",
+      "status": 200,
+      "type": "image/svg+xml",
+      "bytes": 215
+    },
+    {
+      "file": "art\\ash-exodus-cover.png",
+      "status": 200,
+      "type": "image/png",
+      "bytes": 3988289
+    },
+    {
+      "file": "art\\csol-cover.webp",
+      "status": 200,
+      "type": "image/webp",
+      "bytes": 209950
+    },
+    {
+      "file": "art\\fengshi-gameplay.png",
+      "status": 200,
+      "type": "image/png",
+      "bytes": 979783
+    },
+    {
+      "file": "art\\hyrum-poster.jpg",
+      "status": 200,
+      "type": "image/jpeg",
+      "bytes": 132903
+    },
+    {
+      "file": "art\\mines-cover.webp",
+      "status": 200,
+      "type": "image/webp",
+      "bytes": 226388
+    },
+    {
+      "file": "art\\murphy-poster.jpg",
+      "status": 200,
+      "type": "image/jpeg",
+      "bytes": 117770
+    },
+    {
+      "file": "art\\tower-cover.webp",
+      "status": 200,
+      "type": "image/webp",
+      "bytes": 489072
+    },
+    {
+      "file": "assets\\index-B4WgkSrg.css",
+      "status": 200,
+      "type": "text/css",
+      "bytes": 28028
+    },
+    {
+      "file": "assets\\index-DpJOHeer.js",
+      "status": 200,
+      "type": "text/javascript",
+      "bytes": 20225
+    },
+    {
+      "file": "assets\\space-BitOI2mF.js",
+      "status": 200,
+      "type": "text/javascript",
+      "bytes": 18353
+    },
+    {
+      "file": "assets\\three-CDySHNit.js",
+      "status": 200,
+      "type": "text/javascript",
+      "bytes": 520793
+    },
+    {
+      "file": "games\\catalog.json",
+      "status": 200,
+      "type": "application/json",
+      "bytes": 430
+    },
+    {
+      "file": "licenses\\Noto-OFL.txt",
+      "status": 200,
+      "type": "text/plain",
+      "bytes": 4301
+    },
+    {
+      "file": "media\\hyrum.mp4",
+      "status": 200,
+      "type": "video/mp4",
+      "bytes": 21298680
+    },
+    {
+      "file": "media\\murphy.mp4",
+      "status": 200,
+      "type": "video/mp4",
+      "bytes": 17404054
+    },
+    {
+      "file": "games\\ash\\index.html",
+      "status": 200,
+      "type": "text/html;charset=utf-8",
+      "bytes": 7835
+    },
+    {
+      "file": "games\\csol\\index.html",
+      "status": 200,
+      "type": "text/html;charset=utf-8",
+      "bytes": 6747
+    },
+    {
+      "file": "games\\fengshi\\index.html",
+      "status": 200,
+      "type": "text/html;charset=utf-8",
+      "bytes": 6407
+    },
+    {
+      "file": "games\\mines\\index.html",
+      "status": 200,
+      "type": "text/html;charset=utf-8",
+      "bytes": 6221
+    },
+    {
+      "file": "games\\ash\\Build\\ash-font-fixed.data.unityweb.part001",
+      "status": 200,
+      "type": "",
+      "bytes": 8388608
+    },
+    {
+      "file": "games\\ash\\Build\\ash-font-fixed.data.unityweb.part002",
+      "status": 200,
+      "type": "",
+      "bytes": 8388608
+    },
+    {
+      "file": "games\\ash\\Build\\ash-font-fixed.data.unityweb.part003",
+      "status": 200,
+      "type": "",
+      "bytes": 8388608
+    },
+    {
+      "file": "games\\ash\\Build\\ash-font-fixed.data.unityweb.part004",
+      "status": 200,
+      "type": "",
+      "bytes": 8388608
+    },
+    {
+      "file": "games\\ash\\Build\\ash-font-fixed.data.unityweb.part005",
+      "status": 200,
+      "type": "",
+      "bytes": 8388608
+    },
+    {
+      "file": "games\\ash\\Build\\ash-font-fixed.data.unityweb.part006",
+      "status": 200,
+      "type": "",
+      "bytes": 8388608
+    },
+    {
+      "file": "games\\ash\\Build\\ash-font-fixed.data.unityweb.part007",
+      "status": 200,
+      "type": "",
+      "bytes": 8388608
+    },
+    {
+      "file": "games\\ash\\Build\\ash-font-fixed.data.unityweb.part008",
+      "status": 200,
+      "type": "",
+      "bytes": 8388608
+    },
+    {
+      "file": "games\\ash\\Build\\ash-font-fixed.data.unityweb.part009",
+      "status": 200,
+      "type": "",
+      "bytes": 8388608
+    },
+    {
+      "file": "games\\ash\\Build\\ash-font-fixed.data.unityweb.part010",
+      "status": 200,
+      "type": "",
+      "bytes": 8388608
+    },
+    {
+      "file": "games\\ash\\Build\\ash-font-fixed.data.unityweb.part011",
+      "status": 200,
+      "type": "",
+      "bytes": 8388608
+    },
+    {
+      "file": "games\\ash\\Build\\ash-font-fixed.data.unityweb.part012",
+      "status": 200,
+      "type": "",
+      "bytes": 8388608
+    },
+    {
+      "file": "games\\ash\\Build\\ash-font-fixed.data.unityweb.part013",
+      "status": 200,
+      "type": "",
+      "bytes": 8388608
+    },
+    {
+      "file": "games\\ash\\Build\\ash-font-fixed.data.unityweb.part014",
+      "status": 200,
+      "type": "",
+      "bytes": 8388608
+    },
+    {
+      "file": "games\\ash\\Build\\ash-font-fixed.data.unityweb.part015",
+      "status": 200,
+      "type": "",
+      "bytes": 8388608
+    },
+    {
+      "file": "games\\ash\\Build\\ash-font-fixed.data.unityweb.part016",
+      "status": 200,
+      "type": "",
+      "bytes": 8388608
+    },
+    {
+      "file": "games\\ash\\Build\\ash-font-fixed.data.unityweb.part017",
+      "status": 200,
+      "type": "",
+      "bytes": 8388608
+    },
+    {
+      "file": "games\\ash\\Build\\ash-font-fixed.data.unityweb.part018",
+      "status": 200,
+      "type": "",
+      "bytes": 8388608
+    },
+    {
+      "file": "games\\ash\\Build\\ash-font-fixed.data.unityweb.part019",
+      "status": 200,
+      "type": "",
+      "bytes": 481075
+    },
+    {
+      "file": "games\\ash\\Build\\ash-font-fixed.framework.js.unityweb",
+      "status": 200,
+      "type": "",
+      "bytes": 86454
+    },
+    {
+      "file": "games\\ash\\Build\\ash-font-fixed.loader.js",
+      "status": 200,
+      "type": "text/javascript",
+      "bytes": 44358
+    },
+    {
+      "file": "games\\ash\\Build\\ash-font-fixed.wasm.unityweb",
+      "status": 200,
+      "type": "",
+      "bytes": 11374902
+    },
+    {
+      "file": "games\\ash\\Build\\data-parts.json",
+      "status": 200,
+      "type": "application/json",
+      "bytes": 2053
+    },
+    {
+      "file": "games\\csol\\Build\\csol-fixed.data.unityweb.part001",
+      "status": 200,
+      "type": "",
+      "bytes": 8388608
+    },
+    {
+      "file": "games\\csol\\Build\\csol-fixed.data.unityweb.part002",
+      "status": 200,
+      "type": "",
+      "bytes": 8388608
+    },
+    {
+      "file": "games\\csol\\Build\\csol-fixed.data.unityweb.part003",
+      "status": 200,
+      "type": "",
+      "bytes": 8388608
+    },
+    {
+      "file": "games\\csol\\Build\\csol-fixed.data.unityweb.part004",
+      "status": 200,
+      "type": "",
+      "bytes": 8388608
+    },
+    {
+      "file": "games\\csol\\Build\\csol-fixed.data.unityweb.part005",
+      "status": 200,
+      "type": "",
+      "bytes": 3620142
+    },
+    {
+      "file": "games\\csol\\Build\\csol-fixed.framework.js.unityweb",
+      "status": 200,
+      "type": "",
+      "bytes": 81507
+    },
+    {
+      "file": "games\\csol\\Build\\csol-fixed.loader.js",
+      "status": 200,
+      "type": "text/javascript",
+      "bytes": 44358
+    },
+    {
+      "file": "games\\csol\\Build\\csol-fixed.wasm.unityweb",
+      "status": 200,
+      "type": "",
+      "bytes": 6853185
+    },
+    {
+      "file": "games\\csol\\Build\\data-parts.json",
+      "status": 200,
+      "type": "application/json",
+      "bytes": 643
+    },
+    {
+      "file": "games\\fengshi\\Build\\data-parts.json",
+      "status": 200,
+      "type": "application/json",
+      "bytes": 583
+    },
+    {
+      "file": "games\\fengshi\\Build\\fengshi-chapter12.data.unityweb.part001",
+      "status": 200,
+      "type": "",
+      "bytes": 8388608
+    },
+    {
+      "file": "games\\fengshi\\Build\\fengshi-chapter12.data.unityweb.part002",
+      "status": 200,
+      "type": "",
+      "bytes": 8388608
+    },
+    {
+      "file": "games\\fengshi\\Build\\fengshi-chapter12.data.unityweb.part003",
+      "status": 200,
+      "type": "",
+      "bytes": 8388608
+    },
+    {
+      "file": "games\\fengshi\\Build\\fengshi-chapter12.data.unityweb.part004",
+      "status": 200,
+      "type": "",
+      "bytes": 7995576
+    },
+    {
+      "file": "games\\fengshi\\Build\\fengshi-chapter12.framework.js.unityweb",
+      "status": 200,
+      "type": "",
+      "bytes": 118763
+    },
+    {
+      "file": "games\\fengshi\\Build\\fengshi-chapter12.loader.js",
+      "status": 200,
+      "type": "text/javascript",
+      "bytes": 44358
+    },
+    {
+      "file": "games\\fengshi\\Build\\fengshi-chapter12.wasm.unityweb",
+      "status": 200,
+      "type": "",
+      "bytes": 9665367
+    },
+    {
+      "file": "games\\fengshi\\credits\\Kenney-Impact-LICENSE.txt",
+      "status": 200,
+      "type": "text/plain",
+      "bytes": 608
+    },
+    {
+      "file": "games\\fengshi\\credits\\Noto-COPYRIGHT.txt",
+      "status": 200,
+      "type": "text/plain",
+      "bytes": 210
+    },
+    {
+      "file": "games\\fengshi\\credits\\Noto-OFL.txt",
+      "status": 200,
+      "type": "text/plain",
+      "bytes": 4301
+    },
+    {
+      "file": "games\\fengshi\\credits\\Rune09-CREDITS.txt",
+      "status": 200,
+      "type": "text/plain",
+      "bytes": 550
+    },
+    {
+      "file": "games\\fengshi\\credits\\TowerAttack06-CREDITS.txt",
+      "status": 200,
+      "type": "text/plain",
+      "bytes": 1106
+    },
+    {
+      "file": "games\\fengshi\\credits\\VSCO-2-CE-LICENSE.txt",
+      "status": 200,
+      "type": "text/plain",
+      "bytes": 6555
+    },
+    {
+      "file": "games\\fengshi\\StreamingAssets\\UnityServicesProjectConfiguration.json",
+      "status": 200,
+      "type": "application/json",
+      "bytes": 1003
+    },
+    {
+      "file": "games\\mines\\Build\\mines-polished-responsive.data.unityweb",
+      "status": 200,
+      "type": "",
+      "bytes": 6542774
+    },
+    {
+      "file": "games\\mines\\Build\\mines-polished-responsive.framework.js.unityweb",
+      "status": 200,
+      "type": "",
+      "bytes": 80134
+    },
+    {
+      "file": "games\\mines\\Build\\mines-polished-responsive.loader.js",
+      "status": 200,
+      "type": "text/javascript",
+      "bytes": 44358
+    },
+    {
+      "file": "games\\mines\\Build\\mines-polished-responsive.wasm.unityweb",
+      "status": 200,
+      "type": "",
+      "bytes": 6328936
+    }
+  ],
+  "buildBytes": 308621095,
+  "jsGzipBytes": 212334,
+  "preservedBuildFilesHashChecked": 19,
+  "browserEvidence": "See browser-review.json; this script checks HTTP bytes and integrity, not gameplay.",
+  "maxFileBytes": 21298680
+}

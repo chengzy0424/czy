@@ -1,0 +1,22 @@
+{
+  "csol": {
+    "url": "games/csol/index.html",
+    "size": "44.2 MB",
+    "status": "preview"
+  },
+  "fengshi": {
+    "url": "games/fengshi/index.html",
+    "size": "43.0 MB",
+    "status": "preview"
+  },
+  "ash": {
+    "url": "games/ash/index.html",
+    "size": "163.0 MB",
+    "status": "preview"
+  },
+  "mines": {
+    "url": "games/mines/index.html",
+    "size": "13.0 MB",
+    "status": "preview"
+  }
+}

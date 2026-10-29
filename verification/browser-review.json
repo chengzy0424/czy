@@ -1,0 +1,139 @@
+{
+  "date": "2026-10-29",
+  "browser": "Microsoft Edge 156 on Windows, headed hardware WebGL",
+  "viewports": [
+    {
+      "width": 1440,
+      "height": 900
+    },
+    {
+      "width": 1024,
+      "height": 768
+    },
+    {
+      "width": 390,
+      "height": 844
+    },
+    {
+      "width": 320,
+      "height": 740
+    }
+  ],
+  "gpu": "NVIDIA GeForce RTX 4050 Laptop GPU",
+  "reference": "https://www.douyin.com/video/7626063369507206760",
+  "actualObservations": [
+    "dark teal black space with narrow iridescent highlights",
+    "round emblem with crossing curves and clustered warm bokeh",
+    "glass cards at different depths around a complex irregular central structure",
+    "continuous perspective changes; thin sans typography"
+  ],
+  "implementationInference": "Three.js procedural geometry, instanced fragments and GPU particle shaders are our implementation, not a claim about the reference source code.",
+  "checks": {
+    "desktopFiveScenes": "rendered, screenshots final-*.png",
+    "spatialCard": "real pointer hover highlights; click opens four-game picker; return restores scroll",
+    "modalBackgroundPause": {
+      "framesBefore": 7820,
+      "framesAfter": 7820
+    },
+    "responsive": "no horizontal overflow at 320,390,1024",
+    "categoryTabs": "all four clicked; ArrowRight selects AIGC; single visible panel",
+    "initialMediaRequests": 0,
+    "initialIframes": 0,
+    "initialVideos": 0,
+    "errors": "agent-browser errors returned empty on final website pages",
+    "reducedMotion": {
+      "framesBefore": 5,
+      "framesAfter": 5
+    },
+    "forcedContextLoss": {
+      "fallbackVisible": true,
+      "identityPresent": true
+    },
+    "mobileFilmCover": {
+      "viewportWidth": 390,
+      "renderedHeight": 183.75,
+      "fix": "Explicit height:auto overrides intrinsic HTML height on responsive poster"
+    }
+  },
+  "performance": {
+    "method": "rolling last 180 requestAnimationFrame intervals, after warmup, 1440x900 DPR1; neither GPU render time nor low-end device benchmark",
+    "hero": {
+      "p50ms": 5.6,
+      "p95ms": 5.7,
+      "points": 44000,
+      "drawCalls": 23
+    },
+    "gallery": {
+      "p50ms": 5.6,
+      "p95ms": 5.7,
+      "points": 44000,
+      "drawCalls": 38
+    },
+    "limitations": "Single laptop; no promise of fixed FPS on other hardware. Mobile scene uses 11000 particles and lower rendering resolution."
+  },
+  "games": {
+    "tower": {
+      "result": "basic interaction passed",
+      "evidence": "tower-operated.png",
+      "actions": "main menu -> stage 1 -> deploy tower; resource 420 to 335; Space wave 0/8 to 1/8"
+    },
+    "ash": {
+      "result": "basic gameplay passed; CJK font rebuilt and visible in menu and battle HUD",
+      "evidence": [
+        "ash-operated.png",
+        "ash-font-fixed.png",
+        "ash-final-loaded.png"
+      ],
+      "actions": "deploy, skip introduction, movement and firing; battlefield HUD and weapon ammunition visible",
+      "fix": "isolated export uses bundled OFL Noto Sans CJK; original project unchanged"
+    },
+    "csol": {
+      "result": "basic movement, equipped weapon and ammunition use passed after fixing gravity",
+      "evidence": [
+        "csol-fixed-ground.png",
+        "csol-fixed-operated.png",
+        "csol-fixed-fired.png"
+      ],
+      "actions": "WASD position change, shooting, reserve ammunition 93 to 84 across reload; Esc releases cursor",
+      "fix": "gravity no longer blocked by headroom test; ground flags tested as bitmask; CJK font bundled in isolated export"
+    },
+    "mines": {
+      "result": "desktop and emulated touch passed",
+      "evidence": [
+        "mines-operated.png",
+        "mines-mobile-touch.png",
+        "mines-mobile-controls.png"
+      ],
+      "actions": "desktop reveal and right-click flag; browser CDP touch revealed 31/80, long press flag reduced remaining 20 to 19, swipe reaches controls",
+      "limitations": "Real browser touch protocol in desktop Edge; no physical phone or iOS Safari testing"
+    }
+  },
+  "films": {
+    "murphy": {
+      "currentTime": 1.122353,
+      "duration": 124.033333,
+      "paused": false,
+      "error": null
+    },
+    "hyrum": {
+      "currentTime": 1.039091,
+      "duration": 150,
+      "paused": false,
+      "error": null
+    }
+  },
+  "notVerified": [
+    "physical iPhone/Android devices",
+    "Safari and Firefox",
+    "full game campaigns or all levels",
+    "slow mobile network load times",
+    "published site until deployment verification"
+  ],
+  "knownLimits": [
+    "far cry first download about 163 MB; loaded only on request",
+    "Csol retains original low-poly game art; this task fixed web playability, not a game remake",
+    "reference production sculptures, volumetric glow and optical refraction are more complex than this procedural scene",
+    "inherited Unity loaders may log decompression fallback or audio loading messages; not equivalent to website JavaScript exceptions"
+  ],
+  "transportVerification": "Ash, Csol and Tower data divided into at most 8 MiB parts; recombined bytes match SHA256 of real compiled builds. Final local wrappers reached Unity runtime, Ash and Tower menus displayed. Public deployment checks recorded separately."
+}

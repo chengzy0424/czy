@@ -1,0 +1,65 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import * as T from 'three';
+import {cameraPose,scrollToChapter,CARD_SPECS} from '../src/space-path.js';
+import {buildWorld,particleField} from '../src/space-objects.js';
+import {springStep} from '../src/weave-math.js';
+
+test('all five chapters share a finite continuous and reversible camera path',()=>{
+ for(const mobile of [false,true]){
+  let previous=cameraPose(0,mobile);
+  for(let i=0;i<=10000;i++){
+   const p=i/2000,next=cameraPose(p,mobile);assert.deepEqual(next,cameraPose(p,mobile));
+   for(const key of ['eye','look'])for(let axis=0;axis<3;axis++){assert.ok(Number.isFinite(next[key][axis]));assert.ok(Math.abs(next[key][axis]-previous[key][axis])<.02);}
+   previous=next;
+  }
+  for(let chapter=1;chapter<5;chapter++){
+   const a=cameraPose(chapter-.00001,mobile),b=cameraPose(chapter+.00001,mobile);
+   assert.ok(new T.Vector3(...a.eye).distanceTo(new T.Vector3(...b.eye))<.00001,'camera jumps at chapter '+chapter);
+  }
+ }
+ const anchors=[0,900,2200,3300,4200,5500];
+ anchors.forEach((y,i)=>assert.equal(scrollToChapter(y,anchors),i));
+ assert.equal(scrollToChapter(4400,anchors),4+200/1300);
+});
+
+function geometryWorld(mobile=false){
+ // No browser renderer here: fake only the 2D cover painter so actual Three geometry can be checked.
+ const gradient={addColorStop(){}};
+ const context=new Proxy({}, {get:(_,key)=>key==='createLinearGradient'?()=>gradient:()=>{},set:()=>true});
+ const doc={createElement:()=>({width:0,height:0,getContext:()=>context})};
+ const previous=globalThis.Image;globalThis.Image=class{set src(_) {}};
+ const world=buildWorld({mobile,documentRef:doc});globalThis.Image=previous;return world;
+}
+test('solid emblem, corrugated spine, mechanical chamber and honeycomb have finite 3D geometry',()=>{
+ for(const mobile of [false,true]){
+  const w=geometryWorld(mobile);let triangles=0,meshes=0;
+  w.world.traverse(o=>{if(!o.geometry)return;meshes++;const pos=o.geometry.getAttribute('position');assert.ok([...pos.array].every(Number.isFinite));triangles+=(o.geometry.index?.count||pos.count)/3*(o.isInstancedMesh?o.count:1);});
+  const rim=w.lens.children[0];rim.geometry.computeBoundingBox();const size=rim.geometry.boundingBox.getSize(new T.Vector3());
+  assert.ok(size.x>2.4&&size.z>.2,'emblem must have real thickness');
+  assert.ok(w.spine.geometry.attributes.position.count>4000);
+  assert.ok(w.machine.children.length>(mobile?27:30),'mechanical supports and cables missing');
+  const honey=w.lab.children.find(o=>o.isInstancedMesh);assert.ok(honey.count>280,'honeycomb region missing');
+  assert.ok(triangles<190000,'geometry budget exceeded '+triangles);
+  console.log(JSON.stringify({mobile,meshes,triangles,honeycombCells:honey.count}));w.dispose();
+ }
+});
+test('gallery boards have varying depth, actual thickness and project metadata',()=>{
+ const w=geometryWorld();assert.equal(w.cards.length,4);const z=w.cards.map(c=>c.home.z);assert.ok(Math.max(...z)-Math.min(...z)>5);
+ w.cards.forEach(c=>{c.base.geometry.computeBoundingBox();assert.ok(c.base.geometry.boundingBox.getSize(new T.Vector3()).z>.05);assert.ok(c.face.userData.detail);assert.equal(c.face.material.depthTest,true);});
+ assert.equal(CARD_SPECS.find(c=>c.id==='boe').image,undefined,'no fabricated BOE screenshot');
+ assert.match(CARD_SPECS.find(c=>c.id==='lab').note,/筹备中/);w.dispose();
+});
+test('emblem and machine core remain in the viewport at target desktop and phone sizes',()=>{
+ for(const [width,height,mobile] of [[1920,1080,false],[1440,900,false],[1024,768,false],[390,844,true],[320,720,true]]){
+  for(const [chapter,center,radius] of [[0,[mobile?.4:2,0,0],1.25],[4,[0,-27,0],2.25],[5,[0,-40,0],3.9]]){
+   const pose=cameraPose(chapter,mobile),camera=new T.PerspectiveCamera(mobile?43:40,width/height,.1,100);camera.position.fromArray(pose.eye);camera.lookAt(...pose.look);camera.updateMatrixWorld();
+   for(const dx of [-radius,radius]){const p=new T.Vector3(center[0]+dx,center[1],center[2]).project(camera);assert.ok(Math.abs(p.x)<1.1,`clipping ${width} chapter ${chapter} x=${p.x}`);}
+  }
+ }
+});
+test('particles stay clustered at the reference objects, with stable counts and spring recovery',()=>{
+ const a=particleField(44000),b=particleField(44000);assert.deepEqual(a,b);assert.ok([...a.position,...a.color,...a.meta].every(Number.isFinite));
+ const counts=[0,0,0,0];for(let i=0;i<44000;i++)counts[a.meta[i*3+1]]++;assert.deepEqual(counts,[11000,11000,11000,11000]);
+ for(const hz of [30,60,120]){let p=1,v=0;for(let i=0;i<hz*2;i++)[p,v]=springStep(p,v,0,1/hz);assert.ok(Math.abs(p)<.0001&&Math.abs(v)<.001);}
+});

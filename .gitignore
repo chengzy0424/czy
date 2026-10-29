@@ -1,0 +1,4 @@
+portfolio-source/node_modules/
+portfolio-source/public/
+portfolio-source/dist/
+*.log

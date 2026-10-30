@@ -3,6 +3,13 @@ let library;
 export function prepareVideoPlayer(){
  return library ||= import('hls.js/light').catch(error=>{library=undefined;throw error;});
 }
+export function repositoryMediaURL(input,pageURL,backup=false){
+ const url=new URL(input,pageURL);
+ let file;
+ if(url.hostname==='chengzy0424.github.io'&&url.pathname.startsWith('/czy/media/stream-v1/'))file=url.pathname.slice(4);
+ else if(url.hostname==='raw.githubusercontent.com'&&url.pathname.startsWith('/chengzy0424/czy/main/media/stream-v1/'))file=url.pathname.slice('/chengzy0424/czy/main'.length);
+ return file?(backup?'https://raw.githubusercontent.com/chengzy0424/czy/main':'https://chengzy0424.github.io/czy')+file:url.href;
+}
 
 const loadPolicy=(firstByte,total)=>({default:{
  maxTimeToFirstByteMs:firstByte,maxLoadTimeMs:total,
@@ -66,18 +73,13 @@ export function createStreamPlayer({video,path,levels,fallback,onStatus,onQualit
      // The default loader retries internally. Route that retry before opening XHR,
      // rather than waiting for every primary-host attempt to be exhausted.
      if(canBackup&&this.context){
-      const u=new URL(this.context.url);
-      const part=u.hostname===primary.hostname?u.pathname.slice(4):u.hostname==='raw.githubusercontent.com'&&u.pathname.startsWith('/chengzy0424/czy/main/')?u.pathname.slice('/chengzy0424/czy/main'.length):null;
-      if(part?.startsWith('/media/stream-v1/')){
-       if(this.stats.retry>0&&this.lastRetry!==this.stats.retry){useBackup=!useBackup;this.lastRetry=this.stats.retry;}
-       this.context.url=useBackup?'https://raw.githubusercontent.com/chengzy0424/czy/main'+part:primary.origin+'/czy'+part;
-      }
+      if(this.stats.retry>0&&this.lastRetry!==this.stats.retry){useBackup=!useBackup;this.lastRetry=this.stats.retry;}
+      this.context.url=repositoryMediaURL(this.context.url,location.href,useBackup);
      }
      super.loadInternal();
     }
     load(context,config,callbacks){
-     const original=context.url;
-     if(canBackup&&useBackup){const url=new URL(original);if(url.hostname===primary.hostname)context={...context,url:'https://raw.githubusercontent.com/chengzy0424/czy/main'+url.pathname.slice(4)};}
+     if(canBackup)context={...context,url:repositoryMediaURL(context.url,location.href,useBackup)};
      const failed=()=>{if(canBackup)useBackup=!useBackup;};
      super.load(context,config,{...callbacks,
       onTimeout:(...args)=>{failed();callbacks.onTimeout(...args);},
@@ -101,7 +103,7 @@ export function createStreamPlayer({video,path,levels,fallback,onStatus,onQualit
     if(data.type===Hls.ErrorTypes.MEDIA_ERROR&&recovery++===0){seekTo=video.currentTime;hls.recoverMediaError();return;}
     onFailure('网络连接较慢，可重试或切换兼容播放。');
    });
-   hls.attachMedia(video);hls.loadSource(path);play();
+   hls.attachMedia(video);hls.loadSource(primary.href);play();
   }catch{if(!disposed&&token===generation)compatibility();}
  }
  return {

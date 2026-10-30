@@ -1,0 +1,12 @@
+{
+  "time": 2.858867,
+  "src": "http://127.0.0.1:4180/media/tower-demo-audio.mp4?v=20261030-audio&retry=1",
+  "muted": false,
+  "status": "游戏原声 · 720p · 原声",
+  "error": null,
+  "requests": [
+    "http://127.0.0.1:4180/media/tower-demo-audio.mp4?v=20261030-audio",
+    "http://127.0.0.1:4180/media/tower-demo-audio.mp4?v=20261030-audio&retry=1"
+  ],
+  "injectedFailures": 1
+}

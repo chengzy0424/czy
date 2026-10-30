@@ -47,28 +47,33 @@ export function startMedia(kind,id,slot){
  const levels=kind==='game'?gameMedia[id].levels:[['720','720p · 快速播放',id+'-720.mp4'],['1080','1080p · 高清',id+'-1080.mp4']];
  const preferredQuality=()=>{const connection=navigator.connection;return connection?.saveData||/^(slow-)?2g$|^3g$/.test(connection?.effectiveType||'')||(connection?.downlink>0&&connection.downlink<2.5)?levels[0][0]:'720';};
  let current=preferredQuality();
- let revision=0,disposed=false,pendingLoad,timer=0,desiredPlay=true,pendingTime=0;
+ let revision=0,disposed=false,pendingLoad,timer=0,desiredPlay=true,pendingTime=0,retrySerial=0;
  const select=document.createElement('select');select.setAttribute('aria-label','影片画质');
  if(levels.length>1){const label=document.createElement('label');label.textContent='画质 ';for(const [value,text] of [['auto','自动 · 优先流畅'],...levels.map(l=>l.slice(0,2))]){const option=document.createElement('option');option.value=value;option.textContent=text;select.append(option);}label.append(select);bar.append(label);}
  const retry=document.createElement('button');retry.type='button';retry.textContent='重新加载';retry.className='media-retry';retry.hidden=true;bar.append(retry);slot.append(bar,video);
  function load(quality,at=0,play=true){
   const level=levels.find(l=>l[0]===quality)||levels[0];current=level[0];const token=++revision;clearTimeout(timer);pendingLoad?.abort();pendingLoad=new AbortController();pendingTime=at;desiredPlay=play;
-  video.addEventListener('loadedmetadata',()=>{if(disposed||token!==revision)return;if(at>0)video.currentTime=Math.min(at,Math.max(0,video.duration-.1));if(desiredPlay)video.play().catch(()=>{if(!disposed&&token===revision)status.textContent='点击播放器中的播放按钮开始观看';});},{once:true,signal:pendingLoad.signal});
-  video.src='./media/'+level[2];video.load();retry.hidden=true;
+  video.addEventListener('loadedmetadata',()=>{if(disposed||token!==revision)return;if(at>0)video.currentTime=Math.min(at,Math.max(0,video.duration-.1));if(desiredPlay)video.play().catch(()=>{if(!disposed&&token===revision&&!video.error)status.textContent='点击播放器中的播放按钮开始观看';});},{once:true,signal:pendingLoad.signal});
+  video.src='./media/'+level[2]+'?v=20261030-audio'+(retrySerial?'&retry='+retrySerial:'');video.load();retry.hidden=true;
   // Start inside the visitor's click gesture; metadata may arrive after activation expires.
-  if(play)video.play().catch(error=>{if(!disposed&&token===revision&&error.name!=='AbortError')status.textContent='点击播放器中的播放按钮开始观看';});
+  if(play)video.play().catch(error=>{if(!disposed&&token===revision&&!video.error&&error.name!=='AbortError')status.textContent='点击播放器中的播放按钮开始观看';});
  }
  select.addEventListener('change',()=>{const at=video.readyState?video.currentTime:pendingTime,play=video.readyState?!video.paused:desiredPlay;status.textContent='正在切换画质…';load(select.value==='auto'?preferredQuality():select.value,at,play);});
- retry.addEventListener('click',()=>{status.textContent='正在重新连接…';load(current,video.currentTime||pendingTime,true);});
+ retry.addEventListener('click',()=>{retrySerial++;status.textContent='正在重新连接…';load(current,video.currentTime||pendingTime,true);});
  video.addEventListener('waiting',()=>{
   status.textContent='正在缓冲…';clearTimeout(timer);
   // A stalled connection can lower FPS bandwidth once; explicit quality choices stay untouched.
   if(select.value==='auto'&&current!==levels[0][0])timer=setTimeout(()=>{if(disposed||video.paused||video.readyState>=3)return;status.textContent='已切换流畅画质，继续播放…';load(levels[0][0],video.currentTime,true);},2500);
+  else if(video.currentTime<.1&&retrySerial===0)timer=setTimeout(()=>{if(disposed||video.paused||video.readyState>=3)return;retrySerial=1;status.textContent='首段连接较慢，正在重新连接…';load(current,0,true);},8000);
  });
  video.addEventListener('playing',()=>{clearTimeout(timer);status.textContent=(kind==='game'?'游戏原声 · ':'正在播放 · ')+(levels.find(l=>l[0]===current)?.[1]||'');retry.hidden=true;});
- video.addEventListener('pause',()=>{clearTimeout(timer);if(!video.ended)status.textContent='已暂停';});
+ video.addEventListener('pause',()=>{if(video.error)return;clearTimeout(timer);if(!video.ended&&video.readyState>0)status.textContent='已暂停';});
  video.addEventListener('ended',()=>status.textContent='播放结束，可再次观看');
- video.addEventListener('error',()=>{status.textContent='影片加载失败，请检查网络或重新加载。';retry.hidden=false;});
+ video.addEventListener('error',()=>{
+  if(disposed)return;
+  if(retrySerial===0){retrySerial=1;status.textContent='连接中断，正在重试…';clearTimeout(timer);const at=video.currentTime||pendingTime;timer=setTimeout(()=>{if(!disposed)load(select.value==='auto'?levels[0][0]:current,at,desiredPlay);},700);return;}
+  status.textContent='影片加载失败，请检查网络或重新加载。';retry.hidden=false;
+ });
  video._release=()=>{disposed=true;revision++;clearTimeout(timer);pendingLoad?.abort();};
  load(current);document.querySelector('dialog').scrollTop=0;
 }

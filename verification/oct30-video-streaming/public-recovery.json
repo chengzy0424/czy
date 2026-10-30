@@ -1,0 +1,56 @@
+{
+  "scope": "Public GitHub media, failures injected only in this QA browser",
+  "requests": [
+    {
+      "url": "https://raw.githubusercontent.com/chengzy0424/czy/main/media/stream-v1/mines/720/part-000.m4s",
+      "status": 200
+    },
+    {
+      "url": "https://raw.githubusercontent.com/chengzy0424/czy/main/media/stream-v1/mines/720/part-001.m4s",
+      "status": 200
+    },
+    {
+      "url": "https://raw.githubusercontent.com/chengzy0424/czy/main/media/stream-v1/mines/720/part-002.m4s",
+      "status": 200
+    },
+    {
+      "url": "https://raw.githubusercontent.com/chengzy0424/czy/main/media/stream-v1/mines/720/part-003.m4s",
+      "status": 200
+    },
+    {
+      "url": "https://raw.githubusercontent.com/chengzy0424/czy/main/media/stream-v1/mines/720/part-004.m4s",
+      "status": 200
+    },
+    {
+      "url": "https://raw.githubusercontent.com/chengzy0424/czy/main/media/stream-v1/mines/720/part-005.m4s",
+      "status": 200
+    },
+    {
+      "url": "https://raw.githubusercontent.com/chengzy0424/czy/main/media/stream-v1/mines/720/part-006.m4s",
+      "status": 200
+    },
+    {
+      "url": "https://raw.githubusercontent.com/chengzy0424/czy/main/media/stream-v1/mines/720/part-007.m4s",
+      "status": 200
+    },
+    {
+      "url": "https://raw.githubusercontent.com/chengzy0424/czy/main/media/stream-v1/mines/720/part-008.m4s",
+      "status": 200
+    }
+  ],
+  "backup": {
+    "blocked": 1,
+    "state": {
+      "time": 3.300011,
+      "audio": 5586,
+      "muted": false
+    }
+  },
+  "compatibility": {
+    "src": "https://chengzy0424.github.io/czy/media/mines-demo-audio.mp4",
+    "time": 0.227875,
+    "audio": 1787,
+    "muted": false
+  },
+  "errors": []
+}

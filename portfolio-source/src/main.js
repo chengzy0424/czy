@@ -40,6 +40,7 @@ reflectMotion();syncProgress();
 
 function selectCategory(id,focus=false){
  if(!['unity','software','films','lab'].includes(id))return;
+ if(id!=='software')prepareVideoPlayer().catch(()=>{});
  state.category=id;
  for(const a of animations)a.cancel();animations=[];
  tabs.forEach(tab=>{const selected=tab.dataset.category===id;tab.setAttribute('aria-selected',String(selected));tab.tabIndex=selected?0:-1;if(selected&&focus)tab.focus();});
@@ -73,9 +74,16 @@ tabs.forEach((tab,i)=>{
 const details={
  boe:'<p class="project-type">ANDROID / KOTLIN / HMI</p><h2 class="detail-heading" id="detail-title">BOE · 智能设备交互 Demo</h2><div class="detail-copy"><p><strong>京东方（BOE）精电显示技术有限公司</strong><br/>PSV 开发部产品开发科 · 电子设计岗</p><p>参与咖啡机、工业 CNC、3D 打印机、洗衣机四款设备的 HMI 界面开发。根据需求梳理操作流程和页面结构，完成高保真 UI、控件与状态设计。</p><p>在 Android Studio 中使用 XML、ConstraintLayout 与 Material Design 组件搭建页面；使用 Kotlin 实现页面跳转、参数设置、状态切换、进度动画、报警弹窗和模式切换。</p><p>通过模拟数据验证操作流程，参与项目评审并根据反馈迭代。最终交付四款可操作 Demo，用于内部验证和演示。</p><p><strong>公开说明：</strong>当前展示经历与职责，界面与视频待确认公开范围后补充。</p></div>'
 };
-// Warm only the shared decoder library on deliberate interest, never film data.
-for(const eventName of ['pointerover','focusin'])document.addEventListener(eventName,event=>{
- if(event.target.closest('[data-detail],[data-play],[data-film]'))prepareVideoPlayer().catch(()=>{});
+// Prepare the small shared player before a film click, including touch and deep links.
+// Actual video segments remain click-to-load; the first-screen scene has priority.
+const mediaWarmObserver=new IntersectionObserver(entries=>{
+ if(entries.some(entry=>entry.isIntersecting)){
+  prepareVideoPlayer().catch(()=>{});mediaWarmObserver.disconnect();
+ }
+},{rootMargin:'100% 0px'});
+mediaWarmObserver.observe(works);
+for(const eventName of ['pointerover','focusin','pointerdown'])document.addEventListener(eventName,event=>{
+ if(event.target.closest('a[href="#works"],[role="tab"],[data-detail],[data-play],[data-film]'))prepareVideoPlayer().catch(()=>{});
 },{passive:true});
 function openDetail(id,opener){
  const html=id==='games'?gameList():games[id]?gameDetail(id):id==='ae'?filmList('ae'):id==='lab'?filmList('aigc'):details[id];

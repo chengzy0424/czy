@@ -1,0 +1,209 @@
+{
+  "at": "2026-10-30T14:36:28.664Z",
+  "scope": "Public site, cache disabled, Hyrum follow-up after intermittent transfer delay",
+  "requests": [
+    {
+      "url": "https://chengzy0424.github.io/czy/media/stream-v1/hyrum/low/part-000.m4s",
+      "startMs": 8601,
+      "status": 200,
+      "firstByteMs": 9069,
+      "endMs": 10208,
+      "bytes": 66227
+    },
+    {
+      "url": "https://chengzy0424.github.io/czy/media/stream-v1/hyrum/low/part-001.m4s",
+      "startMs": 10209,
+      "status": 200,
+      "firstByteMs": 10617,
+      "endMs": 11609,
+      "bytes": 92686
+    },
+    {
+      "url": "https://chengzy0424.github.io/czy/media/stream-v1/hyrum/low/part-002.m4s",
+      "startMs": 11609,
+      "status": 200,
+      "firstByteMs": 11886,
+      "endMs": 12390,
+      "bytes": 59123
+    },
+    {
+      "url": "https://chengzy0424.github.io/czy/media/stream-v1/hyrum/low/part-003.m4s",
+      "startMs": 12391,
+      "status": 200,
+      "firstByteMs": 12705,
+      "endMs": 13282,
+      "bytes": 48208
+    },
+    {
+      "url": "https://chengzy0424.github.io/czy/media/stream-v1/hyrum/720/part-003.m4s",
+      "startMs": 13283,
+      "status": 200,
+      "firstByteMs": 13555,
+      "endMs": 14379,
+      "bytes": 93453
+    },
+    {
+      "url": "https://chengzy0424.github.io/czy/media/stream-v1/hyrum/low/part-004.m4s",
+      "startMs": 14380,
+      "status": 200,
+      "firstByteMs": 14704,
+      "endMs": 15002,
+      "bytes": 51750
+    },
+    {
+      "url": "https://chengzy0424.github.io/czy/media/stream-v1/hyrum/720/part-005.m4s",
+      "startMs": 15002,
+      "status": 200,
+      "firstByteMs": 15287,
+      "endMs": 15943,
+      "bytes": 95818
+    },
+    {
+      "url": "https://chengzy0424.github.io/czy/media/stream-v1/hyrum/720/part-006.m4s",
+      "startMs": 15943,
+      "status": 200,
+      "firstByteMs": 16254,
+      "endMs": 17777,
+      "bytes": 99726
+    },
+    {
+      "url": "https://chengzy0424.github.io/czy/media/stream-v1/hyrum/720/part-007.m4s",
+      "startMs": 17778,
+      "status": 200,
+      "firstByteMs": 18085,
+      "endMs": 19740,
+      "bytes": 161423
+    },
+    {
+      "url": "https://chengzy0424.github.io/czy/media/stream-v1/hyrum/720/part-008.m4s",
+      "startMs": 19741,
+      "status": 200,
+      "firstByteMs": 20017,
+      "endMs": 20539,
+      "bytes": 83524
+    },
+    {
+      "url": "https://chengzy0424.github.io/czy/media/stream-v1/hyrum/720/part-009.m4s",
+      "startMs": 20540,
+      "status": 200,
+      "firstByteMs": 20891,
+      "endMs": 21217,
+      "bytes": 82057
+    },
+    {
+      "url": "https://chengzy0424.github.io/czy/media/stream-v1/hyrum/720/part-010.m4s",
+      "startMs": 21217,
+      "status": 200,
+      "firstByteMs": 21481,
+      "endMs": 21830,
+      "bytes": 81927
+    },
+    {
+      "url": "https://chengzy0424.github.io/czy/media/stream-v1/hyrum/720/part-011.m4s",
+      "startMs": 21831,
+      "status": 200,
+      "firstByteMs": 22128,
+      "endMs": 22633,
+      "bytes": 134134
+    },
+    {
+      "url": "https://chengzy0424.github.io/czy/media/stream-v1/hyrum/720/part-012.m4s",
+      "startMs": 22635,
+      "status": 200,
+      "firstByteMs": 22929,
+      "endMs": 23137,
+      "bytes": 82891
+    },
+    {
+      "url": "https://chengzy0424.github.io/czy/media/stream-v1/hyrum/720/part-013.m4s",
+      "startMs": 23138,
+      "status": 200,
+      "firstByteMs": 23448,
+      "endMs": 23776,
+      "bytes": 97954
+    },
+    {
+      "url": "https://chengzy0424.github.io/czy/media/stream-v1/hyrum/720/part-014.m4s",
+      "startMs": 23777,
+      "status": 200,
+      "firstByteMs": 24049,
+      "endMs": 24263,
+      "bytes": 104944
+    },
+    {
+      "url": "https://chengzy0424.github.io/czy/media/stream-v1/hyrum/720/part-015.m4s",
+      "startMs": 24263,
+      "status": 200,
+      "firstByteMs": 24587,
+      "endMs": 24913,
+      "bytes": 144183
+    },
+    {
+      "url": "https://chengzy0424.github.io/czy/media/stream-v1/hyrum/720/part-016.m4s",
+      "startMs": 24914,
+      "status": 200,
+      "firstByteMs": 25183,
+      "endMs": 25398,
+      "bytes": 126311
+    },
+    {
+      "url": "https://chengzy0424.github.io/czy/media/stream-v1/hyrum/720/part-017.m4s",
+      "startMs": 25399,
+      "status": 200,
+      "firstByteMs": 25951,
+      "endMs": 27326,
+      "bytes": 111093
+    },
+    {
+      "url": "https://chengzy0424.github.io/czy/media/stream-v1/hyrum/720/part-018.m4s",
+      "startMs": 27327,
+      "status": 200,
+      "firstByteMs": 27873,
+      "endMs": 28700,
+      "bytes": 104060
+    },
+    {
+      "url": "https://chengzy0424.github.io/czy/media/stream-v1/hyrum/720/part-019.m4s",
+      "startMs": 28701,
+      "status": 200,
+      "firstByteMs": 29148,
+      "endMs": 31434,
+      "bytes": 98916
+    },
+    {
+      "url": "https://chengzy0424.github.io/czy/media/stream-v1/hyrum/720/part-020.m4s",
+      "startMs": 31435,
+      "status": 200,
+      "firstByteMs": 31909,
+      "endMs": 32550,
+      "bytes": 99230
+    },
+    {
+      "url": "https://chengzy0424.github.io/czy/media/stream-v1/hyrum/720/part-021.m4s",
+      "startMs": 32551,
+      "status": 200,
+      "firstByteMs": 32873,
+      "endMs": 38964,
+      "bytes": 99448
+    },
+    {
+      "url": "https://chengzy0424.github.io/czy/media/stream-v1/hyrum/low/part-022.m4s",
+      "startMs": 38964,
+      "status": 200,
+      "firstByteMs": 39258
+    }
+  ],
+  "bundle": "https://chengzy0424.github.io/czy/assets/index-BBh-_l4d.js",
+  "firstPlayMs": 10488,
+  "playback": {
+    "time": 30.222439,
+    "quality": "720",
+    "audioBytes": 381773,
+    "muted": false,
+    "dropped": 0,
+    "total": 907,
+    "waits": []
+  },
+  "errors": [],
+  "complete": true
+}

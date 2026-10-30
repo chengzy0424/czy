@@ -1,0 +1,1153 @@
+{
+  "base": "https://chengzy0424.github.io/czy/",
+  "at": "2026-10-30T14:31:43.067Z",
+  "cache": "disabled",
+  "videos": [
+    {
+      "id": "tower",
+      "requests": [
+        {
+          "url": "https://chengzy0424.github.io/czy/media/stream-v1/tower/low/part-000.m4s",
+          "ms": 195,
+          "bytes": 108915,
+          "status": 200,
+          "firstByteMs": 466
+        },
+        {
+          "url": "https://chengzy0424.github.io/czy/media/stream-v1/tower/720/part-001.m4s",
+          "ms": 638,
+          "bytes": 226298,
+          "status": 200,
+          "firstByteMs": 928
+        },
+        {
+          "url": "https://chengzy0424.github.io/czy/media/stream-v1/tower/720/part-002.m4s",
+          "ms": 1094,
+          "bytes": 186613,
+          "status": 200,
+          "firstByteMs": 1356
+        },
+        {
+          "url": "https://chengzy0424.github.io/czy/media/stream-v1/tower/720/part-003.m4s",
+          "ms": 1366,
+          "bytes": 196801,
+          "status": 200,
+          "firstByteMs": 1635
+        },
+        {
+          "url": "https://chengzy0424.github.io/czy/media/stream-v1/tower/720/part-004.m4s",
+          "ms": 1644,
+          "bytes": 223093,
+          "status": 200,
+          "firstByteMs": 1907
+        },
+        {
+          "url": "https://chengzy0424.github.io/czy/media/stream-v1/tower/720/part-005.m4s",
+          "ms": 2131,
+          "bytes": 210893,
+          "status": 200,
+          "firstByteMs": 2415
+        },
+        {
+          "url": "https://chengzy0424.github.io/czy/media/stream-v1/tower/720/part-006.m4s",
+          "ms": 2618,
+          "bytes": 242345,
+          "status": 200,
+          "firstByteMs": 2897
+        },
+        {
+          "url": "https://chengzy0424.github.io/czy/media/stream-v1/tower/720/part-007.m4s",
+          "ms": 3066,
+          "bytes": 216347,
+          "status": 200,
+          "firstByteMs": 3340
+        },
+        {
+          "url": "https://chengzy0424.github.io/czy/media/stream-v1/tower/720/part-008.m4s",
+          "ms": 3461,
+          "bytes": 218351,
+          "status": 200,
+          "firstByteMs": 3731
+        },
+        {
+          "url": "https://chengzy0424.github.io/czy/media/stream-v1/tower/720/part-009.m4s",
+          "ms": 4093,
+          "bytes": 214108,
+          "status": 200,
+          "firstByteMs": 4367
+        },
+        {
+          "url": "https://chengzy0424.github.io/czy/media/stream-v1/tower/720/part-010.m4s",
+          "ms": 4461,
+          "bytes": 205862,
+          "status": 200,
+          "firstByteMs": 4741
+        },
+        {
+          "url": "https://chengzy0424.github.io/czy/media/stream-v1/tower/720/part-011.m4s",
+          "ms": 4823,
+          "bytes": 210299,
+          "status": 200,
+          "firstByteMs": 5086
+        },
+        {
+          "url": "https://chengzy0424.github.io/czy/media/stream-v1/tower/720/part-012.m4s",
+          "ms": 5164,
+          "bytes": 194279,
+          "status": 200,
+          "firstByteMs": 5481
+        },
+        {
+          "url": "https://chengzy0424.github.io/czy/media/stream-v1/tower/720/part-013.m4s",
+          "ms": 8507,
+          "bytes": 191705,
+          "status": 200,
+          "firstByteMs": 8822
+        },
+        {
+          "url": "https://chengzy0424.github.io/czy/media/stream-v1/tower/720/part-014.m4s",
+          "ms": 9582,
+          "bytes": 81911,
+          "status": 200,
+          "firstByteMs": 9961
+        }
+      ],
+      "firstPlayMs": 937,
+      "backgroundBefore": 19,
+      "playback": {
+        "time": 9.421519,
+        "duration": 28.966667,
+        "muted": false,
+        "volume": 0.8,
+        "audioBytes": 161934,
+        "quality": "720",
+        "decoded": 285,
+        "dropped": 0,
+        "stalls": [],
+        "backgroundFrames": 19
+      }
+    },
+    {
+      "id": "ash",
+      "requests": [
+        {
+          "url": "https://chengzy0424.github.io/czy/media/stream-v1/ash/low60/part-000.m4s",
+          "ms": 187,
+          "bytes": 138987,
+          "status": 200,
+          "firstByteMs": 456
+        },
+        {
+          "url": "https://chengzy0424.github.io/czy/media/stream-v1/ash/low60/part-001.m4s",
+          "ms": 949,
+          "bytes": 162450,
+          "status": 200,
+          "firstByteMs": 1231
+        },
+        {
+          "url": "https://chengzy0424.github.io/czy/media/stream-v1/ash/720/part-001.m4s",
+          "ms": 1394,
+          "bytes": 379042,
+          "status": 200,
+          "firstByteMs": 1682
+        },
+        {
+          "url": "https://chengzy0424.github.io/czy/media/stream-v1/ash/720/part-002.m4s",
+          "ms": 2020,
+          "bytes": 385849,
+          "status": 200,
+          "firstByteMs": 2352
+        },
+        {
+          "url": "https://chengzy0424.github.io/czy/media/stream-v1/ash/720/part-003.m4s",
+          "ms": 2682,
+          "bytes": 308322,
+          "status": 200,
+          "firstByteMs": 2948
+        },
+        {
+          "url": "https://chengzy0424.github.io/czy/media/stream-v1/ash/720/part-004.m4s",
+          "ms": 3149,
+          "bytes": 335192,
+          "status": 200,
+          "firstByteMs": 3425
+        },
+        {
+          "url": "https://chengzy0424.github.io/czy/media/stream-v1/ash/720/part-005.m4s",
+          "ms": 3742,
+          "bytes": 204918,
+          "status": 200,
+          "firstByteMs": 4022
+        },
+        {
+          "url": "https://chengzy0424.github.io/czy/media/stream-v1/ash/720/part-006.m4s",
+          "ms": 4187,
+          "bytes": 113688,
+          "status": 200,
+          "firstByteMs": 4498
+        },
+        {
+          "url": "https://chengzy0424.github.io/czy/media/stream-v1/ash/720/part-007.m4s",
+          "ms": 5197,
+          "bytes": 623874,
+          "status": 200,
+          "firstByteMs": 5479
+        },
+        {
+          "url": "https://chengzy0424.github.io/czy/media/stream-v1/ash/720/part-008.m4s",
+          "ms": 6273,
+          "bytes": 554358,
+          "status": 200,
+          "firstByteMs": 6549
+        },
+        {
+          "url": "https://chengzy0424.github.io/czy/media/stream-v1/ash/720/part-009.m4s",
+          "ms": 7210,
+          "bytes": 563363,
+          "status": 200,
+          "firstByteMs": 7612
+        },
+        {
+          "url": "https://chengzy0424.github.io/czy/media/stream-v1/ash/720/part-010.m4s",
+          "ms": 9889,
+          "bytes": 146689,
+          "status": 200,
+          "firstByteMs": 10191
+        }
+      ],
+      "firstPlayMs": 1268,
+      "backgroundBefore": 19,
+      "playback": {
+        "time": 9.454015,
+        "duration": 61.6,
+        "muted": false,
+        "volume": 0.8,
+        "audioBytes": 159966,
+        "quality": "720",
+        "decoded": 567,
+        "dropped": 0,
+        "stalls": [],
+        "backgroundFrames": 19
+      }
+    },
+    {
+      "id": "csol",
+      "requests": [
+        {
+          "url": "https://chengzy0424.github.io/czy/media/stream-v1/csol/low60/part-000.m4s",
+          "ms": 184,
+          "bytes": 111567,
+          "status": 200,
+          "firstByteMs": 476
+        },
+        {
+          "url": "https://chengzy0424.github.io/czy/media/stream-v1/csol/low60/part-001.m4s",
+          "ms": 968,
+          "bytes": 259462,
+          "status": 200,
+          "firstByteMs": 1248
+        },
+        {
+          "url": "https://chengzy0424.github.io/czy/media/stream-v1/csol/low60/part-002.m4s",
+          "ms": 1736,
+          "bytes": 202300,
+          "status": 200,
+          "firstByteMs": 2015
+        },
+        {
+          "url": "https://chengzy0424.github.io/czy/media/stream-v1/csol/720/part-002.m4s",
+          "ms": 2334,
+          "bytes": 649403,
+          "status": 200,
+          "firstByteMs": 2607
+        },
+        {
+          "url": "https://chengzy0424.github.io/czy/media/stream-v1/csol/720/part-003.m4s",
+          "ms": 3881,
+          "bytes": 586272,
+          "status": 200,
+          "firstByteMs": 4235
+        },
+        {
+          "url": "https://chengzy0424.github.io/czy/media/stream-v1/csol/720/part-004.m4s",
+          "ms": 5231,
+          "bytes": 54887,
+          "status": 503,
+          "firstByteMs": 5542
+        },
+        {
+          "url": "https://raw.githubusercontent.com/chengzy0424/czy/main/media/stream-v1/csol/720/part-004.m4s",
+          "ms": 5990,
+          "bytes": 490784,
+          "status": 200,
+          "firstByteMs": 6962
+        },
+        {
+          "url": "https://raw.githubusercontent.com/chengzy0424/czy/main/media/stream-v1/csol/low60/part-004.m4s",
+          "ms": 7962,
+          "bytes": 185776,
+          "status": 200,
+          "firstByteMs": 8315
+        },
+        {
+          "url": "https://raw.githubusercontent.com/chengzy0424/czy/main/media/stream-v1/csol/low60/part-005.m4s",
+          "ms": 8344,
+          "bytes": 195426,
+          "status": 200,
+          "firstByteMs": 8707
+        },
+        {
+          "url": "https://raw.githubusercontent.com/chengzy0424/czy/main/media/stream-v1/csol/720/part-005.m4s",
+          "ms": 8746,
+          "bytes": 457583,
+          "status": 200,
+          "firstByteMs": 9210
+        },
+        {
+          "url": "https://raw.githubusercontent.com/chengzy0424/czy/main/media/stream-v1/csol/720/part-006.m4s",
+          "ms": 9397,
+          "bytes": 590378,
+          "status": 200,
+          "firstByteMs": 9815
+        },
+        {
+          "url": "https://raw.githubusercontent.com/chengzy0424/czy/main/media/stream-v1/csol/720/part-007.m4s",
+          "ms": 9992,
+          "bytes": 393216,
+          "status": 200,
+          "firstByteMs": 10377,
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/chengzy0424/czy/main/media/stream-v1/csol/720/part-015.m4s",
+          "ms": 10498,
+          "bytes": 520313,
+          "status": 200,
+          "firstByteMs": 10897
+        },
+        {
+          "url": "https://raw.githubusercontent.com/chengzy0424/czy/main/media/stream-v1/csol/720/part-016.m4s",
+          "ms": 10945,
+          "bytes": 0,
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/chengzy0424/czy/main/media/stream-v1/csol/720/part-016.m4s",
+          "ms": 11350,
+          "bytes": 560271,
+          "status": 200,
+          "firstByteMs": 11554
+        },
+        {
+          "url": "https://raw.githubusercontent.com/chengzy0424/czy/main/media/stream-v1/csol/720/part-017.m4s",
+          "ms": 11654,
+          "bytes": 580474,
+          "status": 200,
+          "firstByteMs": 12033
+        },
+        {
+          "url": "https://raw.githubusercontent.com/chengzy0424/czy/main/media/stream-v1/csol/720/part-018.m4s",
+          "ms": 12209,
+          "bytes": 393189,
+          "status": 200,
+          "firstByteMs": 12589
+        }
+      ],
+      "firstPlayMs": 1267,
+      "backgroundBefore": 19,
+      "playback": {
+        "time": 9.416083,
+        "duration": 42,
+        "muted": false,
+        "volume": 0.8,
+        "audioBytes": 158840,
+        "quality": "low60",
+        "decoded": 558,
+        "dropped": 0,
+        "stalls": [],
+        "backgroundFrames": 19
+      },
+      "pausedSwitch": {
+        "time": 30.311694,
+        "paused": true,
+        "volume": 0.45
+      }
+    },
+    {
+      "id": "mines",
+      "requests": [
+        {
+          "url": "https://raw.githubusercontent.com/chengzy0424/czy/main/media/stream-v1/mines/low/part-000.m4s",
+          "ms": 182,
+          "bytes": 31778,
+          "status": 200,
+          "firstByteMs": 527
+        },
+        {
+          "url": "https://raw.githubusercontent.com/chengzy0424/czy/main/media/stream-v1/mines/720/part-001.m4s",
+          "ms": 689,
+          "bytes": 60031,
+          "status": 200,
+          "firstByteMs": 1118
+        },
+        {
+          "url": "https://raw.githubusercontent.com/chengzy0424/czy/main/media/stream-v1/mines/720/part-002.m4s",
+          "ms": 1288,
+          "bytes": 62001,
+          "status": 200,
+          "firstByteMs": 1635
+        },
+        {
+          "url": "https://raw.githubusercontent.com/chengzy0424/czy/main/media/stream-v1/mines/720/part-003.m4s",
+          "ms": 1638,
+          "bytes": 66120,
+          "status": 200,
+          "firstByteMs": 1989
+        },
+        {
+          "url": "https://raw.githubusercontent.com/chengzy0424/czy/main/media/stream-v1/mines/720/part-004.m4s",
+          "ms": 1992,
+          "bytes": 58448,
+          "status": 200,
+          "firstByteMs": 2343
+        },
+        {
+          "url": "https://raw.githubusercontent.com/chengzy0424/czy/main/media/stream-v1/mines/720/part-005.m4s",
+          "ms": 2359,
+          "bytes": 57847,
+          "status": 200,
+          "firstByteMs": 2696
+        },
+        {
+          "url": "https://raw.githubusercontent.com/chengzy0424/czy/main/media/stream-v1/mines/720/part-006.m4s",
+          "ms": 2714,
+          "bytes": 54416,
+          "status": 200,
+          "firstByteMs": 3051
+        },
+        {
+          "url": "https://raw.githubusercontent.com/chengzy0424/czy/main/media/stream-v1/mines/720/part-007.m4s",
+          "ms": 3053,
+          "bytes": 54166,
+          "status": 200,
+          "firstByteMs": 3412
+        },
+        {
+          "url": "https://raw.githubusercontent.com/chengzy0424/czy/main/media/stream-v1/mines/720/part-008.m4s",
+          "ms": 3414,
+          "bytes": 54367,
+          "status": 200,
+          "firstByteMs": 3802
+        },
+        {
+          "url": "https://raw.githubusercontent.com/chengzy0424/czy/main/media/stream-v1/mines/720/part-009.m4s",
+          "ms": 3807,
+          "bytes": 53251,
+          "status": 200,
+          "firstByteMs": 4178
+        },
+        {
+          "url": "https://raw.githubusercontent.com/chengzy0424/czy/main/media/stream-v1/mines/720/part-010.m4s",
+          "ms": 4195,
+          "bytes": 54337,
+          "status": 200,
+          "firstByteMs": 4595
+        }
+      ],
+      "firstPlayMs": 933,
+      "backgroundBefore": 19,
+      "playback": {
+        "time": 9.366678,
+        "duration": 22.033333,
+        "muted": false,
+        "volume": 0.8,
+        "audioBytes": 14510,
+        "quality": "720",
+        "decoded": 284,
+        "dropped": 0,
+        "stalls": [],
+        "backgroundFrames": 19
+      }
+    },
+    {
+      "id": "murphy",
+      "requests": [
+        {
+          "url": "https://raw.githubusercontent.com/chengzy0424/czy/main/media/stream-v1/murphy/low/part-000.m4s",
+          "ms": 188,
+          "bytes": 62109,
+          "status": 200,
+          "firstByteMs": 715
+        },
+        {
+          "url": "https://raw.githubusercontent.com/chengzy0424/czy/main/media/stream-v1/murphy/low/part-001.m4s",
+          "ms": 896,
+          "bytes": 56998,
+          "status": 200,
+          "firstByteMs": 1228
+        },
+        {
+          "url": "https://raw.githubusercontent.com/chengzy0424/czy/main/media/stream-v1/murphy/720/part-001.m4s",
+          "ms": 1232,
+          "bytes": 119399,
+          "status": 200,
+          "firstByteMs": 1700
+        },
+        {
+          "url": "https://raw.githubusercontent.com/chengzy0424/czy/main/media/stream-v1/murphy/720/part-002.m4s",
+          "ms": 1886,
+          "bytes": 166171,
+          "status": 200,
+          "firstByteMs": 2217
+        },
+        {
+          "url": "https://raw.githubusercontent.com/chengzy0424/czy/main/media/stream-v1/murphy/720/part-003.m4s",
+          "ms": 2234,
+          "bytes": 166474,
+          "status": 200,
+          "firstByteMs": 2602
+        },
+        {
+          "url": "https://raw.githubusercontent.com/chengzy0424/czy/main/media/stream-v1/murphy/720/part-004.m4s",
+          "ms": 2612,
+          "bytes": 167347,
+          "status": 200,
+          "firstByteMs": 2960
+        },
+        {
+          "url": "https://raw.githubusercontent.com/chengzy0424/czy/main/media/stream-v1/murphy/720/part-005.m4s",
+          "ms": 2978,
+          "bytes": 186098,
+          "status": 200,
+          "firstByteMs": 3344
+        },
+        {
+          "url": "https://raw.githubusercontent.com/chengzy0424/czy/main/media/stream-v1/murphy/720/part-006.m4s",
+          "ms": 3507,
+          "bytes": 94518,
+          "status": 200,
+          "firstByteMs": 3871
+        },
+        {
+          "url": "https://raw.githubusercontent.com/chengzy0424/czy/main/media/stream-v1/murphy/720/part-007.m4s",
+          "ms": 3881,
+          "bytes": 73178,
+          "status": 200,
+          "firstByteMs": 4229
+        },
+        {
+          "url": "https://raw.githubusercontent.com/chengzy0424/czy/main/media/stream-v1/murphy/720/part-008.m4s",
+          "ms": 4236,
+          "bytes": 85703,
+          "status": 200,
+          "firstByteMs": 4611
+        },
+        {
+          "url": "https://raw.githubusercontent.com/chengzy0424/czy/main/media/stream-v1/murphy/720/part-009.m4s",
+          "ms": 4622,
+          "bytes": 190223,
+          "status": 200,
+          "firstByteMs": 4973
+        },
+        {
+          "url": "https://raw.githubusercontent.com/chengzy0424/czy/main/media/stream-v1/murphy/720/part-010.m4s",
+          "ms": 5140,
+          "bytes": 77465,
+          "status": 200,
+          "firstByteMs": 5507
+        },
+        {
+          "url": "https://raw.githubusercontent.com/chengzy0424/czy/main/media/stream-v1/murphy/720/part-011.m4s",
+          "ms": 5512,
+          "bytes": 86898,
+          "status": 200,
+          "firstByteMs": 5839
+        },
+        {
+          "url": "https://raw.githubusercontent.com/chengzy0424/czy/main/media/stream-v1/murphy/720/part-012.m4s",
+          "ms": 5841,
+          "bytes": 76849,
+          "status": 200,
+          "firstByteMs": 6214
+        },
+        {
+          "url": "https://raw.githubusercontent.com/chengzy0424/czy/main/media/stream-v1/murphy/720/part-013.m4s",
+          "ms": 6219,
+          "bytes": 121493,
+          "status": 200,
+          "firstByteMs": 6539
+        },
+        {
+          "url": "https://raw.githubusercontent.com/chengzy0424/czy/main/media/stream-v1/murphy/720/part-014.m4s",
+          "ms": 6550,
+          "bytes": 83454,
+          "status": 200,
+          "firstByteMs": 6877
+        },
+        {
+          "url": "https://raw.githubusercontent.com/chengzy0424/czy/main/media/stream-v1/murphy/720/part-015.m4s",
+          "ms": 6881,
+          "bytes": 180057,
+          "status": 200,
+          "firstByteMs": 7321
+        },
+        {
+          "url": "https://raw.githubusercontent.com/chengzy0424/czy/main/media/stream-v1/murphy/720/part-016.m4s",
+          "ms": 7495,
+          "bytes": 85486,
+          "status": 200,
+          "firstByteMs": 7845
+        },
+        {
+          "url": "https://raw.githubusercontent.com/chengzy0424/czy/main/media/stream-v1/murphy/720/part-017.m4s",
+          "ms": 7851,
+          "bytes": 118005,
+          "status": 200,
+          "firstByteMs": 8201
+        },
+        {
+          "url": "https://raw.githubusercontent.com/chengzy0424/czy/main/media/stream-v1/murphy/720/part-018.m4s",
+          "ms": 8211,
+          "bytes": 84618,
+          "status": 200,
+          "firstByteMs": 8553
+        },
+        {
+          "url": "https://raw.githubusercontent.com/chengzy0424/czy/main/media/stream-v1/murphy/720/part-019.m4s",
+          "ms": 8998,
+          "bytes": 138591,
+          "status": 200,
+          "firstByteMs": 9340
+        }
+      ],
+      "firstPlayMs": 1107,
+      "backgroundBefore": 19,
+      "playback": {
+        "time": 9.325685,
+        "duration": 123.966667,
+        "muted": false,
+        "volume": 0.8,
+        "audioBytes": 119845,
+        "quality": "720",
+        "decoded": 280,
+        "dropped": 0,
+        "stalls": [],
+        "backgroundFrames": 19
+      }
+    },
+    {
+      "id": "hyrum",
+      "requests": [
+        {
+          "url": "https://raw.githubusercontent.com/chengzy0424/czy/main/media/stream-v1/hyrum/low/part-000.m4s",
+          "ms": 188,
+          "bytes": 65968,
+          "status": 200,
+          "firstByteMs": 500
+        },
+        {
+          "url": "https://raw.githubusercontent.com/chengzy0424/czy/main/media/stream-v1/hyrum/low/part-001.m4s",
+          "ms": 4323,
+          "bytes": 92402,
+          "status": 200,
+          "firstByteMs": 4635
+        },
+        {
+          "url": "https://raw.githubusercontent.com/chengzy0424/czy/main/media/stream-v1/hyrum/low/part-002.m4s",
+          "ms": 6759,
+          "bytes": 58873,
+          "status": 200,
+          "firstByteMs": 7403
+        },
+        {
+          "url": "https://raw.githubusercontent.com/chengzy0424/czy/main/media/stream-v1/hyrum/low/part-003.m4s",
+          "ms": 10464,
+          "bytes": 47918,
+          "status": 200,
+          "firstByteMs": 10794
+        },
+        {
+          "url": "https://raw.githubusercontent.com/chengzy0424/czy/main/media/stream-v1/hyrum/low/part-004.m4s",
+          "ms": 11619,
+          "bytes": 51491,
+          "status": 200,
+          "firstByteMs": 12372
+        },
+        {
+          "url": "https://raw.githubusercontent.com/chengzy0424/czy/main/media/stream-v1/hyrum/low/part-005.m4s",
+          "ms": 13003,
+          "bytes": 32750,
+          "status": 200,
+          "firstByteMs": 13312
+        }
+      ],
+      "firstPlayMs": 4524,
+      "backgroundBefore": 19,
+      "playback": {
+        "time": 7.145388,
+        "duration": 149.933333,
+        "muted": false,
+        "volume": 0.8,
+        "audioBytes": 101723,
+        "quality": "low",
+        "decoded": 217,
+        "dropped": 1,
+        "stalls": [
+          1.883137,
+          3.885796
+        ],
+        "backgroundFrames": 19
+      },
+      "failure": "Playback/audio/background failure"
+    },
+    {
+      "id": "familiar",
+      "requests": [
+        {
+          "url": "https://raw.githubusercontent.com/chengzy0424/czy/main/media/stream-v1/familiar/low/part-000.m4s",
+          "ms": 187,
+          "bytes": 47951,
+          "status": 200,
+          "firstByteMs": 505
+        },
+        {
+          "url": "https://raw.githubusercontent.com/chengzy0424/czy/main/media/stream-v1/familiar/low/part-001.m4s",
+          "ms": 982,
+          "bytes": 42564,
+          "status": 200,
+          "firstByteMs": 1284
+        },
+        {
+          "url": "https://raw.githubusercontent.com/chengzy0424/czy/main/media/stream-v1/familiar/720/part-001.m4s",
+          "ms": 1615,
+          "bytes": 87787,
+          "status": 200,
+          "firstByteMs": 1928
+        },
+        {
+          "url": "https://raw.githubusercontent.com/chengzy0424/czy/main/media/stream-v1/familiar/720/part-002.m4s",
+          "ms": 2445,
+          "bytes": 106047,
+          "status": 200,
+          "firstByteMs": 2759
+        },
+        {
+          "url": "https://raw.githubusercontent.com/chengzy0424/czy/main/media/stream-v1/familiar/720/part-003.m4s",
+          "ms": 3123,
+          "bytes": 116692,
+          "status": 200,
+          "firstByteMs": 3443
+        },
+        {
+          "url": "https://raw.githubusercontent.com/chengzy0424/czy/main/media/stream-v1/familiar/720/part-004.m4s",
+          "ms": 3762,
+          "bytes": 145853,
+          "status": 200,
+          "firstByteMs": 4086
+        },
+        {
+          "url": "https://raw.githubusercontent.com/chengzy0424/czy/main/media/stream-v1/familiar/720/part-005.m4s",
+          "ms": 4408,
+          "bytes": 82490,
+          "status": 200,
+          "firstByteMs": 4751
+        },
+        {
+          "url": "https://raw.githubusercontent.com/chengzy0424/czy/main/media/stream-v1/familiar/720/part-006.m4s",
+          "ms": 4905,
+          "bytes": 83022,
+          "status": 200,
+          "firstByteMs": 5248
+        },
+        {
+          "url": "https://raw.githubusercontent.com/chengzy0424/czy/main/media/stream-v1/familiar/720/part-007.m4s",
+          "ms": 5410,
+          "bytes": 104735,
+          "status": 200,
+          "firstByteMs": 5724
+        },
+        {
+          "url": "https://raw.githubusercontent.com/chengzy0424/czy/main/media/stream-v1/familiar/720/part-008.m4s",
+          "ms": 5882,
+          "bytes": 107454,
+          "status": 200,
+          "firstByteMs": 6223
+        },
+        {
+          "url": "https://raw.githubusercontent.com/chengzy0424/czy/main/media/stream-v1/familiar/720/part-009.m4s",
+          "ms": 6393,
+          "bytes": 109248,
+          "status": 200,
+          "firstByteMs": 6744
+        },
+        {
+          "url": "https://raw.githubusercontent.com/chengzy0424/czy/main/media/stream-v1/familiar/720/part-010.m4s",
+          "ms": 6924,
+          "bytes": 88037,
+          "status": 200,
+          "firstByteMs": 7256
+        },
+        {
+          "url": "https://raw.githubusercontent.com/chengzy0424/czy/main/media/stream-v1/familiar/720/part-011.m4s",
+          "ms": 7260,
+          "bytes": 147169,
+          "status": 200,
+          "firstByteMs": 7602
+        },
+        {
+          "url": "https://raw.githubusercontent.com/chengzy0424/czy/main/media/stream-v1/familiar/720/part-012.m4s",
+          "ms": 7784,
+          "bytes": 93248,
+          "status": 200,
+          "firstByteMs": 8117
+        },
+        {
+          "url": "https://raw.githubusercontent.com/chengzy0424/czy/main/media/stream-v1/familiar/720/part-013.m4s",
+          "ms": 8134,
+          "bytes": 95443,
+          "status": 200,
+          "firstByteMs": 8549
+        },
+        {
+          "url": "https://raw.githubusercontent.com/chengzy0424/czy/main/media/stream-v1/familiar/720/part-014.m4s",
+          "ms": 8722,
+          "bytes": 99240,
+          "status": 200,
+          "firstByteMs": 9053
+        },
+        {
+          "url": "https://raw.githubusercontent.com/chengzy0424/czy/main/media/stream-v1/familiar/720/part-015.m4s",
+          "ms": 9058,
+          "bytes": 93247,
+          "status": 200,
+          "firstByteMs": 9374
+        },
+        {
+          "url": "https://raw.githubusercontent.com/chengzy0424/czy/main/media/stream-v1/familiar/720/part-016.m4s",
+          "ms": 9386,
+          "bytes": 108440,
+          "status": 200,
+          "firstByteMs": 9710
+        },
+        {
+          "url": "https://raw.githubusercontent.com/chengzy0424/czy/main/media/stream-v1/familiar/720/part-017.m4s",
+          "ms": 9869,
+          "bytes": 105666,
+          "status": 200,
+          "firstByteMs": 10233
+        },
+        {
+          "url": "https://raw.githubusercontent.com/chengzy0424/czy/main/media/stream-v1/familiar/720/part-018.m4s",
+          "ms": 10236,
+          "bytes": 49125,
+          "status": 200,
+          "firstByteMs": 10582,
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/chengzy0424/czy/main/media/stream-v1/familiar/720/part-069.m4s",
+          "ms": 10585,
+          "bytes": 123672,
+          "status": 200,
+          "firstByteMs": 10911
+        },
+        {
+          "url": "https://raw.githubusercontent.com/chengzy0424/czy/main/media/stream-v1/familiar/720/part-070.m4s",
+          "ms": 10923,
+          "bytes": 79416,
+          "status": 200,
+          "firstByteMs": 11243
+        },
+        {
+          "url": "https://raw.githubusercontent.com/chengzy0424/czy/main/media/stream-v1/familiar/720/part-071.m4s",
+          "ms": 11261,
+          "bytes": 0,
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/chengzy0424/czy/main/media/stream-v1/familiar/720/part-071.m4s",
+          "ms": 11768,
+          "bytes": 90761,
+          "status": 200,
+          "firstByteMs": 12054
+        },
+        {
+          "url": "https://raw.githubusercontent.com/chengzy0424/czy/main/media/stream-v1/familiar/720/part-072.m4s",
+          "ms": 12257,
+          "bytes": 96748,
+          "status": 200,
+          "firstByteMs": 12567
+        },
+        {
+          "url": "https://raw.githubusercontent.com/chengzy0424/czy/main/media/stream-v1/familiar/720/part-073.m4s",
+          "ms": 12572,
+          "bytes": 91242,
+          "status": 200,
+          "firstByteMs": 12888
+        },
+        {
+          "url": "https://raw.githubusercontent.com/chengzy0424/czy/main/media/stream-v1/familiar/720/part-074.m4s",
+          "ms": 12891,
+          "bytes": 0
+        }
+      ],
+      "firstPlayMs": 1277,
+      "backgroundBefore": 19,
+      "playback": {
+        "time": 9.419763,
+        "duration": 184.133333,
+        "muted": false,
+        "volume": 0.8,
+        "audioBytes": 119596,
+        "quality": "720",
+        "decoded": 279,
+        "dropped": 0,
+        "stalls": [],
+        "backgroundFrames": 19
+      },
+      "pausedSwitch": {
+        "time": 140.370622,
+        "paused": true,
+        "volume": 0.45
+      }
+    },
+    {
+      "id": "town",
+      "requests": [
+        {
+          "url": "https://raw.githubusercontent.com/chengzy0424/czy/main/media/stream-v1/town/low/part-000.m4s",
+          "ms": 203,
+          "bytes": 36564,
+          "status": 200,
+          "firstByteMs": 518
+        },
+        {
+          "url": "https://raw.githubusercontent.com/chengzy0424/czy/main/media/stream-v1/town/low/part-001.m4s",
+          "ms": 684,
+          "bytes": 40554,
+          "status": 200,
+          "firstByteMs": 1001
+        },
+        {
+          "url": "https://raw.githubusercontent.com/chengzy0424/czy/main/media/stream-v1/town/720/part-001.m4s",
+          "ms": 1002,
+          "bytes": 55421,
+          "status": 200,
+          "firstByteMs": 1309
+        },
+        {
+          "url": "https://raw.githubusercontent.com/chengzy0424/czy/main/media/stream-v1/town/720/part-002.m4s",
+          "ms": 1323,
+          "bytes": 158459,
+          "status": 200,
+          "firstByteMs": 1675
+        },
+        {
+          "url": "https://raw.githubusercontent.com/chengzy0424/czy/main/media/stream-v1/town/720/part-003.m4s",
+          "ms": 1838,
+          "bytes": 281205,
+          "status": 200,
+          "firstByteMs": 2165
+        },
+        {
+          "url": "https://raw.githubusercontent.com/chengzy0424/czy/main/media/stream-v1/town/720/part-004.m4s",
+          "ms": 2339,
+          "bytes": 200055,
+          "status": 200,
+          "firstByteMs": 2702
+        },
+        {
+          "url": "https://raw.githubusercontent.com/chengzy0424/czy/main/media/stream-v1/town/720/part-005.m4s",
+          "ms": 2864,
+          "bytes": 199610,
+          "status": 200,
+          "firstByteMs": 3209
+        },
+        {
+          "url": "https://raw.githubusercontent.com/chengzy0424/czy/main/media/stream-v1/town/720/part-006.m4s",
+          "ms": 3362,
+          "bytes": 299330,
+          "status": 200,
+          "firstByteMs": 3942
+        },
+        {
+          "url": "https://raw.githubusercontent.com/chengzy0424/czy/main/media/stream-v1/town/720/part-007.m4s",
+          "ms": 4060,
+          "bytes": 320871,
+          "status": 200,
+          "firstByteMs": 4398
+        },
+        {
+          "url": "https://raw.githubusercontent.com/chengzy0424/czy/main/media/stream-v1/town/720/part-008.m4s",
+          "ms": 4732,
+          "bytes": 277888,
+          "status": 200,
+          "firstByteMs": 5044
+        },
+        {
+          "url": "https://raw.githubusercontent.com/chengzy0424/czy/main/media/stream-v1/town/720/part-009.m4s",
+          "ms": 5237,
+          "bytes": 291660,
+          "status": 200,
+          "firstByteMs": 5608
+        },
+        {
+          "url": "https://raw.githubusercontent.com/chengzy0424/czy/main/media/stream-v1/town/720/part-010.m4s",
+          "ms": 5965,
+          "bytes": 269556,
+          "status": 200,
+          "firstByteMs": 6304
+        },
+        {
+          "url": "https://raw.githubusercontent.com/chengzy0424/czy/main/media/stream-v1/town/720/part-011.m4s",
+          "ms": 6464,
+          "bytes": 280971,
+          "status": 200,
+          "firstByteMs": 6838
+        },
+        {
+          "url": "https://raw.githubusercontent.com/chengzy0424/czy/main/media/stream-v1/town/720/part-012.m4s",
+          "ms": 7162,
+          "bytes": 81920,
+          "status": 200,
+          "firstByteMs": 7551
+        }
+      ],
+      "firstPlayMs": 945,
+      "backgroundBefore": 19,
+      "playback": {
+        "time": 9.388562,
+        "duration": 63.933333,
+        "muted": false,
+        "volume": 0.8,
+        "audioBytes": 120781,
+        "quality": "720",
+        "decoded": 281,
+        "dropped": 0,
+        "stalls": [],
+        "backgroundFrames": 19
+      }
+    },
+    {
+      "id": "arc",
+      "requests": [
+        {
+          "url": "https://raw.githubusercontent.com/chengzy0424/czy/main/media/stream-v1/arc/low/part-000.m4s",
+          "ms": 189,
+          "bytes": 115329,
+          "status": 200,
+          "firstByteMs": 520
+        },
+        {
+          "url": "https://raw.githubusercontent.com/chengzy0424/czy/main/media/stream-v1/arc/low/part-001.m4s",
+          "ms": 1706,
+          "bytes": 162897,
+          "status": 200,
+          "firstByteMs": 2026
+        },
+        {
+          "url": "https://raw.githubusercontent.com/chengzy0424/czy/main/media/stream-v1/arc/low/part-002.m4s",
+          "ms": 2351,
+          "bytes": 170314,
+          "status": 200,
+          "firstByteMs": 2708
+        },
+        {
+          "url": "https://raw.githubusercontent.com/chengzy0424/czy/main/media/stream-v1/arc/720/part-002.m4s",
+          "ms": 2927,
+          "bytes": 294062,
+          "status": 200,
+          "firstByteMs": 3260
+        },
+        {
+          "url": "https://raw.githubusercontent.com/chengzy0424/czy/main/media/stream-v1/arc/720/part-003.m4s",
+          "ms": 3774,
+          "bytes": 279564,
+          "status": 200,
+          "firstByteMs": 4104
+        },
+        {
+          "url": "https://raw.githubusercontent.com/chengzy0424/czy/main/media/stream-v1/arc/720/part-004.m4s",
+          "ms": 4614,
+          "bytes": 271600,
+          "status": 200,
+          "firstByteMs": 4985
+        },
+        {
+          "url": "https://raw.githubusercontent.com/chengzy0424/czy/main/media/stream-v1/arc/720/part-005.m4s",
+          "ms": 5292,
+          "bytes": 279164,
+          "status": 200,
+          "firstByteMs": 5634
+        },
+        {
+          "url": "https://raw.githubusercontent.com/chengzy0424/czy/main/media/stream-v1/arc/720/part-006.m4s",
+          "ms": 6515,
+          "bytes": 302667,
+          "status": 200,
+          "firstByteMs": 6840
+        },
+        {
+          "url": "https://raw.githubusercontent.com/chengzy0424/czy/main/media/stream-v1/arc/720/part-007.m4s",
+          "ms": 7484,
+          "bytes": 316616,
+          "status": 200,
+          "firstByteMs": 7833
+        },
+        {
+          "url": "https://raw.githubusercontent.com/chengzy0424/czy/main/media/stream-v1/arc/720/part-008.m4s",
+          "ms": 8324,
+          "bytes": 55097,
+          "status": 200,
+          "firstByteMs": 8671
+        },
+        {
+          "url": "https://raw.githubusercontent.com/chengzy0424/czy/main/media/stream-v1/arc/720/part-009.m4s",
+          "ms": 8831,
+          "bytes": 198657,
+          "status": 200,
+          "firstByteMs": 9146
+        },
+        {
+          "url": "https://raw.githubusercontent.com/chengzy0424/czy/main/media/stream-v1/arc/720/part-010.m4s",
+          "ms": 9472,
+          "bytes": 56565,
+          "status": 200,
+          "firstByteMs": 9781
+        },
+        {
+          "url": "https://raw.githubusercontent.com/chengzy0424/czy/main/media/stream-v1/arc/720/part-007.m4s",
+          "ms": 11525,
+          "bytes": 244792,
+          "status": 200,
+          "firstByteMs": 11877
+        }
+      ],
+      "firstPlayMs": 1957,
+      "backgroundBefore": 19,
+      "playback": {
+        "time": 9.384437,
+        "duration": 20.156212,
+        "muted": false,
+        "volume": 0.8,
+        "audioBytes": 119610,
+        "quality": "720",
+        "decoded": 281,
+        "dropped": 0,
+        "stalls": [],
+        "backgroundFrames": 19
+      },
+      "pausedSwitch": {
+        "time": 12.204688,
+        "paused": true,
+        "volume": 0.45
+      }
+    }
+  ],
+  "errors": [],
+  "initial": {
+    "videoNodes": 0,
+    "media": 0
+  },
+  "complete": false
+}

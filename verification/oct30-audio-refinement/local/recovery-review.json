@@ -1,0 +1,16 @@
+{
+  "heldFirstRequest": {
+    "recoveredWithinMs": 8878,
+    "requests": 2,
+    "src": "http://127.0.0.1:4180/media/tower-demo-audio.mp4?v=20261030-audio&retry=1"
+  },
+  "persistentFailure": {
+    "requests": 2,
+    "status": "影片加载失败，请检查网络或重新加载。"
+  },
+  "manualRecovery": {
+    "src": "http://127.0.0.1:4180/media/tower-demo-audio.mp4?v=20261030-audio&retry=2",
+    "muted": false,
+    "error": null
+  }
+}

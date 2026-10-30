@@ -1,0 +1,39 @@
+{
+  "base": "https://chengzy0424.github.io/czy/",
+  "at": "2026-10-30T13:06:23.587Z",
+  "media": [
+    {
+      "id": "tower",
+      "firstPlayMs": 2020,
+      "first": {
+        "time": 1.383783,
+        "frames": 165,
+        "dropped": 0,
+        "decoded": 88
+      },
+      "after": {
+        "time": 11.398299,
+        "duration": 29.013,
+        "src": "https://chengzy0424.github.io/czy/media/tower-demo-audio.mp4",
+        "muted": false,
+        "volume": 0.8,
+        "audioBytes": 191217,
+        "quality": {
+          "totalVideoFrames": 689,
+          "droppedVideoFrames": 0,
+          "corruptedVideoFrames": 0
+        },
+        "stalls": [],
+        "error": null,
+        "backgroundFrames": 165
+      },
+      "backFocus": "tower"
+    }
+  ],
+  "errors": [],
+  "initial": {
+    "videoNodes": 0,
+    "mediaRequests": 0
+  },
+  "failure": "Error: Timed out: document.querySelector(\"video\")?.currentTime>.15&&!document.querySelector(\"video\").paused"
+}

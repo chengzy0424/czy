@@ -1,0 +1,29 @@
+{
+  "status": 200,
+  "bundle": "assets/index-D551CALo.js",
+  "newGameLabels": true,
+  "retired": [
+    {
+      "path": "media/ash-demo.mp4",
+      "status": 404
+    },
+    {
+      "path": "media/csol-demo.mp4",
+      "status": 404
+    },
+    {
+      "path": "media/mines-demo.mp4",
+      "status": 404
+    },
+    {
+      "path": "media/tower-demo.mp4",
+      "status": 404
+    },
+    {
+      "path": "games/mines/index.html",
+      "status": 404
+    }
+  ],
+  "applicationCommit": "bb5c8f7fc2f303b155dff020d56464aaf852db67",
+  "checkedAt": "2026-10-30T13:23:41.630Z"
+}

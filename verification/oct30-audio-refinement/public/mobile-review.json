@@ -1,0 +1,24 @@
+{
+  "base": "https://chengzy0424.github.io/czy/",
+  "conditions": "Windows Edge touch and viewport simulation, HTTP cache disabled; not a physical phone",
+  "screens": [
+    {
+      "width": 320,
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "overflow": false
+    }
+  ],
+  "errors": [],
+  "video": {
+    "time": 6.420508,
+    "muted": false,
+    "audio": 108240,
+    "src": "https://chengzy0424.github.io/czy/media/csol-demo-low.mp4?v=20261030-audio",
+    "error": null
+  },
+  "backFocus": "csol",
+  "complete": true
+}

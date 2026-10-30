@@ -1,0 +1,266 @@
+{
+  "base": "https://chengzy0424.github.io/czy/",
+  "at": "2026-10-30T13:18:53.104Z",
+  "media": [
+    {
+      "id": "tower",
+      "firstPlayMs": 1725,
+      "first": {
+        "time": 1.488016,
+        "frames": 164,
+        "dropped": 0,
+        "decoded": 95
+      },
+      "after": {
+        "time": 11.4913,
+        "duration": 29.013,
+        "src": "https://chengzy0424.github.io/czy/media/tower-demo-audio.mp4?v=20261030-audio",
+        "muted": false,
+        "volume": 0.8,
+        "audioBytes": 192918,
+        "quality": {
+          "totalVideoFrames": 695,
+          "droppedVideoFrames": 0,
+          "corruptedVideoFrames": 0
+        },
+        "stalls": [],
+        "error": null,
+        "backgroundFrames": 164
+      },
+      "backFocus": "tower"
+    },
+    {
+      "id": "ash",
+      "firstPlayMs": 1685,
+      "first": {
+        "time": 1.367923,
+        "frames": 164,
+        "dropped": 0,
+        "decoded": 45
+      },
+      "after": {
+        "time": 11.379872,
+        "duration": 61.610667,
+        "src": "https://chengzy0424.github.io/czy/media/ash-demo-low.mp4?v=20261030-audio",
+        "muted": false,
+        "volume": 0.8,
+        "audioBytes": 187051,
+        "quality": {
+          "totalVideoFrames": 345,
+          "droppedVideoFrames": 0,
+          "corruptedVideoFrames": 0
+        },
+        "stalls": [],
+        "error": null,
+        "backgroundFrames": 164
+      },
+      "backFocus": "ash"
+    },
+    {
+      "id": "csol",
+      "firstPlayMs": 5954,
+      "first": {
+        "time": 1.497642,
+        "frames": 164,
+        "dropped": 0,
+        "decoded": 48
+      },
+      "after": {
+        "time": 11.501184,
+        "duration": 42.026667,
+        "src": "https://chengzy0424.github.io/czy/media/csol-demo-low.mp4?v=20261030-audio",
+        "muted": false,
+        "volume": 0.8,
+        "audioBytes": 189099,
+        "quality": {
+          "totalVideoFrames": 348,
+          "droppedVideoFrames": 0,
+          "corruptedVideoFrames": 0
+        },
+        "stalls": [],
+        "error": null,
+        "backgroundFrames": 164
+      },
+      "backFocus": "csol"
+    },
+    {
+      "id": "mines",
+      "firstPlayMs": 22290,
+      "first": {
+        "time": 1.437773,
+        "frames": 164,
+        "dropped": 0,
+        "decoded": 91
+      },
+      "after": {
+        "time": 11.447213,
+        "duration": 21.983333,
+        "src": "https://chengzy0424.github.io/czy/media/mines-demo-audio.mp4?v=20261030-audio&retry=1",
+        "muted": false,
+        "volume": 0.8,
+        "audioBytes": 13564,
+        "quality": {
+          "totalVideoFrames": 692,
+          "droppedVideoFrames": 2,
+          "corruptedVideoFrames": 0
+        },
+        "stalls": [],
+        "error": null,
+        "backgroundFrames": 164
+      },
+      "backFocus": "mines"
+    },
+    {
+      "id": "murphy",
+      "firstPlayMs": 2839,
+      "first": {
+        "time": 1.397989,
+        "frames": 164,
+        "dropped": 0,
+        "decoded": 46
+      },
+      "after": {
+        "time": 11.415689,
+        "duration": 124.017007,
+        "src": "https://chengzy0424.github.io/czy/media/murphy-720.mp4?v=20261030-audio",
+        "muted": false,
+        "volume": 0.8,
+        "audioBytes": 142686,
+        "quality": {
+          "totalVideoFrames": 346,
+          "droppedVideoFrames": 0,
+          "corruptedVideoFrames": 0
+        },
+        "stalls": [],
+        "error": null,
+        "backgroundFrames": 164
+      },
+      "backFocus": "murphy"
+    },
+    {
+      "id": "hyrum",
+      "firstPlayMs": 26310,
+      "first": {
+        "time": 1.385004,
+        "frames": 164,
+        "dropped": 0,
+        "decoded": 47
+      },
+      "after": {
+        "time": 11.388957,
+        "duration": 150.016,
+        "src": "https://chengzy0424.github.io/czy/media/hyrum-720.mp4?v=20261030-audio&retry=1",
+        "muted": false,
+        "volume": 0.8,
+        "audioBytes": 143795,
+        "quality": {
+          "totalVideoFrames": 347,
+          "droppedVideoFrames": 0,
+          "corruptedVideoFrames": 0
+        },
+        "stalls": [],
+        "error": null,
+        "backgroundFrames": 164
+      },
+      "backFocus": "hyrum"
+    },
+    {
+      "id": "familiar",
+      "firstPlayMs": 3173,
+      "first": {
+        "time": 1.508149,
+        "frames": 164,
+        "dropped": 0,
+        "decoded": 50
+      },
+      "after": {
+        "time": 11.506907,
+        "duration": 184.203991,
+        "src": "https://chengzy0424.github.io/czy/media/familiar-720.mp4?v=20261030-audio",
+        "muted": false,
+        "volume": 0.8,
+        "audioBytes": 141547,
+        "quality": {
+          "totalVideoFrames": 350,
+          "droppedVideoFrames": 0,
+          "corruptedVideoFrames": 0
+        },
+        "stalls": [],
+        "error": null,
+        "backgroundFrames": 164
+      },
+      "backFocus": "familiar"
+    },
+    {
+      "id": "town",
+      "firstPlayMs": 2308,
+      "first": {
+        "time": 1.451433,
+        "frames": 164,
+        "dropped": 0,
+        "decoded": 48
+      },
+      "after": {
+        "time": 11.474162,
+        "duration": 64.017007,
+        "src": "https://chengzy0424.github.io/czy/media/town-720.mp4?v=20261030-audio",
+        "muted": false,
+        "volume": 0.8,
+        "audioBytes": 143945,
+        "quality": {
+          "totalVideoFrames": 349,
+          "droppedVideoFrames": 0,
+          "corruptedVideoFrames": 0
+        },
+        "stalls": [],
+        "error": null,
+        "backgroundFrames": 164
+      },
+      "backFocus": "town"
+    },
+    {
+      "id": "arc",
+      "firstPlayMs": 20497,
+      "first": {
+        "time": 1.501764,
+        "frames": 164,
+        "dropped": 0,
+        "decoded": 49
+      },
+      "after": {
+        "time": 11.510622,
+        "duration": 20.132993,
+        "src": "https://chengzy0424.github.io/czy/media/arc-720.mp4?v=20261030-audio&retry=1",
+        "muted": false,
+        "volume": 0.8,
+        "audioBytes": 142797,
+        "quality": {
+          "totalVideoFrames": 350,
+          "droppedVideoFrames": 0,
+          "corruptedVideoFrames": 0
+        },
+        "stalls": [],
+        "error": null,
+        "backgroundFrames": 164
+      },
+      "backFocus": "arc"
+    }
+  ],
+  "errors": [],
+  "initial": {
+    "videoNodes": 0,
+    "mediaRequests": 0
+  },
+  "rapidSwitch": {
+    "time": 12,
+    "paused": true,
+    "volume": 0.45,
+    "muted": false,
+    "src": "https://chengzy0424.github.io/czy/media/csol-demo-audio.mp4?v=20261030-audio"
+  },
+  "filmQuality": {
+    "time": 5.318463,
+    "src": "https://chengzy0424.github.io/czy/media/arc-1080.mp4?v=20261030-audio&retry=1"
+  },
+  "complete": true
+}

@@ -37,7 +37,9 @@ test('rapid category changes leave one accessible panel; keyboard selection matc
 test('details load on demand and return restores opener and scroll',()=>{
  const app=setup();assert.equal(app.document.querySelector('#detail-content').innerHTML,'');
  app.context.scrollY=944;app.click('[data-detail=tower]');assert.equal(app.dialog.open,true);
- assert.ok(app.document.querySelector('#detail-content .actual-screenshot img').getAttribute('src').endsWith('fengshi-gameplay.png'));
+ assert.ok(app.document.querySelector('#detail-content .detail-cover img').getAttribute('src').endsWith('tower-960.webp'));
+ assert.equal(app.document.querySelector('#detail-content video, #detail-content iframe'),null,'opening details must not load media');
+ assert.equal(app.document.querySelector('#detail-content [data-play]').textContent.trim(),'观看玩法演示 ▷');
  assert.ok(app.body.classList.contains('dialog-open'));app.context.scrollY=0;app.click('.detail-return');
  assert.equal(app.dialog.open,false);assert.equal(app.context.scrollY,944);assert.equal(app.focus().dataset.detail,'tower');
  app.click('#tab-software');app.click('[data-detail=boe]');

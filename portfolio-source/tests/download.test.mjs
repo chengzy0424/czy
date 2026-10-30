@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {loadGameResources} from '../../games/download.js';
+import {loadGameResources} from '../public/games/download.js';
 test('retry a truncated part without downloading completed files again; preserve binary order and limit concurrency',async()=>{
  const values={a:new Uint8Array([1,2]),b:new Uint8Array([3,4]),c:new Uint8Array([5]),wasm:new Uint8Array([6,7]),framework:new Uint8Array([8])};
  const calls={};let active=0,peak=0;

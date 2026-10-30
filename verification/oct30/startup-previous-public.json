@@ -1,0 +1,74 @@
+{
+  "audit": {
+    "longTasks": [
+      {
+        "start": 1092.699999999255,
+        "duration": 120
+      },
+      {
+        "start": 1213.6000000014901,
+        "duration": 299
+      }
+    ],
+    "errors": [],
+    "ready": 1512.6000000014901
+  },
+  "paint": [
+    {
+      "name": "first-paint",
+      "start": 432
+    },
+    {
+      "name": "first-contentful-paint",
+      "start": 432
+    }
+  ],
+  "navigation": [
+    {
+      "ttfb": 195,
+      "domReady": 418.30000000074506,
+      "load": 419.30000000074506
+    }
+  ],
+  "resources": [
+    {
+      "name": "https://chengzy0424.github.io/czy/assets/index-DpJOHeer.js",
+      "duration": 216.09999999776483,
+      "bytes": 9031
+    },
+    {
+      "name": "https://chengzy0424.github.io/czy/assets/index-B4WgkSrg.css",
+      "duration": 213.60000000149012,
+      "bytes": 7137
+    },
+    {
+      "name": "https://chengzy0424.github.io/czy/assets/space-BitOI2mF.js",
+      "duration": 194,
+      "bytes": 8270
+    },
+    {
+      "name": "https://chengzy0424.github.io/czy/assets/three-CDySHNit.js",
+      "duration": 659.7999999970198,
+      "bytes": 133515
+    },
+    {
+      "name": "https://chengzy0424.github.io/czy/art/tower-cover.webp",
+      "duration": 1730.800000000745,
+      "bytes": 489372
+    },
+    {
+      "name": "https://chengzy0424.github.io/czy/art/murphy-poster.jpg",
+      "duration": 621.2000000029802,
+      "bytes": 118070
+    }
+  ],
+  "metrics": "{\"frames\":1745,\"points\":44000,\"dpr\":1,\"drawCalls\":23,\"triangles\":24258,\"lastDrawSubmissionMs\":0.30000000074505806,\"quality\":1,\"reduced\":false,\"chapter\":0,\"frameP50\":\"5.6\",\"frameP95\":\"5.7\"}",
+  "conditions": {
+    "viewport": [
+      1440,
+      900
+    ],
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36 Edg/156.0.0.0",
+    "renderer": "isolated headless Edge; no CPU or network throttling; HTTP cache disabled"
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "date": "2026-10-30",
+  "publicUrl": "https://chengzy0424.github.io/czy/",
+  "phase": "local passed; awaiting public verification",
+  "local": {
+    "unitTests": {
+      "passed": 8,
+      "failed": 0
+    },
+    "videoEntries": 9,
+    "errors": [],
+    "viewports": [
+      1440,
+      768,
+      390,
+      320
+    ],
+    "backgroundPausedDuringPlayback": true,
+    "noInitialGameOrVideoDownloads": true,
+    "qualitySwitchPreservesPosition": true,
+    "touchEmulation": true,
+    "physicalPhone": false
+  },
+  "delivery": {
+    "videos": 14,
+    "coverVariants": 27,
+    "faststart": true,
+    "range206": true,
+    "gameBuildsInRelease": false
+  },
+  "cleanup": {
+    "publishedGamePathsRemoved": true,
+    "unitySourceProjectsPreserved": true,
+    "localWebBuildCopiesRemoved": false,
+    "reason": "Automatic approval review rejected the bulk removal with blocked by policy; no detailed reason returned.",
+    "gitHistoryRewritten": false
+  },
+  "limits": [
+    "Local performance numbers are not public-network performance numbers.",
+    "Physical phones, Safari and diverse network conditions have not been verified.",
+    "No claim of pixel-perfect reproduction or universal stable 60 fps."
+  ],
+  "evidence": "oct30/"
+}

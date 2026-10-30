@@ -1,4 +1,8 @@
 portfolio-source/node_modules/
 portfolio-source/public/
 portfolio-source/dist/
+portfolio-source/release-oct30/
+games/
+media/murphy.mp4
+media/hyrum.mp4
 *.log

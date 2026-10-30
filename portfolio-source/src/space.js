@@ -6,7 +6,7 @@ import {damp,clamp,smooth,springStep} from './weave-math.js';
 const vertex=`
  attribute vec3 aMeta; attribute vec3 aTint;
  uniform float uTime,uDpr,uForce,uChapter; uniform vec3 uPointer;
- varying vec3 vTint; varying float vAlpha;
+ varying vec3 vTint; varying float vAlpha,vStreak,vAngle;
  void main(){
   vec3 p=position;float seed=aMeta.x,region=aMeta.y;
   float phase=uTime*(.14+seed*.16)+seed*6.2831;
@@ -18,16 +18,18 @@ const vertex=`
   vec3 d=p-uPointer;float weight=exp(-dot(d.xy,d.xy)*1.25)*uForce;
   p.xy+=normalize(d.xy+vec2(.001))*weight*.65;p.z+=weight*.4;
   vec4 mv=modelViewMatrix*vec4(p,1.);gl_Position=projectionMatrix*mv;
-  gl_PointSize=clamp((1.4+pow(aMeta.z,12.)*17.0)*uDpr*(8./max(4.,-mv.z)),.7,19.*uDpr);
+  vStreak=step(.997,aMeta.z);vAngle=sin(p.y*.6+phase*.3)*.7+.5;
+  gl_PointSize=clamp((1.1+pow(aMeta.z,32.)*10.0+vStreak*14.)*uDpr*(8./max(4.,-mv.z)),.7,25.*uDpr);
   vTint=aTint;vAlpha=(.24+seed*.52)*(1.-smoothstep(10.,32.,-mv.z));
   if(region>2.5)vAlpha*=smoothstep(.35,.8,uChapter)*(1.-smoothstep(1.2,1.7,uChapter));
  }`;
-const fragment=`varying vec3 vTint;varying float vAlpha;void main(){float r=length(gl_PointCoord-.5);if(r>.5)discard;float a=(1.-smoothstep(.28,.5,r))*vAlpha;gl_FragColor=vec4(vTint*(1.+(1.-smoothstep(0.,.14,r))*.3),a);
+const fragment=`varying vec3 vTint;varying float vAlpha,vStreak,vAngle;void main(){vec2 uv=gl_PointCoord-.5;uv=mat2(cos(vAngle),-sin(vAngle),sin(vAngle),cos(vAngle))*uv;uv.x*=mix(1.,5.,vStreak);float r=length(uv);if(r>.5)discard;float a=(1.-smoothstep(.05,.5,r))*vAlpha;gl_FragColor=vec4(vTint*(1.+(1.-smoothstep(0.,.14,r))*.45),a);
 #include <tonemapping_fragment>
 #include <colorspace_fragment>
 }`;
 
-export function createSpace({container,state,onFailure=()=>{},onSelect=()=>{}}){
+export async function createSpace({container,state,onFailure=()=>{},onSelect=()=>{}}){
+ const yieldControl=()=>globalThis.scheduler?.yield?globalThis.scheduler.yield():new Promise(resolve=>setTimeout(resolve,0));
  const mobile=matchMedia('(max-width:760px)').matches,coarse=matchMedia('(pointer:coarse)').matches;
  const renderer=new T.WebGLRenderer({antialias:true,alpha:false,powerPreference:'high-performance'});
  renderer.outputColorSpace=T.SRGBColorSpace;renderer.toneMapping=T.ACESFilmicToneMapping;renderer.toneMappingExposure=.86;
@@ -38,13 +40,15 @@ export function createSpace({container,state,onFailure=()=>{},onSelect=()=>{}}){
  for(const [color,x,y,z,w,h] of [[0x8ef1f0,-4,1,2,.7,7],[0xc83c9f,4,0,-2,.55,5],[0xe3eee6,0,5,1,4,.7],[0xd0dcd6,2,1,5,.4,5],[0x4133b1,-2,-3,-4,3,1],[0x52636a,-2,0,7,4,5]]){
   const panel=new T.Mesh(new T.PlaneGeometry(w,h),new T.MeshBasicMaterial({color,side:T.DoubleSide}));panel.material.color.multiplyScalar(4);panel.position.set(x,y,z);panel.lookAt(0,0,0);environment.add(panel);
  }
- const pmrem=new T.PMREMGenerator(renderer),env=pmrem.fromScene(environment,.03);scene.environment=env.texture;scene.environmentIntensity=.8;environment.traverse(o=>{o.geometry?.dispose();o.material?.dispose();});pmrem.dispose();
+ await yieldControl();
+ const pmrem=new T.PMREMGenerator(renderer),env=pmrem.fromScene(environment,.03,.1,100,{size:128});scene.environment=env.texture;scene.environmentIntensity=.8;environment.traverse(o=>{o.geometry?.dispose();o.material?.dispose();});pmrem.dispose();
+ await yieldControl();
  let raf=0,disposed=false,lost=false,time=0,last=0,progress=state.chapter||0,force=0,forceVelocity=0,desiredForce=0,quality=1,frames=0,drawMs=0,frameTimes=[],slowWindows=0;
  renderer.debug.onShaderError=(gl,program,vertexShader,fragmentShader)=>{
   console.error('Spatial scene shader compilation failed.',gl.getProgramInfoLog(program),gl.getShaderInfoLog(vertexShader),gl.getShaderInfoLog(fragmentShader));
   lost=true;pause();document.body.classList.remove('webgl-ready');onFailure();
  };
- const world=buildWorld({mobile,onTexture:()=>wake()});scene.add(world.world);
+ const world=await buildWorld({mobile,yieldControl,onTexture:()=>wake()});scene.add(world.world);
  const key=new T.PointLight(0xb2ebf0,62,26,2),rim=new T.PointLight(0xde329a,55,22,2),fill=new T.PointLight(0x6db5b5,18,22,2);scene.add(key,rim,fill);
  const redLight=new T.PointLight(0xe61458,29,7,2);redLight.position.set(.4,-26,1);scene.add(redLight);
  const count=mobile?11000:44000,points=particleField(count,mobile),geo=new T.BufferGeometry();
@@ -82,12 +86,17 @@ export function createSpace({container,state,onFailure=()=>{},onSelect=()=>{}}){
   world.lens.rotation.y=-.3+(reduced?0:Math.sin(time*.21)*.13)+smooth(clamp(progress))*.45;
   world.lens.rotation.z=-.08+(reduced?0:Math.sin(time*.17)*.025);
   world.arcs.rotation.y=reduced?0:Math.sin(time*.14)*.08;
+  const unfold=smooth(clamp(progress))*Math.PI*.32;
+  world.arcs.rotation.z=-unfold*.32;world.arcs.scale.x=1+smooth(clamp(progress))*.65;
+  world.flowUniforms.uTime.value=reduced?0:time;world.flowUniforms.uEnergy.value=Math.sin(Math.PI*(progress%1))**2;
+  for(const jelly of world.jellyfish){const pulse=reduced?0:Math.sin(time*1.25+jelly.phase);jelly.group.position.copy(jelly.base);jelly.group.position.y+=pulse*.07;jelly.group.rotation.y=reduced?0:Math.sin(time*.19+jelly.phase)*.2;jelly.bell.scale.set(1+pulse*.045,1-pulse*.035,1+pulse*.045);jelly.strands.rotation.z=reduced?0:Math.sin(time*.65+jelly.phase)*.065;}
   world.intro.material.opacity=smooth(clamp((progress-.25)/.45))*(1-smooth(clamp((progress-1.15)/.45)));
   world.gallery.rotation.y=(progress-2)*.43;
+  if(progress>.75)world.loadCovers();
   world.tendrils.rotation.y=reduced?0:time*.025;
-  world.rotor.rotation.y=reduced?0:time*.045;
+  world.rotor.rotation.y=(reduced?0:time*.045)+smooth(clamp(progress-3))*1.5;
   world.machine.rotation.y=.08+Math.sin(reduced?0:time*.1)*.06;
-  world.lab.rotation.y=-.16+(reduced?0:Math.sin(time*.13)*.035);
+  world.lab.rotation.y=-.16+(reduced?0:Math.sin(time*.13)*.035)+(1-smooth(clamp(progress-4)))*.8;
   // Far chapters remain in world coordinates; culling only removes unseen draw calls.
   for(const group of [world.emblem,world.gallery,world.machine,world.lab])group.visible=Math.abs(group.position.y-pose.look[1])<14;
   scene.updateMatrixWorld(true);pick();
@@ -95,6 +104,7 @@ export function createSpace({container,state,onFailure=()=>{},onSelect=()=>{}}){
   for(const card of world.cards){
    card.hover=reduced?(hovered===card?1:0):damp(card.hover,hovered===card?1:0,dt,10);
    card.group.position.copy(card.home);card.group.position.z+=card.hover*.17;
+   card.group.position.y+=(reduced?0:Math.sin(time*.24+card.home.x)*.045);
    card.group.rotation.y=card.spec.rotation-card.hover*.025;
    card.edge.material.emissive.set(0xa6e4d4);card.edge.material.emissiveIntensity=card.hover*.35;
   }
@@ -117,6 +127,10 @@ export function createSpace({container,state,onFailure=()=>{},onSelect=()=>{}}){
  function visibility(){document.hidden?pause():wake();}
  function contextLost(e){e.preventDefault();lost=true;pause();document.body.classList.remove('webgl-ready');onFailure();}
  function contextRestored(){lost=false;document.body.classList.remove('webgl-failed');resize();}
+ // Compile shaders asynchronously where KHR_parallel_shader_compile is available.
+ // Geometry generation yields between sections; first paint never waits on these assets.
+ camera.position.set(0,0,10.5);camera.lookAt(0,0,0);
+ await yieldControl();await renderer.compileAsync(scene,camera);
  window.addEventListener('pointermove',onMove,{passive:true});window.addEventListener('pointerdown',onDown,{passive:true});window.addEventListener('pointerup',onUp,{passive:true});
  document.addEventListener('pointerleave',onLeave);document.addEventListener('visibilitychange',visibility);window.addEventListener('blur',onLeave);window.addEventListener('resize',resize);
  renderer.domElement.addEventListener('webglcontextlost',contextLost);renderer.domElement.addEventListener('webglcontextrestored',contextRestored);resize();

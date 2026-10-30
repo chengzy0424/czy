@@ -1,0 +1,55 @@
+{
+  "audit": {
+    "longTasks": [],
+    "errors": [],
+    "ready": 240.79999999701977
+  },
+  "paint": [
+    {
+      "name": "first-paint",
+      "start": 28
+    },
+    {
+      "name": "first-contentful-paint",
+      "start": 28
+    }
+  ],
+  "navigation": [
+    {
+      "ttfb": 3.5,
+      "domReady": 16.899999998509884,
+      "load": 17.899999998509884
+    }
+  ],
+  "resources": [
+    {
+      "name": "http://127.0.0.1:4177/assets/index-hEJYp-c7.js",
+      "duration": 4.199999999254942,
+      "bytes": 9295
+    },
+    {
+      "name": "http://127.0.0.1:4177/assets/index-DjuTHt1Q.css",
+      "duration": 4.300000000745058,
+      "bytes": 7670
+    },
+    {
+      "name": "http://127.0.0.1:4177/assets/space-y_0sjlBB.js",
+      "duration": 3.800000000745058,
+      "bytes": 9357
+    },
+    {
+      "name": "http://127.0.0.1:4177/assets/three-BdjWzZeP.js",
+      "duration": 13.199999999254942,
+      "bytes": 133336
+    }
+  ],
+  "metrics": "{\"frames\":1976,\"points\":44000,\"dpr\":1,\"drawCalls\":46,\"triangles\":41570,\"lastDrawSubmissionMs\":0.30000000074505806,\"quality\":1,\"reduced\":false,\"chapter\":0,\"frameP50\":\"5.6\",\"frameP95\":\"5.7\"}",
+  "conditions": {
+    "viewport": [
+      1440,
+      900
+    ],
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36 Edg/156.0.0.0",
+    "renderer": "isolated headless Edge; no CPU or network throttling; HTTP cache disabled"
+  }
+}

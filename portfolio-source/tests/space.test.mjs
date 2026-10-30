@@ -23,17 +23,17 @@ test('all five chapters share a finite continuous and reversible camera path',()
  assert.equal(scrollToChapter(4400,anchors),4+200/1300);
 });
 
-function geometryWorld(mobile=false){
+async function geometryWorld(mobile=false){
  // No browser renderer here: fake only the 2D cover painter so actual Three geometry can be checked.
  const gradient={addColorStop(){}};
  const context=new Proxy({}, {get:(_,key)=>key==='createLinearGradient'?()=>gradient:()=>{},set:()=>true});
  const doc={createElement:()=>({width:0,height:0,getContext:()=>context})};
  const previous=globalThis.Image;globalThis.Image=class{set src(_) {}};
- const world=buildWorld({mobile,documentRef:doc});globalThis.Image=previous;return world;
+ const world=await buildWorld({mobile,documentRef:doc});globalThis.Image=previous;return world;
 }
-test('solid emblem, corrugated spine, mechanical chamber and honeycomb have finite 3D geometry',()=>{
+test('solid emblem, corrugated spine, mechanical chamber and honeycomb have finite 3D geometry',async()=>{
  for(const mobile of [false,true]){
-  const w=geometryWorld(mobile);let triangles=0,meshes=0;
+  const w=await geometryWorld(mobile);let triangles=0,meshes=0;
   w.world.traverse(o=>{if(!o.geometry)return;meshes++;const pos=o.geometry.getAttribute('position');assert.ok([...pos.array].every(Number.isFinite));triangles+=(o.geometry.index?.count||pos.count)/3*(o.isInstancedMesh?o.count:1);});
   const rim=w.lens.children[0];rim.geometry.computeBoundingBox();const size=rim.geometry.boundingBox.getSize(new T.Vector3());
   assert.ok(size.x>2.4&&size.z>.2,'emblem must have real thickness');
@@ -44,11 +44,11 @@ test('solid emblem, corrugated spine, mechanical chamber and honeycomb have fini
   console.log(JSON.stringify({mobile,meshes,triangles,honeycombCells:honey.count}));w.dispose();
  }
 });
-test('gallery boards have varying depth, actual thickness and project metadata',()=>{
- const w=geometryWorld();assert.equal(w.cards.length,4);const z=w.cards.map(c=>c.home.z);assert.ok(Math.max(...z)-Math.min(...z)>5);
+test('gallery boards have varying depth, actual thickness and project metadata',async()=>{
+ const w=await geometryWorld();assert.equal(w.cards.length,4);const z=w.cards.map(c=>c.home.z);assert.ok(Math.max(...z)-Math.min(...z)>5);
  w.cards.forEach(c=>{c.base.geometry.computeBoundingBox();assert.ok(c.base.geometry.boundingBox.getSize(new T.Vector3()).z>.05);assert.ok(c.face.userData.detail);assert.equal(c.face.material.depthTest,true);});
  assert.equal(CARD_SPECS.find(c=>c.id==='boe').image,undefined,'no fabricated BOE screenshot');
- assert.match(CARD_SPECS.find(c=>c.id==='lab').note,/筹备中/);w.dispose();
+ assert.match(CARD_SPECS.find(c=>c.id==='lab').note,/空格里的小镇/);w.dispose();
 });
 test('emblem and machine core remain in the viewport at target desktop and phone sizes',()=>{
  for(const [width,height,mobile] of [[1920,1080,false],[1440,900,false],[1024,768,false],[390,844,true],[320,720,true]]){

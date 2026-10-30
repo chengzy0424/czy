@@ -16,41 +16,56 @@ function torus(parent,r,t,mat,pos=[0,0,0],horizontal=false){const m=mesh(new T.T
 function roundedShape(w,h,r){const s=new T.Shape(),x=-w/2,y=-h/2;s.moveTo(x+r,y);s.lineTo(x+w-r,y);s.quadraticCurveTo(x+w,y,x+w,y+r);s.lineTo(x+w,y+h-r);s.quadraticCurveTo(x+w,y+h,x+w-r,y+h);s.lineTo(x+r,y+h);s.quadraticCurveTo(x,y+h,x,y+h-r);s.lineTo(x,y+r);s.quadraticCurveTo(x,y,x+r,y);return s;}
 function setUV(geo,w,h){const p=geo.attributes.position,uv=new Float32Array(p.count*2);for(let i=0;i<p.count;i++){uv[i*2]=p.getX(i)/w+.5;uv[i*2+1]=p.getY(i)/h+.5;}geo.setAttribute('uv',new T.BufferAttribute(uv,2));return geo;}
 
-export function buildWorld({mobile=false,documentRef=document,onTexture=()=>{}}={}){
+export async function buildWorld({mobile=false,documentRef=document,onTexture=()=>{},yieldControl=()=>Promise.resolve()}={}){
  const world=new T.Group(),pickables=[],opaque=[],textures=[],cards=[];
  const chrome=new T.MeshPhysicalMaterial({color:0xa7b8bd,metalness:.97,roughness:.18,clearcoat:1,clearcoatRoughness:.12,iridescence:.9,iridescenceIOR:1.4,iridescenceThicknessRange:[180,520],envMapIntensity:1.65});
  const dark=new T.MeshStandardMaterial({color:0x10191c,metalness:.92,roughness:.3,envMapIntensity:1.1});
  const rose=new T.MeshPhysicalMaterial({color:0x531227,metalness:.9,roughness:.24,clearcoat:1,envMapIntensity:1.6});
  const silver=new T.MeshStandardMaterial({color:0xb3c5c3,metalness:.96,roughness:.24});
  const glow=new T.MeshBasicMaterial({color:0x842447,toneMapped:true});
- const glass=new T.MeshPhysicalMaterial({color:0xb9cbcf,metalness:mobile?.7:.18,roughness:.13,transmission:mobile?0:.42,thickness:.3,ior:1.46,clearcoat:1,iridescence:1,iridescenceIOR:1.35,iridescenceThicknessRange:[180,460],envMapIntensity:1.6});
+ const glass=new T.MeshPhysicalMaterial({color:0xb9cbcf,metalness:.68,roughness:.16,transmission:0,thickness:.3,ior:1.46,clearcoat:1,iridescence:1,iridescenceIOR:1.35,iridescenceThicknessRange:[180,460],envMapIntensity:1.6});
  const emblem=new T.Group();emblem.position.set(2,0,0);world.add(emblem);
  const lens=new T.Group();emblem.add(lens);
  // Elliptical tube cross section: changing normals create a narrow, angle-dependent highlight.
- const ringGeo=new T.TorusGeometry(1.12,.082,20,160);ringGeo.scale(1,1,1.85);
+ const ringGeo=new T.TorusGeometry(1.12,.092,20,144);ringGeo.scale(1,1,1.85);
  const rim=mesh(ringGeo,glass,lens);opaque.push(rim);
  torus(lens,1.21,.012,silver,[0,0,.12]);torus(lens,1.045,.01,rose,[0,0,.13]);
  // Original ZY monogram, not the reference studio's trademark.
- const z=new T.Shape();z.moveTo(-.52,.43);z.lineTo(.48,.43);z.lineTo(.48,.27);z.lineTo(-.22,-.29);z.lineTo(.5,-.29);z.lineTo(.5,-.46);z.lineTo(-.5,-.46);z.lineTo(-.5,-.28);z.lineTo(.23,.26);z.lineTo(-.52,.26);z.closePath();
- opaque.push(mesh(extruded(z,.16,.028),chrome,lens,[0,0,.01]));
- lens.add(tube([[-.36,.66,-.08],[0,.24,.04],[.38,.65,-.08]],.027,silver,24));
+ // Z follows one rounded, folding stroke. Varying depth reveals a continuous chrome surface.
+ const zCurve=new T.CatmullRomCurve3([[-.49,.4,.03],[.04,.43,.12],[.47,.37,.04],[.25,.12,-.05],[-.3,-.28,.07],[-.43,-.4,.17],[.02,-.45,.2],[.49,-.36,.05]].map(p=>new T.Vector3(...p)),false,'centripetal');
+ const zGeo=new T.TubeGeometry(zCurve,110,.065,12,false);zGeo.scale(1,1,1.65);const zMark=mesh(zGeo,chrome,lens);opaque.push(zMark);
+ lens.add(tube([[-.36,.68,-.08],[0,.28,.06],[.38,.67,-.08]],.03,silver,30));
  lens.rotation.y=-.3;lens.rotation.z=-.08;
  const arcs=new T.Group();emblem.add(arcs);
  for(let k=0;k<2;k++){
   const pts=[];for(let i=0;i<=80;i++){const t=i/80;pts.push([(k?1:-1)*Math.sin(t*Math.PI*1.37)*1.13,-.48-t*4.4,Math.cos(t*Math.PI*2+k)*.4]);}
   arcs.add(tube(pts,.014,k?rose:chrome,160));
  }
- for(let i=0;i<3;i++){const m=mesh(new T.ConeGeometry(.028,.85,6),silver,emblem,[2.1+i*.38,2.3+i*.18,-1-i*.45]);m.rotation.z=-.7;}
- const satellite=torus(emblem,.36,.035,rose,[-3.9,2.2,-2]);satellite.rotation.x=1.15;
+ const jellyfish=[];
+ for(let j=0;j<2;j++){
+  const jelly=new T.Group();jelly.position.set(j?3.05:-2.25,j?-1.45:2.2,j?-2.5:-1.9);jelly.scale.setScalar(j?.55:.72);jelly.rotation.z=j?-.24:.14;emblem.add(jelly);
+  const profile=[];for(let n=0;n<=24;n++){const a=n/24*Math.PI*.51;profile.push(new T.Vector2(.55*Math.sin(a)*(1+.025*Math.sin(a*8)),.72*Math.cos(a)));}
+  const membrane=new T.MeshPhysicalMaterial({color:j?0x6dbbbf:0x8c254e,metalness:.5,roughness:.2,clearcoat:1,iridescence:1,iridescenceThicknessRange:[220,480],transparent:true,opacity:.36,depthWrite:false,side:T.DoubleSide,envMapIntensity:1.15});
+  const bell=mesh(new T.LatheGeometry(profile,mobile?24:40),membrane,jelly);torus(jelly,.55,.014,j?chrome:rose,[0,0,0],true);
+  const strands=new T.Group();jelly.add(strands);
+  for(let k=0;k<(mobile?6:10);k++){const a=k/10*Math.PI*2,r=.2+(k%3)*.12,pts=[];for(let n=0;n<=20;n++){const t=n/20;pts.push([Math.cos(a)*r+Math.sin(t*6+k)*.07*t,-t*(1.5+(k%3)*.32),Math.sin(a)*r+Math.cos(t*5+k)*.07*t]);}strands.add(tube(pts,k%3===0?.009:.004,j?chrome:rose,40));}
+  jellyfish.push({group:jelly,bell,strands,base:jelly.position.clone(),scale:jelly.scale.x,phase:j*2.4});
+ }
+ const flowUniforms={uTime:{value:0},uEnergy:{value:0},uColor:{value:new T.Color(0xb3d8d9)}};
+ const flowMaterial=new T.ShaderMaterial({uniforms:flowUniforms,transparent:true,depthWrite:false,vertexShader:'varying float vAlong;void main(){vAlong=uv.x;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}',fragmentShader:'uniform float uTime,uEnergy;uniform vec3 uColor;varying float vAlong;void main(){float p=fract(vAlong-uTime*.16);float a=pow(1.-p,16.);gl_FragColor=vec4(uColor*(.7+a*.7),(.08+a*.65)*(1.+uEnergy*.3));\n#include <tonemapping_fragment>\n#include <colorspace_fragment>\n}'});
+ const streamers=new T.Group();emblem.add(streamers);
+ for(let k=0;k<(mobile?5:11);k++){const x=2.6+k*.22,y=1.4+k*.13,z=-1-k*.45;streamers.add(tube([[x+1.8,y+2,z-3],[x+.9,y+.7,z-1.5],[x,y,z],[x-.6,y-1.2,z+1]],k%3?.006:.013,flowMaterial,42));}
+ await yieldControl();
 
  function canvasTexture(width,height,draw){
   const canvas=documentRef.createElement('canvas');canvas.width=width;canvas.height=height;const ctx=canvas.getContext('2d');draw(ctx,canvas);
   const texture=new T.CanvasTexture(canvas);texture.colorSpace=T.SRGBColorSpace;texture.anisotropy=4;textures.push(texture);return {canvas,ctx,texture};
  }
  const introTexture=canvasTexture(1536,1024,c=>{c.clearRect(0,0,1536,1024);c.fillStyle='#e2e9e5';c.font='200 188px "Segoe UI", sans-serif';['CODE','PLAY','CREATE'].forEach((s,i)=>c.fillText(s,26,235+i*216));});
- const intro=mesh(new T.PlaneGeometry(7.1,4.73),new T.MeshBasicMaterial({map:introTexture.texture,transparent:true,depthWrite:false,opacity:0}),world,[-1.3,.2,-1.7]);
+ const intro=mesh(new T.PlaneGeometry(4.8,3.2),new T.MeshBasicMaterial({map:introTexture.texture,transparent:true,depthWrite:false,opacity:0}),world,[-.8,.5,-3]);
 
  const gallery=new T.Group();gallery.position.y=-13;world.add(gallery);
+ const coverLoaders=[];let coversLoaded=false;
  // Corrugated, twisted shell rather than a smooth tube: real silhouette and surface normals.
  const seg=mobile?40:64,rows=mobile?100:180,positions=[],indices=[];
  for(let j=0;j<=rows;j++)for(let i=0;i<=seg;i++){
@@ -87,7 +102,7 @@ export function buildWorld({mobile=false,documentRef=document,onTexture=()=>{}}=
   let cover;
   const draw=c=>{
    c.clearRect(0,0,1280,840);c.fillStyle='#122225';c.fillRect(0,0,1280,840);
-   if(cover){const scale=Math.max(1280/cover.width,840/cover.height);c.globalAlpha=.7;c.drawImage(cover,(1280-cover.width*scale)/2,(840-cover.height*scale)/2,cover.width*scale,cover.height*scale);c.globalAlpha=1;}
+   if(cover){const scale=Math.max(1280/cover.width,840/cover.height);c.globalAlpha=.9;c.drawImage(cover,(1280-cover.width*scale)/2,(840-cover.height*scale)/2,cover.width*scale,cover.height*scale);c.globalAlpha=1;}
    // Non-public HMI and planned work use honest typographic covers, never fabricated UI.
    if(!spec.image){c.strokeStyle=spec.id==='boe'?'#447b79':'#6a587b';c.lineWidth=1;for(let i=0;i<7;i++){c.beginPath();c.ellipse(940,410,110+i*45,160+i*27,-.3,0,Math.PI*2);c.stroke();}}
    const shade=c.createLinearGradient(0,0,0,840);shade.addColorStop(0,'rgba(4,10,14,.25)');shade.addColorStop(.43,'rgba(4,10,14,.22)');shade.addColorStop(1,'rgba(4,10,14,.96)');c.fillStyle=shade;c.fillRect(0,0,1280,840);
@@ -100,9 +115,11 @@ export function buildWorld({mobile=false,documentRef=document,onTexture=()=>{}}=
   const face=mesh(setUV(new T.ShapeGeometry(shape,8),3.5,2.3),new T.MeshBasicMaterial({map:surface.texture,side:T.FrontSide,transparent:true,opacity:.9,depthWrite:false}),group,[0,0,.044]);
   face.userData.detail=spec.id;pickables.push(face);opaque.push(base,edge);
   cards.push({group,face,edge,base,spec,hover:0,home:group.position.clone()});
-  if(spec.image){const img=new Image();img.onload=()=>{cover=img;draw(surface.ctx);surface.texture.needsUpdate=true;onTexture();};img.onerror=()=>console.warn('Gallery cover unavailable:',spec.image);img.src=spec.image;}
+  if(spec.image)coverLoaders.push(()=>{const img=new Image();img.decoding='async';img.onload=()=>{cover=img;draw(surface.ctx);surface.texture.needsUpdate=true;onTexture();};img.onerror=()=>console.warn('Gallery cover unavailable:',spec.image);img.src=spec.image;});
+  await yieldControl();
  }
 
+ await yieldControl();
  const machine=new T.Group();machine.position.set(0,-27,0);world.add(machine);
  const rotor=new T.Group();machine.add(rotor);
  for(const y of [-2.15,-1.93,1.8,2.08]){
@@ -122,6 +139,7 @@ export function buildWorld({mobile=false,documentRef=document,onTexture=()=>{}}=
  const floor=mesh(floorGeo,new T.MeshPhysicalMaterial({color:0x08040c,metalness:.85,roughness:.24,clearcoat:1,envMapIntensity:.25}),machine,[0,-2.27,0]);floor.rotation.x=-Math.PI/2;
  for(let i=0;i<5;i++){const r=2.65+i*.46;const pts=[];for(let j=0;j<=100;j++){const a=j/100*Math.PI*2;pts.push([Math.cos(a)*r,-2.25+.09*Math.sin(a*8+i),Math.sin(a)*r]);}machine.add(tube(pts,.016,i%2?rose:dark,100,true));}
 
+ await yieldControl();
  const lab=new T.Group();lab.position.set(0,-40,0);world.add(lab);
  const hex=new T.Shape(),hole=new T.Path(),r=.205;for(let i=0;i<=6;i++){const a=i/6*Math.PI*2;const x=Math.cos(a)*r,y=Math.sin(a)*r;i?hex.lineTo(x,y):hex.moveTo(x,y);}for(let i=0;i<=6;i++){const a=-i/6*Math.PI*2;const x=Math.cos(a)*r*.83,y=Math.sin(a)*r*.83;i?hole.lineTo(x,y):hole.moveTo(x,y);}hex.holes.push(hole);
  const cells=[];for(let col=-12;col<=12;col++)for(let row=-6;row<=6;row++){
@@ -137,7 +155,7 @@ export function buildWorld({mobile=false,documentRef=document,onTexture=()=>{}}=
  lab.add(tube([[0,-.4,.3],[0,.1,.3]],.023,silver,8));lab.add(tube([[-.25,-.15,.3],[.25,-.15,.3]],.023,silver,8));
  const backdrop=mesh(new T.PlaneGeometry(8,5),new T.MeshStandardMaterial({color:0x040a0d,metalness:.45,roughness:.5}),lab,[0,0,-.11]);
  lab.rotation.y=-.16;lab.rotation.z=.055;
- return {world,emblem,lens,arcs,intro,gallery,spine,tendrils,cardDeck,cards,machine,rotor,lab,pickables,opaque,textures,materials:{chrome,dark,rose},dispose(){world.traverse(o=>{o.geometry?.dispose();if(o.material)for(const m of Array.isArray(o.material)?o.material:[o.material])m.dispose();});textures.forEach(t=>t.dispose());}};
+ return {world,emblem,lens,arcs,jellyfish,streamers,flowUniforms,intro,gallery,spine,tendrils,cardDeck,cards,machine,rotor,lab,pickables,opaque,textures,loadCovers(){if(!coversLoaded){coversLoaded=true;coverLoaders.forEach(load=>load());}},materials:{chrome,dark,rose},dispose(){world.traverse(o=>{o.geometry?.dispose();if(o.material)for(const m of Array.isArray(o.material)?o.material:[o.material])m.dispose();});textures.forEach(t=>t.dispose());}};
 }
 
 export function particleField(count,mobile=false){

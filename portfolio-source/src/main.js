@@ -51,7 +51,7 @@ function selectCategory(id,focus=false){
    animations.push(panel.querySelector('.project-copy').animate([{opacity:0,transform:'translateX(-20px)'},{opacity:1,transform:'translateX(0)'}],{duration:480,delay:90,fill:'backwards',easing:'ease-out'}));
   }else {panel.querySelectorAll('article,.planned-work').forEach((item,i)=>animations.push(item.animate([{opacity:.2,clipPath:'inset(0 100% 0 0)'},{opacity:1,clipPath:'inset(0)'}],{duration:520,delay:i*70,fill:'backwards',easing:'ease-out'})));}
  }
- $('#panel-announcement').textContent='已切换到'+({unity:'Unity 游戏：四款可试玩项目',software:'软件开发：BOE 实习经历',films:'AE 影像：两部个人影片',lab:'AIGC：筹备中'}[id])+'。';
+ $('#panel-announcement').textContent='已切换到'+({unity:'Unity 游戏：四款项目实机演示',software:'软件开发：BOE 实习经历',films:'AE 影像：三部个人影片',lab:'AIGC：两部视觉短片'}[id])+'。';
  syncProgress();
 }
 tabs.forEach((tab,i)=>{
@@ -68,16 +68,13 @@ tabs.forEach((tab,i)=>{
 });
 
 const details={
- ae:'<p class="project-type">AE / PERSONAL FILMS</p><h2 class="detail-heading" id="detail-title">让想法，变成画面。</h2><div class="film-detail-grid"><figure><img src="./art/murphy-poster.jpg" alt="墨菲定律个人影片的真实画面"/><figcaption>墨菲定律</figcaption></figure><figure><img src="./art/hyrum-poster.jpg" alt="海勒姆定律个人影片的真实画面"/><figcaption>海勒姆定律</figcaption></figure></div><div class="detail-copy"><p>两部个人影像作品。这里展示的封面来自实际影片。</p><p>完整视频播放入口将在作品集完整版接入。</p></div>',
- lab:'<p class="project-type">EXPERIMENTS / PLANNED</p><h2 class="detail-heading" id="detail-title">THE LAB · 下一次探索</h2><div class="detail-copy"><p><strong>AIGC 影像：筹备中。</strong><br/>目前没有可公开展示的成片。</p><p><strong>ARPG 游戏：计划阶段。</strong><br/>未来将在这里记录开发进展和可体验的版本。</p></div>',
- tower:'<p class="project-type">UNITY / C# / 策略塔防</p><h2 class="detail-heading" id="detail-title">Tower Defense · 烽誓守望</h2><img class="detail-image" src="./art/fengshi-gameplay.png" width="1600" height="900" alt="烽誓守望 Windows 构建的真实游戏画面：道路、建造点与波次控制"/><p class="detail-caption">Windows 构建的真实游戏画面</p><div class="detail-copy"><p><strong>围绕部署与波次展开的策略塔防。</strong>利用道路和地形布置防御塔，在敌人波次之间调整布局；英雄与援军共同参与战线防守。</p><p>项目展示关注玩家的操作路径：选择建造位置、部署防线、发起下一波，以及从战场反馈中作出下一次决策。</p></div>',
  boe:'<p class="project-type">ANDROID / KOTLIN / HMI</p><h2 class="detail-heading" id="detail-title">BOE · 智能设备交互 Demo</h2><div class="detail-copy"><p><strong>京东方（BOE）精电显示技术有限公司</strong><br/>PSV 开发部产品开发科 · 电子设计岗</p><p>参与咖啡机、工业 CNC、3D 打印机、洗衣机四款设备的 HMI 界面开发。根据需求梳理操作流程和页面结构，完成高保真 UI、控件与状态设计。</p><p>在 Android Studio 中使用 XML、ConstraintLayout 与 Material Design 组件搭建页面；使用 Kotlin 实现页面跳转、参数设置、状态切换、进度动画、报警弹窗和模式切换。</p><p>通过模拟数据验证操作流程，参与项目评审并根据反馈迭代。最终交付四款可操作 Demo，用于内部验证和演示。</p><p><strong>公开说明：</strong>当前展示经历与职责，界面与视频待确认公开范围后补充。</p></div>'
 };
 function openDetail(id,opener){
- const html=id==='games'?gameList():games[id]?gameDetail(id):id==='ae'?filmList():details[id];
+ const html=id==='games'?gameList():games[id]?gameDetail(id):id==='ae'?filmList('ae'):id==='lab'?filmList('aigc'):details[id];
  if(!html)return;
  if(!dialog.open){lastOpener=opener;savedScroll=scrollY;}state.modal=true;engine?.pause();
- releaseMedia($('#detail-content'));$('#detail-content').innerHTML=html;
+ releaseMedia($('#detail-content'));$('#detail-content').classList.remove('is-playing');$('#detail-content').innerHTML=html;
  document.documentElement.classList.add('dialog-open');document.body.classList.add('dialog-open');
  if(!dialog.open)dialog.showModal();dialog.scrollTop=0;$('.dialog-close').focus({preventScroll:true});
  if(!state.reduced)dialog.animate([{opacity:0,transform:'translateY(12px) scale(.985)'},{opacity:1,transform:'none'}],{duration:280,easing:'cubic-bezier(.2,.8,.2,1)'});
@@ -86,7 +83,7 @@ document.addEventListener('click',event=>{
  const detail=event.target.closest('[data-detail]');if(detail){openDetail(detail.dataset.detail,detail);return;}
  const play=event.target.closest('[data-play]');if(play){startMedia('game',play.dataset.play,$('#player-slot'));return;}
  const film=event.target.closest('[data-film]');if(film){
-  if(!dialog.open)openDetail('ae',film);
+  if(!dialog.open)openDetail(films[film.dataset.film]?.group==='aigc'?'lab':'ae',film);
   startMedia('film',film.dataset.film,$('#player-slot'));
  }
 });
@@ -113,14 +110,14 @@ async function loadEngine(){
  if(initRequested)return;initRequested=true;
  try{
   const {createSpace}=await import('./space.js');
-  engine=createSpace({container:$('#visual'),state,onFailure:()=>{document.body.classList.add('webgl-failed');syncProgress();},onSelect:id=>openDetail(id==='tower'?'games':id,document.querySelector('.spatial-menu [data-detail="'+(id==='tower'?'games':id)+'"]'))});
+  engine=await createSpace({container:$('#visual'),state,onFailure:()=>{document.body.classList.add('webgl-failed');syncProgress();},onSelect:id=>openDetail(id==='tower'?'games':id,document.querySelector('.spatial-menu [data-detail="'+(id==='tower'?'games':id)+'"]'))});
   if(new URLSearchParams(location.search).has('inspect')){
    const output=document.createElement('output');output.id='prototype-metrics';output.style.cssText='position:fixed;bottom:8px;left:8px;z-index:70;max-width:90vw;background:#102522;color:#e8f0eb;font:11px monospace;padding:8px;pointer-events:none';
    document.body.append(output);setInterval(()=>{const m=engine.metrics(),s=m.frameTimesMs.sort((a,b)=>a-b);output.textContent=JSON.stringify({...m,frameTimesMs:undefined,frameP50:s.length?s[Math.floor(s.length*.5)].toFixed(1):null,frameP95:s.length?s[Math.floor(s.length*.95)].toFixed(1):null});},1000);
   }
  }catch(error){document.body.classList.add('webgl-failed');$('#interaction-hint').textContent='静态构图 · 作品可正常浏览';console.error('Particle scene unavailable; static portfolio retained.',error);}
 }
-requestAnimationFrame(()=>requestAnimationFrame(loadEngine));
+requestAnimationFrame(()=>{if('requestIdleCallback' in window)requestIdleCallback(loadEngine,{timeout:1200});else setTimeout(loadEngine,180);});
 window.addEventListener('pagehide',event=>{if(!event.persisted)engine?.dispose();else engine?.pause();});
 window.addEventListener('pageshow',()=>engine?.wake());
 

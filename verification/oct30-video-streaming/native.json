@@ -1,0 +1,10 @@
+{
+  "scope": "Native HLS branch in desktop Edge; not a Safari-device claim",
+  "nativeSrc": "http://127.0.0.1:4181/media/stream-v1/csol/master.m3u8",
+  "state": {
+    "time": 30,
+    "paused": true,
+    "volume": 0.45
+  },
+  "resumed": true
+}

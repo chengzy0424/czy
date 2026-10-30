@@ -25,7 +25,7 @@ export function createStreamPlayer({video,path,levels,fallback,onStatus,onQualit
    if(!disposed&&e.name==='NotAllowedError')onStatus('点击播放按钮开始观看');
   });
  }
- const playingLabel=()=>onStatus('正在播放 · '+(mode==='fallback'?'兼容播放':mode==='native'?'自动画质':levels[hls?.currentLevel]?.label||'自动画质'));
+ const playingLabel=()=>onStatus('正在播放 · '+(mode==='fallback'?'兼容播放':mode==='native'?(levels[selected]?.label||'自动画质'):levels[hls?.currentLevel]?.label||'自动画质'));
  listen('playing',playingLabel);
  listen('waiting',()=>onStatus(video.currentTime>.1?'正在补充缓冲…':'正在加载首段…'));
  listen('pause',()=>{if(video.readyState>0&&!video.ended&&!video.error){wantsPlay=false;onStatus('已暂停');}});
@@ -110,7 +110,7 @@ export function createStreamPlayer({video,path,levels,fallback,onStatus,onQualit
    // Replace only future fragments, preserving the current frame, sound and position.
    hls.nextLevel=index;onStatus(index<0?'自动调整画质':'将在下一片段切换为 '+levels[index].label);
   }else if(mode==='native'){
-   seekTo=video.currentTime;wantsPlay=!video.paused;
+   if(video.readyState){seekTo=video.currentTime;wantsPlay=!video.paused;}
    video.src=index<0?path:new URL(levels[index].key+'/index.m3u8',new URL(path,location.href)).href;video.load();play();
   }},
   compatibility,

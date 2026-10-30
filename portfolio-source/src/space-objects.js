@@ -1,6 +1,7 @@
 import * as T from 'three';
 import {CARD_SPECS} from './space-path.js';
 import {seededRandom} from './weave-math.js';
+import {vertebraeGeometry,createDrapedGrid,drapeHeight,membraneGeometry,flowingRibbonGeometry} from './space-forms.js';
 
 function tube(points,radius,material,segments=96,closed=false){
  const curve=new T.CatmullRomCurve3(points.map(p=>new T.Vector3(...p)),closed);
@@ -12,7 +13,7 @@ function ringShape(radius,inner){
 }
 function extruded(shape,depth=.12,bevel=.025,curveSegments=48){return new T.ExtrudeGeometry(shape,{depth,steps:1,curveSegments,bevelEnabled:true,bevelSegments:3,bevelSize:bevel,bevelThickness:bevel});}
 function mesh(geometry,material,parent,position=[0,0,0]){const m=new T.Mesh(geometry,material);m.position.fromArray(position);parent.add(m);return m;}
-function torus(parent,r,t,mat,pos=[0,0,0],horizontal=false){const m=mesh(new T.TorusGeometry(r,t,8,96),mat,parent,pos);if(horizontal)m.rotation.x=Math.PI/2;return m;}
+function torus(parent,r,t,mat,pos=[0,0,0],horizontal=false){const m=mesh(new T.TorusGeometry(r,t,6,64),mat,parent,pos);if(horizontal)m.rotation.x=Math.PI/2;return m;}
 function roundedShape(w,h,r){const s=new T.Shape(),x=-w/2,y=-h/2;s.moveTo(x+r,y);s.lineTo(x+w-r,y);s.quadraticCurveTo(x+w,y,x+w,y+r);s.lineTo(x+w,y+h-r);s.quadraticCurveTo(x+w,y+h,x+w-r,y+h);s.lineTo(x+r,y+h);s.quadraticCurveTo(x,y+h,x,y+h-r);s.lineTo(x,y+r);s.quadraticCurveTo(x,y,x+r,y);return s;}
 function setUV(geo,w,h){const p=geo.attributes.position,uv=new Float32Array(p.count*2);for(let i=0;i<p.count;i++){uv[i*2]=p.getX(i)/w+.5;uv[i*2+1]=p.getY(i)/h+.5;}geo.setAttribute('uv',new T.BufferAttribute(uv,2));return geo;}
 
@@ -66,17 +67,8 @@ export async function buildWorld({mobile=false,documentRef=document,onTexture=()
 
  const gallery=new T.Group();gallery.position.y=-13;world.add(gallery);
  const coverLoaders=[];let coversLoaded=false;
- // Corrugated, twisted shell rather than a smooth tube: real silhouette and surface normals.
- const seg=mobile?40:64,rows=mobile?100:180,positions=[],indices=[];
- for(let j=0;j<=rows;j++)for(let i=0;i<=seg;i++){
-  const y=(j/rows-.5)*8,a=i/seg*Math.PI*2+y*.62;
-  const radius=.72+.19*Math.sin(y*2.7+a*3)+.2*Math.cos(a*4+y*1.6)+.085*Math.sin(a*7-y*2.1);
-  positions.push(Math.cos(a)*radius*(1+.35*Math.sin(y*1.6))+.22*Math.sin(y*.91),y*1.2,Math.sin(a)*radius+.18*Math.cos(y*1.3));
- }
- for(let j=0;j<rows;j++)for(let i=0;i<seg;i++){const a=j*(seg+1)+i,b=a+seg+1;indices.push(a,b,a+1,b,b+1,a+1);}
- const shellGeo=new T.BufferGeometry();shellGeo.setAttribute('position',new T.Float32BufferAttribute(positions,3));shellGeo.setIndex(indices);shellGeo.computeVertexNormals();
- const coreMaterial=chrome.clone();coreMaterial.metalness=.64;coreMaterial.roughness=.29;coreMaterial.envMapIntensity=1.8;coreMaterial.color.set(0x718a93);
- const spine=mesh(shellGeo,coreMaterial,gallery);opaque.push(spine);
+ const coreMaterial=chrome.clone();coreMaterial.metalness=.87;coreMaterial.roughness=.23;coreMaterial.envMapIntensity=1.8;coreMaterial.color.set(0x829aa3);
+ const spine=mesh(vertebraeGeometry(mobile),coreMaterial,gallery);opaque.push(spine);
  // Irregular crystal fragments cling to the structure, rather than a uniform star background.
  const fragmentCount=mobile?260:780,fragments=new T.InstancedMesh(new T.IcosahedronGeometry(1,0),chrome,fragmentCount),fragmentDummy=new T.Object3D(),rand=seededRandom(9087),tint=new T.Color();
  for(let i=0;i<fragmentCount;i++){
@@ -85,6 +77,11 @@ export async function buildWorld({mobile=false,documentRef=document,onTexture=()
   fragmentDummy.rotation.set(rand()*3,rand()*3,rand()*3);const s=.013+Math.pow(rand(),3)*.085;fragmentDummy.scale.set(s,s*(1+rand()),s);fragmentDummy.updateMatrix();fragments.setMatrixAt(i,fragmentDummy.matrix);
   tint.setHSL(.49+rand()*.36,.45,.25+rand()*.2);fragments.setColorAt(i,tint);
  }gallery.add(fragments);
+ const chainCount=mobile?64:112,chain=new T.InstancedMesh(new T.TorusGeometry(.105,.022,5,12),chrome,chainCount);
+ for(let i=0;i<chainCount;i++){
+  const y=(i/(chainCount-1)-.5)*9,a=y*.72;
+  fragmentDummy.position.set(Math.cos(a)*1.05,y,Math.sin(a)*1.05);fragmentDummy.rotation.set(.2,a+(i%2)*Math.PI/2,.15);fragmentDummy.scale.set(1,1.5,1);fragmentDummy.updateMatrix();chain.setMatrixAt(i,fragmentDummy.matrix);
+ }gallery.add(chain);
  const tendrils=new T.Group();gallery.add(tendrils);
  for(let k=0;k<3;k++){
   const pts=[];for(let j=0;j<=100;j++){const y=j/100*8-4,a=y*(.85+k*.07)+k*.9,r=.75+.22*Math.sin(y*2+k);pts.push([Math.cos(a)*r,y,Math.sin(a)*r]);}
@@ -95,15 +92,15 @@ export async function buildWorld({mobile=false,documentRef=document,onTexture=()
  }
  const cardDeck=new T.Group();gallery.add(cardDeck);
  for(const spec of CARD_SPECS){
-  const group=new T.Group();group.position.fromArray(spec.position);group.rotation.y=spec.rotation;group.scale.setScalar(.92);cardDeck.add(group);
-  const shape=roundedShape(3.5,2.3,.105),backMaterial=dark.clone();backMaterial.transparent=true;backMaterial.opacity=.25;backMaterial.depthWrite=false;
+  const group=new T.Group();group.position.fromArray(spec.position);group.rotation.y=spec.rotation;group.scale.setScalar(mobile?1.05:1.22);cardDeck.add(group);
+  const shape=roundedShape(3.5,2.3,.105),backMaterial=dark.clone();backMaterial.transparent=true;backMaterial.opacity=.58;backMaterial.depthWrite=false;
   const base=mesh(extruded(shape,.055,.018,mobile?8:16),backMaterial,group,[0,0,-.04]);
   const frameShape=roundedShape(3.55,2.35,.115);frameShape.holes.push(roundedShape(3.47,2.27,.08));
   const edge=mesh(extruded(frameShape,.035,.012,mobile?8:16),chrome.clone(),group,[0,0,-.07]);
   let cover;
   const draw=c=>{
    c.clearRect(0,0,1280,840);c.fillStyle='rgba(15,28,33,.54)';c.fillRect(0,0,1280,840);
-   if(cover){const scale=Math.max(1280/cover.width,840/cover.height);c.globalAlpha=.63;c.drawImage(cover,(1280-cover.width*scale)/2,(840-cover.height*scale)/2,cover.width*scale,cover.height*scale);c.globalAlpha=1;}
+   if(cover){const scale=Math.max(1280/cover.width,840/cover.height);c.globalAlpha=.5;c.drawImage(cover,(1280-cover.width*scale)/2,(840-cover.height*scale)/2,cover.width*scale,cover.height*scale);c.globalAlpha=1;}
    // Non-public HMI and planned work use honest typographic covers, never fabricated UI.
    if(!spec.image){c.strokeStyle=spec.id==='boe'?'#447b79':'#6a587b';c.lineWidth=1;for(let i=0;i<7;i++){c.beginPath();c.ellipse(940,410,110+i*45,160+i*27,-.3,0,Math.PI*2);c.stroke();}}
    const shade=c.createLinearGradient(0,0,0,840);shade.addColorStop(0,'rgba(4,10,14,.12)');shade.addColorStop(.5,'rgba(4,10,14,.42)');shade.addColorStop(1,'rgba(4,10,14,.45)');c.fillStyle=shade;c.fillRect(0,0,1280,840);
@@ -115,7 +112,7 @@ export async function buildWorld({mobile=false,documentRef=document,onTexture=()
    c.strokeStyle='#aac7c066';c.strokeRect(24,24,1232,792);
   };
   const surface=canvasTexture(1280,840,draw);
-  const face=mesh(setUV(new T.ShapeGeometry(shape,8),3.5,2.3),new T.MeshBasicMaterial({map:surface.texture,side:T.FrontSide,transparent:true,opacity:.86,depthWrite:false}),group,[0,0,.044]);
+  const face=mesh(setUV(new T.ShapeGeometry(shape,8),3.5,2.3),new T.MeshBasicMaterial({map:surface.texture,side:T.FrontSide,transparent:true,opacity:.78,depthWrite:false}),group,[0,0,.044]);
   face.userData.detail=spec.id;pickables.push(face);opaque.push(base,edge);
   cards.push({group,face,edge,base,spec,hover:0,home:group.position.clone()});
   if(spec.image)coverLoaders.push(()=>{const img=new Image();img.decoding='async';img.onload=()=>{cover=img;draw(surface.ctx);surface.texture.needsUpdate=true;onTexture();};img.onerror=()=>console.warn('Gallery cover unavailable:',spec.image);img.src=spec.image;});
@@ -123,7 +120,7 @@ export async function buildWorld({mobile=false,documentRef=document,onTexture=()
  }
 
  await yieldControl();
- const machine=new T.Group();machine.position.set(0,-27,0);world.add(machine);
+ const machine=new T.Group();machine.position.set(0,-24,0);world.add(machine);
  const rotor=new T.Group();machine.add(rotor);
  for(const y of [-2.15,-1.93,1.8,2.08]){
   const plate=mesh(extruded(ringShape(y>0?2.22:1.98,y>0?1.84:1.62),.09,.015,48),y>0?rose:dark,rotor,[0,y,0]);plate.rotation.x=-Math.PI/2;opaque.push(plate);
@@ -138,29 +135,22 @@ export async function buildWorld({mobile=false,documentRef=document,onTexture=()
   const pts=[[Math.cos(a)*r,2.1,Math.sin(a)*r],[Math.cos(a+.3)*(r+.6),.8,Math.sin(a+.3)*(r+.6)],[Math.cos(a-.2)*r,-.8,Math.sin(a-.2)*r],[Math.cos(a)*1.55,-1.9,Math.sin(a)*1.55]];
   machine.add(tube(pts,i%4===0?.027:.012,i%3?rose:silver,64));
  }
- const floorGeo=new T.CircleGeometry(4.3,96);const fp=floorGeo.attributes.position;for(let i=1;i<fp.count;i++){const x=fp.getX(i),y=fp.getY(i);fp.setZ(i,.025*Math.sin(x*4)*Math.cos(y*5));}floorGeo.computeVertexNormals();
- const floor=mesh(floorGeo,new T.MeshPhysicalMaterial({color:0x08040c,metalness:.85,roughness:.24,clearcoat:1,envMapIntensity:.25}),machine,[0,-2.27,0]);floor.rotation.x=-Math.PI/2;
+ const floor=mesh(membraneGeometry(),new T.MeshPhysicalMaterial({color:0x142023,metalness:.94,roughness:.27,clearcoat:1,iridescence:.45,envMapIntensity:.8,side:T.DoubleSide}),machine,[0,-2.8,0]);floor.rotation.x=-Math.PI/2;
  for(let i=0;i<5;i++){const r=2.65+i*.46;const pts=[];for(let j=0;j<=100;j++){const a=j/100*Math.PI*2;pts.push([Math.cos(a)*r,-2.25+.09*Math.sin(a*8+i),Math.sin(a)*r]);}machine.add(tube(pts,.016,i%2?rose:dark,100,true));}
 
  await yieldControl();
- const lab=new T.Group();lab.position.set(0,-40,0);world.add(lab);
- const hex=new T.Shape(),hole=new T.Path(),r=.205;for(let i=0;i<=6;i++){const a=i/6*Math.PI*2;const x=Math.cos(a)*r,y=Math.sin(a)*r;i?hex.lineTo(x,y):hex.moveTo(x,y);}for(let i=0;i<=6;i++){const a=-i/6*Math.PI*2;const x=Math.cos(a)*r*.8,y=Math.sin(a)*r*.8;i?hole.lineTo(x,y):hole.moveTo(x,y);}hex.holes.push(hole);
- const cells=[];for(let col=-12;col<=12;col++)for(let row=-6;row<=6;row++){
-  const x=col*r*1.5,y=(row+(Math.abs(col)%2)*.5)*r*Math.sqrt(3);
-  if(Math.hypot(x+3.5,y-.15)<.7)continue;
-  cells.push([x,y,.68*Math.cos(x*.65)]);
- }
- const gridMaterial=new T.MeshPhysicalMaterial({color:0x233438,metalness:.68,roughness:.32,clearcoat:1,iridescence:.65,iridescenceThicknessRange:[240,410],envMapIntensity:1.2});
- const grid=new T.InstancedMesh(new T.ExtrudeGeometry(hex,{depth:.16,bevelEnabled:false,curveSegments:1}),gridMaterial,cells.length),dummy=new T.Object3D();
- cells.forEach((p,i)=>{dummy.position.fromArray(p);dummy.rotation.y=Math.atan(.442*Math.sin(p[0]*.65));dummy.updateMatrix();grid.setMatrixAt(i,dummy.matrix);});lab.add(grid);opaque.push(grid);
- const frame=[];for(let i=0;i<=6;i++){const a=i/6*Math.PI*2;frame.push([Math.cos(a)*3.9,Math.sin(a)*2.5,-.05]);}lab.add(tube(frame,.06,chrome,72,true));
- torus(lab,.72,.045,chrome,[-3.5,.15,.04]);torus(lab,.8,.02,silver,[-3.5,.15,.05]);
- const disc=torus(lab,.37,.025,silver,[0,-.15,.28]);
- lab.add(tube([[0,-.4,.3],[0,.1,.3]],.023,silver,8));lab.add(tube([[-.25,-.15,.3],[.25,-.15,.3]],.023,silver,8));
- const backdropGeo=new T.PlaneGeometry(7.8,4.8,48,1),backPos=backdropGeo.attributes.position;for(let i=0;i<backPos.count;i++)backPos.setZ(i,.68*Math.cos(backPos.getX(i)*.65)-.13);backdropGeo.computeVertexNormals();
+ const lab=new T.Group();lab.position.set(0,-34,0);world.add(lab);
+ const gridMaterial=new T.MeshPhysicalMaterial({color:0xd2dbd5,metalness:.87,roughness:.38,clearcoat:1,iridescence:.3,iridescenceThicknessRange:[240,410],envMapIntensity:.65});
+ const grid=createDrapedGrid(gridMaterial,mobile);lab.add(grid);opaque.push(grid);
+ const disc=torus(lab,.59,.025,silver,[0,-.05,1.4]);
+ lab.add(tube([[0,-.44,1.42],[0,.34,1.42]],.035,silver,8));lab.add(tube([[-.39,-.05,1.42],[.39,-.05,1.42]],.035,silver,8));
+ const backdropGeo=new T.PlaneGeometry(8.2,4.9,48,24),backPos=backdropGeo.attributes.position;for(let i=0;i<backPos.count;i++)backPos.setZ(i,drapeHeight(backPos.getX(i),backPos.getY(i))-.09);backdropGeo.computeVertexNormals();
  const backdrop=mesh(backdropGeo,new T.MeshStandardMaterial({color:0x040a0d,metalness:.45,roughness:.5}),lab);
  lab.rotation.y=-.16;lab.rotation.z=.055;
- return {world,emblem,lens,arcs,jellyfish,streamers,flowUniforms,intro,gallery,spine,tendrils,cardDeck,cards,machine,rotor,lab,pickables,opaque,textures,loadCovers(){if(!coversLoaded){coversLoaded=true;coverLoaders.forEach(load=>load());}},materials:{chrome,dark,rose},dispose(){world.traverse(o=>{o.geometry?.dispose();if(o.material)for(const m of Array.isArray(o.material)?o.material:[o.material])m.dispose();});textures.forEach(t=>t.dispose());}};
+ const ribbonUniforms={uTime:{value:0},uOpacity:{value:0}};
+ const ribbonMaterial=new T.ShaderMaterial({uniforms:ribbonUniforms,transparent:true,depthWrite:false,side:T.DoubleSide,blending:T.AdditiveBlending,vertexShader:'uniform float uTime;varying vec2 vUv;void main(){vUv=uv;vec3 p=position;p.y+=sin(uv.x*18.-uTime*.7)*.12;gl_Position=projectionMatrix*modelViewMatrix*vec4(p,1.);}',fragmentShader:'uniform float uTime,uOpacity;varying vec2 vUv;void main(){float edge=pow(sin(vUv.y*3.14159),3.);float vein=pow(max(0.,1.-abs(vUv.y-.5-sin(vUv.x*25.-uTime*.4)*.15)*5.),5.);float fade=sin(vUv.x*3.14159);vec3 col=mix(vec3(.45,.006,.047),vec3(.85,.35,.24),vein*.6);gl_FragColor=vec4(col,edge*fade*uOpacity*(.4+vein*.5));\n#include <tonemapping_fragment>\n#include <colorspace_fragment>\n}'});
+ const ribbons=new T.Group();emblem.add(ribbons);for(let k=0;k<2;k++)ribbons.add(new T.Mesh(flowingRibbonGeometry(k*.8),ribbonMaterial));
+ return {world,emblem,lens,arcs,jellyfish,streamers,flowUniforms,ribbons,ribbonUniforms,intro,gallery,spine,tendrils,cardDeck,cards,machine,rotor,lab,pickables,opaque,textures,loadCovers(){if(!coversLoaded){coversLoaded=true;coverLoaders.forEach(load=>load());}},materials:{chrome,dark,rose},dispose(){world.traverse(o=>{o.geometry?.dispose();if(o.material)for(const m of Array.isArray(o.material)?o.material:[o.material])m.dispose();});textures.forEach(t=>t.dispose());}};
 }
 
 export function particleField(count,mobile=false){
@@ -169,10 +159,10 @@ export function particleField(count,mobile=false){
  for(let i=0;i<count;i++){
   const region=i%4,t=random(),a=random()*Math.PI*2,s=random(),j=i*3;
   let x,y,z;
-  if(region===0){const radius=.8+Math.pow(s,2)*1.3,branch=i%2?1:-1;x=(mobile?.4:2)+branch*Math.sin(t*5.7)*radius;y=-.75-t*4.9;z=Math.cos(t*5.7)*radius+.25;c.setHSL(.035+random()*.075,.75,.32+random()*.38);}
-  else if(region===1){const radius=1.05+Math.pow(s,3)*1.15,theta=t*13+(i%3)*2.094+(a-3.14)*.12;x=Math.cos(theta)*radius+.22*Math.sin(t*8);y=-13+(t-.5)*9.6;z=Math.sin(theta)*radius;c.setHSL(.47+random()*.31,.42,.28+random()*.4);}
-  else if(region===2){const cy=(t-.5)*2.65,radius=(.28+.48*Math.sin(t*Math.PI)**2+.24*Math.exp(-(((t-.22)*6)**2)))*Math.pow(s,.32),theta=a+t*7;x=Math.cos(theta)*radius+.16*Math.sin(t*5);y=-27+cy;z=Math.sin(theta)*radius;c.setHSL(.97+random()*.045,.92,.28+random()*.33);}
-  else{const theta=t*Math.PI*1.65-.6,radius=1.8+(s-.5)*.24;x=(mobile?.4:2)+Math.sin(theta)*radius;y=.1+Math.cos(theta)*radius;z=-1.3+(random()-.5)*.35;c.setHSL(.47+random()*.34,.38,.26+random()*.3);}
+  if(region===0){const radius=.8+Math.pow(s,2)*1.3,branch=i%2?1:-1;x=(mobile?.4:2)+branch*Math.sin(t*5.7)*radius;y=-.75-t*4.9;z=Math.cos(t*5.7)*radius+.25;c.setHSL(.015+random()*.085,.75,.3+random()*.38);}
+  else if(region===1){const cluster=Math.floor(t*7),v=(cluster+.5)/7+(random()+random()+random()-1.5)*.12;const radius=2.25+Math.sin(v*15)*.6+(s-.5)*1.3,theta=v*13+(i%3)*2.094+(a-3.14)*.19;x=Math.cos(theta)*radius;y=-13+(v-.5)*10;z=Math.sin(theta)*radius-1.15;c.setHSL(.47+random()*.42,.5,.25+random()*.4);}
+  else if(region===2){const cy=(t-.5)*2.65,radius=(.28+.48*Math.sin(t*Math.PI)**2+.24*Math.exp(-(((t-.22)*6)**2)))*Math.pow(s,.32),theta=a+t*7;x=Math.cos(theta)*radius+.16*Math.sin(t*5);y=-24+cy;z=Math.sin(theta)*radius;c.setHSL(.97+random()*.045,.92,.28+random()*.33);}
+  else{const theta=t*Math.PI*2,radius=2.4+Math.sin(t*17)*.6+(s-.5)*1.1;x=(mobile?.4:2)+Math.cos(theta)*radius;y=-1+Math.sin(theta)*radius;z=-1+(random()-.5)*1.9;c.setHSL(.005+Math.pow(random(),2)*.09,.8,.24+random()*.32);}
   const scatter=region===1?.2:.09;x+=(random()-.5)*scatter;y+=(random()-.5)*scatter;z+=(random()-.5)*scatter;
   position.set([x,y,z],j);color.set([c.r,c.g,c.b],j);meta.set([random(),region,random()],j);
  }

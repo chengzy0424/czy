@@ -11,8 +11,8 @@ let initRequested=false;
 function syncProgress(){
  scrollFrame=0;
  const gallery=$('#spatial-gallery');
- const anchors=[0,$('#intro').offsetTop,gallery.offsetTop,gallery.offsetTop+Math.max(1,gallery.offsetHeight-innerHeight),$('#machine').offsetTop,$('#lab').offsetTop];
- state.chapter=scrollToChapter(scrollY,anchors);state.progress=state.chapter/5;
+ const anchors=[0,$('#intro').offsetTop,gallery.offsetTop,gallery.offsetTop+Math.max(1,gallery.offsetHeight-innerHeight),$('#machine').offsetTop,$('#lab').offsetTop,$('#confluence').offsetTop];
+ state.chapter=scrollToChapter(scrollY,anchors);state.progress=state.chapter/6;
  state.offscreen=scrollY>works.offsetTop-innerHeight*.45;
  document.documentElement.style.setProperty('--journey-progress',state.progress);
  document.body.classList.toggle('after-journey',state.offscreen);

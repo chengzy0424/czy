@@ -5,15 +5,15 @@ import {cameraPose,scrollToChapter,CARD_SPECS} from '../src/space-path.js';
 import {buildWorld,particleField} from '../src/space-objects.js';
 import {springStep} from '../src/weave-math.js';
 
-test('all five chapters share a finite continuous and reversible camera path',()=>{
+test('all six passages share a finite continuous and reversible camera path',()=>{
  for(const mobile of [false,true]){
   let previous=cameraPose(0,mobile);
-  for(let i=0;i<=10000;i++){
+  for(let i=0;i<=12000;i++){
    const p=i/2000,next=cameraPose(p,mobile);assert.deepEqual(next,cameraPose(p,mobile));
    for(const key of ['eye','look'])for(let axis=0;axis<3;axis++){assert.ok(Number.isFinite(next[key][axis]));assert.ok(Math.abs(next[key][axis]-previous[key][axis])<.02);}
    previous=next;
   }
-  for(let chapter=1;chapter<5;chapter++){
+  for(let chapter=1;chapter<6;chapter++){
    const a=cameraPose(chapter-.00001,mobile),b=cameraPose(chapter+.00001,mobile);
    assert.ok(new T.Vector3(...a.eye).distanceTo(new T.Vector3(...b.eye))<.00001,'camera jumps at chapter '+chapter);
   }
@@ -31,7 +31,7 @@ async function geometryWorld(mobile=false){
  const previous=globalThis.Image;globalThis.Image=class{set src(_) {}};
  const world=await buildWorld({mobile,documentRef:doc});globalThis.Image=previous;return world;
 }
-test('solid emblem, corrugated spine, mechanical chamber and honeycomb have finite 3D geometry',async()=>{
+test('solid emblem, segmented spine, mechanical chamber and honeycomb have finite 3D geometry',async()=>{
  for(const mobile of [false,true]){
   const w=await geometryWorld(mobile);let triangles=0,meshes=0;
   w.world.traverse(o=>{if(!o.geometry)return;meshes++;const pos=o.geometry.getAttribute('position');assert.ok([...pos.array].every(Number.isFinite));triangles+=(o.geometry.index?.count||pos.count)/3*(o.isInstancedMesh?o.count:1);});
@@ -39,8 +39,8 @@ test('solid emblem, corrugated spine, mechanical chamber and honeycomb have fini
   assert.ok(size.x>2.4&&size.z>.2,'emblem must have real thickness');
   assert.ok(w.spine.geometry.attributes.position.count>4000);
   assert.ok(w.machine.children.length>(mobile?27:30),'mechanical supports and cables missing');
-  const honey=w.lab.children.find(o=>o.isInstancedMesh);assert.ok(honey.count>280,'honeycomb region missing');
-  assert.ok(triangles<190000,'geometry budget exceeded '+triangles);
+  const honey=w.lab.children.find(o=>o.isInstancedMesh);assert.ok(honey.count>650,'draped tile region missing');assert.equal(honey.userData.relief,true);const z=[];const mat=new T.Matrix4();for(let i=0;i<honey.count;i++){honey.getMatrixAt(i,mat);z.push(mat.elements[14]);}assert.ok(Math.max(...z)-Math.min(...z)>1,'surface needs actual relief');
+  assert.ok(triangles<(mobile?170000:220000),'geometry budget exceeded '+triangles);
   console.log(JSON.stringify({mobile,meshes,triangles,honeycombCells:honey.count}));w.dispose();
  }
 });
@@ -52,7 +52,7 @@ test('gallery boards have varying depth, actual thickness and project metadata',
 });
 test('emblem and machine core remain in the viewport at target desktop and phone sizes',()=>{
  for(const [width,height,mobile] of [[1920,1080,false],[1440,900,false],[1024,768,false],[768,1024,false],[390,844,true],[320,720,true]]){
-  for(const [chapter,center,radius] of [[0,[mobile?.4:2,0,0],1.25],[4,[0,-27,0],2.25],[5,[0,-40,0],3.9]]){
+  for(const [chapter,center,radius] of [[0,[mobile?.4:2,0,0],1.25],[4,[0,-24,0],2.25],[5,[0,-34,0],3.9]]){
    const pose=cameraPose(chapter,mobile,width/height),camera=new T.PerspectiveCamera(mobile?43:40,width/height,.1,100);camera.position.fromArray(pose.eye);camera.lookAt(...pose.look);camera.updateMatrixWorld();
    for(const dx of [-radius,radius]){const p=new T.Vector3(center[0]+dx,center[1],center[2]).project(camera);assert.ok(Math.abs(p.x)<1.1,`clipping ${width} chapter ${chapter} x=${p.x}`);}
   }

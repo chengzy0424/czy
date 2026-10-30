@@ -34,3 +34,5 @@ GitHub Pages 使用相对资源路径。仓库根目录是发布产物，portfol
 `src/portfolio.js` 管理影片元数据与详情；`index.html` 含无需等待三维加载即可阅读的项目内容。添加影片时同步更新数据与静态列表。原始游戏工程和原始桌面影片不属于发布文件，不应删除。
 
 性能记录只说明测试设备与网络条件。没有承诺所有设备稳定 60 帧；实体手机、不同运营商网络及 Safari 等环境须进一步验证。Git 历史仍可能保留早期游戏大文件，本轮不重写历史。
+
+本轮四帧结构修正与验证：[oct30-reference-match](verification/oct30-reference-match/review.md)。

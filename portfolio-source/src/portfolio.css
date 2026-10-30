@@ -106,3 +106,9 @@
  .hero-actions{gap:14px}.hero-actions .primary-link{padding-inline:14px}
  .works h2{font-size:30px}.gallery-stage .gallery-caption h2{font-size:22px}
 }
+
+/* Reference composition: lettering sits across the draped surface on wide screens. */
+.confluence-stage{height:125svh}.confluence-link{position:absolute;bottom:65px;left:50%;transform:translateX(-50%);font-size:14px;min-height:48px;display:flex;align-items:center;gap:28px;color:#d2ddd8;background:#04090ca8;padding:10px 20px;white-space:nowrap}
+@media(min-width:1101px){.lab-copy{display:grid;left:29%;top:43%;width:47%;max-width:700px;grid-template-columns:150px 240px;column-gap:160px;align-items:center;background:none;text-shadow:0 2px 12px #04090c}.lab-copy .section-label{grid-column:1/-1;font-size:11px;margin-bottom:12px}.lab-copy h2{grid-column:1;grid-row:2/4;font-size:46px}.lab-copy>p:not(.section-label){grid-column:2;margin:0;font-size:13px}.lab-copy>.text-action{grid-column:2;margin-top:8px;font-size:13px}.lab-copy h2 span{font-size:.6em}}
+@media(max-width:760px){.confluence-stage{height:110svh}.confluence-link{font-size:13px;bottom:70px}}
+@media(prefers-reduced-motion:reduce){.confluence-link{transition:none}}

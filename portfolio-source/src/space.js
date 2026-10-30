@@ -6,7 +6,7 @@ import {damp,clamp,smooth,springStep} from './weave-math.js';
 const vertex=`
  attribute vec3 aMeta; attribute vec3 aTint;
  uniform float uTime,uDpr,uForce,uChapter,uMobile; uniform vec3 uPointer;
- varying vec3 vTint; varying float vAlpha,vStreak,vAngle;
+ varying vec3 vTint; varying float vAlpha,vStreak,vAngle,vBead;
  void main(){
   vec3 p=position;float seed=aMeta.x,region=aMeta.y;
   float phase=uTime*(.14+seed*.16)+seed*6.2831;
@@ -17,23 +17,24 @@ const vertex=`
    float radius=.45+spread*1.65;float branch=step(.5,seed)*2.-1.;
    p.x=mix(2.,.4,uMobile)+branch*sin(travel*5.7)*radius;
    p.y=-.75-travel*4.9;p.z=cos(travel*5.7)*radius+.25;p.x+=sin(phase*1.7+travel*17.)*.16;
-   float flare=sin(clamp(uChapter,0.,1.)*3.14159);p.x+=sin(travel*3.14159)*flare*.55*branch;
+   float flare=max(sin(clamp(uChapter,0.,1.)*3.14159),smoothstep(4.,5.,uChapter));p.x+=sin(travel*3.14159)*flare*1.7*branch;
   }
   else if(region<1.5){float a=uTime*.075;float x=p.x;p.x=x*cos(a)-p.z*sin(a);p.z=x*sin(a)+p.z*cos(a);p.x+=sin(p.y*3.+phase)*.13;p.y+=sin(phase+p.y*.7)*.12;}
   else if(region<2.5){float a=uTime*.16+sin(p.y*2.+phase)*.12;float x=p.x;p.x=x*cos(a)-p.z*sin(a);p.z=x*sin(a)+p.z*cos(a);p.y+=sin(phase)*.055;}
-  else {float x=p.x-mix(2.,.4,uMobile);float a=uTime*.08;p.x=mix(2.,.4,uMobile)+x*cos(a)-p.y*sin(a);p.y=x*sin(a)+p.y*cos(a);p.z+=sin(phase)*.12;}
+  else {float x=p.x-mix(2.,.4,uMobile);float a=uTime*.06;p.x=mix(2.,.4,uMobile)+x*cos(a)-p.y*sin(a);p.y=x*sin(a)+p.y*cos(a);p.z+=sin(phase+p.y)*.24;}
+  if((region<.5||region>2.5)&&uChapter>4.){p.x-=mix(2.,.4,uMobile);p.x*=1.3;p.y-=region<.5?41.9:43.8;}
   vec3 d=p-uPointer;float weight=exp(-dot(d.xy,d.xy)*1.25)*uForce;
   p.xy+=normalize(d.xy+vec2(.001))*weight*.65;p.z+=weight*.4;
   vec4 mv=modelViewMatrix*vec4(p,1.);gl_Position=projectionMatrix*mv;
   vStreak=step(.997,aMeta.z);vAngle=sin(p.y*.6+phase*.3)*.7+.5;
-  float bokeh=step(.982,aMeta.z);float size=1.2+pow(aMeta.z,10.)*3.5+bokeh*(4.+seed*4.)+vStreak*8.;
+  vBead=step(.5,region)*step(region,1.5);float bokeh=step(.985,aMeta.z);float size=mix(1.8+pow(aMeta.z,5.)*6.,2.5+pow(aMeta.z,2.)*10.,vBead)+bokeh*(3.+seed*4.)+vStreak*8.;
   if(region>1.5&&region<2.5)size*=1.05;
   gl_PointSize=clamp(size*uDpr*(8./max(4.,-mv.z)),.8,18.*uDpr);
   vTint=aTint;vAlpha=(.25+seed*.48)*(1.-smoothstep(13.,34.,-mv.z))*mix(1.,.7,bokeh);
-  if(region>2.5)vAlpha*=(.07+smoothstep(.2,.9,uChapter)*.35)*(1.-smoothstep(1.1,1.55,uChapter));
+  if(region>2.5)vAlpha*=uChapter>4.?1.0:(.08+smoothstep(.2,.85,uChapter)*.7)*(1.-smoothstep(1.1,1.55,uChapter));
   if(region>1.5&&region<2.5)vAlpha*=1.45;
  }`;
-const fragment=`varying vec3 vTint;varying float vAlpha,vStreak,vAngle;void main(){vec2 uv=gl_PointCoord-.5;uv=mat2(cos(vAngle),-sin(vAngle),sin(vAngle),cos(vAngle))*uv;uv.x*=mix(1.,5.,vStreak);float r=length(uv);if(r>.5)discard;float a=(1.-smoothstep(.12,.5,r))*vAlpha;gl_FragColor=vec4(vTint*(1.+(1.-smoothstep(0.,.17,r))*.65),a);
+const fragment=`varying vec3 vTint;varying float vAlpha,vStreak,vAngle,vBead;void main(){vec2 uv=gl_PointCoord-.5;uv=mat2(cos(vAngle),-sin(vAngle),sin(vAngle),cos(vAngle))*uv;uv.x*=mix(1.,5.,vStreak);float r=length(uv);if(r>.5)discard;vec3 normal=vec3(uv*2.,sqrt(max(0.,1.-dot(uv*2.,uv*2.))));float light=.22+max(0.,dot(normal,normalize(vec3(-.6,.7,1.))))*.95;float spec=pow(max(0.,dot(normal,normalize(vec3(-.4,.45,1.)))),24.);float a=(1.-smoothstep(mix(.12,.36,vBead),.5,r))*vAlpha;gl_FragColor=vec4(vTint*mix(1.+(1.-smoothstep(0.,.17,r))*.65,light,vBead)+spec*.17*vBead,a);
 #include <tonemapping_fragment>
 #include <colorspace_fragment>
 }`;
@@ -60,7 +61,7 @@ export async function createSpace({container,state,onFailure=()=>{},onSelect=()=
  };
  const world=await buildWorld({mobile,yieldControl,onTexture:()=>wake()});scene.add(world.world);
  const key=new T.PointLight(0xb2ebf0,62,26,2),rim=new T.PointLight(0xde329a,55,22,2),fill=new T.PointLight(0x6db5b5,18,22,2);scene.add(key,rim,fill);
- const redLight=new T.PointLight(0xe61458,29,7,2);redLight.position.set(.4,-26,1);scene.add(redLight);
+ const redLight=new T.PointLight(0xe61458,29,7,2);redLight.position.set(.4,-23,1);scene.add(redLight);
  const count=mobile?11000:44000,points=particleField(count,mobile),geo=new T.BufferGeometry();
  geo.setAttribute('position',new T.BufferAttribute(points.position,3));geo.setAttribute('aTint',new T.BufferAttribute(points.color,3));geo.setAttribute('aMeta',new T.BufferAttribute(points.meta,3));
  const uniforms={uTime:{value:0},uDpr:{value:1},uForce:{value:0},uChapter:{value:0},uMobile:{value:mobile?1:0},uPointer:{value:new T.Vector3(100,100,0)}};
@@ -90,15 +91,21 @@ export async function createSpace({container,state,onFailure=()=>{},onSelect=()=
   const pose=cameraPose(progress,mobile,camera.aspect),offset=reduced?0:.22;
   viewPointer.lerp(reduced?new T.Vector2():pointer,1-Math.exp(-dt*3));
   camera.position.fromArray(pose.eye);camera.position.x+=viewPointer.x*offset;camera.position.y+=viewPointer.y*offset*.6;
-  camera.lookAt(...pose.look);camera.updateMatrixWorld();
+  camera.lookAt(...pose.look);camera.rotateZ(reduced?0:pose.roll);camera.updateMatrixWorld();
   key.position.set(camera.position.x-3,pose.look[1]+4,6);rim.position.set(3,pose.look[1]+.7,-1);fill.position.set(-4,pose.look[1]-3,2);
-  world.emblem.position.x=mobile?.4:2;
+  const labLight=smooth(clamp((progress-4.5)*2))*(1-smooth(clamp((progress-5.1)*2)));key.intensity=62-labLight*20;rim.intensity=55-labLight*35;
+  world.emblem.position.set(progress>4?0:mobile?.4:2,progress>4?-45.5:0,0);
   world.lens.rotation.y=-.3+(reduced?0:Math.sin(time*.21)*.13)+smooth(clamp(progress))*.45;
   world.lens.rotation.z=-.08+(reduced?0:Math.sin(time*.17)*.025);
+  world.lens.scale.setScalar(progress>4?.74:1);world.lens.position.y=progress>4?-1:0;
   world.arcs.rotation.y=reduced?0:Math.sin(time*.14)*.08;
   const unfold=smooth(clamp(progress))*Math.PI*.32;
   world.arcs.rotation.z=-unfold*.32;world.arcs.scale.x=1+smooth(clamp(progress))*.65;
+  if(progress>4){world.arcs.rotation.z=Math.PI-.08;world.arcs.scale.x=1;world.arcs.position.y=-1.45;}else world.arcs.position.y=0;
   world.flowUniforms.uTime.value=reduced?0:time;world.flowUniforms.uEnergy.value=Math.sin(Math.PI*(progress%1))**2;
+  world.ribbonUniforms.uTime.value=reduced?0:time;world.ribbonUniforms.uOpacity.value=progress>4?.8:smooth(clamp((progress-.2)*2))*.7;
+  world.ribbons.rotation.z=reduced?0:Math.sin(time*.08)*.14;
+  world.ribbons.position.y=progress>4?1.5:0;world.ribbons.scale.setScalar(progress>4?1.35:1);
   for(const jelly of world.jellyfish){const pulse=reduced?0:Math.sin(time*1.25+jelly.phase);jelly.group.position.copy(jelly.base);jelly.group.position.y+=pulse*.07;jelly.group.rotation.y=reduced?0:Math.sin(time*.19+jelly.phase)*.2;jelly.bell.scale.set(1+pulse*.045,1-pulse*.035,1+pulse*.045);jelly.strands.rotation.z=reduced?0:Math.sin(time*.65+jelly.phase)*.065;}
   world.intro.visible=!mobile;
   world.intro.material.opacity=smooth(clamp((progress-.25)/.45))*(1-smooth(clamp((progress-1.15)/.45)));
@@ -117,7 +124,11 @@ export async function createSpace({container,state,onFailure=()=>{},onSelect=()=
    card.group.position.copy(card.home);card.group.position.z+=card.hover*.17;
    card.group.position.y+=(reduced?0:Math.sin(time*.24+card.home.x)*.045);
    const turn=smooth(clamp(progress-2));
+   const exit=smooth(clamp((progress-3)/.75));
    if(card.spec.id==='tower')card.group.position.y+=turn*.75;
+   card.group.position.y+=exit*(card.spec.id==='tower'?1.3:.4);
+   card.group.rotation.x=-exit*.9+(card.spec.id==='tower'?.035:-.045);
+   card.group.rotation.z=exit*(card.spec.id==='tower'?-.13:.08);
    card.group.rotation.y=card.spec.rotation+turn*(card.spec.id==='boe'?1.4:card.spec.id==='tower'?.52:.72)-card.hover*.025;
    card.edge.material.emissive.set(0xa6e4d4);card.edge.material.emissiveIntensity=card.hover*.35;
   }

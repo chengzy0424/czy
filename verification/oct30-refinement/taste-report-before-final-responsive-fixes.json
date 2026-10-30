@@ -1,0 +1,2500 @@
+{
+ "url": "http://127.0.0.1:4181/",
+ "at": "2026-10-30T11:22:00.136Z",
+ "allow": [],
+ "viewports": [
+  {
+   "width": 1440,
+   "height": 900,
+   "load": "load",
+   "screens": 11,
+   "filled": [
+    0.11,
+    0.05,
+    0.06,
+    0.08,
+    0.06,
+    0.1,
+    0.09,
+    0.48,
+    0.95,
+    0.95,
+    0.68
+   ],
+   "motion": {
+    "elements": 0,
+    "css": 0,
+    "transitions": 0,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "page": {
+     "height": 9810,
+     "screens": 10.9,
+     "words": 188,
+     "img": 9,
+     "video": 0,
+     "canvas": 1,
+     "svg": 2,
+     "sections": 6,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 4,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [
+      "tower-960.webp",
+      "ash-960.webp",
+      "csol-960.webp",
+      "mines-960.webp"
+     ],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "程子悦.",
+     "words": 1,
+     "chars": 4,
+     "lines": 1,
+     "size": 103.7,
+     "vw": 7.2,
+     "font": "Segoe UI",
+     "weight": 300,
+     "tracking": -0.055,
+     "leading": 1.16,
+     "upper": false,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "left",
+     "widthRatio": 0.22,
+     "top": 272,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "程子悦.",
+     "words": 1,
+     "lines": 1,
+     "size": 103.7,
+     "font": "Segoe UI"
+    },
+    "headings": [
+     {
+      "text": "程子悦.",
+      "words": 1,
+      "chars": 4,
+      "lines": 1,
+      "size": 103.7,
+      "vw": 7.2,
+      "font": "Segoe UI",
+      "weight": 300,
+      "tracking": -0.055,
+      "leading": 1.16,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.22,
+      "top": 272,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "连接逻辑， 交互与想象。",
+      "words": 2,
+      "chars": 12,
+      "lines": 2,
+      "size": 33.1,
+      "vw": 2.3,
+      "font": "Segoe UI",
+      "weight": 300,
+      "tracking": -0.035,
+      "leading": 1.32,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.24,
+      "top": 1520,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "让想法， 有自己的节奏。",
+      "words": 2,
+      "chars": 12,
+      "lines": 2,
+      "size": 37.4,
+      "vw": 2.6,
+      "font": "Segoe UI",
+      "weight": 300,
+      "tracking": -0.035,
+      "leading": 1.32,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.18,
+      "top": 4769,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "THE LAB ↗",
+      "words": 3,
+      "chars": 9,
+      "lines": 2,
+      "size": 88,
+      "vw": 6.1,
+      "font": "Segoe UI",
+      "weight": 300,
+      "tracking": -0.055,
+      "leading": 1.02,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.19,
+      "top": 6061,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "从想法，到可体验。",
+      "words": 1,
+      "chars": 9,
+      "lines": 1,
+      "size": 58,
+      "vw": 4,
+      "font": "Segoe UI",
+      "weight": 300,
+      "tracking": -0.035,
+      "leading": 1.35,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.35,
+      "top": 6965,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Tower Defense 烽誓 · 守望",
+      "words": 5,
+      "chars": 21,
+      "lines": 2,
+      "size": 57.6,
+      "vw": 4,
+      "font": "Segoe UI",
+      "weight": 300,
+      "tracking": -0.045,
+      "leading": 1.12,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.37,
+      "top": 7289,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "far cry Ash Exodus",
+      "words": 4,
+      "chars": 18,
+      "lines": 2,
+      "size": 57.6,
+      "vw": 4,
+      "font": "Segoe UI",
+      "weight": 300,
+      "tracking": -0.045,
+      "leading": 1.12,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.37,
+      "top": 7832,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "Csol far Cs Oline Monster",
+      "words": 5,
+      "chars": 25,
+      "lines": 2,
+      "size": 57.6,
+      "vw": 4,
+      "font": "Segoe UI",
+      "weight": 300,
+      "tracking": -0.045,
+      "leading": 1.12,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.37,
+      "top": 8376,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "saolei 扫雷",
+      "words": 2,
+      "chars": 9,
+      "lines": 2,
+      "size": 57.6,
+      "vw": 4,
+      "font": "Segoe UI",
+      "weight": 300,
+      "tracking": -0.045,
+      "leading": 1.12,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.37,
+      "top": 8919,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "434902760@qq.com ↗",
+      "words": 2,
+      "chars": 18,
+      "lines": 1,
+      "size": 31.7,
+      "vw": 2.2,
+      "font": "Segoe UI",
+      "weight": 400,
+      "tracking": -0.025,
+      "leading": 1.65,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.23,
+      "top": 9662,
+      "tag": "a",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 10,
+     "maxLines": 2,
+     "over2Lines": 0,
+     "statements": 0,
+     "centered": 0,
+     "medianWords": 2,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Segoe UI",
+       "share": 1,
+       "mono": false
+      }
+     ],
+     "familyCount": 1,
+     "sizes": [
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      20,
+      21,
+      22,
+      24,
+      26,
+      32,
+      33,
+      37,
+      41,
+      58,
+      88,
+      104
+     ],
+     "sizeCount": 20,
+     "notLoaded": [],
+     "body": null,
+     "measureChars": null,
+     "max": {
+      "size": 103.7,
+      "vw": 7.2,
+      "font": "Segoe UI",
+      "text": "程子悦"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0.21,
+     "centerShare": 0.03,
+     "smallText": 10
+    },
+    "eyebrows": [
+     {
+      "text": "数字媒体技术 CREATIVE DEVELOPER",
+      "above": "程子悦.",
+      "upper": true,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 13,
+      "top": 224
+     },
+     {
+      "text": "项目与经历",
+      "above": "从想法，到可体验。",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 13,
+      "top": 6930
+     },
+     {
+      "text": "UNITY · 策略塔防",
+      "above": "Tower Defense 烽誓 · 守望",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 12,
+      "top": 7249
+     },
+     {
+      "text": "UNITY · 第一人称射击",
+      "above": "far cry Ash Exodus",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 12,
+      "top": 7792
+     },
+     {
+      "text": "UNITY · 第一人称射击",
+      "above": "Csol far Cs Oline Monster",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 12,
+      "top": 8336
+     },
+     {
+      "text": "UNITY · 经典益智",
+      "above": "saolei 扫雷",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 12,
+      "top": 8879
+     }
+    ],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#04090c",
+     "bodyBgHsl": {
+      "h": 203,
+      "s": 0.5,
+      "l": 0.03
+     },
+     "dark": true,
+     "sectionBgs": [],
+     "textColors": [
+      {
+       "color": "#e8f0eb",
+       "share": 0.27
+      },
+      {
+       "color": "#a2b5b3",
+       "share": 0.19
+      },
+      {
+       "color": "#b1c0bc",
+       "share": 0.16
+      },
+      {
+       "color": "#b2c0bf",
+       "share": 0.09
+      },
+      {
+       "color": "#a4c6b6",
+       "share": 0.05
+      }
+     ],
+     "button": {
+      "bg": "#e8f0eb",
+      "hsl": {
+       "h": 142,
+       "s": 0.21,
+       "l": 0.93
+      },
+      "fg": "#04090c"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 2,
+     "inHero": 2,
+     "radius": 0,
+     "height": 50,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "跳过探索，查看作品",
+      "直接查看作品 ↗"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 6,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 9,
+     "hairlineSamples": [
+      "button.text-action 240px",
+      "button.text-action 240px",
+      "div.category-tabs 1282px",
+      "button.text-action 280px",
+      "button.text-action 280px"
+     ],
+     "outlinedBoxes": 4,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 0,
+     "boxRadius": 0,
+     "squareMedia": 1,
+     "roundedMedia": 4,
+     "mediaRadius": 2,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [
+     {
+      "type": "canvas",
+      "ratio": 1
+     }
+    ],
+    "nav": {
+     "links": 3,
+     "fixed": true,
+     "height": 78,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": []
+   },
+   "layout": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "pageH": 9810,
+    "margins": {
+     "left": 79,
+     "right": 79
+    },
+    "sections": [
+     {
+      "sel": "section#home.hero",
+      "tag": "section",
+      "top": 0,
+      "height": 900,
+      "words": 22,
+      "media": 0,
+      "middle": 767,
+      "heading": {
+       "text": "程子悦",
+       "size": 104,
+       "tag": "h1"
+      },
+      "left": 74,
+      "right": 79,
+      "textLeft": 74,
+      "textRight": 79,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#intro.space-stage.intro-stage",
+      "tag": "section",
+      "top": 900,
+      "height": 1305,
+      "words": 9,
+      "media": 0,
+      "middle": 0,
+      "heading": null,
+      "left": 79,
+      "right": 1123,
+      "textLeft": 79,
+      "textRight": 1123,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": true
+     },
+     {
+      "sel": "section#spatial-gallery.space-stage.gallery-stage",
+      "tag": "section",
+      "top": 2205,
+      "height": 2205,
+      "words": 12,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "作品，向你展开。",
+       "size": 22,
+       "tag": "h2"
+      },
+      "left": 79,
+      "right": 1163,
+      "textLeft": 79,
+      "textRight": 1185,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": true
+     },
+     {
+      "sel": "section#machine.space-stage.machine-stage",
+      "tag": "section",
+      "top": 4410,
+      "height": 1305,
+      "words": 10,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "让想法，",
+       "size": 37,
+       "tag": "h2"
+      },
+      "left": 79,
+      "right": 1108,
+      "textLeft": 79,
+      "textRight": 1108,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": true
+     },
+     {
+      "sel": "section#lab.space-stage.lab-stage",
+      "tag": "section",
+      "top": 5715,
+      "height": 1125,
+      "words": 11,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "THE",
+       "size": 88,
+       "tag": "h2"
+      },
+      "left": 79,
+      "right": 1121,
+      "textLeft": 79,
+      "textRight": 1181,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": true
+     },
+     {
+      "sel": "section#works.works",
+      "tag": "section",
+      "top": 6840,
+      "height": 2745,
+      "words": 74,
+      "media": 4,
+      "middle": 0,
+      "heading": {
+       "text": "从想法，到可体验。",
+       "size": 58,
+       "tag": "h2"
+      },
+      "left": 79,
+      "right": 79,
+      "textLeft": 79,
+      "textRight": 79,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "footer#contact",
+      "tag": "footer",
+      "top": 9585,
+      "height": 225,
+      "words": 11,
+      "media": 0,
+      "middle": 822,
+      "heading": {
+       "text": "434902760@qq.com",
+       "size": 32,
+       "tag": "a"
+      },
+      "left": 79,
+      "right": 79,
+      "textLeft": 79,
+      "textRight": 79,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "程子悦.",
+      "size": 104,
+      "top": 272,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 74,
+      "n": 13
+     },
+     {
+      "x": 823,
+      "n": 4
+     }
+    ],
+    "leftBlocks": 17,
+    "bodySize": 15,
+    "stage": true,
+    "explains": false,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": null,
+   "consoleErrors": []
+  },
+  {
+   "width": 768,
+   "height": 1024,
+   "load": "load",
+   "screens": 11,
+   "filled": [
+    0.16,
+    0.06,
+    0.09,
+    0.1,
+    0.12,
+    0.12,
+    0.17,
+    0.49,
+    0.95,
+    0.89,
+    0.79
+   ],
+   "motion": {
+    "elements": 0,
+    "css": 0,
+    "transitions": 0,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "page": {
+     "height": 10370,
+     "screens": 10.1,
+     "words": 186,
+     "img": 9,
+     "video": 0,
+     "canvas": 1,
+     "svg": 2,
+     "sections": 6,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 4,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [
+      "tower-480.webp",
+      "ash-480.webp",
+      "csol-480.webp",
+      "mines-480.webp"
+     ],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "程子悦.",
+     "words": 1,
+     "chars": 4,
+     "lines": 1,
+     "size": 76,
+     "vw": 9.9,
+     "font": "Segoe UI",
+     "weight": 300,
+     "tracking": -0.055,
+     "leading": 1.16,
+     "upper": false,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "left",
+     "widthRatio": 0.34,
+     "top": 356,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "程子悦.",
+     "words": 1,
+     "lines": 1,
+     "size": 76,
+     "font": "Segoe UI"
+    },
+    "headings": [
+     {
+      "text": "程子悦.",
+      "words": 1,
+      "chars": 4,
+      "lines": 1,
+      "size": 76,
+      "vw": 9.9,
+      "font": "Segoe UI",
+      "weight": 300,
+      "tracking": -0.055,
+      "leading": 1.16,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.34,
+      "top": 356,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "连接逻辑， 交互与想象。",
+      "words": 2,
+      "chars": 12,
+      "lines": 2,
+      "size": 28,
+      "vw": 3.6,
+      "font": "Segoe UI",
+      "weight": 300,
+      "tracking": -0.035,
+      "leading": 1.32,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.33,
+      "top": 1725,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "让想法， 有自己的节奏。",
+      "words": 2,
+      "chars": 12,
+      "lines": 2,
+      "size": 29,
+      "vw": 3.8,
+      "font": "Segoe UI",
+      "weight": 300,
+      "tracking": -0.035,
+      "leading": 1.32,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.26,
+      "top": 5696,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "THE LAB ↗",
+      "words": 3,
+      "chars": 9,
+      "lines": 2,
+      "size": 62,
+      "vw": 8.1,
+      "font": "Segoe UI",
+      "weight": 300,
+      "tracking": -0.055,
+      "leading": 1.02,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.25,
+      "top": 6901,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "从想法，到可体验。",
+      "words": 1,
+      "chars": 9,
+      "lines": 1,
+      "size": 34,
+      "vw": 4.4,
+      "font": "Segoe UI",
+      "weight": 300,
+      "tracking": -0.035,
+      "leading": 1.35,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.38,
+      "top": 7908,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Tower Defense 烽誓 · 守望",
+      "words": 5,
+      "chars": 21,
+      "lines": 2,
+      "size": 42,
+      "vw": 5.5,
+      "font": "Segoe UI",
+      "weight": 300,
+      "tracking": -0.045,
+      "leading": 1.12,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.37,
+      "top": 8156,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "far cry Ash Exodus",
+      "words": 4,
+      "chars": 18,
+      "lines": 2,
+      "size": 42,
+      "vw": 5.5,
+      "font": "Segoe UI",
+      "weight": 300,
+      "tracking": -0.045,
+      "leading": 1.12,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.37,
+      "top": 8603,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "Csol far Cs Oline Monster",
+      "words": 5,
+      "chars": 25,
+      "lines": 2,
+      "size": 42,
+      "vw": 5.5,
+      "font": "Segoe UI",
+      "weight": 300,
+      "tracking": -0.045,
+      "leading": 1.12,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.37,
+      "top": 9049,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "saolei 扫雷",
+      "words": 2,
+      "chars": 9,
+      "lines": 2,
+      "size": 42,
+      "vw": 5.5,
+      "font": "Segoe UI",
+      "weight": 300,
+      "tracking": -0.045,
+      "leading": 1.12,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.37,
+      "top": 9531,
+      "tag": "h3",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 9,
+     "maxLines": 2,
+     "over2Lines": 0,
+     "statements": 0,
+     "centered": 0,
+     "medianWords": 3,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Segoe UI",
+       "share": 1,
+       "mono": false
+      }
+     ],
+     "familyCount": 1,
+     "sizes": [
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      20,
+      21,
+      22,
+      24,
+      28,
+      29,
+      34,
+      42,
+      62,
+      76
+     ],
+     "sizeCount": 17,
+     "notLoaded": [],
+     "body": null,
+     "measureChars": null,
+     "max": {
+      "size": 76,
+      "vw": 9.9,
+      "font": "Segoe UI",
+      "text": "程子悦"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0.21,
+     "centerShare": 0.03,
+     "smallText": 10
+    },
+    "eyebrows": [
+     {
+      "text": "数字媒体技术 CREATIVE DEVELOPER",
+      "above": "程子悦.",
+      "upper": true,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 13,
+      "top": 307
+     },
+     {
+      "text": "项目与经历",
+      "above": "从想法，到可体验。",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 13,
+      "top": 7872
+     },
+     {
+      "text": "UNITY · 策略塔防",
+      "above": "Tower Defense 烽誓 · 守望",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 12,
+      "top": 8116
+     },
+     {
+      "text": "UNITY · 第一人称射击",
+      "above": "far cry Ash Exodus",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 12,
+      "top": 8563
+     },
+     {
+      "text": "UNITY · 第一人称射击",
+      "above": "Csol far Cs Oline Monster",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 12,
+      "top": 9010
+     },
+     {
+      "text": "UNITY · 经典益智",
+      "above": "saolei 扫雷",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 12,
+      "top": 9491
+     }
+    ],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#04090c",
+     "bodyBgHsl": {
+      "h": 203,
+      "s": 0.5,
+      "l": 0.03
+     },
+     "dark": true,
+     "sectionBgs": [],
+     "textColors": [
+      {
+       "color": "#e8f0eb",
+       "share": 0.27
+      },
+      {
+       "color": "#a2b5b3",
+       "share": 0.17
+      },
+      {
+       "color": "#b1c0bc",
+       "share": 0.16
+      },
+      {
+       "color": "#b2c0bf",
+       "share": 0.09
+      },
+      {
+       "color": "#a4c6b6",
+       "share": 0.05
+      }
+     ],
+     "button": {
+      "bg": "#e8f0eb",
+      "hsl": {
+       "h": 142,
+       "s": 0.21,
+       "l": 0.93
+      },
+      "fg": "#04090c"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 2,
+     "inHero": 2,
+     "radius": 0,
+     "height": 50,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "跳过探索，查看作品",
+      "直接查看作品 ↗"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 6,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 7,
+     "hairlineSamples": [
+      "div.category-tabs 684px",
+      "button.text-action 280px",
+      "button.text-action 280px",
+      "button.text-action 280px",
+      "button.text-action 280px"
+     ],
+     "outlinedBoxes": 4,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 0,
+     "boxRadius": 0,
+     "squareMedia": 1,
+     "roundedMedia": 4,
+     "mediaRadius": 2,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [
+     {
+      "type": "canvas",
+      "ratio": 1
+     }
+    ],
+    "nav": {
+     "links": 3,
+     "fixed": true,
+     "height": 78,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": []
+   },
+   "layout": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "pageH": 10370,
+    "margins": {
+     "left": 42,
+     "right": 42
+    },
+    "sections": [
+     {
+      "sel": "section#home.hero",
+      "tag": "section",
+      "top": 0,
+      "height": 1024,
+      "words": 22,
+      "media": 0,
+      "middle": 269,
+      "heading": {
+       "text": "程子悦",
+       "size": 76,
+       "tag": "h1"
+      },
+      "left": 38,
+      "right": 42,
+      "textLeft": 38,
+      "textRight": 42,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#intro.space-stage.intro-stage",
+      "tag": "section",
+      "top": 1024,
+      "height": 1485,
+      "words": 9,
+      "media": 0,
+      "middle": 0,
+      "heading": null,
+      "left": 42,
+      "right": 488,
+      "textLeft": 42,
+      "textRight": 488,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": true
+     },
+     {
+      "sel": "section#spatial-gallery.space-stage.gallery-stage",
+      "tag": "section",
+      "top": 2509,
+      "height": 2509,
+      "words": 12,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "作品，向你展开。",
+       "size": 20,
+       "tag": "h2"
+      },
+      "left": 42,
+      "right": 552,
+      "textLeft": 42,
+      "textRight": 566,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": true
+     },
+     {
+      "sel": "section#machine.space-stage.machine-stage",
+      "tag": "section",
+      "top": 5018,
+      "height": 1485,
+      "words": 10,
+      "media": 0,
+      "middle": 0,
+      "heading": null,
+      "left": 42,
+      "right": 530,
+      "textLeft": 42,
+      "textRight": 530,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": true
+     },
+     {
+      "sel": "section#lab.space-stage.lab-stage",
+      "tag": "section",
+      "top": 6502,
+      "height": 1280,
+      "words": 11,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "THE",
+       "size": 62,
+       "tag": "h2"
+      },
+      "left": 42,
+      "right": 534,
+      "textLeft": 42,
+      "textRight": 546,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": true
+     },
+     {
+      "sel": "section#works.works",
+      "tag": "section",
+      "top": 7782,
+      "height": 2387,
+      "words": 72,
+      "media": 4,
+      "middle": 0,
+      "heading": {
+       "text": "Tower Defense",
+       "size": 42,
+       "tag": "h3"
+      },
+      "left": 42,
+      "right": 42,
+      "textLeft": 42,
+      "textRight": 42,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "footer#contact",
+      "tag": "footer",
+      "top": 10169,
+      "height": 201,
+      "words": 11,
+      "media": 0,
+      "middle": 356,
+      "heading": null,
+      "left": 42,
+      "right": 42,
+      "textLeft": 42,
+      "textRight": 42,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "程子悦.",
+      "size": 76,
+      "top": 356,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 38,
+      "n": 13
+     },
+     {
+      "x": 438,
+      "n": 4
+     }
+    ],
+    "leftBlocks": 17,
+    "bodySize": 15,
+    "stage": true,
+    "explains": false,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": null,
+   "consoleErrors": []
+  },
+  {
+   "width": 390,
+   "height": 844,
+   "load": "load",
+   "screens": 12,
+   "filled": [
+    0.25,
+    0.28,
+    0.31,
+    0.23,
+    0.16,
+    0.32,
+    0.29,
+    0.97,
+    0.97,
+    0.99,
+    0.85,
+    0.72
+   ],
+   "motion": {
+    "elements": 0,
+    "css": 0,
+    "transitions": 0,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "page": {
+     "height": 9443,
+     "screens": 11.2,
+     "words": 180,
+     "img": 9,
+     "video": 0,
+     "canvas": 1,
+     "svg": 2,
+     "sections": 6,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 4,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [
+      "tower-480.webp",
+      "ash-480.webp",
+      "csol-480.webp",
+      "mines-480.webp"
+     ],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "程子悦.",
+     "words": 1,
+     "chars": 4,
+     "lines": 1,
+     "size": 74.1,
+     "vw": 19,
+     "font": "Segoe UI",
+     "weight": 300,
+     "tracking": -0.055,
+     "leading": 1.1,
+     "upper": false,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "left",
+     "widthRatio": 0.59,
+     "top": 161,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "程子悦.",
+     "words": 1,
+     "lines": 1,
+     "size": 74.1,
+     "font": "Segoe UI"
+    },
+    "headings": [
+     {
+      "text": "程子悦.",
+      "words": 1,
+      "chars": 4,
+      "lines": 1,
+      "size": 74.1,
+      "vw": 19,
+      "font": "Segoe UI",
+      "weight": 300,
+      "tracking": -0.055,
+      "leading": 1.1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.59,
+      "top": 161,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "↗",
+      "words": 1,
+      "chars": 1,
+      "lines": 1,
+      "size": 22,
+      "vw": 5.6,
+      "font": "Segoe UI",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1.65,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.04,
+      "top": 405,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "连接逻辑， 交互与想象。",
+      "words": 2,
+      "chars": 12,
+      "lines": 2,
+      "size": 26,
+      "vw": 6.7,
+      "font": "Segoe UI",
+      "weight": 300,
+      "tracking": -0.035,
+      "leading": 1.32,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.73,
+      "top": 1541,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "作品，向你展开。",
+      "words": 1,
+      "chars": 8,
+      "lines": 1,
+      "size": 23,
+      "vw": 5.9,
+      "font": "Segoe UI",
+      "weight": 300,
+      "tracking": 0,
+      "leading": 1.45,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.59,
+      "top": 2176,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "让想法，有自己的节奏。",
+      "words": 1,
+      "chars": 11,
+      "lines": 2,
+      "size": 28,
+      "vw": 7.2,
+      "font": "Segoe UI",
+      "weight": 300,
+      "tracking": -0.035,
+      "leading": 1.32,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.7,
+      "top": 4309,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "↗",
+      "words": 1,
+      "chars": 1,
+      "lines": 1,
+      "size": 22,
+      "vw": 5.6,
+      "font": "Segoe UI",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1.65,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.04,
+      "top": 4498,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "THELAB ↗",
+      "words": 2,
+      "chars": 8,
+      "lines": 1,
+      "size": 46,
+      "vw": 11.8,
+      "font": "Segoe UI",
+      "weight": 300,
+      "tracking": -0.055,
+      "leading": 1.02,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.65,
+      "top": 5488,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "▷",
+      "words": 1,
+      "chars": 1,
+      "lines": 1,
+      "size": 22,
+      "vw": 5.6,
+      "font": "Segoe UI",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1.65,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.06,
+      "top": 5625,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "从想法，到可体验。",
+      "words": 1,
+      "chars": 9,
+      "lines": 1,
+      "size": 33,
+      "vw": 8.5,
+      "font": "Segoe UI",
+      "weight": 300,
+      "tracking": -0.035,
+      "leading": 1.35,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.73,
+      "top": 6045,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "▷",
+      "words": 1,
+      "chars": 1,
+      "lines": 1,
+      "size": 24,
+      "vw": 6.2,
+      "font": "Segoe UI",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1.65,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.11,
+      "top": 6443,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "Tower Defense 烽誓 · 守望",
+      "words": 5,
+      "chars": 21,
+      "lines": 2,
+      "size": 40,
+      "vw": 10.3,
+      "font": "Segoe UI",
+      "weight": 300,
+      "tracking": -0.045,
+      "leading": 1.12,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.88,
+      "top": 6575,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "↗",
+      "words": 1,
+      "chars": 1,
+      "lines": 1,
+      "size": 22,
+      "vw": 5.6,
+      "font": "Segoe UI",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1.65,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.04,
+      "top": 6801,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "▷",
+      "words": 1,
+      "chars": 1,
+      "lines": 1,
+      "size": 24,
+      "vw": 6.2,
+      "font": "Segoe UI",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1.65,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.11,
+      "top": 7110,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "far cry Ash Exodus",
+      "words": 4,
+      "chars": 18,
+      "lines": 2,
+      "size": 40,
+      "vw": 10.3,
+      "font": "Segoe UI",
+      "weight": 300,
+      "tracking": -0.045,
+      "leading": 1.12,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.88,
+      "top": 7244,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "↗",
+      "words": 1,
+      "chars": 1,
+      "lines": 1,
+      "size": 22,
+      "vw": 5.6,
+      "font": "Segoe UI",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1.65,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.04,
+      "top": 7471,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "▷",
+      "words": 1,
+      "chars": 1,
+      "lines": 1,
+      "size": 24,
+      "vw": 6.2,
+      "font": "Segoe UI",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1.65,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.11,
+      "top": 7779,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "Csol far Cs Oline Monster",
+      "words": 5,
+      "chars": 25,
+      "lines": 2,
+      "size": 40,
+      "vw": 10.3,
+      "font": "Segoe UI",
+      "weight": 300,
+      "tracking": -0.045,
+      "leading": 1.12,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.88,
+      "top": 7911,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "↗",
+      "words": 1,
+      "chars": 1,
+      "lines": 1,
+      "size": 22,
+      "vw": 5.6,
+      "font": "Segoe UI",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1.65,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.04,
+      "top": 8138,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "▷",
+      "words": 1,
+      "chars": 1,
+      "lines": 1,
+      "size": 24,
+      "vw": 6.2,
+      "font": "Segoe UI",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1.65,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.11,
+      "top": 8446,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "saolei 扫雷",
+      "words": 2,
+      "chars": 9,
+      "lines": 2,
+      "size": 40,
+      "vw": 10.3,
+      "font": "Segoe UI",
+      "weight": 300,
+      "tracking": -0.045,
+      "leading": 1.12,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.88,
+      "top": 8581,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "↗",
+      "words": 1,
+      "chars": 1,
+      "lines": 1,
+      "size": 22,
+      "vw": 5.6,
+      "font": "Segoe UI",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1.65,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.04,
+      "top": 8808,
+      "tag": "span",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 21,
+     "maxLines": 2,
+     "over2Lines": 0,
+     "statements": 0,
+     "centered": 0,
+     "medianWords": 1,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Segoe UI",
+       "share": 1,
+       "mono": false
+      }
+     ],
+     "familyCount": 1,
+     "sizes": [
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      26,
+      28,
+      33,
+      40,
+      46,
+      74
+     ],
+     "sizeCount": 20,
+     "notLoaded": [],
+     "body": null,
+     "measureChars": null,
+     "max": {
+      "size": 74.1,
+      "vw": 19,
+      "font": "Segoe UI",
+      "text": "程子悦"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0.2,
+     "centerShare": 0.03,
+     "smallText": 13
+    },
+    "eyebrows": [
+     {
+      "text": "数字媒体技术 CREATIVE DEVELOPER",
+      "above": "程子悦.",
+      "upper": true,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 12,
+      "top": 119
+     },
+     {
+      "text": "项目与经历",
+      "above": "从想法，到可体验。",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 13,
+      "top": 6010
+     },
+     {
+      "text": "UNITY · 策略塔防",
+      "above": "Tower Defense 烽誓 · 守望",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 12,
+      "top": 6535
+     },
+     {
+      "text": "UNITY · 第一人称射击",
+      "above": "far cry Ash Exodus",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 12,
+      "top": 7205
+     },
+     {
+      "text": "UNITY · 第一人称射击",
+      "above": "Csol far Cs Oline Monster",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 12,
+      "top": 7871
+     },
+     {
+      "text": "UNITY · 经典益智",
+      "above": "saolei 扫雷",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 12,
+      "top": 8541
+     }
+    ],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#04090c",
+     "bodyBgHsl": {
+      "h": 203,
+      "s": 0.5,
+      "l": 0.03
+     },
+     "dark": true,
+     "sectionBgs": [],
+     "textColors": [
+      {
+       "color": "#e8f0eb",
+       "share": 0.26
+      },
+      {
+       "color": "#a2b5b3",
+       "share": 0.17
+      },
+      {
+       "color": "#b1c0bc",
+       "share": 0.16
+      },
+      {
+       "color": "#b2c0bf",
+       "share": 0.09
+      },
+      {
+       "color": "#a4c6b6",
+       "share": 0.05
+      }
+     ],
+     "button": {
+      "bg": "#e8f0eb",
+      "hsl": {
+       "h": 142,
+       "s": 0.21,
+       "l": 0.93
+      },
+      "fg": "#04090c"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 2,
+     "inHero": 2,
+     "radius": 0,
+     "height": 50,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "跳过探索，查看作品",
+      "直接查看作品 ↗"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 5,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 9,
+     "hairlineSamples": [
+      "button.text-action 240px",
+      "button.text-action 240px",
+      "button.text-action 342px",
+      "button.text-action 342px",
+      "button.text-action 342px"
+     ],
+     "outlinedBoxes": 5,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 0,
+     "boxRadius": 0,
+     "squareMedia": 1,
+     "roundedMedia": 4,
+     "mediaRadius": 2,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [
+     {
+      "type": "canvas",
+      "ratio": 1
+     }
+    ],
+    "nav": {
+     "links": 3,
+     "fixed": true,
+     "height": 74,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": []
+   },
+   "layout": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "pageH": 9443,
+    "margins": {
+     "left": 24,
+     "right": 24
+    },
+    "sections": [
+     {
+      "sel": "section#home.hero",
+      "tag": "section",
+      "top": 0,
+      "height": 940,
+      "words": 22,
+      "media": 0,
+      "middle": 18,
+      "heading": {
+       "text": "程子悦",
+       "size": 74,
+       "tag": "h1"
+      },
+      "left": 20,
+      "right": 24,
+      "textLeft": 20,
+      "textRight": 24,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#intro.space-stage.intro-stage",
+      "tag": "section",
+      "top": 940,
+      "height": 1097,
+      "words": 9,
+      "media": 0,
+      "middle": 0,
+      "heading": null,
+      "left": 42,
+      "right": 127,
+      "textLeft": 42,
+      "textRight": 127,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": true
+     },
+     {
+      "sel": "section#spatial-gallery.space-stage.gallery-stage",
+      "tag": "section",
+      "top": 2037,
+      "height": 1730,
+      "words": 12,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "作品，向你展开。",
+       "size": 23,
+       "tag": "h2"
+      },
+      "left": 38,
+      "right": 41,
+      "textLeft": 38,
+      "textRight": 128,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": true
+     },
+     {
+      "sel": "section#machine.space-stage.machine-stage",
+      "tag": "section",
+      "top": 3767,
+      "height": 1139,
+      "words": 10,
+      "media": 0,
+      "middle": 0,
+      "heading": null,
+      "left": 42,
+      "right": 108,
+      "textLeft": 42,
+      "textRight": 171,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": true
+     },
+     {
+      "sel": "section#lab.space-stage.lab-stage",
+      "tag": "section",
+      "top": 4907,
+      "height": 1013,
+      "words": 11,
+      "media": 0,
+      "middle": 0,
+      "heading": null,
+      "left": 42,
+      "right": 108,
+      "textLeft": 42,
+      "textRight": 180,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": true
+     },
+     {
+      "sel": "section#works.works",
+      "tag": "section",
+      "top": 5920,
+      "height": 3254,
+      "words": 72,
+      "media": 4,
+      "middle": 0,
+      "heading": {
+       "text": "Tower Defense",
+       "size": 40,
+       "tag": "h3"
+      },
+      "left": 24,
+      "right": 24,
+      "textLeft": 24,
+      "textRight": 50,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "footer#contact",
+      "tag": "footer",
+      "top": 9173,
+      "height": 269,
+      "words": 11,
+      "media": 0,
+      "middle": 0,
+      "heading": null,
+      "left": 24,
+      "right": 178,
+      "textLeft": 24,
+      "textRight": 178,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [
+     {
+      "top": 432,
+      "height": 316
+     }
+    ],
+    "h1s": [
+     {
+      "text": "程子悦.",
+      "size": 74,
+      "top": 161,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 20,
+      "n": 10
+     },
+     {
+      "x": 38,
+      "n": 6
+     },
+     {
+      "x": 112,
+      "n": 1
+     }
+    ],
+    "leftBlocks": 17,
+    "bodySize": 14,
+    "stage": true,
+    "explains": false,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": null,
+   "consoleErrors": []
+  }
+ ],
+ "findings": [
+  {
+   "level": "FAIL",
+   "id": "eyebrow",
+   "width": 1440,
+   "message": "6 eyebrow/kicker label(s) above headings: \"数字媒体技术 CREATIVE DEVELOPER\" above \"程子悦.\"; \"项目与经历\" above \"从想法，到可体验。\"; \"UNITY · 策略塔防\" above \"Tower Defense 烽誓 · 守望\"; \"UNITY · 第一人称射击\" above \"far cry Ash Exodus\"; \"UNITY · 第一人称射击\" above \"Csol far Cs Oline Monster\"",
+   "fix": "Delete them. If the label carried real information, fold it into the headline or the supporting sentence.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "hairline",
+   "width": 1440,
+   "message": "9 thin rule(s)/divider line(s): button.text-action 240px | button.text-action 240px | div.category-tabs 1282px | button.text-action 280px",
+   "fix": "Delete. Separate with space, a tone change, or scale. Lines are only for real tables and form fields.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "outlined-box",
+   "width": 1440,
+   "message": "4 boxes drawn with a 1px outline.",
+   "fix": "Define a surface by its fill (one tone step from the page) or leave the content unboxed.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "size-count",
+   "width": 1440,
+   "message": "20 different font sizes (11, 12, 13, 14, 15, 16, 17, 18, 20, 21, 22, 24, 26, 32, 33, 37, 41, 58, 88, 104).",
+   "fix": "A page needs about five: display, heading, lead, body, small.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "no-footage",
+   "width": 1440,
+   "message": "No video anywhere on the page.",
+   "fix": "Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject."
+  },
+  {
+   "level": "FAIL",
+   "id": "small-text",
+   "width": 1440,
+   "message": "10 text blocks under 13px.",
+   "fix": "Nothing meant to be read goes below 13px.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "name-only-title",
+   "width": 1440,
+   "message": "The h1 is a bare name (\"程子悦.\") and nothing else on the first screen says what this is.",
+   "fix": "Keep the name if it leads, and give the line under it (18px or more) the plain words: what it is, for whom, where or when. In the study of 97 Sites of the Day, first screens that named nothing lost usability and content points.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "pinned-over-picture",
+   "width": 1440,
+   "message": "Pinned large text slides across pictures while the page scrolls: \"连接逻辑，\" (screen 3, 100% over a picture); \"交互与想象。\" (screen 3, 100% over a picture); \"让想法， 有自己的节奏。\" (screen 6, 100% over a picture)",
+   "fix": "Jurors read a pinned title crossing drawings or photographs as a collision. Keep the pictures in the column the title does not occupy, or unpin it.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "still-page",
+   "width": 1440,
+   "message": "Only 0 element(s) moved while the page loaded and scrolled.",
+   "fix": "Build the motion layer (SKILL.md step 9, references/motion.md): the signature move, an entrance for the parts of every section, feedback on every control, and one moving picture. Transform and opacity only, with a reduced-motion fallback."
+  },
+  {
+   "level": "FAIL",
+   "id": "empty-screens",
+   "width": 1440,
+   "message": "7 of 11 desktop screens are almost empty ground (under 20% of the screen holds text, a picture or a colour field): screens 1, 2, 3, 4, 5, 6, 7.",
+   "fix": "An empty screen is a rest only once per page. Elsewhere it means the section is underbuilt: set its content larger, give it the full information, put it on a colour field, or cut it."
+  }
+ ],
+ "images": [
+  {
+   "viewport": "desktop",
+   "width": 1440,
+   "fold": "D:\\Codex code\\2026-10-28\\github-plugin-github-openai-curated-remote\\work\\refine-oct30\\taste\\inspect\\desktop-fold.jpg",
+   "pages": [
+    "D:\\Codex code\\2026-10-28\\github-plugin-github-openai-curated-remote\\work\\refine-oct30\\taste\\inspect\\desktop-page-01.jpg",
+    "D:\\Codex code\\2026-10-28\\github-plugin-github-openai-curated-remote\\work\\refine-oct30\\taste\\inspect\\desktop-page-02.jpg",
+    "D:\\Codex code\\2026-10-28\\github-plugin-github-openai-curated-remote\\work\\refine-oct30\\taste\\inspect\\desktop-page-03.jpg"
+   ],
+   "film": []
+  },
+  {
+   "viewport": "tablet",
+   "width": 768,
+   "fold": "D:\\Codex code\\2026-10-28\\github-plugin-github-openai-curated-remote\\work\\refine-oct30\\taste\\inspect\\tablet-fold.jpg",
+   "pages": [
+    "D:\\Codex code\\2026-10-28\\github-plugin-github-openai-curated-remote\\work\\refine-oct30\\taste\\inspect\\tablet-page-01.jpg",
+    "D:\\Codex code\\2026-10-28\\github-plugin-github-openai-curated-remote\\work\\refine-oct30\\taste\\inspect\\tablet-page-02.jpg"
+   ],
+   "film": []
+  },
+  {
+   "viewport": "mobile",
+   "width": 390,
+   "fold": "D:\\Codex code\\2026-10-28\\github-plugin-github-openai-curated-remote\\work\\refine-oct30\\taste\\inspect\\mobile-fold.jpg",
+   "pages": [
+    "D:\\Codex code\\2026-10-28\\github-plugin-github-openai-curated-remote\\work\\refine-oct30\\taste\\inspect\\mobile-page-01.jpg",
+    "D:\\Codex code\\2026-10-28\\github-plugin-github-openai-curated-remote\\work\\refine-oct30\\taste\\inspect\\mobile-page-02.jpg"
+   ],
+   "film": []
+  }
+ ]
+}

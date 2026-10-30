@@ -25,3 +25,84 @@
 .is-playing>.project-type,.is-playing>.detail-heading,.is-playing>.detail-layout,.is-playing>.film-detail-grid{display:none}.is-playing>#player-slot{margin:0;padding:0;border:0}.playback-back{display:block;min-height:44px;padding:6px 0;margin-bottom:20px;color:#b8cfc6;font-size:13px;text-align:left}.playback-back:hover{color:#e8f0eb}.is-playing .player-title{font-size:clamp(24px,3vw,36px);margin-bottom:18px}.is-playing .film-player{max-height:57svh}.is-playing .player-toolbar{margin-bottom:16px}
 @media(min-width:761px){.intro-copy{left:var(--gutter);right:auto;top:65%;width:28vw;max-width:380px}.intro-copy h2{font-size:clamp(25px,2.2vw,34px)}.intro-copy p:not(.section-label){font-size:14px}}
 @media(max-width:760px){.hero-kicker{max-width:none;letter-spacing:0}.hero-actions{position:relative;z-index:2}}
+
+/* Reference refinement: a quiet type hierarchy around the changing geometry. */
+.hero-secondary{font-size:clamp(14px,1.12vw,18px);color:#b9c9c5;line-height:1.7;margin-top:10px}
+.hero-intro{font-size:15px;color:#a7b9b5;line-height:1.8;margin-top:25px}
+.hero-actions{margin-top:32px}
+.hero-actions .primary-link{min-height:58px;padding:13px 20px;background:#b8d5c508}
+.hero-kicker{margin-bottom:27px;color:#adbfba}
+.sculpture-note{color:#bdcdc8}.sculpture-note small{color:#9eb4ad}
+.intro-copy{max-width:340px}
+.intro-copy h2{font-size:clamp(28px,2.3vw,36px);text-wrap:initial}
+.intro-copy h2>span{display:inline-block;white-space:nowrap}
+.gallery-stage .gallery-caption{left:var(--gutter);bottom:296px;width:216px;max-width:216px;padding:16px 18px 12px 0;background:linear-gradient(90deg,#04090ce8,#04090c00)}
+.gallery-stage .gallery-caption h2{font-size:22px;font-weight:300;line-height:1.45}
+.gallery-stage .gallery-caption .section-label{font-size:12px;color:#9db7ae;margin-bottom:10px}
+.gallery-caption>p:last-child{font-size:13px;line-height:1.8;max-width:none;margin-top:14px}
+.spatial-menu{width:216px;bottom:58px;padding:12px 18px 10px 0;background:linear-gradient(90deg,#04090ce8,#04090c00)}
+.spatial-menu>span{font-size:12px;color:#97aea9;margin-bottom:8px}
+.spatial-menu button{font-size:14px;min-height:44px;color:#c0cfcb;transition:color .2s,transform .25s}
+.spatial-menu button:hover,.spatial-menu button:focus-visible{transform:translateX(4px);color:#e8f0eb}
+.spatial-menu button span{font-size:17px;color:#92b7a8}
+.machine-copy .text-action,.lab-copy .text-action{font-size:14px;min-height:48px}
+.lab-copy{left:var(--gutter);top:34%;max-width:280px;width:24vw;display:block;background:linear-gradient(90deg,#04090cd4,#04090c00)}
+.lab-copy .section-label{font-size:12px;color:#b4c7bf;margin-bottom:20px}
+.lab-copy h2{font-size:clamp(60px,6.2vw,88px);line-height:1.02;letter-spacing:-.055em;font-weight:300}
+.lab-copy h2 span{font-size:.46em;margin-left:4px}
+.lab-copy>p:not(.section-label){background:none;padding:0;font-size:15px;line-height:1.85;margin-top:25px}
+.lab-copy>.text-action{background:none;padding:10px 0;max-width:240px;margin-top:22px}
+.works-heading{margin-bottom:50px}
+.works h2{font-size:clamp(34px,4.2vw,58px);font-weight:300;letter-spacing:-.035em}
+.works-aside{font-size:14px;max-width:30ch}
+.category-tabs{margin-bottom:48px}.category-tabs button{font-weight:400;padding-top:17px;padding-bottom:20px}
+.game-work .project-copy h3{font-weight:300;letter-spacing:-.045em}
+.game-work .project-description,.software-intro .project-description{font-size:15px;line-height:1.95;color:#b1c0bc}
+.game-work .project-summary{font-size:21px;line-height:1.65}
+.project-cn{font-size:16px;letter-spacing:0;margin-top:12px}
+.project-type{color:#a4c6b6;font-size:13px;letter-spacing:.04em}
+.game-work .text-action{font-size:15px;max-width:280px;margin-top:28px}
+.load-note{font-size:13px;color:#91a8a1}
+.films-panel h3,.film-detail-grid h3{font-size:26px;font-weight:350;line-height:1.4}
+.films-panel article>p:last-child{line-height:1.85;color:#afc0ba}
+.film-meta{font-size:13px;margin-top:20px;margin-bottom:7px}
+.film-play{left:14px;right:14px;bottom:14px;font-size:13px;min-height:44px;background:#04090cd4}
+.process-list p{font-size:14px;line-height:1.8}.position{font-size:14px;line-height:1.85}
+.detail-heading{font-weight:300;letter-spacing:-.025em}
+.detail-layout .detail-copy{font-size:15px}.detail-cover figcaption{font-size:13px}
+.footer-name>span{font-size:13px;line-height:1.8}
+.status-label,.cover-caption,.film-play{font-size:13px}
+
+@media(max-width:1100px) and (min-width:761px){
+ .lab-copy{left:var(--gutter);width:25vw;top:35%;max-width:245px}.lab-copy h2{font-size:62px}
+ .gallery-stage .gallery-caption,.spatial-menu{width:192px;max-width:192px}
+ .gallery-stage .gallery-caption{top:120px;bottom:auto}
+ .gallery-stage .gallery-caption h2{font-size:20px}.intro-copy{width:33vw;max-width:320px}
+}
+@media(max-width:760px){
+ .hero h1{font-size:clamp(64px,19vw,84px)}.hero-role{font-size:19px;margin-top:20px}
+ .hero-secondary{font-size:14px;line-height:1.75;margin-top:8px}
+ .hero-intro{font-size:14px;margin-top:18px;line-height:1.85}.hero-kicker{font-size:12px;margin-bottom:22px}
+ .hero-actions{margin-top:25px;gap:18px}.hero-actions .primary-link{min-height:54px;padding:11px 16px}
+ .intro-copy{max-width:320px;padding:17px 18px;bottom:88px}.intro-copy h2{font-size:26px}
+ .gallery-stage .gallery-caption{left:var(--gutter);right:var(--gutter);top:102px;bottom:auto;width:auto;max-width:260px;padding:10px 14px;background:linear-gradient(90deg,#04090cda,#04090c80,#04090c00)}
+ .gallery-stage .gallery-caption h2{font-size:23px}.gallery-stage .gallery-caption .section-label{font-size:12px;margin-bottom:7px}
+ .gallery-caption>p:last-child{font-size:12px;margin-top:8px;line-height:1.7}.gallery-caption>p:last-child br{display:none}
+ .spatial-menu{left:var(--gutter);right:var(--gutter);bottom:30px;width:auto;max-width:none;padding:12px 16px;background:#04090ce8;gap:0 18px;border-color:#8da9ad30}
+ .spatial-menu>span{font-size:12px}.spatial-menu button{font-size:13px;min-height:44px}.spatial-menu button:hover{transform:none}
+ .lab-copy{left:var(--gutter);right:var(--gutter);top:auto;bottom:60px;width:auto;max-width:290px;padding:18px;background:linear-gradient(90deg,#04090cf0,#04090caa)}
+ .lab-copy .section-label{margin-bottom:12px}.lab-copy h2{font-size:46px}.lab-copy h2 br{display:none}
+ .lab-copy>p:not(.section-label){font-size:14px;margin-top:15px}.lab-copy>.text-action{margin-top:14px}
+ .works-heading{margin-bottom:30px}.works h2{font-size:33px;line-height:1.35}
+ .category-tabs{margin-bottom:34px}.category-tabs button{padding-top:14px;padding-bottom:14px}
+ .game-work{gap:23px}.game-work .project-copy h3{font-size:40px}.game-work .project-summary{font-size:20px;margin-top:21px}
+ .game-work .project-description,.software-intro .project-description{font-size:14px;line-height:1.9}
+ .project-cn{font-size:15px}.game-work .text-action{margin-top:22px;max-width:none}
+ .films-panel h3,.film-detail-grid h3{font-size:25px}.film-meta{font-size:13px}
+ .detail-layout .detail-copy{font-size:14px}.process-list p{font-size:13px}
+}
+@media(max-width:370px){
+ .hero-role{font-size:17px}.hero-secondary{font-size:12px}.hero-intro{font-size:13px}.hero-kicker{font-size:11px}
+ .hero-actions{gap:14px}.hero-actions .primary-link{padding-inline:14px}
+ .works h2{font-size:30px}.gallery-stage .gallery-caption h2{font-size:22px}
+}

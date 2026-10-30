@@ -1,0 +1,227 @@
+{
+  "base": "http://127.0.0.1:4181/",
+  "label": "local",
+  "at": "2026-10-30T11:20:16.280Z",
+  "media": [
+    {
+      "kind": "game",
+      "id": "tower",
+      "observedPlayingWithinMs": 763,
+      "first": {
+        "time": 1.5603,
+        "duration": 26.066667,
+        "src": "http://127.0.0.1:4181/media/tower-demo.mp4",
+        "error": null,
+        "ready": 4,
+        "frames": 258
+      },
+      "after": {
+        "time": 2.966,
+        "frames": 258,
+        "quality": {}
+      }
+    },
+    {
+      "kind": "game",
+      "id": "ash",
+      "observedPlayingWithinMs": 459,
+      "first": {
+        "time": 1.5105,
+        "duration": 24.033333,
+        "src": "http://127.0.0.1:4181/media/ash-demo.mp4",
+        "error": null,
+        "ready": 4,
+        "frames": 258
+      },
+      "after": {
+        "time": 2.9228,
+        "frames": 258,
+        "quality": {}
+      }
+    },
+    {
+      "kind": "game",
+      "id": "csol",
+      "observedPlayingWithinMs": 456,
+      "first": {
+        "time": 1.5101,
+        "duration": 22.066667,
+        "src": "http://127.0.0.1:4181/media/csol-demo.mp4",
+        "error": null,
+        "ready": 4,
+        "frames": 258
+      },
+      "after": {
+        "time": 2.9192,
+        "frames": 258,
+        "quality": {}
+      }
+    },
+    {
+      "kind": "game",
+      "id": "mines",
+      "observedPlayingWithinMs": 459,
+      "first": {
+        "time": 1.5099,
+        "duration": 18.033333,
+        "src": "http://127.0.0.1:4181/media/mines-demo.mp4",
+        "error": null,
+        "ready": 4,
+        "frames": 258
+      },
+      "after": {
+        "time": 2.922,
+        "frames": 258,
+        "quality": {}
+      }
+    },
+    {
+      "kind": "film",
+      "id": "murphy",
+      "observedPlayingWithinMs": 177,
+      "first": {
+        "time": 1.532869,
+        "duration": 124.017007,
+        "src": "http://127.0.0.1:4181/media/murphy-720.mp4",
+        "error": null,
+        "ready": 4,
+        "frames": 258
+      },
+      "after": {
+        "time": 2.943293,
+        "frames": 258,
+        "quality": {}
+      }
+    },
+    {
+      "kind": "film",
+      "id": "hyrum",
+      "observedPlayingWithinMs": 33,
+      "first": {
+        "time": 1.476898,
+        "duration": 150.016,
+        "src": "http://127.0.0.1:4181/media/hyrum-720.mp4",
+        "error": null,
+        "ready": 4,
+        "frames": 258
+      },
+      "after": {
+        "time": 2.891411,
+        "frames": 258,
+        "quality": {}
+      }
+    },
+    {
+      "kind": "film",
+      "id": "familiar",
+      "observedPlayingWithinMs": 105,
+      "first": {
+        "time": 1.451955,
+        "duration": 184.203991,
+        "src": "http://127.0.0.1:4181/media/familiar-720.mp4",
+        "error": null,
+        "ready": 4,
+        "frames": 258
+      },
+      "after": {
+        "time": 2.860144,
+        "frames": 258,
+        "quality": {}
+      }
+    },
+    {
+      "kind": "film",
+      "id": "town",
+      "observedPlayingWithinMs": 18,
+      "first": {
+        "time": 1.445261,
+        "duration": 64.017007,
+        "src": "http://127.0.0.1:4181/media/town-720.mp4",
+        "error": null,
+        "ready": 4,
+        "frames": 258
+      },
+      "after": {
+        "time": 2.862795,
+        "frames": 258,
+        "quality": {}
+      }
+    },
+    {
+      "kind": "film",
+      "id": "arc",
+      "observedPlayingWithinMs": 567,
+      "first": {
+        "time": 1.453475,
+        "duration": 20.132993,
+        "src": "http://127.0.0.1:4181/media/arc-720.mp4",
+        "error": null,
+        "ready": 4,
+        "frames": 258
+      },
+      "after": {
+        "time": 2.859955,
+        "frames": 258,
+        "quality": {}
+      }
+    }
+  ],
+  "screens": [
+    {
+      "width": 768,
+      "scrollWidth": 768,
+      "webgl": true,
+      "name": "程子悦.",
+      "phone": "电话：13318994968"
+    },
+    {
+      "width": 414,
+      "scrollWidth": 414,
+      "webgl": true,
+      "name": "程子悦.",
+      "phone": "电话：13318994968"
+    },
+    {
+      "width": 390,
+      "scrollWidth": 390,
+      "webgl": true,
+      "name": "程子悦.",
+      "phone": "电话：13318994968"
+    },
+    {
+      "width": 375,
+      "scrollWidth": 375,
+      "webgl": true,
+      "name": "程子悦.",
+      "phone": "电话：13318994968"
+    },
+    {
+      "width": 320,
+      "scrollWidth": 320,
+      "webgl": true,
+      "name": "程子悦.",
+      "phone": "电话：13318994968"
+    }
+  ],
+  "errors": [],
+  "initial": {
+    "webgl": true,
+    "videos": 0,
+    "mediaRequests": 0,
+    "metrics": "{\"frames\":171,\"points\":44000,\"dpr\":1,\"drawCalls\":46,\"triangles\":40594,\"lastDrawSubmissionMs\":0.4000000022351742,\"quality\":1,\"reduced\":false,\"chapter\":0,\"frameP50\":\"5.6\",\"frameP95\":\"5.7\"}"
+  },
+  "directBypass": true,
+  "qualitySwitch": {
+    "src": "http://127.0.0.1:4181/media/arc-1080.mp4",
+    "time": 5.226348
+  },
+  "mobileVideo": {
+    "time": 0.264098,
+    "width": 322,
+    "error": null
+  },
+  "reduced": {
+    "pressed": "true",
+    "class": true
+  }
+}

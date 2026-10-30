@@ -1,0 +1,211 @@
+{
+  "base": "http://127.0.0.1:4181/",
+  "at": "2026-10-30T11:30:07.188Z",
+  "errors": [],
+  "views": [
+    {
+      "width": 768,
+      "overflow": false,
+      "metrics": {
+        "frames": 347,
+        "points": 44000,
+        "dpr": 1,
+        "drawCalls": 46,
+        "triangles": 40594,
+        "lastDrawSubmissionMs": 0.3999999985098839,
+        "quality": 1,
+        "reduced": false,
+        "chapter": 0,
+        "frameP50": "5.6",
+        "frameP95": "6.5"
+      }
+    },
+    {
+      "width": 768,
+      "overflow": false,
+      "metrics": {
+        "frames": 520,
+        "points": 44000,
+        "dpr": 1,
+        "drawCalls": 46,
+        "triangles": 40594,
+        "lastDrawSubmissionMs": 0.5999999977648258,
+        "quality": 1,
+        "reduced": false,
+        "chapter": 0.9626715683475963,
+        "frameP50": "5.6",
+        "frameP95": "7.0"
+      }
+    },
+    {
+      "width": 768,
+      "overflow": false,
+      "metrics": {
+        "frames": 860,
+        "points": 44000,
+        "dpr": 1,
+        "drawCalls": 26,
+        "triangles": 69192,
+        "lastDrawSubmissionMs": 0.6999999992549419,
+        "quality": 1,
+        "reduced": false,
+        "chapter": 1.9999114508292901,
+        "frameP50": "5.6",
+        "frameP95": "5.8"
+      }
+    },
+    {
+      "width": 768,
+      "overflow": false,
+      "metrics": {
+        "frames": 1039,
+        "points": 44000,
+        "dpr": 1,
+        "drawCalls": 26,
+        "triangles": 69192,
+        "lastDrawSubmissionMs": 0.5999999977648258,
+        "quality": 1,
+        "reduced": false,
+        "chapter": 2.999069667139347,
+        "frameP50": "5.6",
+        "frameP95": "5.8"
+      }
+    },
+    {
+      "width": 768,
+      "overflow": false,
+      "metrics": {
+        "frames": 1218,
+        "points": 44000,
+        "dpr": 1,
+        "drawCalls": 51,
+        "triangles": 46176,
+        "lastDrawSubmissionMs": 0.5999999977648258,
+        "quality": 1,
+        "reduced": false,
+        "chapter": 3.9882696220285134,
+        "frameP50": "5.6",
+        "frameP95": "5.9"
+      }
+    },
+    {
+      "width": 768,
+      "overflow": false,
+      "metrics": {
+        "frames": 1397,
+        "points": 44000,
+        "dpr": 1,
+        "drawCalls": 11,
+        "triangles": 22128,
+        "lastDrawSubmissionMs": 0.20000000298023224,
+        "quality": 1,
+        "reduced": false,
+        "chapter": 4.920623298362788,
+        "frameP50": "5.6",
+        "frameP95": "5.8"
+      }
+    },
+    {
+      "width": 320,
+      "overflow": false,
+      "metrics": {
+        "frames": 360,
+        "points": 11000,
+        "dpr": 1,
+        "drawCalls": 28,
+        "triangles": 26816,
+        "lastDrawSubmissionMs": 0.6000000014901161,
+        "quality": 1,
+        "reduced": false,
+        "chapter": 0,
+        "frameP50": "5.6",
+        "frameP95": "5.7"
+      }
+    },
+    {
+      "width": 320,
+      "overflow": false,
+      "metrics": {
+        "frames": 537,
+        "points": 11000,
+        "dpr": 1,
+        "drawCalls": 20,
+        "triangles": 20576,
+        "lastDrawSubmissionMs": 0.5,
+        "quality": 1,
+        "reduced": false,
+        "chapter": 0.9790831452992192,
+        "frameP50": "5.6",
+        "frameP95": "5.7"
+      }
+    },
+    {
+      "width": 320,
+      "overflow": false,
+      "metrics": {
+        "frames": 702,
+        "points": 11000,
+        "dpr": 1,
+        "drawCalls": 26,
+        "triangles": 36168,
+        "lastDrawSubmissionMs": 1,
+        "quality": 1,
+        "reduced": false,
+        "chapter": 1.9131800731470923,
+        "frameP50": "5.6",
+        "frameP95": "5.8"
+      }
+    },
+    {
+      "width": 320,
+      "overflow": false,
+      "metrics": {
+        "frames": 1054,
+        "points": 11000,
+        "dpr": 1,
+        "drawCalls": 26,
+        "triangles": 36168,
+        "lastDrawSubmissionMs": 1.3999999985098839,
+        "quality": 1,
+        "reduced": false,
+        "chapter": 2.9998557451774794,
+        "frameP50": "5.6",
+        "frameP95": "5.7"
+      }
+    },
+    {
+      "width": 320,
+      "overflow": false,
+      "metrics": {
+        "frames": 1231,
+        "points": 11000,
+        "dpr": 1,
+        "drawCalls": 43,
+        "triangles": 40032,
+        "lastDrawSubmissionMs": 0.6999999992549419,
+        "quality": 1,
+        "reduced": false,
+        "chapter": 3.999318444088766,
+        "frameP50": "5.6",
+        "frameP95": "5.8"
+      }
+    },
+    {
+      "width": 320,
+      "overflow": false,
+      "metrics": {
+        "frames": 1411,
+        "points": 11000,
+        "dpr": 1,
+        "drawCalls": 21,
+        "triangles": 39216,
+        "lastDrawSubmissionMs": 0.6999999992549419,
+        "quality": 1,
+        "reduced": false,
+        "chapter": 4.996906109688796,
+        "frameP50": "5.5",
+        "frameP95": "5.8"
+      }
+    }
+  ]
+}

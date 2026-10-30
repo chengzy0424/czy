@@ -18,22 +18,22 @@ function setUV(geo,w,h){const p=geo.attributes.position,uv=new Float32Array(p.co
 
 export async function buildWorld({mobile=false,documentRef=document,onTexture=()=>{},yieldControl=()=>Promise.resolve()}={}){
  const world=new T.Group(),pickables=[],opaque=[],textures=[],cards=[];
- const chrome=new T.MeshPhysicalMaterial({color:0xa7b8bd,metalness:.97,roughness:.18,clearcoat:1,clearcoatRoughness:.12,iridescence:.9,iridescenceIOR:1.4,iridescenceThicknessRange:[180,520],envMapIntensity:1.65});
+ const chrome=new T.MeshPhysicalMaterial({color:0xa7b8bd,metalness:.8,roughness:.27,clearcoat:1,clearcoatRoughness:.18,iridescence:.9,iridescenceIOR:1.4,iridescenceThicknessRange:[180,520],envMapIntensity:1.5});
  const dark=new T.MeshStandardMaterial({color:0x10191c,metalness:.92,roughness:.3,envMapIntensity:1.1});
  const rose=new T.MeshPhysicalMaterial({color:0x531227,metalness:.9,roughness:.24,clearcoat:1,envMapIntensity:1.6});
  const silver=new T.MeshStandardMaterial({color:0xb3c5c3,metalness:.96,roughness:.24});
  const glow=new T.MeshBasicMaterial({color:0x842447,toneMapped:true});
- const glass=new T.MeshPhysicalMaterial({color:0xb9cbcf,metalness:.68,roughness:.16,transmission:0,thickness:.3,ior:1.46,clearcoat:1,iridescence:1,iridescenceIOR:1.35,iridescenceThicknessRange:[180,460],envMapIntensity:1.6});
+ const glass=new T.MeshPhysicalMaterial({color:0x78979f,metalness:.62,roughness:.23,transmission:0,thickness:.3,ior:1.46,clearcoat:1,iridescence:1,iridescenceIOR:1.35,iridescenceThicknessRange:[180,460],envMapIntensity:1.8});
  const emblem=new T.Group();emblem.position.set(2,0,0);world.add(emblem);
  const lens=new T.Group();emblem.add(lens);
  // Elliptical tube cross section: changing normals create a narrow, angle-dependent highlight.
- const ringGeo=new T.TorusGeometry(1.12,.092,20,144);ringGeo.scale(1,1,1.85);
+ const ringGeo=new T.TorusGeometry(1.12,.108,20,128);ringGeo.scale(1,1,1.5);
  const rim=mesh(ringGeo,glass,lens);opaque.push(rim);
  torus(lens,1.21,.012,silver,[0,0,.12]);torus(lens,1.045,.01,rose,[0,0,.13]);
  // Original ZY monogram, not the reference studio's trademark.
  // Z follows one rounded, folding stroke. Varying depth reveals a continuous chrome surface.
  const zCurve=new T.CatmullRomCurve3([[-.49,.4,.03],[.04,.43,.12],[.47,.37,.04],[.25,.12,-.05],[-.3,-.28,.07],[-.43,-.4,.17],[.02,-.45,.2],[.49,-.36,.05]].map(p=>new T.Vector3(...p)),false,'centripetal');
- const zGeo=new T.TubeGeometry(zCurve,110,.065,12,false);zGeo.scale(1,1,1.65);const zMark=mesh(zGeo,chrome,lens);opaque.push(zMark);
+ const zGeo=new T.TubeGeometry(zCurve,96,.079,12,false);zGeo.scale(1,1,1.45);const zMark=mesh(zGeo,chrome,lens);opaque.push(zMark);
  lens.add(tube([[-.36,.68,-.08],[0,.28,.06],[.38,.67,-.08]],.03,silver,30));
  lens.rotation.y=-.3;lens.rotation.z=-.08;
  const arcs=new T.Group();emblem.add(arcs);
@@ -43,7 +43,7 @@ export async function buildWorld({mobile=false,documentRef=document,onTexture=()
  }
  const jellyfish=[];
  for(let j=0;j<2;j++){
-  const jelly=new T.Group();jelly.position.set(j?3.05:-2.25,j?-1.45:2.2,j?-2.5:-1.9);jelly.scale.setScalar(j?.55:.72);jelly.rotation.z=j?-.24:.14;emblem.add(jelly);
+  const jelly=new T.Group();jelly.position.set(j?3.05:-2.25,j?-1.45:mobile?-.7:2.2,j?-2.5:-1.9);jelly.scale.setScalar(mobile?.46:j?.55:.72);jelly.rotation.z=j?-.24:.14;emblem.add(jelly);
   const profile=[];for(let n=0;n<=24;n++){const a=n/24*Math.PI*.51;profile.push(new T.Vector2(.55*Math.sin(a)*(1+.025*Math.sin(a*8)),.72*Math.cos(a)));}
   const membrane=new T.MeshPhysicalMaterial({color:j?0x6dbbbf:0x8c254e,metalness:.5,roughness:.2,clearcoat:1,iridescence:1,iridescenceThicknessRange:[220,480],transparent:true,opacity:.36,depthWrite:false,side:T.DoubleSide,envMapIntensity:1.15});
   const bell=mesh(new T.LatheGeometry(profile,mobile?24:40),membrane,jelly);torus(jelly,.55,.014,j?chrome:rose,[0,0,0],true);
@@ -70,12 +70,13 @@ export async function buildWorld({mobile=false,documentRef=document,onTexture=()
  const seg=mobile?40:64,rows=mobile?100:180,positions=[],indices=[];
  for(let j=0;j<=rows;j++)for(let i=0;i<=seg;i++){
   const y=(j/rows-.5)*8,a=i/seg*Math.PI*2+y*.62;
-  const radius=.52+.13*Math.sin(y*5.2+a*3)+.13*Math.cos(a*5+y*2.4)+.065*Math.sin(a*11-y*3.1);
-  positions.push(Math.cos(a)*radius*(1+.48*Math.sin(y*1.7))+.22*Math.sin(y*.91),y,Math.sin(a)*radius+.16*Math.cos(y*1.3));
+  const radius=.72+.19*Math.sin(y*2.7+a*3)+.2*Math.cos(a*4+y*1.6)+.085*Math.sin(a*7-y*2.1);
+  positions.push(Math.cos(a)*radius*(1+.35*Math.sin(y*1.6))+.22*Math.sin(y*.91),y*1.2,Math.sin(a)*radius+.18*Math.cos(y*1.3));
  }
  for(let j=0;j<rows;j++)for(let i=0;i<seg;i++){const a=j*(seg+1)+i,b=a+seg+1;indices.push(a,b,a+1,b,b+1,a+1);}
  const shellGeo=new T.BufferGeometry();shellGeo.setAttribute('position',new T.Float32BufferAttribute(positions,3));shellGeo.setIndex(indices);shellGeo.computeVertexNormals();
- const spine=mesh(shellGeo,chrome,gallery);opaque.push(spine);
+ const coreMaterial=chrome.clone();coreMaterial.metalness=.64;coreMaterial.roughness=.29;coreMaterial.envMapIntensity=1.8;coreMaterial.color.set(0x718a93);
+ const spine=mesh(shellGeo,coreMaterial,gallery);opaque.push(spine);
  // Irregular crystal fragments cling to the structure, rather than a uniform star background.
  const fragmentCount=mobile?260:780,fragments=new T.InstancedMesh(new T.IcosahedronGeometry(1,0),chrome,fragmentCount),fragmentDummy=new T.Object3D(),rand=seededRandom(9087),tint=new T.Color();
  for(let i=0;i<fragmentCount;i++){
@@ -85,34 +86,36 @@ export async function buildWorld({mobile=false,documentRef=document,onTexture=()
   tint.setHSL(.49+rand()*.36,.45,.25+rand()*.2);fragments.setColorAt(i,tint);
  }gallery.add(fragments);
  const tendrils=new T.Group();gallery.add(tendrils);
- for(let k=0;k<(mobile?4:7);k++){
+ for(let k=0;k<3;k++){
   const pts=[];for(let j=0;j<=100;j++){const y=j/100*8-4,a=y*(.85+k*.07)+k*.9,r=.75+.22*Math.sin(y*2+k);pts.push([Math.cos(a)*r,y,Math.sin(a)*r]);}
-  tendrils.add(tube(pts,k%2?.018:.046,k%3?chrome:silver,mobile?100:160));
+  tendrils.add(tube(pts,k%2?.013:.028,k%3?dark:chrome,mobile?80:120));
  }
- for(let j=0;j<16;j++){
+ for(let j=0;j<6;j++){
   const m=torus(gallery,.65+.14*Math.sin(j*1.5),.018,chrome,[.12*Math.sin(j),j*.48-3.6,0],true);m.rotation.z=.4*Math.sin(j*2);
  }
  const cardDeck=new T.Group();gallery.add(cardDeck);
  for(const spec of CARD_SPECS){
-  const group=new T.Group();group.position.fromArray(spec.position);group.rotation.y=spec.rotation;cardDeck.add(group);
+  const group=new T.Group();group.position.fromArray(spec.position);group.rotation.y=spec.rotation;group.scale.setScalar(.92);cardDeck.add(group);
   const shape=roundedShape(3.5,2.3,.105),backMaterial=dark.clone();backMaterial.transparent=true;backMaterial.opacity=.25;backMaterial.depthWrite=false;
   const base=mesh(extruded(shape,.055,.018,mobile?8:16),backMaterial,group,[0,0,-.04]);
   const frameShape=roundedShape(3.55,2.35,.115);frameShape.holes.push(roundedShape(3.47,2.27,.08));
   const edge=mesh(extruded(frameShape,.035,.012,mobile?8:16),chrome.clone(),group,[0,0,-.07]);
   let cover;
   const draw=c=>{
-   c.clearRect(0,0,1280,840);c.fillStyle='#122225';c.fillRect(0,0,1280,840);
-   if(cover){const scale=Math.max(1280/cover.width,840/cover.height);c.globalAlpha=.9;c.drawImage(cover,(1280-cover.width*scale)/2,(840-cover.height*scale)/2,cover.width*scale,cover.height*scale);c.globalAlpha=1;}
+   c.clearRect(0,0,1280,840);c.fillStyle='rgba(15,28,33,.54)';c.fillRect(0,0,1280,840);
+   if(cover){const scale=Math.max(1280/cover.width,840/cover.height);c.globalAlpha=.63;c.drawImage(cover,(1280-cover.width*scale)/2,(840-cover.height*scale)/2,cover.width*scale,cover.height*scale);c.globalAlpha=1;}
    // Non-public HMI and planned work use honest typographic covers, never fabricated UI.
    if(!spec.image){c.strokeStyle=spec.id==='boe'?'#447b79':'#6a587b';c.lineWidth=1;for(let i=0;i<7;i++){c.beginPath();c.ellipse(940,410,110+i*45,160+i*27,-.3,0,Math.PI*2);c.stroke();}}
-   const shade=c.createLinearGradient(0,0,0,840);shade.addColorStop(0,'rgba(4,10,14,.25)');shade.addColorStop(.43,'rgba(4,10,14,.22)');shade.addColorStop(1,'rgba(4,10,14,.96)');c.fillStyle=shade;c.fillRect(0,0,1280,840);
-   c.fillStyle='#c3d5d1';c.font='24px "Segoe UI", sans-serif';c.fillText(spec.subtitle,66,86);
-   c.fillStyle='#eff3ed';c.font='300 73px "Segoe UI", sans-serif';c.fillText(spec.title,64,657,1140);
-   c.fillStyle='#b8cac7';c.font='25px "Microsoft YaHei", sans-serif';c.fillText(spec.note,68,728);
+   const shade=c.createLinearGradient(0,0,0,840);shade.addColorStop(0,'rgba(4,10,14,.12)');shade.addColorStop(.5,'rgba(4,10,14,.42)');shade.addColorStop(1,'rgba(4,10,14,.45)');c.fillStyle=shade;c.fillRect(0,0,1280,840);
+   c.textAlign='center';c.fillStyle='#d1dfdb';c.font='27px "Segoe UI", sans-serif';c.fillText(spec.subtitle,640,240);
+   c.fillStyle='#eff3ed';c.font='300 100px "Segoe UI", sans-serif';
+   const lines=spec.id==='tower'?['TOWER','DEFENSE']:spec.id==='boe'?['HUMAN','MACHINE']:spec.id==='ae'?['MOTION','& FILM']:['THE LAB'];
+   lines.forEach((line,i)=>c.fillText(line,640,lines.length===1?455:390+i*115,1120));
+   c.fillStyle='#c3d5d1';c.font='28px "Microsoft YaHei", sans-serif';c.fillText(spec.note,640,650,1120);c.textAlign='left';
    c.strokeStyle='#aac7c066';c.strokeRect(24,24,1232,792);
   };
   const surface=canvasTexture(1280,840,draw);
-  const face=mesh(setUV(new T.ShapeGeometry(shape,8),3.5,2.3),new T.MeshBasicMaterial({map:surface.texture,side:T.FrontSide,transparent:true,opacity:.9,depthWrite:false}),group,[0,0,.044]);
+  const face=mesh(setUV(new T.ShapeGeometry(shape,8),3.5,2.3),new T.MeshBasicMaterial({map:surface.texture,side:T.FrontSide,transparent:true,opacity:.86,depthWrite:false}),group,[0,0,.044]);
   face.userData.detail=spec.id;pickables.push(face);opaque.push(base,edge);
   cards.push({group,face,edge,base,spec,hover:0,home:group.position.clone()});
   if(spec.image)coverLoaders.push(()=>{const img=new Image();img.decoding='async';img.onload=()=>{cover=img;draw(surface.ctx);surface.texture.needsUpdate=true;onTexture();};img.onerror=()=>console.warn('Gallery cover unavailable:',spec.image);img.src=spec.image;});
@@ -123,12 +126,12 @@ export async function buildWorld({mobile=false,documentRef=document,onTexture=()
  const machine=new T.Group();machine.position.set(0,-27,0);world.add(machine);
  const rotor=new T.Group();machine.add(rotor);
  for(const y of [-2.15,-1.93,1.8,2.08]){
-  const plate=mesh(new T.CylinderGeometry(y>0?2.22:1.94,y>0?2.16:1.98,.12,80,1,false),y>0?rose:dark,rotor,[0,y,0]);opaque.push(plate);
+  const plate=mesh(extruded(ringShape(y>0?2.22:1.98,y>0?1.84:1.62),.09,.015,48),y>0?rose:dark,rotor,[0,y,0]);plate.rotation.x=-Math.PI/2;opaque.push(plate);
   torus(rotor,y>0?2.22:1.98,.035,chrome,[0,y,0],true);torus(rotor,y>0?1.95:1.72,.018,glow,[0,y+.07,0],true);
  }
  for(let i=0;i<12;i++){
   const a=i*Math.PI/6,r=i%2?1.76:1.9;
-  const support=mesh(new T.CylinderGeometry(.022,.028,3.7,6),i%3?rose:chrome,machine,[Math.cos(a)*r,-.05,Math.sin(a)*r]);opaque.push(support);
+  const support=mesh(new T.BoxGeometry(i%3?.036:.065,3.7,.055),i%6?rose:dark,machine,[Math.cos(a)*r,-.05,Math.sin(a)*r]);support.rotation.y=-a;opaque.push(support);
  }
  for(let i=0;i<(mobile?12:20);i++){
   const a=i*.53,r=1.45+i%3*.25;
@@ -141,19 +144,21 @@ export async function buildWorld({mobile=false,documentRef=document,onTexture=()
 
  await yieldControl();
  const lab=new T.Group();lab.position.set(0,-40,0);world.add(lab);
- const hex=new T.Shape(),hole=new T.Path(),r=.205;for(let i=0;i<=6;i++){const a=i/6*Math.PI*2;const x=Math.cos(a)*r,y=Math.sin(a)*r;i?hex.lineTo(x,y):hex.moveTo(x,y);}for(let i=0;i<=6;i++){const a=-i/6*Math.PI*2;const x=Math.cos(a)*r*.83,y=Math.sin(a)*r*.83;i?hole.lineTo(x,y):hole.moveTo(x,y);}hex.holes.push(hole);
+ const hex=new T.Shape(),hole=new T.Path(),r=.205;for(let i=0;i<=6;i++){const a=i/6*Math.PI*2;const x=Math.cos(a)*r,y=Math.sin(a)*r;i?hex.lineTo(x,y):hex.moveTo(x,y);}for(let i=0;i<=6;i++){const a=-i/6*Math.PI*2;const x=Math.cos(a)*r*.8,y=Math.sin(a)*r*.8;i?hole.lineTo(x,y):hole.moveTo(x,y);}hex.holes.push(hole);
  const cells=[];for(let col=-12;col<=12;col++)for(let row=-6;row<=6;row++){
   const x=col*r*1.5,y=(row+(Math.abs(col)%2)*.5)*r*Math.sqrt(3);
   if(Math.hypot(x+3.5,y-.15)<.7)continue;
-  cells.push([x,y,Math.cos(x*.8)*.17]);
+  cells.push([x,y,.68*Math.cos(x*.65)]);
  }
- const grid=new T.InstancedMesh(new T.ExtrudeGeometry(hex,{depth:.085,bevelEnabled:false,curveSegments:1}),dark.clone(),cells.length),dummy=new T.Object3D();
- cells.forEach((p,i)=>{dummy.position.fromArray(p);dummy.rotation.y=Math.sin(p[0]*.8)*.12;dummy.updateMatrix();grid.setMatrixAt(i,dummy.matrix);});lab.add(grid);opaque.push(grid);
+ const gridMaterial=new T.MeshPhysicalMaterial({color:0x233438,metalness:.68,roughness:.32,clearcoat:1,iridescence:.65,iridescenceThicknessRange:[240,410],envMapIntensity:1.2});
+ const grid=new T.InstancedMesh(new T.ExtrudeGeometry(hex,{depth:.16,bevelEnabled:false,curveSegments:1}),gridMaterial,cells.length),dummy=new T.Object3D();
+ cells.forEach((p,i)=>{dummy.position.fromArray(p);dummy.rotation.y=Math.atan(.442*Math.sin(p[0]*.65));dummy.updateMatrix();grid.setMatrixAt(i,dummy.matrix);});lab.add(grid);opaque.push(grid);
  const frame=[];for(let i=0;i<=6;i++){const a=i/6*Math.PI*2;frame.push([Math.cos(a)*3.9,Math.sin(a)*2.5,-.05]);}lab.add(tube(frame,.06,chrome,72,true));
  torus(lab,.72,.045,chrome,[-3.5,.15,.04]);torus(lab,.8,.02,silver,[-3.5,.15,.05]);
  const disc=torus(lab,.37,.025,silver,[0,-.15,.28]);
  lab.add(tube([[0,-.4,.3],[0,.1,.3]],.023,silver,8));lab.add(tube([[-.25,-.15,.3],[.25,-.15,.3]],.023,silver,8));
- const backdrop=mesh(new T.PlaneGeometry(8,5),new T.MeshStandardMaterial({color:0x040a0d,metalness:.45,roughness:.5}),lab,[0,0,-.11]);
+ const backdropGeo=new T.PlaneGeometry(7.8,4.8,48,1),backPos=backdropGeo.attributes.position;for(let i=0;i<backPos.count;i++)backPos.setZ(i,.68*Math.cos(backPos.getX(i)*.65)-.13);backdropGeo.computeVertexNormals();
+ const backdrop=mesh(backdropGeo,new T.MeshStandardMaterial({color:0x040a0d,metalness:.45,roughness:.5}),lab);
  lab.rotation.y=-.16;lab.rotation.z=.055;
  return {world,emblem,lens,arcs,jellyfish,streamers,flowUniforms,intro,gallery,spine,tendrils,cardDeck,cards,machine,rotor,lab,pickables,opaque,textures,loadCovers(){if(!coversLoaded){coversLoaded=true;coverLoaders.forEach(load=>load());}},materials:{chrome,dark,rose},dispose(){world.traverse(o=>{o.geometry?.dispose();if(o.material)for(const m of Array.isArray(o.material)?o.material:[o.material])m.dispose();});textures.forEach(t=>t.dispose());}};
 }
@@ -164,10 +169,10 @@ export function particleField(count,mobile=false){
  for(let i=0;i<count;i++){
   const region=i%4,t=random(),a=random()*Math.PI*2,s=random(),j=i*3;
   let x,y,z;
-  if(region===0){const radius=.65+Math.pow(s,2)*1.45;x=(mobile?.4:2)+Math.sin(t*8)*radius;y=-.7-t*4.6;z=Math.cos(t*8)*radius; c.setHSL(.97+random()*.14,.82,.3+random()*.32);}
-  else if(region===1){const radius=.8+Math.pow(s,3)*1.6,theta=t*18+(i%3)*2.094+(a-3.14)*.19;x=Math.cos(theta)*radius+.22*Math.sin(t*8);y=-13+(t-.5)*8;z=Math.sin(theta)*radius;c.setHSL(.48+random()*.37,.58,.26+random()*.35);}
-  else if(region===2){const radius=Math.pow(s,.5)*.95,theta=a+t*6;x=Math.cos(theta)*radius;y=-27+(t-.5)*2.6;z=Math.sin(theta)*radius;c.setHSL(.91+random()*.08,.85,.35+random()*.32);}
-  else{const u=t*12-6;x=u;y=1.2+Math.sin(u*.7)*.4+(s-.5)*.15;z=-3+Math.cos(u*.3)*.8;c.setHSL(.88+random()*.08,.7,.35+random()*.2);}
+  if(region===0){const radius=.8+Math.pow(s,2)*1.3,branch=i%2?1:-1;x=(mobile?.4:2)+branch*Math.sin(t*5.7)*radius;y=-.75-t*4.9;z=Math.cos(t*5.7)*radius+.25;c.setHSL(.035+random()*.075,.75,.32+random()*.38);}
+  else if(region===1){const radius=1.05+Math.pow(s,3)*1.15,theta=t*13+(i%3)*2.094+(a-3.14)*.12;x=Math.cos(theta)*radius+.22*Math.sin(t*8);y=-13+(t-.5)*9.6;z=Math.sin(theta)*radius;c.setHSL(.47+random()*.31,.42,.28+random()*.4);}
+  else if(region===2){const cy=(t-.5)*2.65,radius=(.28+.48*Math.sin(t*Math.PI)**2+.24*Math.exp(-(((t-.22)*6)**2)))*Math.pow(s,.32),theta=a+t*7;x=Math.cos(theta)*radius+.16*Math.sin(t*5);y=-27+cy;z=Math.sin(theta)*radius;c.setHSL(.97+random()*.045,.92,.28+random()*.33);}
+  else{const theta=t*Math.PI*1.65-.6,radius=1.8+(s-.5)*.24;x=(mobile?.4:2)+Math.sin(theta)*radius;y=.1+Math.cos(theta)*radius;z=-1.3+(random()-.5)*.35;c.setHSL(.47+random()*.34,.38,.26+random()*.3);}
   const scatter=region===1?.2:.09;x+=(random()-.5)*scatter;y+=(random()-.5)*scatter;z+=(random()-.5)*scatter;
   position.set([x,y,z],j);color.set([c.r,c.g,c.b],j);meta.set([random(),region,random()],j);
  }

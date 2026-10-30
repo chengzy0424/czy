@@ -5,25 +5,35 @@ import {damp,clamp,smooth,springStep} from './weave-math.js';
 
 const vertex=`
  attribute vec3 aMeta; attribute vec3 aTint;
- uniform float uTime,uDpr,uForce,uChapter; uniform vec3 uPointer;
+ uniform float uTime,uDpr,uForce,uChapter,uMobile; uniform vec3 uPointer;
  varying vec3 vTint; varying float vAlpha,vStreak,vAngle;
  void main(){
   vec3 p=position;float seed=aMeta.x,region=aMeta.y;
   float phase=uTime*(.14+seed*.16)+seed*6.2831;
   // Advected strands, not an unstructured star field.
-  if(region<.5){p.y=-.7-mod(-p.y-.7+uTime*(.15+seed*.14),4.6);p.x+=sin(p.y*1.5+phase)*.17;p.z+=cos(phase+p.y)*.2;}
+  if(region<.5){
+   float travel=fract((-position.y-.75)/4.9+uTime*(.018+seed*.012));
+   float spread=fract(sin(seed*127.1+position.z*311.7)*43758.5453);
+   float radius=.45+spread*1.65;float branch=step(.5,seed)*2.-1.;
+   p.x=mix(2.,.4,uMobile)+branch*sin(travel*5.7)*radius;
+   p.y=-.75-travel*4.9;p.z=cos(travel*5.7)*radius+.25;p.x+=sin(phase*1.7+travel*17.)*.16;
+   float flare=sin(clamp(uChapter,0.,1.)*3.14159);p.x+=sin(travel*3.14159)*flare*.55*branch;
+  }
   else if(region<1.5){float a=uTime*.075;float x=p.x;p.x=x*cos(a)-p.z*sin(a);p.z=x*sin(a)+p.z*cos(a);p.x+=sin(p.y*3.+phase)*.13;p.y+=sin(phase+p.y*.7)*.12;}
-  else if(region<2.5){p.x+=sin(phase*1.7+p.y)*.13;p.y+=sin(phase)*.08;p.z+=cos(phase+p.x)*.14;}
-  else {p.y+=sin(p.x*.85+uTime*.45)*.23;p.z+=cos(p.x*.4+phase)*.2;}
+  else if(region<2.5){float a=uTime*.16+sin(p.y*2.+phase)*.12;float x=p.x;p.x=x*cos(a)-p.z*sin(a);p.z=x*sin(a)+p.z*cos(a);p.y+=sin(phase)*.055;}
+  else {float x=p.x-mix(2.,.4,uMobile);float a=uTime*.08;p.x=mix(2.,.4,uMobile)+x*cos(a)-p.y*sin(a);p.y=x*sin(a)+p.y*cos(a);p.z+=sin(phase)*.12;}
   vec3 d=p-uPointer;float weight=exp(-dot(d.xy,d.xy)*1.25)*uForce;
   p.xy+=normalize(d.xy+vec2(.001))*weight*.65;p.z+=weight*.4;
   vec4 mv=modelViewMatrix*vec4(p,1.);gl_Position=projectionMatrix*mv;
   vStreak=step(.997,aMeta.z);vAngle=sin(p.y*.6+phase*.3)*.7+.5;
-  gl_PointSize=clamp((1.1+pow(aMeta.z,32.)*10.0+vStreak*14.)*uDpr*(8./max(4.,-mv.z)),.7,25.*uDpr);
-  vTint=aTint;vAlpha=(.24+seed*.52)*(1.-smoothstep(10.,32.,-mv.z));
-  if(region>2.5)vAlpha*=smoothstep(.35,.8,uChapter)*(1.-smoothstep(1.2,1.7,uChapter));
+  float bokeh=step(.982,aMeta.z);float size=1.2+pow(aMeta.z,10.)*3.5+bokeh*(4.+seed*4.)+vStreak*8.;
+  if(region>1.5&&region<2.5)size*=1.05;
+  gl_PointSize=clamp(size*uDpr*(8./max(4.,-mv.z)),.8,18.*uDpr);
+  vTint=aTint;vAlpha=(.25+seed*.48)*(1.-smoothstep(13.,34.,-mv.z))*mix(1.,.7,bokeh);
+  if(region>2.5)vAlpha*=(.07+smoothstep(.2,.9,uChapter)*.35)*(1.-smoothstep(1.1,1.55,uChapter));
+  if(region>1.5&&region<2.5)vAlpha*=1.45;
  }`;
-const fragment=`varying vec3 vTint;varying float vAlpha,vStreak,vAngle;void main(){vec2 uv=gl_PointCoord-.5;uv=mat2(cos(vAngle),-sin(vAngle),sin(vAngle),cos(vAngle))*uv;uv.x*=mix(1.,5.,vStreak);float r=length(uv);if(r>.5)discard;float a=(1.-smoothstep(.05,.5,r))*vAlpha;gl_FragColor=vec4(vTint*(1.+(1.-smoothstep(0.,.14,r))*.45),a);
+const fragment=`varying vec3 vTint;varying float vAlpha,vStreak,vAngle;void main(){vec2 uv=gl_PointCoord-.5;uv=mat2(cos(vAngle),-sin(vAngle),sin(vAngle),cos(vAngle))*uv;uv.x*=mix(1.,5.,vStreak);float r=length(uv);if(r>.5)discard;float a=(1.-smoothstep(.12,.5,r))*vAlpha;gl_FragColor=vec4(vTint*(1.+(1.-smoothstep(0.,.17,r))*.65),a);
 #include <tonemapping_fragment>
 #include <colorspace_fragment>
 }`;
@@ -37,8 +47,8 @@ export async function createSpace({container,state,onFailure=()=>{},onSelect=()=
  const scene=new T.Scene();scene.fog=new T.FogExp2(0x04090c,.014);
  const camera=new T.PerspectiveCamera(mobile?43:40,1,.1,100);
  const environment=new T.Scene();environment.background=new T.Color(0x030609);
- for(const [color,x,y,z,w,h] of [[0x8ef1f0,-4,1,2,.7,7],[0xc83c9f,4,0,-2,.55,5],[0xe3eee6,0,5,1,4,.7],[0xd0dcd6,2,1,5,.4,5],[0x4133b1,-2,-3,-4,3,1],[0x52636a,-2,0,7,4,5]]){
-  const panel=new T.Mesh(new T.PlaneGeometry(w,h),new T.MeshBasicMaterial({color,side:T.DoubleSide}));panel.material.color.multiplyScalar(4);panel.position.set(x,y,z);panel.lookAt(0,0,0);environment.add(panel);
+ for(const [color,x,y,z,w,h] of [[0x8ddcd3,-4,1,2,2.6,7],[0xa94e9c,4,0,-2,2.2,5],[0xe3eee6,0,5,1,5,1.7],[0xc4d5d4,2,1,5,2.2,5],[0x4a4990,-2,-3,-4,3,2],[0x52636a,-2,0,7,4,5]]){
+  const panel=new T.Mesh(new T.PlaneGeometry(w,h),new T.MeshBasicMaterial({color,side:T.DoubleSide}));panel.material.color.multiplyScalar(2.5);panel.position.set(x,y,z);panel.lookAt(0,0,0);environment.add(panel);
  }
  await yieldControl();
  const pmrem=new T.PMREMGenerator(renderer),env=pmrem.fromScene(environment,.03,.1,100,{size:128});scene.environment=env.texture;scene.environmentIntensity=.8;environment.traverse(o=>{o.geometry?.dispose();o.material?.dispose();});pmrem.dispose();
@@ -53,7 +63,7 @@ export async function createSpace({container,state,onFailure=()=>{},onSelect=()=
  const redLight=new T.PointLight(0xe61458,29,7,2);redLight.position.set(.4,-26,1);scene.add(redLight);
  const count=mobile?11000:44000,points=particleField(count,mobile),geo=new T.BufferGeometry();
  geo.setAttribute('position',new T.BufferAttribute(points.position,3));geo.setAttribute('aTint',new T.BufferAttribute(points.color,3));geo.setAttribute('aMeta',new T.BufferAttribute(points.meta,3));
- const uniforms={uTime:{value:0},uDpr:{value:1},uForce:{value:0},uChapter:{value:0},uPointer:{value:new T.Vector3(100,100,0)}};
+ const uniforms={uTime:{value:0},uDpr:{value:1},uForce:{value:0},uChapter:{value:0},uMobile:{value:mobile?1:0},uPointer:{value:new T.Vector3(100,100,0)}};
  const pointMaterial=new T.ShaderMaterial({uniforms,vertexShader:vertex,fragmentShader:fragment,transparent:true,depthWrite:false,depthTest:true,blending:T.NormalBlending});
  const cloud=new T.Points(geo,pointMaterial);cloud.frustumCulled=false;scene.add(cloud);
  const pointer=new T.Vector2(),viewPointer=new T.Vector2(),ray=new T.Raycaster(),plane=new T.Plane(new T.Vector3(0,0,1),0),worldPointer=new T.Vector3();
@@ -77,7 +87,7 @@ export async function createSpace({container,state,onFailure=()=>{},onSelect=()=
  function updateScene(dt){
   const reduced=state.reduced;
   progress=reduced?state.chapter||0:damp(progress,state.chapter||0,dt,8);
-  const pose=cameraPose(progress,mobile),offset=reduced?0:.22;
+  const pose=cameraPose(progress,mobile,camera.aspect),offset=reduced?0:.22;
   viewPointer.lerp(reduced?new T.Vector2():pointer,1-Math.exp(-dt*3));
   camera.position.fromArray(pose.eye);camera.position.x+=viewPointer.x*offset;camera.position.y+=viewPointer.y*offset*.6;
   camera.lookAt(...pose.look);camera.updateMatrixWorld();
@@ -90,13 +100,14 @@ export async function createSpace({container,state,onFailure=()=>{},onSelect=()=
   world.arcs.rotation.z=-unfold*.32;world.arcs.scale.x=1+smooth(clamp(progress))*.65;
   world.flowUniforms.uTime.value=reduced?0:time;world.flowUniforms.uEnergy.value=Math.sin(Math.PI*(progress%1))**2;
   for(const jelly of world.jellyfish){const pulse=reduced?0:Math.sin(time*1.25+jelly.phase);jelly.group.position.copy(jelly.base);jelly.group.position.y+=pulse*.07;jelly.group.rotation.y=reduced?0:Math.sin(time*.19+jelly.phase)*.2;jelly.bell.scale.set(1+pulse*.045,1-pulse*.035,1+pulse*.045);jelly.strands.rotation.z=reduced?0:Math.sin(time*.65+jelly.phase)*.065;}
+  world.intro.visible=!mobile;
   world.intro.material.opacity=smooth(clamp((progress-.25)/.45))*(1-smooth(clamp((progress-1.15)/.45)));
-  world.gallery.rotation.y=(progress-2)*.43;
+  world.gallery.rotation.y=-smooth(clamp(progress-2))*.8+smooth(clamp(2-progress))*.25;
   if(progress>.75)world.loadCovers();
   world.tendrils.rotation.y=reduced?0:time*.025;
-  world.rotor.rotation.y=(reduced?0:time*.045)+smooth(clamp(progress-3))*1.5;
+  world.rotor.rotation.y=(reduced?0:time*.1)+smooth(clamp(progress-3))*2.1;
   world.machine.rotation.y=.08+Math.sin(reduced?0:time*.1)*.06;
-  world.lab.rotation.y=-.16+(reduced?0:Math.sin(time*.13)*.035)+(1-smooth(clamp(progress-4)))*.8;
+  world.lab.rotation.y=-.16+(reduced?0:Math.sin(time*.13)*.035)+(1-smooth(clamp(progress-4)))*1.15;
   // Far chapters remain in world coordinates; culling only removes unseen draw calls.
   for(const group of [world.emblem,world.gallery,world.machine,world.lab])group.visible=Math.abs(group.position.y-pose.look[1])<14;
   scene.updateMatrixWorld(true);pick();
@@ -105,7 +116,9 @@ export async function createSpace({container,state,onFailure=()=>{},onSelect=()=
    card.hover=reduced?(hovered===card?1:0):damp(card.hover,hovered===card?1:0,dt,10);
    card.group.position.copy(card.home);card.group.position.z+=card.hover*.17;
    card.group.position.y+=(reduced?0:Math.sin(time*.24+card.home.x)*.045);
-   card.group.rotation.y=card.spec.rotation-card.hover*.025;
+   const turn=smooth(clamp(progress-2));
+   if(card.spec.id==='tower')card.group.position.y+=turn*.75;
+   card.group.rotation.y=card.spec.rotation+turn*(card.spec.id==='boe'?1.4:card.spec.id==='tower'?.52:.72)-card.hover*.025;
    card.edge.material.emissive.set(0xa6e4d4);card.edge.material.emissiveIntensity=card.hover*.35;
   }
   if(coarse&&performance.now()>touchUntil){desiredForce=0;pointerKnown=false;}

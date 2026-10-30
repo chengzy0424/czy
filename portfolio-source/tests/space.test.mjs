@@ -51,9 +51,9 @@ test('gallery boards have varying depth, actual thickness and project metadata',
  assert.match(CARD_SPECS.find(c=>c.id==='lab').note,/空格里的小镇/);w.dispose();
 });
 test('emblem and machine core remain in the viewport at target desktop and phone sizes',()=>{
- for(const [width,height,mobile] of [[1920,1080,false],[1440,900,false],[1024,768,false],[390,844,true],[320,720,true]]){
+ for(const [width,height,mobile] of [[1920,1080,false],[1440,900,false],[1024,768,false],[768,1024,false],[390,844,true],[320,720,true]]){
   for(const [chapter,center,radius] of [[0,[mobile?.4:2,0,0],1.25],[4,[0,-27,0],2.25],[5,[0,-40,0],3.9]]){
-   const pose=cameraPose(chapter,mobile),camera=new T.PerspectiveCamera(mobile?43:40,width/height,.1,100);camera.position.fromArray(pose.eye);camera.lookAt(...pose.look);camera.updateMatrixWorld();
+   const pose=cameraPose(chapter,mobile,width/height),camera=new T.PerspectiveCamera(mobile?43:40,width/height,.1,100);camera.position.fromArray(pose.eye);camera.lookAt(...pose.look);camera.updateMatrixWorld();
    for(const dx of [-radius,radius]){const p=new T.Vector3(center[0]+dx,center[1],center[2]).project(camera);assert.ok(Math.abs(p.x)<1.1,`clipping ${width} chapter ${chapter} x=${p.x}`);}
   }
  }

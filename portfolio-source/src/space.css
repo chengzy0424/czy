@@ -1,7 +1,10 @@
-/* Reference correction: solid forms + depth + continuous camera. Existing content styles retained. */
+/* finesse · register=brand · A=teal-black-local-iridescence · B=light-sans-readable-Chinese
+ * C=identity-and-spatial-gallery · D=reversible-WebGL-camera · E=folded-metal-and-particles
+ * 2026-10-30: preserve the user's reference-first direction; no theme rotation. */
 :root{--bg:#04090c;--nav-h:78px}
 .reading-shade{background:linear-gradient(90deg,#04090c40,transparent 42%);transition:opacity .2s}
-.site-header{background:linear-gradient(#04090ccf,#04090c00)}
+.site-header{background:#04090c}
+.site-header:after{content:'';position:absolute;top:100%;left:0;right:0;height:22px;background:linear-gradient(#04090c,#04090c00);pointer-events:none}
 .site-header nav{border:1px solid #8da9ad4d;border-radius:40px;gap:28px;padding:0 22px;background:#050b0c60}
 .site-header nav a{font-size:12px}
 .hero{min-height:720px}
@@ -84,3 +87,28 @@ footer{background:#04090c}
  .film-detail-grid{grid-template-columns:1fr;gap:28px}
 }
 @media(max-width:370px){.hero h1{font-size:65px}.hero-role{font-size:17px}.site-header{gap:9px}.site-header nav{padding:0 12px;gap:14px}}
+
+/* Reading rails: the scene occupies the centre; captions sit beside it. */
+.site-header nav a{font-size:13px}
+.hero-copy{max-width:48%}
+.hero h1{font-size:clamp(76px,7.2vw,118px);font-weight:300;letter-spacing:-.055em}
+.hero-role{font-size:clamp(21px,1.8vw,29px);font-weight:300;letter-spacing:0;margin-top:24px}
+.stage-copy h2{font-weight:300;line-height:1.32}
+.stage-copy p:not(.section-label){line-height:1.9}
+.machine-copy{top:36%;max-width:min(290px,23vw);background:linear-gradient(90deg,#04090cbb,#04090c00)}
+.machine-copy h2{font-size:clamp(29px,2.6vw,43px)}
+.machine-copy .film-credits{margin-top:22px}
+.film-credits>span{display:block;white-space:nowrap}
+.film-credits>small{display:block;margin-top:8px;font-size:13px;color:#99aeac}
+.journey-track{background:#c7dcd414}
+
+@media(max-width:1100px) and (min-width:761px){
+ .hero-copy{max-width:51%}.hero h1{font-size:clamp(76px,8vw,92px)}
+ .hero-role{font-size:21px}.machine-copy{top:auto;bottom:55px;max-width:240px}
+}
+@media(max-width:760px){
+ .hero-copy{max-width:100%}.hero h1{font-size:clamp(64px,19vw,84px)}
+ .machine-copy{left:var(--gutter);right:var(--gutter);top:auto;bottom:50px;max-width:310px;background:linear-gradient(90deg,#04090cf0,#04090caa);padding:16px 18px}
+ .machine-copy h2{font-size:28px}.machine-copy .film-credits{display:flex;flex-wrap:wrap;gap:0 8px;margin-top:14px;line-height:1.7}
+ .film-credits>small{flex-basis:100%;margin-top:4px;font-size:12px}
+}

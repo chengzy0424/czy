@@ -1,7 +1,7 @@
 """Build independent, aligned two-second AVC/AAC HLS segments. Originals stay untouched."""
 from pathlib import Path
 from concurrent.futures import ThreadPoolExecutor, as_completed
-import subprocess, json, re, os
+import subprocess, json, re, os, base64
 
 root = Path(__file__).resolve().parents[1]
 media = root / 'public/media'
@@ -67,4 +67,12 @@ if __name__=='__main__':
         (out/id/'master.m3u8').write_text('\n'.join(lines)+'\n',encoding='utf-8')
         catalog[id]={'path':f'media/stream-v1/{id}/master.m3u8','levels':levels}
     (root/'src/stream-catalog.json').write_text(json.dumps(catalog,indent=2)+'\n',encoding='utf-8')
+    bootstrap={}
+    for id,entry in catalog.items():
+        paths=[out/id/'master.m3u8']
+        for level in entry['levels']:paths += [out/id/level['level']/'index.m3u8',out/id/level['level']/'init.mp4']
+        for p in paths:
+            binary=p.suffix=='.mp4'
+            bootstrap[p.relative_to(root/'public').as_posix()]={'binary':binary,'data':base64.b64encode(p.read_bytes()).decode() if binary else p.read_text(encoding='utf-8')}
+    (root/'src/stream-startup.json').write_text(json.dumps(bootstrap,separators=(',',':'))+'\n',encoding='utf-8')
     print('All streams complete',flush=True)

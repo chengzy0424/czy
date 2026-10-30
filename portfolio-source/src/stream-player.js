@@ -1,7 +1,8 @@
 // HLS is loaded on intent, never alongside the first-screen WebGL bundle.
-let library;
+let library,preferredBackup=false;
 export function prepareVideoPlayer(){
- return library ||= import('hls.js/light').catch(error=>{library=undefined;throw error;});
+ return library ||= Promise.all([import('hls.js/light'),import('./stream-startup.json')])
+  .then(([hls,index])=>({...hls,bootstrap:index.default})).catch(error=>{library=undefined;throw error;});
 }
 export function repositoryMediaURL(input,pageURL,backup=false){
  const url=new URL(input,pageURL);
@@ -57,30 +58,48 @@ export function createStreamPlayer({video,path,levels,fallback,onStatus,onQualit
    mode='native';video.src=path;video.load();play();return;
   }
   try{
-   const {default:Hls}=await prepareVideoPlayer();if(disposed||token!==generation)return;
+   const {default:Hls,bootstrap}=await prepareVideoPlayer();if(disposed||token!==generation)return;
    if(!Hls.isSupported()){
     if(video.canPlayType('application/vnd.apple.mpegurl')){mode='native';video.src=path;video.load();play();}
     else compatibility();
     return;
    }
-   mode='hls';let useBackup=false;
+   mode='hls';let useBackup=preferredBackup;
    const primary=new URL(path,location.href);
    // Both routes serve the user's own public repository; no third-party account/CDN.
    const canBackup=primary.hostname==='chengzy0424.github.io'&&primary.pathname.startsWith('/czy/media/stream-v1/');
    const BaseLoader=Hls.DefaultConfig.loader;
    class RepositoryLoader extends BaseLoader{
+    abort(){this.cancelled=true;super.abort();}
+    destroy(){this.cancelled=true;super.destroy();}
     loadInternal(){
      // The default loader retries internally. Route that retry before opening XHR,
      // rather than waiting for every primary-host attempt to be exhausted.
      if(canBackup&&this.context){
-      if(this.stats.retry>0&&this.lastRetry!==this.stats.retry){useBackup=!useBackup;this.lastRetry=this.stats.retry;}
+      if(this.stats.retry>0&&this.lastRetry!==this.stats.retry){useBackup=preferredBackup=!useBackup;this.lastRetry=this.stats.retry;}
       this.context.url=repositoryMediaURL(this.context.url,location.href,useBackup);
      }
      super.loadInternal();
     }
     load(context,config,callbacks){
+     const resolved=new URL(context.url,location.href);
+     const key=resolved.pathname.match(/(?:^|\/)(media\/stream-v1\/.*)$/)?.[1];
+     const cached=bootstrap[key];
+     if(cached){
+      // Tiny immutable manifests and init headers share one compressed chunk.
+      // The only media network dependency at startup is the first video segment.
+      this.context=context;const stats=this.stats;stats.loading.start=performance.now();
+      queueMicrotask(()=>{
+       if(this.cancelled||!this.context)return;
+       const data=cached.binary?Uint8Array.from(atob(cached.data),c=>c.charCodeAt(0)).buffer:cached.data;
+       stats.loaded=stats.total=cached.binary?data.byteLength:data.length;
+       stats.loading.first=stats.loading.end=Math.max(performance.now(),stats.loading.start+.001);
+       callbacks.onSuccess({url:resolved.href,data,code:200},stats,context,null);
+      });return;
+     }
      if(canBackup)context={...context,url:repositoryMediaURL(context.url,location.href,useBackup)};
-     const failed=()=>{if(canBackup)useBackup=!useBackup;};
+     if(/\/part-000\.m4s(?:\?|$)/.test(context.url))config={...config,loadPolicy:{...config.loadPolicy,maxTimeToFirstByteMs:2000}};
+     const failed=()=>{if(canBackup)useBackup=preferredBackup=!useBackup;};
      super.load(context,config,{...callbacks,
       onTimeout:(...args)=>{failed();callbacks.onTimeout(...args);},
       onError:(...args)=>{failed();callbacks.onError(...args);}

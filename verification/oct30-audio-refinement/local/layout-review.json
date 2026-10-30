@@ -1,0 +1,113 @@
+{
+  "screens": [
+    {
+      "width": 1440,
+      "detail": {
+        "image": {
+          "width": 482.875,
+          "height": 271.609375,
+          "ratio": 1.7778289133061036
+        },
+        "pageWidth": 1440,
+        "viewport": 1440,
+        "dialogOverflow": false,
+        "playVisible": true
+      },
+      "chapterReturn": {
+        "scrollY": 0,
+        "active": "0"
+      }
+    },
+    {
+      "width": 768,
+      "detail": {
+        "image": {
+          "width": 310.5,
+          "height": 174.65625,
+          "ratio": 1.7777777777777777
+        },
+        "pageWidth": 768,
+        "viewport": 768,
+        "dialogOverflow": false,
+        "playVisible": true
+      },
+      "chapterReturn": {
+        "scrollY": 0,
+        "active": "0"
+      }
+    },
+    {
+      "width": 414,
+      "detail": {
+        "image": {
+          "width": 346,
+          "height": 194.625,
+          "ratio": 1.7777777777777777
+        },
+        "pageWidth": 414,
+        "viewport": 414,
+        "dialogOverflow": false,
+        "playVisible": true
+      },
+      "chapterReturn": {
+        "scrollY": 0,
+        "active": "0"
+      }
+    },
+    {
+      "width": 390,
+      "detail": {
+        "image": {
+          "width": 322,
+          "height": 181.125,
+          "ratio": 1.7777777777777777
+        },
+        "pageWidth": 390,
+        "viewport": 390,
+        "dialogOverflow": false,
+        "playVisible": true
+      },
+      "chapterReturn": {
+        "scrollY": 0,
+        "active": "0"
+      }
+    },
+    {
+      "width": 375,
+      "detail": {
+        "image": {
+          "width": 305.9810791015625,
+          "height": 172.11434936523438,
+          "ratio": 1.777777856582178
+        },
+        "pageWidth": 375,
+        "viewport": 375,
+        "dialogOverflow": false,
+        "playVisible": true
+      },
+      "chapterReturn": {
+        "scrollY": 0,
+        "active": "0"
+      }
+    },
+    {
+      "width": 320,
+      "detail": {
+        "image": {
+          "width": 252,
+          "height": 141.75,
+          "ratio": 1.7777777777777777
+        },
+        "pageWidth": 320,
+        "viewport": 320,
+        "dialogOverflow": false,
+        "playVisible": true
+      },
+      "chapterReturn": {
+        "scrollY": 0,
+        "active": "0"
+      }
+    }
+  ],
+  "errors": []
+}

@@ -1,0 +1,74 @@
+{
+  "files": [
+    {
+      "file": "tower-demo-audio.mp4",
+      "bytes": 4005795,
+      "decodedWholeFile": true,
+      "errors": ""
+    },
+    {
+      "file": "mines-demo-audio.mp4",
+      "bytes": 729830,
+      "decodedWholeFile": true,
+      "errors": ""
+    },
+    {
+      "file": "ash-demo-audio.mp4",
+      "bytes": 17774422,
+      "decodedWholeFile": true,
+      "errors": ""
+    },
+    {
+      "file": "ash-demo-hd.mp4",
+      "bytes": 27039041,
+      "decodedWholeFile": true,
+      "errors": ""
+    },
+    {
+      "file": "ash-demo-low.mp4",
+      "bytes": 7170374,
+      "decodedWholeFile": true,
+      "errors": ""
+    },
+    {
+      "file": "csol-demo-audio.mp4",
+      "bytes": 13708760,
+      "decodedWholeFile": true,
+      "errors": ""
+    },
+    {
+      "file": "csol-demo-hd.mp4",
+      "bytes": 20707121,
+      "decodedWholeFile": true,
+      "errors": ""
+    },
+    {
+      "file": "csol-demo-low.mp4",
+      "bytes": 5543635,
+      "decodedWholeFile": true,
+      "errors": ""
+    }
+  ],
+  "originalAudio": [
+    {
+      "id": "ash",
+      "original": "SHA256=7f3fc04efaa90b6a50c134f30d32ed66f1e297752d99ae9cb4ab6f8835e65552",
+      "variants": {
+        "audio": "SHA256=7f3fc04efaa90b6a50c134f30d32ed66f1e297752d99ae9cb4ab6f8835e65552",
+        "hd": "SHA256=7f3fc04efaa90b6a50c134f30d32ed66f1e297752d99ae9cb4ab6f8835e65552",
+        "low": "SHA256=7f3fc04efaa90b6a50c134f30d32ed66f1e297752d99ae9cb4ab6f8835e65552"
+      },
+      "unchanged": true
+    },
+    {
+      "id": "csol",
+      "original": "SHA256=66e351d7db7624e09830096bdfd9eb2fb8f932bf54e5086ed596262e8a83edc0",
+      "variants": {
+        "audio": "SHA256=66e351d7db7624e09830096bdfd9eb2fb8f932bf54e5086ed596262e8a83edc0",
+        "hd": "SHA256=66e351d7db7624e09830096bdfd9eb2fb8f932bf54e5086ed596262e8a83edc0",
+        "low": "SHA256=66e351d7db7624e09830096bdfd9eb2fb8f932bf54e5086ed596262e8a83edc0"
+      },
+      "unchanged": true
+    }
+  ]
+}

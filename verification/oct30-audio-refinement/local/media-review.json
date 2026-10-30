@@ -1,0 +1,266 @@
+{
+  "base": "http://127.0.0.1:4181/",
+  "at": "2026-10-30T12:55:09.710Z",
+  "media": [
+    {
+      "id": "tower",
+      "firstPlayMs": 891,
+      "first": {
+        "time": 1.441854,
+        "frames": 161,
+        "dropped": 0,
+        "decoded": 90
+      },
+      "after": {
+        "time": 11.456208,
+        "duration": 29.013,
+        "src": "http://127.0.0.1:4181/media/tower-demo-audio.mp4",
+        "muted": false,
+        "volume": 0.8,
+        "audioBytes": 192242,
+        "quality": {
+          "totalVideoFrames": 692,
+          "droppedVideoFrames": 5,
+          "corruptedVideoFrames": 0
+        },
+        "stalls": [],
+        "error": null,
+        "backgroundFrames": 161
+      },
+      "backFocus": "tower"
+    },
+    {
+      "id": "ash",
+      "firstPlayMs": 842,
+      "first": {
+        "time": 1.433788,
+        "frames": 161,
+        "dropped": 0,
+        "decoded": 89
+      },
+      "after": {
+        "time": 11.445155,
+        "duration": 61.616341,
+        "src": "http://127.0.0.1:4181/media/ash-demo-audio.mp4",
+        "muted": false,
+        "volume": 0.8,
+        "audioBytes": 188416,
+        "quality": {
+          "totalVideoFrames": 690,
+          "droppedVideoFrames": 0,
+          "corruptedVideoFrames": 0
+        },
+        "stalls": [],
+        "error": null,
+        "backgroundFrames": 161
+      },
+      "backFocus": "ash"
+    },
+    {
+      "id": "csol",
+      "firstPlayMs": 852,
+      "first": {
+        "time": 1.464713,
+        "frames": 161,
+        "dropped": 0,
+        "decoded": 91
+      },
+      "after": {
+        "time": 11.476256,
+        "duration": 42.026667,
+        "src": "http://127.0.0.1:4181/media/csol-demo-audio.mp4",
+        "muted": false,
+        "volume": 0.8,
+        "audioBytes": 188758,
+        "quality": {
+          "totalVideoFrames": 691,
+          "droppedVideoFrames": 0,
+          "corruptedVideoFrames": 0
+        },
+        "stalls": [],
+        "error": null,
+        "backgroundFrames": 161
+      },
+      "backFocus": "csol"
+    },
+    {
+      "id": "mines",
+      "firstPlayMs": 855,
+      "first": {
+        "time": 1.457932,
+        "frames": 161,
+        "dropped": 0,
+        "decoded": 92
+      },
+      "after": {
+        "time": 11.468332,
+        "duration": 21.983333,
+        "src": "http://127.0.0.1:4181/media/mines-demo-audio.mp4",
+        "muted": false,
+        "volume": 0.8,
+        "audioBytes": 13576,
+        "quality": {
+          "totalVideoFrames": 691,
+          "droppedVideoFrames": 1,
+          "corruptedVideoFrames": 0
+        },
+        "stalls": [],
+        "error": null,
+        "backgroundFrames": 161
+      },
+      "backFocus": "mines"
+    },
+    {
+      "id": "murphy",
+      "firstPlayMs": 1459,
+      "first": {
+        "time": 1.44541,
+        "frames": 161,
+        "dropped": 0,
+        "decoded": 48
+      },
+      "after": {
+        "time": 11.467697,
+        "duration": 124.017007,
+        "src": "http://127.0.0.1:4181/media/murphy-720.mp4",
+        "muted": false,
+        "volume": 0.8,
+        "audioBytes": 143507,
+        "quality": {
+          "totalVideoFrames": 348,
+          "droppedVideoFrames": 0,
+          "corruptedVideoFrames": 0
+        },
+        "stalls": [],
+        "error": null,
+        "backgroundFrames": 161
+      },
+      "backFocus": "murphy"
+    },
+    {
+      "id": "hyrum",
+      "firstPlayMs": 1443,
+      "first": {
+        "time": 1.455832,
+        "frames": 161,
+        "dropped": 0,
+        "decoded": 49
+      },
+      "after": {
+        "time": 11.470491,
+        "duration": 150.016,
+        "src": "http://127.0.0.1:4181/media/hyrum-720.mp4",
+        "muted": false,
+        "volume": 0.8,
+        "audioBytes": 144575,
+        "quality": {
+          "totalVideoFrames": 349,
+          "droppedVideoFrames": 0,
+          "corruptedVideoFrames": 0
+        },
+        "stalls": [],
+        "error": null,
+        "backgroundFrames": 161
+      },
+      "backFocus": "hyrum"
+    },
+    {
+      "id": "familiar",
+      "firstPlayMs": 1487,
+      "first": {
+        "time": 1.444412,
+        "frames": 161,
+        "dropped": 0,
+        "decoded": 48
+      },
+      "after": {
+        "time": 11.458921,
+        "duration": 184.203991,
+        "src": "http://127.0.0.1:4181/media/familiar-720.mp4",
+        "muted": false,
+        "volume": 0.8,
+        "audioBytes": 141256,
+        "quality": {
+          "totalVideoFrames": 348,
+          "droppedVideoFrames": 0,
+          "corruptedVideoFrames": 0
+        },
+        "stalls": [],
+        "error": null,
+        "backgroundFrames": 161
+      },
+      "backFocus": "familiar"
+    },
+    {
+      "id": "town",
+      "firstPlayMs": 1452,
+      "first": {
+        "time": 1.44381,
+        "frames": 161,
+        "dropped": 0,
+        "decoded": 48
+      },
+      "after": {
+        "time": 11.441828,
+        "duration": 64.017007,
+        "src": "http://127.0.0.1:4181/media/town-720.mp4",
+        "muted": false,
+        "volume": 0.8,
+        "audioBytes": 143678,
+        "quality": {
+          "totalVideoFrames": 348,
+          "droppedVideoFrames": 0,
+          "corruptedVideoFrames": 0
+        },
+        "stalls": [],
+        "error": null,
+        "backgroundFrames": 161
+      },
+      "backFocus": "town"
+    },
+    {
+      "id": "arc",
+      "firstPlayMs": 1447,
+      "first": {
+        "time": 1.444488,
+        "frames": 161,
+        "dropped": 0,
+        "decoded": 48
+      },
+      "after": {
+        "time": 11.445921,
+        "duration": 20.132993,
+        "src": "http://127.0.0.1:4181/media/arc-720.mp4",
+        "muted": false,
+        "volume": 0.8,
+        "audioBytes": 141953,
+        "quality": {
+          "totalVideoFrames": 348,
+          "droppedVideoFrames": 0,
+          "corruptedVideoFrames": 0
+        },
+        "stalls": [],
+        "error": null,
+        "backgroundFrames": 161
+      },
+      "backFocus": "arc"
+    }
+  ],
+  "errors": [],
+  "initial": {
+    "videoNodes": 0,
+    "mediaRequests": 0
+  },
+  "rapidSwitch": {
+    "time": 12,
+    "paused": true,
+    "volume": 0.45,
+    "muted": false,
+    "src": "http://127.0.0.1:4181/media/csol-demo-audio.mp4"
+  },
+  "filmQuality": {
+    "time": 5.313119,
+    "src": "http://127.0.0.1:4181/media/arc-1080.mp4"
+  },
+  "complete": true
+}

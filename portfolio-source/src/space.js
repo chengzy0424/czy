@@ -1,11 +1,11 @@
 import * as T from 'three';
-import {cameraPose} from './space-path.js';
+import {cameraPose,passageStrength} from './space-path.js';
 import {buildWorld,particleField} from './space-objects.js';
 import {damp,clamp,smooth,springStep} from './weave-math.js';
 
 const vertex=`
  attribute vec3 aMeta; attribute vec3 aTint;
- uniform float uTime,uDpr,uForce,uChapter,uMobile; uniform vec3 uPointer;
+ uniform float uTime,uDpr,uForce,uChapter,uMobile,uPassage; uniform vec3 uPointer,uGuideStart,uGuideEnd;
  varying vec3 vTint; varying float vAlpha,vStreak,vAngle,vBead;
  void main(){
   vec3 p=position;float seed=aMeta.x,region=aMeta.y;
@@ -23,6 +23,13 @@ const vertex=`
   else if(region<2.5){float a=uTime*.16+sin(p.y*2.+phase)*.12;float x=p.x;p.x=x*cos(a)-p.z*sin(a);p.z=x*sin(a)+p.z*cos(a);p.y+=sin(phase)*.055;}
   else {float x=p.x-mix(2.,.4,uMobile);float a=uTime*.06;p.x=mix(2.,.4,uMobile)+x*cos(a)-p.y*sin(a);p.y=x*sin(a)+p.y*cos(a);p.z+=sin(phase+p.y)*.24;}
   if((region<.5||region>2.5)&&uChapter>4.){p.x-=mix(2.,.4,uMobile);p.x*=1.3;p.y-=region<.5?41.9:43.8;}
+  // Reuse a small subset of existing particles as the chapter's directed current.
+  float guide=step(.97,aMeta.z)*uPassage;
+  float travel=fract(seed*7.13+uTime*.19);
+  vec3 route=mix(uGuideStart,uGuideEnd,travel);
+  route.x+=sin(travel*6.2831+seed*.9)*(.45+seed*.5);
+  route.z+=sin(travel*3.14159)*1.5;
+  p=mix(p,route,guide);
   vec3 d=p-uPointer;float weight=exp(-dot(d.xy,d.xy)*1.25)*uForce;
   p.xy+=normalize(d.xy+vec2(.001))*weight*.65;p.z+=weight*.4;
   vec4 mv=modelViewMatrix*vec4(p,1.);gl_Position=projectionMatrix*mv;
@@ -64,7 +71,9 @@ export async function createSpace({container,state,onFailure=()=>{},onSelect=()=
  const redLight=new T.PointLight(0xe61458,29,7,2);redLight.position.set(.4,-23,1);scene.add(redLight);
  const count=mobile?11000:44000,points=particleField(count,mobile),geo=new T.BufferGeometry();
  geo.setAttribute('position',new T.BufferAttribute(points.position,3));geo.setAttribute('aTint',new T.BufferAttribute(points.color,3));geo.setAttribute('aMeta',new T.BufferAttribute(points.meta,3));
- const uniforms={uTime:{value:0},uDpr:{value:1},uForce:{value:0},uChapter:{value:0},uMobile:{value:mobile?1:0},uPointer:{value:new T.Vector3(100,100,0)}};
+ const uniforms={uTime:{value:0},uDpr:{value:1},uForce:{value:0},uChapter:{value:0},uMobile:{value:mobile?1:0},uPassage:{value:0},uGuideStart:{value:new T.Vector3()},uGuideEnd:{value:new T.Vector3()},uPointer:{value:new T.Vector3(100,100,0)}};
+ const guideAnchors=[[2,-.4,0],[1.6,-3.5,0],[-2,-11.6,3],[2.7,-13.7,2],[.8,-24,1],[-.4,-34,1],[0,-45.5,0]];
+ let travelEnergy=0;
  const pointMaterial=new T.ShaderMaterial({uniforms,vertexShader:vertex,fragmentShader:fragment,transparent:true,depthWrite:false,depthTest:true,blending:T.NormalBlending});
  const cloud=new T.Points(geo,pointMaterial);cloud.frustumCulled=false;scene.add(cloud);
  const pointer=new T.Vector2(),viewPointer=new T.Vector2(),ray=new T.Raycaster(),plane=new T.Plane(new T.Vector3(0,0,1),0),worldPointer=new T.Vector3();
@@ -87,7 +96,12 @@ export async function createSpace({container,state,onFailure=()=>{},onSelect=()=
  function resize(){const dpr=Math.min(devicePixelRatio||1,mobile?1.35:1.65)*quality;renderer.setPixelRatio(dpr);renderer.setSize(innerWidth,innerHeight);uniforms.uDpr.value=dpr;camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix();wake();}
  function updateScene(dt){
   const reduced=state.reduced;
+  const previous=progress;
   progress=reduced?state.chapter||0:damp(progress,state.chapter||0,dt,8);
+  travelEnergy=reduced?0:damp(travelEnergy,Math.min(1,Math.abs(progress-previous)/Math.max(dt,.001)*2),dt,5);
+  const passage=passageStrength(progress)*travelEnergy;
+  const segment=Math.min(5,Math.floor(progress));
+  uniforms.uPassage.value=passage*(mobile?.55:1);uniforms.uGuideStart.value.fromArray(guideAnchors[segment]);uniforms.uGuideEnd.value.fromArray(guideAnchors[segment+1]);
   const pose=cameraPose(progress,mobile,camera.aspect),offset=reduced?0:.22;
   viewPointer.lerp(reduced?new T.Vector2():pointer,1-Math.exp(-dt*3));
   camera.position.fromArray(pose.eye);camera.position.x+=viewPointer.x*offset;camera.position.y+=viewPointer.y*offset*.6;
@@ -102,7 +116,7 @@ export async function createSpace({container,state,onFailure=()=>{},onSelect=()=
   const unfold=smooth(clamp(progress))*Math.PI*.32;
   world.arcs.rotation.z=-unfold*.32;world.arcs.scale.x=1+smooth(clamp(progress))*.65;
   if(progress>4){world.arcs.rotation.z=Math.PI-.08;world.arcs.scale.x=1;world.arcs.position.y=-1.45;}else world.arcs.position.y=0;
-  world.flowUniforms.uTime.value=reduced?0:time;world.flowUniforms.uEnergy.value=Math.sin(Math.PI*(progress%1))**2;
+  world.flowUniforms.uTime.value=reduced?0:time;world.flowUniforms.uEnergy.value=passage*2.2;
   world.ribbonUniforms.uTime.value=reduced?0:time;world.ribbonUniforms.uOpacity.value=progress>4?.8:smooth(clamp((progress-.2)*2))*.7;
   world.ribbons.rotation.z=reduced?0:Math.sin(time*.08)*.14;
   world.ribbons.position.y=progress>4?1.5:0;world.ribbons.scale.setScalar(progress>4?1.35:1);
@@ -131,7 +145,7 @@ export async function createSpace({container,state,onFailure=()=>{},onSelect=()=
    card.group.rotation.x=-exit*.9+(card.spec.id==='tower'?.035:-.045);
    card.group.rotation.z=exit*(card.spec.id==='tower'?-.13:.08);
    card.group.rotation.y=card.spec.rotation+turn*(card.spec.id==='boe'?1.4:card.spec.id==='tower'?.52:.72)-card.hover*.025;
-   card.edge.material.emissive.set(0xa6e4d4);card.edge.material.emissiveIntensity=card.hover*.35;
+   card.edge.material.emissive.set(0xa6e4d4);card.edge.material.emissiveIntensity=card.hover*.35+passage*.13;
   }
   if(coarse&&performance.now()>touchUntil){desiredForce=0;pointerKnown=false;}
   if(reduced){force=0;forceVelocity=0;}else [force,forceVelocity]=springStep(force,forceVelocity,desiredForce,dt);

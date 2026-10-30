@@ -1,6 +1,9 @@
 import {clamp,smooth} from './weave-math.js';
 // A single world: the camera travels down it. No section swaps or teleports.
 export const CHAPTERS=[0,1,2,3,4,5,6];
+// Hold each composition briefly at both ends; the middle carries the passage.
+export function chapterBlend(t){return smooth(clamp((t-.09)/.82));}
+export function passageStrength(p){return Math.sin(Math.PI*chapterBlend(p-Math.floor(p)))**2;}
 const KEYS=[
  {p:0, eye:[0,0,10.5], look:[0,0,0]},
  {p:1, eye:[2.1,.15,4.6], look:[1.65,-.1,0]},
@@ -11,7 +14,7 @@ const KEYS=[
  {p:6, eye:[0,-45.5,12], look:[0,-45.5,0]}
 ];
 export function cameraPose(progress,mobile=false,aspect=16/9){
- const p=clamp(progress,0,6),i=Math.min(5,Math.floor(p)),t=smooth(p-i);
+ const p=clamp(progress,0,6),i=Math.min(5,Math.floor(p)),t=chapterBlend(p-i);
  const a=KEYS[i],b=KEYS[i+1];
  const eye=a.eye.map((v,k)=>v+(b.eye[k]-v)*t),look=a.look.map((v,k)=>v+(b.look[k]-v)*t);
  // Depth excursions begin and end at zero velocity. Scrolling back retraces the same path.
@@ -26,7 +29,8 @@ export function cameraPose(progress,mobile=false,aspect=16/9){
   eye[0]*=.35;look[0]*=.35;
   const introLift=1-smooth(clamp(p));
   eye[2]+=7+introLift+7*smooth(clamp(p-4));
-  eye[1]+=2*introLift;look[1]+=2*introLift;
+  const readingInset=aspect<.45?1.1:0;
+  eye[1]+=(2+readingInset)*introLift;look[1]+=(2+readingInset)*introLift;
  }else eye[2]+=Math.max(0,1.24-aspect)*12;
  const roll=mobile?0:(i===2?-.055:i===3?.09:i===4?-.065:0)*passage;
  return {eye,look,roll};

@@ -6,6 +6,7 @@ const reducedQuery=matchMedia('(prefers-reduced-motion:reduce)');
 const state={progress:0,chapter:0,category:'unity',reduced:reducedQuery.matches,modal:false,offscreen:false};
 const tabs=[...document.querySelectorAll('[role=tab]')], panels=[...document.querySelectorAll('[role=tabpanel]')];
 const motionButton=$('#motion-toggle'),dialog=$('#project-dialog'),works=$('#works');
+const journeyLinks=[...document.querySelectorAll('[data-journey]')];
 let engine,scrollFrame=0,lastOpener,savedScroll=0,animations=[],exploreAnimation=0;
 let initRequested=false;
 function syncProgress(){
@@ -16,6 +17,8 @@ function syncProgress(){
  state.offscreen=scrollY>works.offsetTop-innerHeight*.45;
  document.documentElement.style.setProperty('--journey-progress',state.progress);
  document.body.classList.toggle('after-journey',state.offscreen);
+ const currentChapter=state.chapter<.65?0:state.chapter<1.6?1:state.chapter<3.55?2:state.chapter<4.6?4:state.chapter<5.6?5:6;
+ for(const link of journeyLinks){if(Number(link.dataset.journey)===currentChapter)link.setAttribute('aria-current','location');else link.removeAttribute('aria-current');link.tabIndex=state.offscreen?-1:0;}
  engine?.wake();
 }
 function onScroll(){if(!scrollFrame)scrollFrame=requestAnimationFrame(syncProgress);}
@@ -98,7 +101,7 @@ document.querySelectorAll('a[href^="#"]').forEach(link=>link.addEventListener('c
  const target=$(link.getAttribute('href'));if(!target)return;
  event.preventDefault();cancelExplore();
  const inset=parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--nav-h'))||88;
- const top=target.id==='home'?0:target.offsetTop-inset-22;
+ const top=target.id==='home'?0:link.hasAttribute('data-journey')?target.offsetTop:target.offsetTop-inset-22;
  const direct=!link.hasAttribute('data-explore')||state.reduced;
  history.replaceState(null,'','#'+target.id);
  if(direct){window.scrollTo({top,behavior:'instant'});syncProgress();return;}

@@ -1,0 +1,108 @@
+{
+  "p0": 0,
+  "files": [
+    {
+      "file": "outputs/foldspace-studio/release-oct30/index.html",
+      "findings": [
+        {
+          "id": "eyebrow-overuse",
+          "severity": "P1",
+          "label": "Eyebrow above 5 of 7 sections (cap 3 = ceil(sections/3))",
+          "fix": "typeset",
+          "hits": [
+            {
+              "line": 0,
+              "text": "5 label-above-heading instances"
+            }
+          ],
+          "count": 1
+        },
+        {
+          "id": "missing-stamp",
+          "severity": "P2",
+          "label": "No /* finesse · … */ build stamp — next run has nothing to rotate against",
+          "fix": "divergence §4.2",
+          "hits": [
+            {
+              "line": 0,
+              "text": "no five-axis stamp in CSS"
+            }
+          ],
+          "count": 1
+        }
+      ]
+    },
+    {
+      "file": "D:\\Codex code\\2026-10-28\\github-plugin-github-openai-curated-remote\\outputs\\foldspace-studio\\release-oct30\\assets\\index-BfkxZTRk.css",
+      "findings": [
+        {
+          "id": "missing-stamp",
+          "severity": "P2",
+          "label": "No /* finesse · … */ build stamp — next run has nothing to rotate against",
+          "fix": "divergence §4.2",
+          "hits": [
+            {
+              "line": 0,
+              "text": "no five-axis stamp in CSS"
+            }
+          ],
+          "count": 1
+        },
+        {
+          "id": "inline-color-literal",
+          "severity": "P2",
+          "label": "79 opaque colour literals outside :root (>30) — lift them into named tokens",
+          "fix": "soul",
+          "total": 79,
+          "hits": [
+            {
+              "line": 1,
+              "text": "#102522"
+            },
+            {
+              "line": 1,
+              "text": "#6b8586"
+            },
+            {
+              "line": 1,
+              "text": "#b8c7c4"
+            },
+            {
+              "line": 1,
+              "text": "#8fa6a5"
+            },
+            {
+              "line": 1,
+              "text": "#dae5dd"
+            },
+            {
+              "line": 1,
+              "text": "#f0f1dc"
+            },
+            {
+              "line": 1,
+              "text": "#688c89"
+            },
+            {
+              "line": 1,
+              "text": "#101f22"
+            }
+          ],
+          "count": 79
+        }
+      ]
+    }
+  ],
+  "notCovered": [
+    "default-category aesthetic (the vibe, not just token names — beige+brass craft, AI purple-glow)",
+    "div-based fake screenshots / fake dashboards",
+    "identical / generic card grids (icon + title + text × N)",
+    "zero imagery on an image-implied brief (food / hotel / fashion / travel)",
+    "glassmorphism / AI-purple-glow used as decoration",
+    "layout-family repetition (§5) and whether the soul is actually distinct",
+    "whether the engine RENDERS real pixels (needs the Playwright runtime pass, not a grep)",
+    "mobile-floor M3/M4 — clickable text wrapping to two lines, long-word overflow at 320px (needs a rendered page at 320, not a grep)",
+    "HTML fragments constructed in JavaScript: URLs resolve against the consuming document, so verify them in the browser",
+    "root-relative asset paths (`/img/x.png`) — dead-ref only resolves file-relative ones; a broken `/…` link needs the real serving root"
+  ]
+}

@@ -1,0 +1,133 @@
+{
+  "base": "http://127.0.0.1:4181/",
+  "media": [
+    {
+      "file": "tower-demo-audio.mp4",
+      "bytes": 4005795,
+      "faststart": true,
+      "audio": true,
+      "range": 206
+    },
+    {
+      "file": "ash-demo-low.mp4",
+      "bytes": 7170374,
+      "faststart": true,
+      "audio": true,
+      "range": 206
+    },
+    {
+      "file": "ash-demo-audio.mp4",
+      "bytes": 17774422,
+      "faststart": true,
+      "audio": true,
+      "range": 206
+    },
+    {
+      "file": "ash-demo-hd.mp4",
+      "bytes": 27039041,
+      "faststart": true,
+      "audio": true,
+      "range": 206
+    },
+    {
+      "file": "csol-demo-low.mp4",
+      "bytes": 5543635,
+      "faststart": true,
+      "audio": true,
+      "range": 206
+    },
+    {
+      "file": "csol-demo-audio.mp4",
+      "bytes": 13708760,
+      "faststart": true,
+      "audio": true,
+      "range": 206
+    },
+    {
+      "file": "csol-demo-hd.mp4",
+      "bytes": 20707121,
+      "faststart": true,
+      "audio": true,
+      "range": 206
+    },
+    {
+      "file": "mines-demo-audio.mp4",
+      "bytes": 729830,
+      "faststart": true,
+      "audio": true,
+      "range": 206
+    },
+    {
+      "file": "murphy-720.mp4",
+      "bytes": 7747036,
+      "faststart": true,
+      "audio": true,
+      "range": 206
+    },
+    {
+      "file": "murphy-1080.mp4",
+      "bytes": 15580259,
+      "faststart": true,
+      "audio": true,
+      "range": 206
+    },
+    {
+      "file": "hyrum-720.mp4",
+      "bytes": 8197399,
+      "faststart": true,
+      "audio": true,
+      "range": 206
+    },
+    {
+      "file": "hyrum-1080.mp4",
+      "bytes": 17204518,
+      "faststart": true,
+      "audio": true,
+      "range": 206
+    },
+    {
+      "file": "familiar-720.mp4",
+      "bytes": 8939955,
+      "faststart": true,
+      "audio": true,
+      "range": 206
+    },
+    {
+      "file": "familiar-1080.mp4",
+      "bytes": 23034196,
+      "faststart": true,
+      "audio": true,
+      "range": 206
+    },
+    {
+      "file": "town-720.mp4",
+      "bytes": 10475433,
+      "faststart": true,
+      "audio": true,
+      "range": 206
+    },
+    {
+      "file": "town-1080.mp4",
+      "bytes": 18218445,
+      "faststart": true,
+      "audio": true,
+      "range": 206
+    },
+    {
+      "file": "arc-720.mp4",
+      "bytes": 3563316,
+      "faststart": true,
+      "audio": true,
+      "range": 206
+    },
+    {
+      "file": "arc-1080.mp4",
+      "bytes": 6027766,
+      "faststart": true,
+      "audio": true,
+      "range": 206
+    }
+  ],
+  "covers": 27,
+  "gameBuildsPresent": false
+}

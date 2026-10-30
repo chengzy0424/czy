@@ -1,8 +1,8 @@
 import { defineConfig } from 'vite';
 import fs from 'node:fs';
-import {games,films} from './src/portfolio.js';
+import {games,films,gameMedia} from './src/portfolio.js';
 const publicRoot=new URL('./public/',import.meta.url);
-const files=['mark.svg',...Object.keys(games).map(id=>'media/'+id+'-demo.mp4'),...Object.keys(films).flatMap(id=>['media/'+id+'-720.mp4','media/'+id+'-1080.mp4']),...[...Object.keys(games),...Object.keys(films)].flatMap(id=>[480,960,1440].map(width=>'art/'+id+'-'+width+'.webp'))];
+const files=['mark.svg',...Object.values(gameMedia).flatMap(m=>m.levels.map(l=>'media/'+l[2])),...Object.keys(films).flatMap(id=>['media/'+id+'-720.mp4','media/'+id+'-1080.mp4']),...[...Object.keys(games),...Object.keys(films)].flatMap(id=>[480,960,1440].map(width=>'art/'+id+'-'+width+'.webp'))];
 const allowed=new Set(files);
 export default defineConfig({
  base:'./',publicDir:false,

@@ -1,0 +1,162 @@
+{
+  "base": "http://127.0.0.1:4181/",
+  "at": "2026-10-30T14:39:01.206Z",
+  "cache": "disabled",
+  "initial": [],
+  "bundle": "http://127.0.0.1:4181/assets/index-jhQMG48q.js",
+  "beforeVideo": [
+    {
+      "url": "http://127.0.0.1:4181/assets/hls.light-ZsiUf9Hl.js",
+      "start": 359.3999999985099,
+      "duration": 17.200000002980232
+    },
+    {
+      "url": "http://127.0.0.1:4181/assets/stream-startup-BlZEzGcy.js",
+      "start": 359.6000000014901,
+      "duration": 4
+    }
+  ],
+  "firstPlayMs": 449,
+  "playback": {
+    "time": 16.127666,
+    "muted": false,
+    "audioBytes": 205737,
+    "total": 486,
+    "dropped": 0,
+    "waits": []
+  },
+  "resources": [
+    {
+      "url": "http://127.0.0.1:4181/assets/hls.light-ZsiUf9Hl.js",
+      "start": 359.3999999985099,
+      "duration": 17.200000002980232
+    },
+    {
+      "url": "http://127.0.0.1:4181/assets/stream-startup-BlZEzGcy.js",
+      "start": 359.6000000014901,
+      "duration": 4
+    },
+    {
+      "url": "http://127.0.0.1:4181/media/stream-v1/hyrum/low/part-000.m4s",
+      "start": 3288.7000000029802,
+      "duration": 9.5
+    },
+    {
+      "url": "http://127.0.0.1:4181/media/stream-v1/hyrum/720/part-001.m4s",
+      "start": 3306.2999999970198,
+      "duration": 11.300000004470348
+    },
+    {
+      "url": "http://127.0.0.1:4181/media/stream-v1/hyrum/720/part-002.m4s",
+      "start": 3322.5,
+      "duration": 9.600000001490116
+    },
+    {
+      "url": "http://127.0.0.1:4181/media/stream-v1/hyrum/720/part-003.m4s",
+      "start": 3333.5,
+      "duration": 9.799999997019768
+    },
+    {
+      "url": "http://127.0.0.1:4181/media/stream-v1/hyrum/720/part-004.m4s",
+      "start": 3344.5,
+      "duration": 8.799999997019768
+    },
+    {
+      "url": "http://127.0.0.1:4181/media/stream-v1/hyrum/720/part-005.m4s",
+      "start": 3355,
+      "duration": 7
+    },
+    {
+      "url": "http://127.0.0.1:4181/media/stream-v1/hyrum/720/part-006.m4s",
+      "start": 3363.39999999851,
+      "duration": 7.5
+    },
+    {
+      "url": "http://127.0.0.1:4181/media/stream-v1/hyrum/720/part-007.m4s",
+      "start": 3372.2999999970198,
+      "duration": 8.200000002980232
+    },
+    {
+      "url": "http://127.0.0.1:4181/media/stream-v1/hyrum/720/part-008.m4s",
+      "start": 3382.2000000029802,
+      "duration": 9.099999994039536
+    },
+    {
+      "url": "http://127.0.0.1:4181/media/stream-v1/hyrum/720/part-009.m4s",
+      "start": 3392.7000000029802,
+      "duration": 6
+    },
+    {
+      "url": "http://127.0.0.1:4181/media/stream-v1/hyrum/720/part-010.m4s",
+      "start": 3400.10000000149,
+      "duration": 9.399999998509884
+    },
+    {
+      "url": "http://127.0.0.1:4181/media/stream-v1/hyrum/720/part-011.m4s",
+      "start": 3410.60000000149,
+      "duration": 9.299999997019768
+    },
+    {
+      "url": "http://127.0.0.1:4181/media/stream-v1/hyrum/720/part-012.m4s",
+      "start": 3421.2000000029802,
+      "duration": 9.299999997019768
+    },
+    {
+      "url": "http://127.0.0.1:4181/media/stream-v1/hyrum/720/part-013.m4s",
+      "start": 3432.2000000029802,
+      "duration": 7.899999998509884
+    },
+    {
+      "url": "http://127.0.0.1:4181/media/stream-v1/hyrum/720/part-014.m4s",
+      "start": 3441.2000000029802,
+      "duration": 8.799999997019768
+    },
+    {
+      "url": "http://127.0.0.1:4181/media/stream-v1/hyrum/720/part-015.m4s",
+      "start": 3451.10000000149,
+      "duration": 26.69999999552965
+    },
+    {
+      "url": "http://127.0.0.1:4181/media/stream-v1/hyrum/720/part-016.m4s",
+      "start": 5388.10000000149,
+      "duration": 10.399999998509884
+    },
+    {
+      "url": "http://127.0.0.1:4181/media/stream-v1/hyrum/720/part-017.m4s",
+      "start": 7395.29999999702,
+      "duration": 8.400000005960464
+    },
+    {
+      "url": "http://127.0.0.1:4181/media/stream-v1/hyrum/720/part-018.m4s",
+      "start": 9391.60000000149,
+      "duration": 7.100000001490116
+    },
+    {
+      "url": "http://127.0.0.1:4181/media/stream-v1/hyrum/720/part-019.m4s",
+      "start": 11395.39999999851,
+      "duration": 10.600000001490116
+    },
+    {
+      "url": "http://127.0.0.1:4181/media/stream-v1/hyrum/720/part-020.m4s",
+      "start": 13387.70000000298,
+      "duration": 8.699999995529652
+    },
+    {
+      "url": "http://127.0.0.1:4181/media/stream-v1/hyrum/720/part-021.m4s",
+      "start": 15398.89999999851,
+      "duration": 7.5
+    },
+    {
+      "url": "http://127.0.0.1:4181/media/stream-v1/hyrum/720/part-022.m4s",
+      "start": 17396.60000000149,
+      "duration": 9.399999998509884
+    },
+    {
+      "url": "http://127.0.0.1:4181/media/stream-v1/hyrum/720/part-023.m4s",
+      "start": 19392.89999999851,
+      "duration": 8.800000004470348
+    }
+  ],
+  "errors": [],
+  "complete": true
+}

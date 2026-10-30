@@ -1,0 +1,58 @@
+{
+  "base": "http://127.0.0.1:4181/",
+  "errors": [],
+  "limited": {
+    "condition": "1 Mbps / 120 ms / cold HTTP cache",
+    "startupMs": 2398,
+    "state": {
+      "time": 13.962681,
+      "quality": "low60",
+      "stalls": [
+        {
+          "time": 1.917134,
+          "start": 4601.20000000298,
+          "ms": 265.1000000014901
+        }
+      ],
+      "audio": 236519
+    },
+    "requests": [
+      "http://127.0.0.1:4181/media/stream-v1/csol/low60/part-000.m4s",
+      "http://127.0.0.1:4181/media/stream-v1/csol/low60/part-001.m4s",
+      "http://127.0.0.1:4181/media/stream-v1/csol/low60/part-002.m4s",
+      "http://127.0.0.1:4181/media/stream-v1/csol/low60/part-003.m4s",
+      "http://127.0.0.1:4181/media/stream-v1/csol/low60/part-004.m4s",
+      "http://127.0.0.1:4181/media/stream-v1/csol/low60/part-005.m4s",
+      "http://127.0.0.1:4181/media/stream-v1/csol/low60/part-006.m4s",
+      "http://127.0.0.1:4181/media/stream-v1/csol/low60/part-007.m4s",
+      "http://127.0.0.1:4181/media/stream-v1/csol/low60/part-008.m4s"
+    ]
+  },
+  "transient": {
+    "injected": 1,
+    "recoveredMs": 1360
+  },
+  "persistent": {
+    "attempts": 4,
+    "status": "网络连接较慢，可重试或切换兼容播放。"
+  },
+  "manualRetry": true,
+  "closed": {
+    "videoCount": 0,
+    "newSegmentRequests": 0
+  },
+  "mobile": {
+    "width": 390,
+    "scrollWidth": 390,
+    "time": 2.827157,
+    "muted": false,
+    "audio": 5313
+  },
+  "reduced": {
+    "enabled": true,
+    "width": 320,
+    "scrollWidth": 320,
+    "time": 0.301257
+  },
+  "complete": true
+}

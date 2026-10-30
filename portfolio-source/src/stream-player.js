@@ -24,11 +24,11 @@ const loadPolicy=(firstByte,total)=>({default:{
 
 /** One controller per visible video. Destroy cancels segment loads and event handlers. */
 export function createStreamPlayer({video,path,levels,fallback,onStatus,onQuality,onFailure}){
- let hls,disposed=false,mode='loading',generation=0,selected=-1,recovery=0,wantsPlay=true,seekTo=0;
+ let hls,disposed=false,mode='loading',generation=0,selected=-1,recovery=0,wantsPlay=true,seekTo=0,startTimer=0,playbackAllowed=false;
  const events=new AbortController(),listen=(name,fn)=>video.addEventListener(name,fn,{signal:events.signal});
  let pendingPlay;
  function play(){
-  if(disposed||!wantsPlay)return;
+  if(disposed||!wantsPlay||(mode==='hls'&&!playbackAllowed))return;
   pendingPlay=video.play();pendingPlay?.catch(e=>{
    if(!disposed&&e.name==='NotAllowedError')onStatus('点击播放按钮开始观看');
   });
@@ -37,7 +37,7 @@ export function createStreamPlayer({video,path,levels,fallback,onStatus,onQualit
  listen('playing',playingLabel);
  listen('waiting',()=>onStatus(video.currentTime>.1?'正在补充缓冲…':'正在加载首段…'));
  listen('pause',()=>{if(video.readyState>0&&!video.ended&&!video.error){wantsPlay=false;onStatus('已暂停');}});
- listen('play',()=>{wantsPlay=true;});
+ listen('play',()=>{wantsPlay=true;playbackAllowed=true;clearTimeout(startTimer);});
  listen('ended',()=>onStatus('播放结束，可再次观看'));
  listen('loadedmetadata',()=>{
   if(seekTo>0){video.currentTime=Math.min(seekTo,Math.max(0,video.duration-.05));seekTo=0;}
@@ -46,12 +46,12 @@ export function createStreamPlayer({video,path,levels,fallback,onStatus,onQualit
  listen('error',()=>{if(!disposed&&mode!=='hls')onFailure('连接未能完成，请重试或切换兼容播放。');});
 
  function compatibility(){
-  if(disposed)return;generation++;seekTo=video.currentTime||seekTo;wantsPlay=!video.paused||video.readyState===0;
+  if(disposed)return;generation++;clearTimeout(startTimer);seekTo=video.currentTime||seekTo;wantsPlay=!video.paused||video.readyState===0;
   hls?.destroy();hls=undefined;mode='fallback';
   video.src=fallback;video.load();play();onStatus('正在连接兼容视频…');
  }
  async function start(at=0){
-  const token=++generation;seekTo=at;wantsPlay=true;recovery=0;
+  const token=++generation;seekTo=at;wantsPlay=true;recovery=0;playbackAllowed=at>0;clearTimeout(startTimer);startTimer=0;
   hls?.destroy();hls=undefined;mode='loading';onStatus('正在加载首段…');
   // Native HLS (notably Safari) starts synchronously in the visitor's click.
   if(video.canPlayType('application/vnd.apple.mpegurl')&&(!window.MediaSource||navigator.vendor==='Apple Computer, Inc.')){
@@ -107,7 +107,7 @@ export function createStreamPlayer({video,path,levels,fallback,onStatus,onQualit
     }
    }
    hls=new Hls({
-    enableWorker:true,lowLatencyMode:false,startLevel:selected<0?0:selected,
+    enableWorker:true,lowLatencyMode:false,startPosition:at,startLevel:selected<0?0:selected,
     capLevelToPlayerSize:true,maxDevicePixelRatio:1.5,
     maxBufferLength:20,maxMaxBufferLength:30,backBufferLength:12,maxBufferSize:16*1024*1024,
     abrEwmaDefaultEstimate:700000,abrBandWidthFactor:.8,abrBandWidthUpFactor:.6,
@@ -116,6 +116,18 @@ export function createStreamPlayer({video,path,levels,fallback,onStatus,onQualit
     fragLoadPolicy:loadPolicy(4000,14000),loader:RepositoryLoader
    });
    hls.on(Hls.Events.MANIFEST_PARSED,()=>{if(selected>=0)hls.loadLevel=selected;play();});
+   let firstDownloadMs=0;
+   const releaseStart=()=>{if(disposed||token!==generation)return;playbackAllowed=true;clearTimeout(startTimer);play();};
+   hls.on(Hls.Events.FRAG_LOADED,(_,data)=>{
+    if(data.frag.sn===0)firstDownloadMs=data.stats.loading.end-data.stats.loading.start;
+   });
+   hls.on(Hls.Events.FRAG_BUFFERED,()=>{
+    if(playbackAllowed)return;
+    const ahead=video.buffered.length?video.buffered.end(video.buffered.length-1)-video.currentTime:0;
+    if(ahead<=0)return;
+    if(firstDownloadMs<=1200||ahead>=3.5)releaseStart();
+    else if(!startTimer){onStatus('正在准备播放…');startTimer=setTimeout(releaseStart,900);}
+   });
    hls.on(Hls.Events.LEVEL_SWITCHED,(_,data)=>{onQuality(data.level);if(!video.paused&&video.readyState>=3)playingLabel();});
    hls.on(Hls.Events.ERROR,(_,data)=>{
     if(disposed||!data.fatal)return;
@@ -136,6 +148,6 @@ export function createStreamPlayer({video,path,levels,fallback,onStatus,onQualit
   }},
   compatibility,
   retry(){start(video.currentTime||seekTo);},
-  destroy(){disposed=true;generation++;events.abort();hls?.destroy();hls=undefined;}
+  destroy(){disposed=true;generation++;clearTimeout(startTimer);events.abort();hls?.destroy();hls=undefined;}
  };
 }

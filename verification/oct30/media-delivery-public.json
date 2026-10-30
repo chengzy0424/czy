@@ -1,0 +1,91 @@
+{
+  "base": "https://chengzy0424.github.io/czy/",
+  "media": [
+    {
+      "file": "tower-demo.mp4",
+      "bytes": 1263223,
+      "faststart": true,
+      "range": 206
+    },
+    {
+      "file": "ash-demo.mp4",
+      "bytes": 1338350,
+      "faststart": true,
+      "range": 206
+    },
+    {
+      "file": "csol-demo.mp4",
+      "bytes": 2543781,
+      "faststart": true,
+      "range": 206
+    },
+    {
+      "file": "mines-demo.mp4",
+      "bytes": 233360,
+      "faststart": true,
+      "range": 206
+    },
+    {
+      "file": "murphy-720.mp4",
+      "bytes": 7747036,
+      "faststart": true,
+      "range": 206
+    },
+    {
+      "file": "murphy-1080.mp4",
+      "bytes": 15580259,
+      "faststart": true,
+      "range": 206
+    },
+    {
+      "file": "hyrum-720.mp4",
+      "bytes": 8197399,
+      "faststart": true,
+      "range": 206
+    },
+    {
+      "file": "hyrum-1080.mp4",
+      "bytes": 17204518,
+      "faststart": true,
+      "range": 206
+    },
+    {
+      "file": "familiar-720.mp4",
+      "bytes": 8939955,
+      "faststart": true,
+      "range": 206
+    },
+    {
+      "file": "familiar-1080.mp4",
+      "bytes": 23034196,
+      "faststart": true,
+      "range": 206
+    },
+    {
+      "file": "town-720.mp4",
+      "bytes": 10475433,
+      "faststart": true,
+      "range": 206
+    },
+    {
+      "file": "town-1080.mp4",
+      "bytes": 18218445,
+      "faststart": true,
+      "range": 206
+    },
+    {
+      "file": "arc-720.mp4",
+      "bytes": 3563316,
+      "faststart": true,
+      "range": 206
+    },
+    {
+      "file": "arc-1080.mp4",
+      "bytes": 6027766,
+      "faststart": true,
+      "range": 206
+    }
+  ],
+  "covers": 27,
+  "gameBuildsPresent": false
+}

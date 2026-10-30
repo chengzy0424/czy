@@ -1,0 +1,43 @@
+{
+  "base": "https://chengzy0424.github.io/czy/",
+  "results": [
+    {
+      "id": "familiar",
+      "continuous": {
+        "time": 10.545176,
+        "totalFrames": 321,
+        "droppedFrames": 0,
+        "waiting": 0,
+        "error": null
+      },
+      "end": {
+        "time": 184.203991,
+        "duration": 184.203991,
+        "ended": true,
+        "totalFrames": 446,
+        "droppedFrames": 0,
+        "error": null
+      }
+    },
+    {
+      "id": "town",
+      "continuous": {
+        "time": 10.559507,
+        "totalFrames": 321,
+        "droppedFrames": 0,
+        "waiting": 0,
+        "error": null
+      },
+      "end": {
+        "time": 64.017007,
+        "duration": 64.017007,
+        "ended": true,
+        "totalFrames": 440,
+        "droppedFrames": 0,
+        "error": null
+      }
+    }
+  ],
+  "errors": [],
+  "scope": "10 seconds continuous from start, followed by a seek to final 4 seconds; not full-length playback"
+}

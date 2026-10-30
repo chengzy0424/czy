@@ -1,0 +1,25 @@
+[
+  {
+    "path": "",
+    "status": 200,
+    "newAssets": true,
+    "major": true,
+    "phone": true
+  },
+  {
+    "path": "games/fengshi/index.html",
+    "status": 404
+  },
+  {
+    "path": "games/ash/index.html",
+    "status": 404
+  },
+  {
+    "path": "games/csol/index.html",
+    "status": 404
+  },
+  {
+    "path": "games/mines/index.html",
+    "status": 404
+  }
+]

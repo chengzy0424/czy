@@ -1,7 +1,7 @@
 {
   "date": "2026-10-30",
   "publicUrl": "https://chengzy0424.github.io/czy/",
-  "phase": "local passed; awaiting public verification",
+  "phase": "published and public checks passed",
   "local": {
     "unitTests": {
       "passed": 8,
@@ -40,5 +40,176 @@
     "Physical phones, Safari and diverse network conditions have not been verified.",
     "No claim of pixel-perfect reproduction or universal stable 60 fps."
   ],
-  "evidence": "oct30/"
+  "evidence": "oct30/",
+  "implementationCommit": "e187def7521af0505faabfce70c4cc9757b32e69",
+  "deployment": {
+    "workflow": "https://github.com/chengzy0424/czy/actions/runs/41042360119",
+    "conclusion": "success"
+  },
+  "public": {
+    "videoEntries": 9,
+    "errors": [],
+    "viewports": [
+      1440,
+      768,
+      390,
+      320
+    ],
+    "touchEmulation": true,
+    "physicalPhone": false,
+    "initialMediaRequests": 0,
+    "backgroundPausedDuringPlayback": true,
+    "qualitySwitch": {
+      "src": "https://chengzy0424.github.io/czy/media/arc-1080.mp4",
+      "time": 5.214337
+    },
+    "mobileVideo": {
+      "time": 0.253474,
+      "width": 322,
+      "error": null
+    },
+    "reducedMotion": {
+      "pressed": "true",
+      "class": true
+    },
+    "rangeResponses": [
+      {
+        "file": "tower-demo.mp4",
+        "status": 206
+      },
+      {
+        "file": "ash-demo.mp4",
+        "status": 206
+      },
+      {
+        "file": "csol-demo.mp4",
+        "status": 206
+      },
+      {
+        "file": "mines-demo.mp4",
+        "status": 206
+      },
+      {
+        "file": "murphy-720.mp4",
+        "status": 206
+      },
+      {
+        "file": "murphy-1080.mp4",
+        "status": 206
+      },
+      {
+        "file": "hyrum-720.mp4",
+        "status": 206
+      },
+      {
+        "file": "hyrum-1080.mp4",
+        "status": 206
+      },
+      {
+        "file": "familiar-720.mp4",
+        "status": 206
+      },
+      {
+        "file": "familiar-1080.mp4",
+        "status": 206
+      },
+      {
+        "file": "town-720.mp4",
+        "status": 206
+      },
+      {
+        "file": "town-1080.mp4",
+        "status": 206
+      },
+      {
+        "file": "arc-720.mp4",
+        "status": 206
+      },
+      {
+        "file": "arc-1080.mp4",
+        "status": 206
+      }
+    ],
+    "covers": 27,
+    "retiredGameRoutes": [
+      {
+        "path": "games/fengshi/index.html",
+        "status": 404
+      },
+      {
+        "path": "games/ash/index.html",
+        "status": 404
+      },
+      {
+        "path": "games/csol/index.html",
+        "status": 404
+      },
+      {
+        "path": "games/mines/index.html",
+        "status": 404
+      }
+    ],
+    "playbackSample": {
+      "base": "https://chengzy0424.github.io/czy/",
+      "results": [
+        {
+          "id": "familiar",
+          "continuous": {
+            "time": 10.545176,
+            "totalFrames": 321,
+            "droppedFrames": 0,
+            "waiting": 0,
+            "error": null
+          },
+          "end": {
+            "time": 184.203991,
+            "duration": 184.203991,
+            "ended": true,
+            "totalFrames": 446,
+            "droppedFrames": 0,
+            "error": null
+          }
+        },
+        {
+          "id": "town",
+          "continuous": {
+            "time": 10.559507,
+            "totalFrames": 321,
+            "droppedFrames": 0,
+            "waiting": 0,
+            "error": null
+          },
+          "end": {
+            "time": 64.017007,
+            "duration": 64.017007,
+            "ended": true,
+            "totalFrames": 440,
+            "droppedFrames": 0,
+            "error": null
+          }
+        }
+      ],
+      "errors": [],
+      "scope": "10 seconds continuous from start, followed by a seek to final 4 seconds; not full-length playback"
+    }
+  },
+  "publicPerformance": {
+    "firstContentfulPaintMs": 908,
+    "sceneReadyMs": 1408,
+    "longTasks": [
+      {
+        "start": 1352.800000000745,
+        "duration": 56
+      }
+    ],
+    "conditions": {
+      "viewport": [
+        1440,
+        900
+      ],
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36 Edg/156.0.0.0",
+      "renderer": "isolated headless Edge; no CPU or network throttling; HTTP cache disabled"
+    },
+    "qualification": "Single cold-cache run on this Windows machine and current network. Not a universal latency or frame-rate guarantee."
+  }
 }

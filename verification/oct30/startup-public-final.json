@@ -1,0 +1,65 @@
+{
+  "audit": {
+    "longTasks": [
+      {
+        "start": 1352.800000000745,
+        "duration": 56
+      }
+    ],
+    "errors": [],
+    "ready": 1408
+  },
+  "paint": [
+    {
+      "name": "first-paint",
+      "start": 908
+    },
+    {
+      "name": "first-contentful-paint",
+      "start": 908
+    }
+  ],
+  "navigation": [
+    {
+      "ttfb": 627.8999999985099,
+      "domReady": 924.8000000007451,
+      "load": 925.6999999992549
+    }
+  ],
+  "resources": [
+    {
+      "name": "https://chengzy0424.github.io/czy/assets/index-C98rrVZH.js",
+      "duration": 291.19999999925494,
+      "bytes": 9230
+    },
+    {
+      "name": "https://chengzy0424.github.io/czy/assets/index-BY7C2vIV.css",
+      "duration": 264.20000000298023,
+      "bytes": 7978
+    },
+    {
+      "name": "https://chengzy0424.github.io/czy/art/tower-960.webp",
+      "duration": 289.80000000074506,
+      "bytes": 163186
+    },
+    {
+      "name": "https://chengzy0424.github.io/czy/assets/space-BrtSo_bi.js",
+      "duration": 260.3999999985099,
+      "bytes": 9316
+    },
+    {
+      "name": "https://chengzy0424.github.io/czy/assets/three-BdjWzZeP.js",
+      "duration": 277.8999999985099,
+      "bytes": 133880
+    }
+  ],
+  "metrics": "{\"frames\":1972,\"points\":44000,\"dpr\":1,\"drawCalls\":46,\"triangles\":41570,\"lastDrawSubmissionMs\":0.29999999701976776,\"quality\":1,\"reduced\":false,\"chapter\":0,\"frameP50\":\"5.6\",\"frameP95\":\"5.7\"}",
+  "conditions": {
+    "viewport": [
+      1440,
+      900
+    ],
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36 Edg/156.0.0.0",
+    "renderer": "isolated headless Edge; no CPU or network throttling; HTTP cache disabled"
+  }
+}

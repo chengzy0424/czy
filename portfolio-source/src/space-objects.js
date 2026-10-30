@@ -93,6 +93,7 @@ export async function buildWorld({mobile=false,documentRef=document,onTexture=()
  const cardDeck=new T.Group();gallery.add(cardDeck);
  for(const spec of CARD_SPECS){
   const group=new T.Group();group.position.fromArray(spec.position);group.rotation.y=spec.rotation;group.scale.setScalar(mobile?1.05:1.22);cardDeck.add(group);
+  if(mobile&&spec.id==='tower')group.position.set(0,.6,3.2);
   const shape=roundedShape(3.5,2.3,.105),backMaterial=dark.clone();backMaterial.transparent=true;backMaterial.opacity=.58;backMaterial.depthWrite=false;
   const base=mesh(extruded(shape,.055,.018,mobile?8:16),backMaterial,group,[0,0,-.04]);
   const frameShape=roundedShape(3.55,2.35,.115);frameShape.holes.push(roundedShape(3.47,2.27,.08));

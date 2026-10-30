@@ -124,6 +124,7 @@ export async function createSpace({container,state,onFailure=()=>{},onSelect=()=
    card.group.position.copy(card.home);card.group.position.z+=card.hover*.17;
    card.group.position.y+=(reduced?0:Math.sin(time*.24+card.home.x)*.045);
    const turn=smooth(clamp(progress-2));
+   if(mobile&&card.spec.id==='boe'){card.group.position.x+=(1.7-card.home.x)*turn;card.group.position.z+=(1.3-card.home.z)*turn;}
    const exit=smooth(clamp((progress-3)/.75));
    if(card.spec.id==='tower')card.group.position.y+=turn*.75;
    card.group.position.y+=exit*(card.spec.id==='tower'?1.3:.4);

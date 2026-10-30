@@ -1,8 +1,18 @@
 import { defineConfig } from 'vite';
 import fs from 'node:fs';
 import {games,films,gameMedia} from './src/portfolio.js';
+import catalog from './src/stream-catalog.json' with {type:'json'};
 const publicRoot=new URL('./public/',import.meta.url);
 const files=['mark.svg',...Object.values(gameMedia).flatMap(m=>m.levels.map(l=>'media/'+l[2])),...Object.keys(films).flatMap(id=>['media/'+id+'-720.mp4','media/'+id+'-1080.mp4']),...[...Object.keys(games),...Object.keys(films)].flatMap(id=>[480,960,1440].map(width=>'art/'+id+'-'+width+'.webp'))];
+files.push('licenses/hlsjs-LICENSE.txt');
+for(const stream of Object.values(catalog)){
+ files.push(stream.path);
+ for(const level of stream.levels){
+  const prefix=stream.path.replace('master.m3u8',level.level+'/');
+  const playlist=fs.readFileSync(new URL(prefix+'index.m3u8',publicRoot),'utf8');
+  files.push(prefix+'index.m3u8',prefix+'init.mp4',...playlist.split('\n').filter(line=>line&&!line.startsWith('#')).map(line=>prefix+line.trim()));
+ }
+}
 const allowed=new Set(files);
 export default defineConfig({
  base:'./',publicDir:false,
@@ -14,7 +24,7 @@ export default defineConfig({
     if(!allowed.has(file)||!['GET','HEAD'].includes(req.method))return next();
     const source=new URL(file,publicRoot);if(!fs.existsSync(source))return next();
     const {size}=fs.statSync(source);let start=0,end=size-1;
-    res.setHeader('Content-Type',file.endsWith('.mp4')?'video/mp4':file.endsWith('.webp')?'image/webp':'image/svg+xml');
+    res.setHeader('Content-Type',file.endsWith('.m3u8')?'application/vnd.apple.mpegurl':file.endsWith('.m4s')||file.endsWith('.mp4')?'video/mp4':file.endsWith('.webp')?'image/webp':'image/svg+xml');
     res.setHeader('Accept-Ranges','bytes');
     if(req.headers.range){
      const match=/^bytes=(\d*)-(\d*)$/.exec(req.headers.range);

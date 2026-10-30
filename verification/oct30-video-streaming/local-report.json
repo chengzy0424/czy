@@ -1,0 +1,1967 @@
+{
+  "base": "http://127.0.0.1:4181/",
+  "at": "2026-10-30T13:59:26.878Z",
+  "cache": "disabled",
+  "videos": [
+    {
+      "id": "tower",
+      "requests": [
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/tower/master.m3u8",
+          "ms": 83,
+          "bytes": 348,
+          "status": 200,
+          "firstByteMs": 90
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/tower/low/index.m3u8",
+          "ms": 90,
+          "bytes": 632,
+          "status": 200,
+          "firstByteMs": 95
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/tower/low/init.mp4",
+          "ms": 96,
+          "bytes": 1396,
+          "status": 200,
+          "firstByteMs": 105
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/tower/low/part-000.m4s",
+          "ms": 96,
+          "bytes": 108915,
+          "status": 200,
+          "firstByteMs": 115
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/tower/720/index.m3u8",
+          "ms": 116,
+          "bytes": 632,
+          "status": 200,
+          "firstByteMs": 122
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/tower/720/init.mp4",
+          "ms": 123,
+          "bytes": 1395,
+          "status": 200,
+          "firstByteMs": 147
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/tower/720/part-001.m4s",
+          "ms": 123,
+          "bytes": 226298,
+          "status": 200,
+          "firstByteMs": 155
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/tower/720/part-002.m4s",
+          "ms": 164,
+          "bytes": 186613,
+          "status": 200,
+          "firstByteMs": 199
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/tower/720/part-003.m4s",
+          "ms": 206,
+          "bytes": 196801,
+          "status": 200,
+          "firstByteMs": 233
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/tower/720/part-004.m4s",
+          "ms": 250,
+          "bytes": 223093,
+          "status": 200,
+          "firstByteMs": 266
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/tower/720/part-005.m4s",
+          "ms": 273,
+          "bytes": 210893,
+          "status": 200,
+          "firstByteMs": 307
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/tower/720/part-006.m4s",
+          "ms": 313,
+          "bytes": 242345,
+          "status": 200,
+          "firstByteMs": 336
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/tower/720/part-007.m4s",
+          "ms": 338,
+          "bytes": 216347,
+          "status": 200,
+          "firstByteMs": 353
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/tower/720/part-008.m4s",
+          "ms": 355,
+          "bytes": 218351,
+          "status": 200,
+          "firstByteMs": 391
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/tower/720/part-009.m4s",
+          "ms": 398,
+          "bytes": 214108,
+          "status": 200,
+          "firstByteMs": 426
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/tower/720/part-010.m4s",
+          "ms": 435,
+          "bytes": 205862,
+          "status": 200,
+          "firstByteMs": 463
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/tower/720/part-011.m4s",
+          "ms": 474,
+          "bytes": 210299,
+          "status": 200,
+          "firstByteMs": 485
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/tower/720/part-012.m4s",
+          "ms": 493,
+          "bytes": 194279,
+          "status": 200,
+          "firstByteMs": 530
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/tower/720/part-013.m4s",
+          "ms": 532,
+          "bytes": 191705,
+          "status": 200,
+          "firstByteMs": 559
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/tower/720/part-014.m4s",
+          "ms": 571,
+          "bytes": 157964,
+          "status": 200,
+          "firstByteMs": 593
+        }
+      ],
+      "firstPlayMs": 413,
+      "backgroundBefore": 22,
+      "playback": {
+        "time": 9.416361,
+        "duration": 29.034333,
+        "muted": false,
+        "volume": 0.8,
+        "audioBytes": 161590,
+        "quality": "720",
+        "decoded": 285,
+        "dropped": 0,
+        "stalls": [],
+        "backgroundFrames": 22
+      }
+    },
+    {
+      "id": "ash",
+      "requests": [
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/ash/master.m3u8",
+          "ms": 85,
+          "bytes": 499,
+          "status": 200,
+          "firstByteMs": 100
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/ash/low60/index.m3u8",
+          "ms": 100,
+          "bytes": 1128,
+          "status": 200,
+          "firstByteMs": 105
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/ash/low60/init.mp4",
+          "ms": 106,
+          "bytes": 1370,
+          "status": 200,
+          "firstByteMs": 133
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/ash/low60/part-000.m4s",
+          "ms": 106,
+          "bytes": 138987,
+          "status": 200,
+          "firstByteMs": 140
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/ash/720/index.m3u8",
+          "ms": 146,
+          "bytes": 1128,
+          "status": 200,
+          "firstByteMs": 178
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/ash/720/init.mp4",
+          "ms": 178,
+          "bytes": 1370,
+          "status": 200,
+          "firstByteMs": 201
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/ash/720/part-001.m4s",
+          "ms": 178,
+          "bytes": 379042,
+          "status": 200,
+          "firstByteMs": 221
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/ash/720/part-002.m4s",
+          "ms": 237,
+          "bytes": 385849,
+          "status": 200,
+          "firstByteMs": 282
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/ash/720/part-003.m4s",
+          "ms": 293,
+          "bytes": 308322,
+          "status": 200,
+          "firstByteMs": 326
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/ash/720/part-004.m4s",
+          "ms": 348,
+          "bytes": 335192,
+          "status": 200,
+          "firstByteMs": 410
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/ash/720/part-005.m4s",
+          "ms": 428,
+          "bytes": 204918,
+          "status": 200,
+          "firstByteMs": 458
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/ash/720/part-006.m4s",
+          "ms": 466,
+          "bytes": 113688,
+          "status": 200,
+          "firstByteMs": 558
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/ash/720/part-007.m4s",
+          "ms": 559,
+          "bytes": 623874,
+          "status": 200,
+          "firstByteMs": 588
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/ash/720/part-008.m4s",
+          "ms": 616,
+          "bytes": 554358,
+          "status": 200,
+          "firstByteMs": 645
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/ash/720/part-009.m4s",
+          "ms": 697,
+          "bytes": 563363,
+          "status": 200,
+          "firstByteMs": 747
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/ash/720/part-010.m4s",
+          "ms": 794,
+          "bytes": 598278,
+          "status": 200,
+          "firstByteMs": 823
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/ash/720/part-011.m4s",
+          "ms": 859,
+          "bytes": 646087,
+          "status": 200,
+          "firstByteMs": 884
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/ash/720/part-012.m4s",
+          "ms": 900,
+          "bytes": 554043,
+          "status": 200,
+          "firstByteMs": 923
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/ash/720/part-013.m4s",
+          "ms": 957,
+          "bytes": 540013,
+          "status": 200,
+          "firstByteMs": 994
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/ash/720/part-014.m4s",
+          "ms": 1022,
+          "bytes": 582752,
+          "status": 200,
+          "firstByteMs": 1055
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/ash/720/part-015.m4s",
+          "ms": 1083,
+          "bytes": 575319,
+          "status": 200,
+          "firstByteMs": 1111
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/ash/720/part-016.m4s",
+          "ms": 2210,
+          "bytes": 543526,
+          "status": 200,
+          "firstByteMs": 2229
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/ash/720/part-017.m4s",
+          "ms": 4300,
+          "bytes": 540188,
+          "status": 200,
+          "firstByteMs": 4316
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/ash/720/part-018.m4s",
+          "ms": 6205,
+          "bytes": 542129,
+          "status": 200,
+          "firstByteMs": 6261
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/ash/720/part-019.m4s",
+          "ms": 8213,
+          "bytes": 573196,
+          "status": 200,
+          "firstByteMs": 8255
+        }
+      ],
+      "firstPlayMs": 418,
+      "backgroundBefore": 22,
+      "playback": {
+        "time": 9.410697,
+        "duration": 61.6,
+        "muted": false,
+        "volume": 0.8,
+        "audioBytes": 158634,
+        "quality": "720",
+        "decoded": 566,
+        "dropped": 1,
+        "stalls": [],
+        "backgroundFrames": 22
+      }
+    },
+    {
+      "id": "csol",
+      "requests": [
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/csol/master.m3u8",
+          "ms": 90,
+          "bytes": 499,
+          "status": 200,
+          "firstByteMs": 105
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/csol/low60/index.m3u8",
+          "ms": 105,
+          "bytes": 818,
+          "status": 200,
+          "firstByteMs": 113
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/csol/low60/init.mp4",
+          "ms": 113,
+          "bytes": 1370,
+          "status": 200,
+          "firstByteMs": 138
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/csol/low60/part-000.m4s",
+          "ms": 113,
+          "bytes": 111567,
+          "status": 200,
+          "firstByteMs": 151
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/csol/720/index.m3u8",
+          "ms": 155,
+          "bytes": 818,
+          "status": 200,
+          "firstByteMs": 162
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/csol/720/init.mp4",
+          "ms": 163,
+          "bytes": 1371,
+          "status": 200,
+          "firstByteMs": 171
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/csol/720/part-001.m4s",
+          "ms": 163,
+          "bytes": 689023,
+          "status": 200,
+          "firstByteMs": 194
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/csol/720/part-002.m4s",
+          "ms": 226,
+          "bytes": 649403,
+          "status": 200,
+          "firstByteMs": 262
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/csol/720/part-003.m4s",
+          "ms": 288,
+          "bytes": 586272,
+          "status": 200,
+          "firstByteMs": 327
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/csol/720/part-004.m4s",
+          "ms": 349,
+          "bytes": 490784,
+          "status": 200,
+          "firstByteMs": 383
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/csol/720/part-005.m4s",
+          "ms": 394,
+          "bytes": 457583,
+          "status": 200,
+          "firstByteMs": 440
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/csol/720/part-006.m4s",
+          "ms": 466,
+          "bytes": 590378,
+          "status": 200,
+          "firstByteMs": 505
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/csol/720/part-007.m4s",
+          "ms": 530,
+          "bytes": 610634,
+          "status": 200,
+          "firstByteMs": 571
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/csol/720/part-008.m4s",
+          "ms": 602,
+          "bytes": 563159,
+          "status": 200,
+          "firstByteMs": 612
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/csol/720/part-009.m4s",
+          "ms": 619,
+          "bytes": 623522,
+          "status": 200,
+          "firstByteMs": 639
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/csol/720/part-010.m4s",
+          "ms": 655,
+          "bytes": 384272,
+          "status": 200,
+          "firstByteMs": 677
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/csol/720/part-011.m4s",
+          "ms": 714,
+          "bytes": 707944,
+          "status": 200,
+          "firstByteMs": 753
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/csol/720/part-012.m4s",
+          "ms": 813,
+          "bytes": 584990,
+          "status": 200,
+          "firstByteMs": 830
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/csol/720/part-013.m4s",
+          "ms": 867,
+          "bytes": 567199,
+          "status": 200,
+          "firstByteMs": 900
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/csol/720/part-014.m4s",
+          "ms": 906,
+          "bytes": 582704,
+          "status": 200,
+          "firstByteMs": 917
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/csol/720/part-015.m4s",
+          "ms": 927,
+          "bytes": 520313,
+          "status": 200,
+          "firstByteMs": 944
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/csol/720/part-016.m4s",
+          "ms": 2221,
+          "bytes": 560271,
+          "status": 200,
+          "firstByteMs": 2233
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/csol/720/part-017.m4s",
+          "ms": 4315,
+          "bytes": 580474,
+          "status": 200,
+          "firstByteMs": 4325
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/csol/720/part-018.m4s",
+          "ms": 6214,
+          "bytes": 516592,
+          "status": 200,
+          "firstByteMs": 6230
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/csol/720/part-019.m4s",
+          "ms": 8316,
+          "bytes": 575016,
+          "status": 200,
+          "firstByteMs": 8326
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/csol/720/part-020.m4s",
+          "ms": 9714,
+          "bytes": 501484,
+          "status": 200,
+          "firstByteMs": 9725
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/csol/hd/index.m3u8",
+          "ms": 10167,
+          "bytes": 818,
+          "status": 200,
+          "firstByteMs": 10175
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/csol/720/part-016.m4s",
+          "ms": 10170,
+          "bytes": 0,
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/csol/720/part-016.m4s",
+          "ms": 10176,
+          "bytes": 560271,
+          "status": 200,
+          "firstByteMs": 10179
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/csol/720/part-017.m4s",
+          "ms": 10183,
+          "bytes": 580474,
+          "status": 200,
+          "firstByteMs": 10187
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/csol/720/part-018.m4s",
+          "ms": 10191,
+          "bytes": 516592,
+          "status": 200,
+          "firstByteMs": 10194
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/csol/720/part-019.m4s",
+          "ms": 10197,
+          "bytes": 575016,
+          "status": 200,
+          "firstByteMs": 10200
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/csol/720/part-020.m4s",
+          "ms": 10204,
+          "bytes": 501484,
+          "status": 200,
+          "firstByteMs": 10208
+        }
+      ],
+      "firstPlayMs": 436,
+      "backgroundBefore": 22,
+      "playback": {
+        "time": 9.412272,
+        "duration": 42,
+        "muted": false,
+        "volume": 0.8,
+        "audioBytes": 158492,
+        "quality": "720",
+        "decoded": 567,
+        "dropped": 0,
+        "stalls": [],
+        "backgroundFrames": 22
+      },
+      "pausedSwitch": {
+        "time": 30.305427,
+        "paused": true,
+        "volume": 0.45
+      }
+    },
+    {
+      "id": "mines",
+      "requests": [
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/mines/master.m3u8",
+          "ms": 81,
+          "bytes": 347,
+          "status": 200,
+          "firstByteMs": 86
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/mines/low/index.m3u8",
+          "ms": 87,
+          "bytes": 508,
+          "status": 200,
+          "firstByteMs": 89
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/mines/low/init.mp4",
+          "ms": 89,
+          "bytes": 1396,
+          "status": 200,
+          "firstByteMs": 97
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/mines/low/part-000.m4s",
+          "ms": 89,
+          "bytes": 31778,
+          "status": 200,
+          "firstByteMs": 99
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/mines/720/index.m3u8",
+          "ms": 100,
+          "bytes": 508,
+          "status": 200,
+          "firstByteMs": 104
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/mines/720/init.mp4",
+          "ms": 104,
+          "bytes": 1395,
+          "status": 200,
+          "firstByteMs": 108
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/mines/720/part-001.m4s",
+          "ms": 105,
+          "bytes": 60031,
+          "status": 200,
+          "firstByteMs": 119
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/mines/720/part-002.m4s",
+          "ms": 119,
+          "bytes": 62001,
+          "status": 200,
+          "firstByteMs": 131
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/mines/720/part-003.m4s",
+          "ms": 132,
+          "bytes": 66120,
+          "status": 200,
+          "firstByteMs": 141
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/mines/720/part-004.m4s",
+          "ms": 141,
+          "bytes": 58448,
+          "status": 200,
+          "firstByteMs": 149
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/mines/720/part-005.m4s",
+          "ms": 149,
+          "bytes": 57847,
+          "status": 200,
+          "firstByteMs": 158
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/mines/720/part-006.m4s",
+          "ms": 158,
+          "bytes": 54416,
+          "status": 200,
+          "firstByteMs": 176
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/mines/720/part-007.m4s",
+          "ms": 177,
+          "bytes": 54166,
+          "status": 200,
+          "firstByteMs": 192
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/mines/720/part-008.m4s",
+          "ms": 193,
+          "bytes": 54367,
+          "status": 200,
+          "firstByteMs": 202
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/mines/720/part-009.m4s",
+          "ms": 203,
+          "bytes": 53251,
+          "status": 200,
+          "firstByteMs": 214
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/mines/720/part-010.m4s",
+          "ms": 214,
+          "bytes": 54337,
+          "status": 200,
+          "firstByteMs": 225
+        }
+      ],
+      "firstPlayMs": 421,
+      "backgroundBefore": 22,
+      "playback": {
+        "time": 9.445186,
+        "duration": 22.033333,
+        "muted": false,
+        "volume": 0.8,
+        "audioBytes": 14549,
+        "quality": "720",
+        "decoded": 286,
+        "dropped": 0,
+        "stalls": [],
+        "backgroundFrames": 22
+      }
+    },
+    {
+      "id": "murphy",
+      "requests": [
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/murphy/master.m3u8",
+          "ms": 97,
+          "bytes": 495,
+          "status": 200,
+          "firstByteMs": 100
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/murphy/low/index.m3u8",
+          "ms": 100,
+          "bytes": 2089,
+          "status": 200,
+          "firstByteMs": 103
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/murphy/low/init.mp4",
+          "ms": 103,
+          "bytes": 1396,
+          "status": 200,
+          "firstByteMs": 106
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/murphy/low/part-000.m4s",
+          "ms": 103,
+          "bytes": 62109,
+          "status": 200,
+          "firstByteMs": 107
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/murphy/low/part-001.m4s",
+          "ms": 109,
+          "bytes": 56998,
+          "status": 200,
+          "firstByteMs": 118
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/murphy/720/index.m3u8",
+          "ms": 119,
+          "bytes": 2089,
+          "status": 200,
+          "firstByteMs": 125
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/murphy/720/init.mp4",
+          "ms": 126,
+          "bytes": 1395,
+          "status": 200,
+          "firstByteMs": 130
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/murphy/720/part-001.m4s",
+          "ms": 126,
+          "bytes": 119399,
+          "status": 200,
+          "firstByteMs": 134
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/murphy/720/part-002.m4s",
+          "ms": 135,
+          "bytes": 166171,
+          "status": 200,
+          "firstByteMs": 144
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/murphy/720/part-003.m4s",
+          "ms": 145,
+          "bytes": 166474,
+          "status": 200,
+          "firstByteMs": 154
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/murphy/720/part-004.m4s",
+          "ms": 156,
+          "bytes": 167347,
+          "status": 200,
+          "firstByteMs": 163
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/murphy/720/part-005.m4s",
+          "ms": 165,
+          "bytes": 186098,
+          "status": 200,
+          "firstByteMs": 172
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/murphy/720/part-006.m4s",
+          "ms": 173,
+          "bytes": 94518,
+          "status": 200,
+          "firstByteMs": 182
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/murphy/720/part-007.m4s",
+          "ms": 182,
+          "bytes": 73178,
+          "status": 200,
+          "firstByteMs": 191
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/murphy/720/part-008.m4s",
+          "ms": 192,
+          "bytes": 85703,
+          "status": 200,
+          "firstByteMs": 200
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/murphy/720/part-009.m4s",
+          "ms": 201,
+          "bytes": 190223,
+          "status": 200,
+          "firstByteMs": 211
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/murphy/720/part-010.m4s",
+          "ms": 211,
+          "bytes": 77465,
+          "status": 200,
+          "firstByteMs": 219
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/murphy/720/part-011.m4s",
+          "ms": 219,
+          "bytes": 86898,
+          "status": 200,
+          "firstByteMs": 227
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/murphy/720/part-012.m4s",
+          "ms": 228,
+          "bytes": 76849,
+          "status": 200,
+          "firstByteMs": 237
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/murphy/720/part-013.m4s",
+          "ms": 237,
+          "bytes": 121493,
+          "status": 200,
+          "firstByteMs": 246
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/murphy/720/part-014.m4s",
+          "ms": 247,
+          "bytes": 83454,
+          "status": 200,
+          "firstByteMs": 256
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/murphy/720/part-015.m4s",
+          "ms": 257,
+          "bytes": 180057,
+          "status": 200,
+          "firstByteMs": 265
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/murphy/720/part-016.m4s",
+          "ms": 2201,
+          "bytes": 85486,
+          "status": 200,
+          "firstByteMs": 2210
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/murphy/720/part-017.m4s",
+          "ms": 4206,
+          "bytes": 118005,
+          "status": 200,
+          "firstByteMs": 4214
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/murphy/720/part-018.m4s",
+          "ms": 6200,
+          "bytes": 84618,
+          "status": 200,
+          "firstByteMs": 6209
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/murphy/720/part-019.m4s",
+          "ms": 8201,
+          "bytes": 138591,
+          "status": 200,
+          "firstByteMs": 8210
+        }
+      ],
+      "firstPlayMs": 432,
+      "backgroundBefore": 22,
+      "playback": {
+        "time": 9.479517,
+        "duration": 123.966667,
+        "muted": false,
+        "volume": 0.8,
+        "audioBytes": 121649,
+        "quality": "720",
+        "decoded": 284,
+        "dropped": 0,
+        "stalls": [],
+        "backgroundFrames": 22
+      }
+    },
+    {
+      "id": "hyrum",
+      "requests": [
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/hyrum/master.m3u8",
+          "ms": 84,
+          "bytes": 494,
+          "status": 200,
+          "firstByteMs": 86
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/hyrum/low/index.m3u8",
+          "ms": 87,
+          "bytes": 2492,
+          "status": 200,
+          "firstByteMs": 89
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/hyrum/low/init.mp4",
+          "ms": 89,
+          "bytes": 1845,
+          "status": 200,
+          "firstByteMs": 93
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/hyrum/low/part-000.m4s",
+          "ms": 89,
+          "bytes": 65968,
+          "status": 200,
+          "firstByteMs": 94
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/hyrum/low/part-001.m4s",
+          "ms": 95,
+          "bytes": 92402,
+          "status": 200,
+          "firstByteMs": 108
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/hyrum/720/index.m3u8",
+          "ms": 111,
+          "bytes": 2492,
+          "status": 200,
+          "firstByteMs": 111
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/hyrum/720/init.mp4",
+          "ms": 112,
+          "bytes": 1846,
+          "status": 200,
+          "firstByteMs": 114
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/hyrum/720/part-001.m4s",
+          "ms": 112,
+          "bytes": 206283,
+          "status": 200,
+          "firstByteMs": 121
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/hyrum/720/part-002.m4s",
+          "ms": 123,
+          "bytes": 123959,
+          "status": 200,
+          "firstByteMs": 134
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/hyrum/720/part-003.m4s",
+          "ms": 134,
+          "bytes": 93148,
+          "status": 200,
+          "firstByteMs": 142
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/hyrum/720/part-004.m4s",
+          "ms": 143,
+          "bytes": 102182,
+          "status": 200,
+          "firstByteMs": 152
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/hyrum/720/part-005.m4s",
+          "ms": 152,
+          "bytes": 95499,
+          "status": 200,
+          "firstByteMs": 161
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/hyrum/720/part-006.m4s",
+          "ms": 161,
+          "bytes": 99507,
+          "status": 200,
+          "firstByteMs": 171
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/hyrum/720/part-007.m4s",
+          "ms": 171,
+          "bytes": 161101,
+          "status": 200,
+          "firstByteMs": 179
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/hyrum/720/part-008.m4s",
+          "ms": 180,
+          "bytes": 83245,
+          "status": 200,
+          "firstByteMs": 189
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/hyrum/720/part-009.m4s",
+          "ms": 190,
+          "bytes": 81739,
+          "status": 200,
+          "firstByteMs": 197
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/hyrum/720/part-010.m4s",
+          "ms": 198,
+          "bytes": 81632,
+          "status": 200,
+          "firstByteMs": 207
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/hyrum/720/part-011.m4s",
+          "ms": 207,
+          "bytes": 133898,
+          "status": 200,
+          "firstByteMs": 215
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/hyrum/720/part-012.m4s",
+          "ms": 216,
+          "bytes": 82636,
+          "status": 200,
+          "firstByteMs": 224
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/hyrum/720/part-013.m4s",
+          "ms": 224,
+          "bytes": 97628,
+          "status": 200,
+          "firstByteMs": 232
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/hyrum/720/part-014.m4s",
+          "ms": 233,
+          "bytes": 104674,
+          "status": 200,
+          "firstByteMs": 242
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/hyrum/720/part-015.m4s",
+          "ms": 243,
+          "bytes": 143901,
+          "status": 200,
+          "firstByteMs": 270
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/hyrum/720/part-016.m4s",
+          "ms": 2186,
+          "bytes": 126081,
+          "status": 200,
+          "firstByteMs": 2195
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/hyrum/720/part-017.m4s",
+          "ms": 4200,
+          "bytes": 110767,
+          "status": 200,
+          "firstByteMs": 4208
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/hyrum/720/part-018.m4s",
+          "ms": 6193,
+          "bytes": 103743,
+          "status": 200,
+          "firstByteMs": 6201
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/hyrum/720/part-019.m4s",
+          "ms": 8196,
+          "bytes": 98628,
+          "status": 200,
+          "firstByteMs": 8205
+        }
+      ],
+      "firstPlayMs": 421,
+      "backgroundBefore": 22,
+      "playback": {
+        "time": 9.473684,
+        "duration": 149.933333,
+        "muted": false,
+        "volume": 0.8,
+        "audioBytes": 123594,
+        "quality": "720",
+        "decoded": 283,
+        "dropped": 0,
+        "stalls": [],
+        "backgroundFrames": 22
+      }
+    },
+    {
+      "id": "familiar",
+      "requests": [
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/familiar/master.m3u8",
+          "ms": 98,
+          "bytes": 494,
+          "status": 200,
+          "firstByteMs": 101
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/familiar/low/index.m3u8",
+          "ms": 101,
+          "bytes": 3050,
+          "status": 200,
+          "firstByteMs": 104
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/familiar/low/init.mp4",
+          "ms": 104,
+          "bytes": 1845,
+          "status": 200,
+          "firstByteMs": 108
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/familiar/low/part-000.m4s",
+          "ms": 105,
+          "bytes": 47951,
+          "status": 200,
+          "firstByteMs": 109
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/familiar/720/index.m3u8",
+          "ms": 110,
+          "bytes": 3050,
+          "status": 200,
+          "firstByteMs": 115
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/familiar/720/init.mp4",
+          "ms": 115,
+          "bytes": 1846,
+          "status": 200,
+          "firstByteMs": 117
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/familiar/720/part-001.m4s",
+          "ms": 115,
+          "bytes": 87787,
+          "status": 200,
+          "firstByteMs": 127
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/familiar/720/part-002.m4s",
+          "ms": 129,
+          "bytes": 106047,
+          "status": 200,
+          "firstByteMs": 139
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/familiar/720/part-003.m4s",
+          "ms": 139,
+          "bytes": 116692,
+          "status": 200,
+          "firstByteMs": 149
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/familiar/720/part-004.m4s",
+          "ms": 150,
+          "bytes": 145853,
+          "status": 200,
+          "firstByteMs": 159
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/familiar/720/part-005.m4s",
+          "ms": 160,
+          "bytes": 82490,
+          "status": 200,
+          "firstByteMs": 170
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/familiar/720/part-006.m4s",
+          "ms": 171,
+          "bytes": 83022,
+          "status": 200,
+          "firstByteMs": 180
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/familiar/720/part-007.m4s",
+          "ms": 181,
+          "bytes": 104735,
+          "status": 200,
+          "firstByteMs": 192
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/familiar/720/part-008.m4s",
+          "ms": 193,
+          "bytes": 107454,
+          "status": 200,
+          "firstByteMs": 202
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/familiar/720/part-009.m4s",
+          "ms": 203,
+          "bytes": 109248,
+          "status": 200,
+          "firstByteMs": 216
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/familiar/720/part-010.m4s",
+          "ms": 216,
+          "bytes": 88037,
+          "status": 200,
+          "firstByteMs": 231
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/familiar/720/part-011.m4s",
+          "ms": 231,
+          "bytes": 147169,
+          "status": 200,
+          "firstByteMs": 244
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/familiar/720/part-012.m4s",
+          "ms": 244,
+          "bytes": 93248,
+          "status": 200,
+          "firstByteMs": 256
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/familiar/720/part-013.m4s",
+          "ms": 256,
+          "bytes": 95443,
+          "status": 200,
+          "firstByteMs": 268
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/familiar/720/part-014.m4s",
+          "ms": 268,
+          "bytes": 99240,
+          "status": 200,
+          "firstByteMs": 280
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/familiar/720/part-015.m4s",
+          "ms": 280,
+          "bytes": 93247,
+          "status": 200,
+          "firstByteMs": 291
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/familiar/720/part-016.m4s",
+          "ms": 2206,
+          "bytes": 108440,
+          "status": 200,
+          "firstByteMs": 2216
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/familiar/720/part-017.m4s",
+          "ms": 4201,
+          "bytes": 105666,
+          "status": 200,
+          "firstByteMs": 4209
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/familiar/720/part-018.m4s",
+          "ms": 6215,
+          "bytes": 100724,
+          "status": 200,
+          "firstByteMs": 6225
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/familiar/720/part-019.m4s",
+          "ms": 8200,
+          "bytes": 151033,
+          "status": 200,
+          "firstByteMs": 8210
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/familiar/720/part-069.m4s",
+          "ms": 9744,
+          "bytes": 123672,
+          "status": 200,
+          "firstByteMs": 9752
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/familiar/720/part-070.m4s",
+          "ms": 9753,
+          "bytes": 79416,
+          "status": 200,
+          "firstByteMs": 9760
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/familiar/720/part-071.m4s",
+          "ms": 9761,
+          "bytes": 90761,
+          "status": 200,
+          "firstByteMs": 9773
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/familiar/720/part-072.m4s",
+          "ms": 9774,
+          "bytes": 96748,
+          "status": 200,
+          "firstByteMs": 9796
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/familiar/720/part-073.m4s",
+          "ms": 9796,
+          "bytes": 91242,
+          "status": 200,
+          "firstByteMs": 9803
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/familiar/720/part-074.m4s",
+          "ms": 9804,
+          "bytes": 87336,
+          "status": 200,
+          "firstByteMs": 9815
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/familiar/720/part-075.m4s",
+          "ms": 9815,
+          "bytes": 83486,
+          "status": 200,
+          "firstByteMs": 9824
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/familiar/720/part-076.m4s",
+          "ms": 9824,
+          "bytes": 139962,
+          "status": 200,
+          "firstByteMs": 9833
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/familiar/720/part-077.m4s",
+          "ms": 9834,
+          "bytes": 89814,
+          "status": 200,
+          "firstByteMs": 9843
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/familiar/720/part-078.m4s",
+          "ms": 9843,
+          "bytes": 102311,
+          "status": 200,
+          "firstByteMs": 9854
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/familiar/720/part-079.m4s",
+          "ms": 9854,
+          "bytes": 94071,
+          "status": 200,
+          "firstByteMs": 9863
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/familiar/720/part-080.m4s",
+          "ms": 9864,
+          "bytes": 81895,
+          "status": 200,
+          "firstByteMs": 9874
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/familiar/720/part-081.m4s",
+          "ms": 9874,
+          "bytes": 107631,
+          "status": 200,
+          "firstByteMs": 9884
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/familiar/720/part-082.m4s",
+          "ms": 9884,
+          "bytes": 89229,
+          "status": 200,
+          "firstByteMs": 9896
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/familiar/720/part-083.m4s",
+          "ms": 9896,
+          "bytes": 87977,
+          "status": 200,
+          "firstByteMs": 9906
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/familiar/720/part-084.m4s",
+          "ms": 9907,
+          "bytes": 85635,
+          "status": 200,
+          "firstByteMs": 9916
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/familiar/720/part-085.m4s",
+          "ms": 9917,
+          "bytes": 90583,
+          "status": 200,
+          "firstByteMs": 9927
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/familiar/hd/index.m3u8",
+          "ms": 10249,
+          "bytes": 3050,
+          "status": 200,
+          "firstByteMs": 10252
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/familiar/720/part-071.m4s",
+          "ms": 10251,
+          "bytes": 0,
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/familiar/720/part-071.m4s",
+          "ms": 10252,
+          "bytes": 90761,
+          "status": 200,
+          "firstByteMs": 10254
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/familiar/720/part-072.m4s",
+          "ms": 10255,
+          "bytes": 96748,
+          "status": 200,
+          "firstByteMs": 10258
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/familiar/720/part-073.m4s",
+          "ms": 10258,
+          "bytes": 91242,
+          "status": 200,
+          "firstByteMs": 10261
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/familiar/720/part-074.m4s",
+          "ms": 10262,
+          "bytes": 87336,
+          "status": 200,
+          "firstByteMs": 10265
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/familiar/720/part-075.m4s",
+          "ms": 10265,
+          "bytes": 83486,
+          "status": 200,
+          "firstByteMs": 10269
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/familiar/720/part-076.m4s",
+          "ms": 10269,
+          "bytes": 139962,
+          "status": 200,
+          "firstByteMs": 10272
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/familiar/720/part-077.m4s",
+          "ms": 10273,
+          "bytes": 89814,
+          "status": 200,
+          "firstByteMs": 10277
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/familiar/720/part-078.m4s",
+          "ms": 10277,
+          "bytes": 102311,
+          "status": 200,
+          "firstByteMs": 10281
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/familiar/720/part-079.m4s",
+          "ms": 10281,
+          "bytes": 94071,
+          "status": 200,
+          "firstByteMs": 10285
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/familiar/720/part-080.m4s",
+          "ms": 10286,
+          "bytes": 81895,
+          "status": 200,
+          "firstByteMs": 10288
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/familiar/720/part-081.m4s",
+          "ms": 10289,
+          "bytes": 107631,
+          "status": 200,
+          "firstByteMs": 10292
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/familiar/720/part-082.m4s",
+          "ms": 10292,
+          "bytes": 89229,
+          "status": 200,
+          "firstByteMs": 10295
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/familiar/720/part-083.m4s",
+          "ms": 10295,
+          "bytes": 87977,
+          "status": 200,
+          "firstByteMs": 10299
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/familiar/720/part-084.m4s",
+          "ms": 10299,
+          "bytes": 85635,
+          "status": 200,
+          "firstByteMs": 10302
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/familiar/720/part-085.m4s",
+          "ms": 10302,
+          "bytes": 90583,
+          "status": 200,
+          "firstByteMs": 10305
+        }
+      ],
+      "firstPlayMs": 437,
+      "backgroundBefore": 22,
+      "playback": {
+        "time": 9.43442,
+        "duration": 184.133333,
+        "muted": false,
+        "volume": 0.8,
+        "audioBytes": 119596,
+        "quality": "720",
+        "decoded": 286,
+        "dropped": 0,
+        "stalls": [],
+        "backgroundFrames": 22
+      },
+      "pausedSwitch": {
+        "time": 140.344178,
+        "paused": true,
+        "volume": 0.45
+      }
+    },
+    {
+      "id": "town",
+      "requests": [
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/town/master.m3u8",
+          "ms": 81,
+          "bytes": 497,
+          "status": 200,
+          "firstByteMs": 83
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/town/low/index.m3u8",
+          "ms": 84,
+          "bytes": 1159,
+          "status": 200,
+          "firstByteMs": 97
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/town/low/init.mp4",
+          "ms": 97,
+          "bytes": 1845,
+          "status": 200,
+          "firstByteMs": 100
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/town/low/part-000.m4s",
+          "ms": 97,
+          "bytes": 36564,
+          "status": 200,
+          "firstByteMs": 100
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/town/low/part-001.m4s",
+          "ms": 102,
+          "bytes": 40554,
+          "status": 200,
+          "firstByteMs": 114
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/town/720/index.m3u8",
+          "ms": 115,
+          "bytes": 1159,
+          "status": 200,
+          "firstByteMs": 120
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/town/720/init.mp4",
+          "ms": 120,
+          "bytes": 1844,
+          "status": 200,
+          "firstByteMs": 123
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/town/720/part-001.m4s",
+          "ms": 120,
+          "bytes": 55421,
+          "status": 200,
+          "firstByteMs": 132
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/town/720/part-002.m4s",
+          "ms": 132,
+          "bytes": 158459,
+          "status": 200,
+          "firstByteMs": 141
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/town/720/part-003.m4s",
+          "ms": 142,
+          "bytes": 281205,
+          "status": 200,
+          "firstByteMs": 151
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/town/720/part-004.m4s",
+          "ms": 153,
+          "bytes": 200055,
+          "status": 200,
+          "firstByteMs": 164
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/town/720/part-005.m4s",
+          "ms": 165,
+          "bytes": 199610,
+          "status": 200,
+          "firstByteMs": 174
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/town/720/part-006.m4s",
+          "ms": 176,
+          "bytes": 299330,
+          "status": 200,
+          "firstByteMs": 186
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/town/720/part-007.m4s",
+          "ms": 188,
+          "bytes": 320871,
+          "status": 200,
+          "firstByteMs": 199
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/town/720/part-008.m4s",
+          "ms": 200,
+          "bytes": 277888,
+          "status": 200,
+          "firstByteMs": 210
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/town/720/part-009.m4s",
+          "ms": 211,
+          "bytes": 291660,
+          "status": 200,
+          "firstByteMs": 222
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/town/720/part-010.m4s",
+          "ms": 223,
+          "bytes": 269556,
+          "status": 200,
+          "firstByteMs": 233
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/town/720/part-011.m4s",
+          "ms": 234,
+          "bytes": 280971,
+          "status": 200,
+          "firstByteMs": 246
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/town/720/part-012.m4s",
+          "ms": 247,
+          "bytes": 261223,
+          "status": 200,
+          "firstByteMs": 255
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/town/720/part-013.m4s",
+          "ms": 257,
+          "bytes": 286355,
+          "status": 200,
+          "firstByteMs": 266
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/town/720/part-014.m4s",
+          "ms": 267,
+          "bytes": 276102,
+          "status": 200,
+          "firstByteMs": 275
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/town/720/part-015.m4s",
+          "ms": 276,
+          "bytes": 271745,
+          "status": 200,
+          "firstByteMs": 286
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/town/720/part-016.m4s",
+          "ms": 2196,
+          "bytes": 285808,
+          "status": 200,
+          "firstByteMs": 2206
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/town/720/part-017.m4s",
+          "ms": 4195,
+          "bytes": 290572,
+          "status": 200,
+          "firstByteMs": 4204
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/town/720/part-018.m4s",
+          "ms": 6184,
+          "bytes": 258176,
+          "status": 200,
+          "firstByteMs": 6194
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/town/720/part-019.m4s",
+          "ms": 8188,
+          "bytes": 285570,
+          "status": 200,
+          "firstByteMs": 8197
+        }
+      ],
+      "firstPlayMs": 407,
+      "backgroundBefore": 22,
+      "playback": {
+        "time": 9.429386,
+        "duration": 63.933333,
+        "muted": false,
+        "volume": 0.8,
+        "audioBytes": 121051,
+        "quality": "720",
+        "decoded": 283,
+        "dropped": 0,
+        "stalls": [],
+        "backgroundFrames": 22
+      }
+    },
+    {
+      "id": "arc",
+      "requests": [
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/arc/master.m3u8",
+          "ms": 82,
+          "bytes": 497,
+          "status": 200,
+          "firstByteMs": 84
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/arc/low/index.m3u8",
+          "ms": 85,
+          "bytes": 508,
+          "status": 200,
+          "firstByteMs": 88
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/arc/low/init.mp4",
+          "ms": 88,
+          "bytes": 1377,
+          "status": 200,
+          "firstByteMs": 90
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/arc/low/part-000.m4s",
+          "ms": 88,
+          "bytes": 115329,
+          "status": 200,
+          "firstByteMs": 92
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/arc/720/index.m3u8",
+          "ms": 95,
+          "bytes": 508,
+          "status": 200,
+          "firstByteMs": 98
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/arc/720/init.mp4",
+          "ms": 98,
+          "bytes": 1376,
+          "status": 200,
+          "firstByteMs": 101
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/arc/720/part-001.m4s",
+          "ms": 98,
+          "bytes": 318320,
+          "status": 200,
+          "firstByteMs": 113
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/arc/720/part-002.m4s",
+          "ms": 114,
+          "bytes": 294062,
+          "status": 200,
+          "firstByteMs": 125
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/arc/720/part-003.m4s",
+          "ms": 125,
+          "bytes": 279564,
+          "status": 200,
+          "firstByteMs": 135
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/arc/720/part-004.m4s",
+          "ms": 137,
+          "bytes": 271600,
+          "status": 200,
+          "firstByteMs": 147
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/arc/720/part-005.m4s",
+          "ms": 149,
+          "bytes": 279164,
+          "status": 200,
+          "firstByteMs": 157
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/arc/720/part-006.m4s",
+          "ms": 159,
+          "bytes": 302667,
+          "status": 200,
+          "firstByteMs": 171
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/arc/720/part-007.m4s",
+          "ms": 172,
+          "bytes": 316616,
+          "status": 200,
+          "firstByteMs": 182
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/arc/720/part-008.m4s",
+          "ms": 183,
+          "bytes": 55097,
+          "status": 200,
+          "firstByteMs": 194
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/arc/720/part-009.m4s",
+          "ms": 195,
+          "bytes": 198657,
+          "status": 200,
+          "firstByteMs": 204
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/arc/720/part-010.m4s",
+          "ms": 205,
+          "bytes": 56565,
+          "status": 200,
+          "firstByteMs": 216
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/arc/hd/index.m3u8",
+          "ms": 10140,
+          "bytes": 508,
+          "status": 200,
+          "firstByteMs": 10145
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/arc/720/part-007.m4s",
+          "ms": 10143,
+          "bytes": 0,
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/arc/720/part-007.m4s",
+          "ms": 10145,
+          "bytes": 316616,
+          "status": 200,
+          "firstByteMs": 10148
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/arc/720/part-008.m4s",
+          "ms": 10149,
+          "bytes": 55097,
+          "status": 200,
+          "firstByteMs": 10153
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/arc/720/part-009.m4s",
+          "ms": 10154,
+          "bytes": 198657,
+          "status": 200,
+          "firstByteMs": 10157
+        },
+        {
+          "url": "http://127.0.0.1:4181/media/stream-v1/arc/720/part-010.m4s",
+          "ms": 10157,
+          "bytes": 56565,
+          "status": 200,
+          "firstByteMs": 10160
+        }
+      ],
+      "firstPlayMs": 419,
+      "backgroundBefore": 22,
+      "playback": {
+        "time": 9.437938,
+        "duration": 20.156212,
+        "muted": false,
+        "volume": 0.8,
+        "audioBytes": 120160,
+        "quality": "720",
+        "decoded": 285,
+        "dropped": 0,
+        "stalls": [],
+        "backgroundFrames": 22
+      },
+      "pausedSwitch": {
+        "time": 12.367928,
+        "paused": true,
+        "volume": 0.45
+      }
+    }
+  ],
+  "errors": [],
+  "initial": {
+    "videoNodes": 0,
+    "media": 0
+  },
+  "complete": true
+}

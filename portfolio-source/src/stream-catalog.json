@@ -1,0 +1,422 @@
+{
+  "ash": {
+    "path": "media/stream-v1/ash/master.m3u8",
+    "levels": [
+      {
+        "id": "ash",
+        "level": "low60",
+        "width": 854,
+        "height": 480,
+        "fps": 60,
+        "codec": "avc1.64001f",
+        "seconds": 61.6,
+        "average": 727881,
+        "peak": 1074489,
+        "bytes": 5606051,
+        "firstBytes": 140357,
+        "parts": 31,
+        "audio": "copied AAC"
+      },
+      {
+        "id": "ash",
+        "level": "720",
+        "width": 1280,
+        "height": 720,
+        "fps": 60,
+        "codec": "avc1.640020",
+        "seconds": 61.6,
+        "average": 1949027,
+        "peak": 2842783,
+        "bytes": 15008875,
+        "firstBytes": 311931,
+        "parts": 31,
+        "audio": "copied AAC"
+      },
+      {
+        "id": "ash",
+        "level": "hd",
+        "width": 1544,
+        "height": 868,
+        "fps": 60,
+        "codec": "avc1.64002a",
+        "seconds": 61.6,
+        "average": 3184708,
+        "peak": 5320423,
+        "bytes": 24523627,
+        "firstBytes": 451951,
+        "parts": 31,
+        "audio": "copied AAC"
+      }
+    ]
+  },
+  "csol": {
+    "path": "media/stream-v1/csol/master.m3u8",
+    "levels": [
+      {
+        "id": "csol",
+        "level": "low60",
+        "width": 854,
+        "height": 478,
+        "fps": 60,
+        "codec": "avc1.64001f",
+        "seconds": 42.0,
+        "average": 780897,
+        "peak": 1141633,
+        "bytes": 4101080,
+        "firstBytes": 112937,
+        "parts": 21,
+        "audio": "copied AAC"
+      },
+      {
+        "id": "csol",
+        "level": "720",
+        "width": 1280,
+        "height": 718,
+        "fps": 60,
+        "codec": "avc1.640020",
+        "seconds": 42.0,
+        "average": 2206608,
+        "peak": 3114954,
+        "bytes": 11586062,
+        "firstBytes": 244045,
+        "parts": 21,
+        "audio": "copied AAC"
+      },
+      {
+        "id": "csol",
+        "level": "hd",
+        "width": 1544,
+        "height": 866,
+        "fps": 60,
+        "codec": "avc1.64002a",
+        "seconds": 42.0,
+        "average": 3637039,
+        "peak": 5908883,
+        "bytes": 19095826,
+        "firstBytes": 359075,
+        "parts": 21,
+        "audio": "copied AAC"
+      }
+    ]
+  },
+  "tower": {
+    "path": "media/stream-v1/tower/master.m3u8",
+    "levels": [
+      {
+        "id": "tower",
+        "level": "low",
+        "width": 854,
+        "height": 480,
+        "fps": 30,
+        "codec": "avc1.64001f",
+        "seconds": 28.966667,
+        "average": 440042,
+        "peak": 547735,
+        "bytes": 1594715,
+        "firstBytes": 110311,
+        "parts": 15,
+        "audio": "copied AAC"
+      },
+      {
+        "id": "tower",
+        "level": "720",
+        "width": 1280,
+        "height": 720,
+        "fps": 30,
+        "codec": "avc1.64001f",
+        "seconds": 28.966667,
+        "average": 876322,
+        "peak": 1223460,
+        "bytes": 3174412,
+        "firstBytes": 279454,
+        "parts": 15,
+        "audio": "copied AAC"
+      }
+    ]
+  },
+  "mines": {
+    "path": "media/stream-v1/mines/master.m3u8",
+    "levels": [
+      {
+        "id": "mines",
+        "level": "low",
+        "width": 854,
+        "height": 480,
+        "fps": 30,
+        "codec": "avc1.64001f",
+        "seconds": 21.966667,
+        "average": 123394,
+        "peak": 152614,
+        "bytes": 340215,
+        "firstBytes": 33174,
+        "parts": 11,
+        "audio": "copied AAC"
+      },
+      {
+        "id": "mines",
+        "level": "720",
+        "width": 1280,
+        "height": 720,
+        "fps": 30,
+        "codec": "avc1.64001f",
+        "seconds": 21.966667,
+        "average": 239574,
+        "peak": 364522,
+        "bytes": 659225,
+        "firstBytes": 84241,
+        "parts": 11,
+        "audio": "copied AAC"
+      }
+    ]
+  },
+  "murphy": {
+    "path": "media/stream-v1/murphy/master.m3u8",
+    "levels": [
+      {
+        "id": "murphy",
+        "level": "low",
+        "width": 854,
+        "height": 480,
+        "fps": 30,
+        "codec": "avc1.64001f",
+        "seconds": 123.966667,
+        "average": 234027,
+        "peak": 387055,
+        "bytes": 3627844,
+        "firstBytes": 63505,
+        "parts": 62,
+        "audio": "copied AAC"
+      },
+      {
+        "id": "murphy",
+        "level": "720",
+        "width": 1280,
+        "height": 720,
+        "fps": 30,
+        "codec": "avc1.64001f",
+        "seconds": 123.966667,
+        "average": 509169,
+        "peak": 1053734,
+        "bytes": 7891389,
+        "firstBytes": 160641,
+        "parts": 62,
+        "audio": "copied AAC"
+      },
+      {
+        "id": "murphy",
+        "level": "hd",
+        "width": 1920,
+        "height": 1080,
+        "fps": 30,
+        "codec": "avc1.640028",
+        "seconds": 123.966667,
+        "average": 992586,
+        "peak": 2174814,
+        "bytes": 15382342,
+        "firstBytes": 365499,
+        "parts": 62,
+        "audio": "copied AAC"
+      }
+    ]
+  },
+  "hyrum": {
+    "path": "media/stream-v1/hyrum/master.m3u8",
+    "levels": [
+      {
+        "id": "hyrum",
+        "level": "low",
+        "width": 854,
+        "height": 480,
+        "fps": 30,
+        "codec": "avc1.64001f",
+        "seconds": 149.933333,
+        "average": 223795,
+        "peak": 406569,
+        "bytes": 4196138,
+        "firstBytes": 67813,
+        "parts": 75,
+        "audio": "copied AAC"
+      },
+      {
+        "id": "hyrum",
+        "level": "720",
+        "width": 1280,
+        "height": 720,
+        "fps": 30,
+        "codec": "avc1.64001f",
+        "seconds": 149.933333,
+        "average": 452322,
+        "peak": 907645,
+        "bytes": 8479117,
+        "firstBytes": 149493,
+        "parts": 75,
+        "audio": "copied AAC"
+      },
+      {
+        "id": "hyrum",
+        "level": "hd",
+        "width": 1920,
+        "height": 1080,
+        "fps": 30,
+        "codec": "avc1.640028",
+        "seconds": 149.933333,
+        "average": 884058,
+        "peak": 1911004,
+        "bytes": 16570568,
+        "firstBytes": 322973,
+        "parts": 75,
+        "audio": "copied AAC"
+      }
+    ]
+  },
+  "familiar": {
+    "path": "media/stream-v1/familiar/master.m3u8",
+    "levels": [
+      {
+        "id": "familiar",
+        "level": "low",
+        "width": 854,
+        "height": 480,
+        "fps": 30,
+        "codec": "avc1.64001f",
+        "seconds": 184.133333,
+        "average": 185658,
+        "peak": 278568,
+        "bytes": 4275074,
+        "firstBytes": 49796,
+        "parts": 93,
+        "audio": "copied AAC"
+      },
+      {
+        "id": "familiar",
+        "level": "720",
+        "width": 1280,
+        "height": 720,
+        "fps": 30,
+        "codec": "avc1.64001f",
+        "seconds": 184.133333,
+        "average": 405663,
+        "peak": 664545,
+        "bytes": 9338860,
+        "firstBytes": 112026,
+        "parts": 93,
+        "audio": "copied AAC"
+      },
+      {
+        "id": "familiar",
+        "level": "hd",
+        "width": 1920,
+        "height": 1080,
+        "fps": 30,
+        "codec": "avc1.640028",
+        "seconds": 184.133333,
+        "average": 947154,
+        "peak": 1527852,
+        "bytes": 21802163,
+        "firstBytes": 232167,
+        "parts": 93,
+        "audio": "copied AAC"
+      }
+    ]
+  },
+  "town": {
+    "path": "media/stream-v1/town/master.m3u8",
+    "levels": [
+      {
+        "id": "town",
+        "level": "low",
+        "width": 854,
+        "height": 480,
+        "fps": 30,
+        "codec": "avc1.64001f",
+        "seconds": 63.933333,
+        "average": 597294,
+        "peak": 917792,
+        "bytes": 4775222,
+        "firstBytes": 38409,
+        "parts": 32,
+        "audio": "copied AAC"
+      },
+      {
+        "id": "town",
+        "level": "720",
+        "width": 1280,
+        "height": 720,
+        "fps": 30,
+        "codec": "avc1.64001f",
+        "seconds": 63.933333,
+        "average": 1016242,
+        "peak": 1411832,
+        "bytes": 8123310,
+        "firstBytes": 49546,
+        "parts": 32,
+        "audio": "copied AAC"
+      },
+      {
+        "id": "town",
+        "level": "hd",
+        "width": 1920,
+        "height": 1080,
+        "fps": 30,
+        "codec": "avc1.640028",
+        "seconds": 63.933333,
+        "average": 2262997,
+        "peak": 3276561,
+        "bytes": 18086966,
+        "firstBytes": 62305,
+        "parts": 32,
+        "audio": "copied AAC"
+      }
+    ]
+  },
+  "arc": {
+    "path": "media/stream-v1/arc/master.m3u8",
+    "levels": [
+      {
+        "id": "arc",
+        "level": "low",
+        "width": 854,
+        "height": 480,
+        "fps": 30,
+        "codec": "avc1.64001f",
+        "seconds": 20.066667,
+        "average": 625426,
+        "peak": 962685,
+        "bytes": 1570154,
+        "firstBytes": 116706,
+        "parts": 11,
+        "audio": "copied AAC"
+      },
+      {
+        "id": "arc",
+        "level": "720",
+        "width": 1280,
+        "height": 720,
+        "fps": 30,
+        "codec": "avc1.64001f",
+        "seconds": 20.066667,
+        "average": 1053139,
+        "peak": 1400608,
+        "bytes": 2643000,
+        "firstBytes": 270688,
+        "parts": 11,
+        "audio": "copied AAC"
+      },
+      {
+        "id": "arc",
+        "level": "hd",
+        "width": 1920,
+        "height": 1080,
+        "fps": 30,
+        "codec": "avc1.640028",
+        "seconds": 20.066667,
+        "average": 2348362,
+        "peak": 3104851,
+        "bytes": 5891852,
+        "firstBytes": 541171,
+        "parts": 11,
+        "audio": "copied AAC"
+      }
+    ]
+  }
+}

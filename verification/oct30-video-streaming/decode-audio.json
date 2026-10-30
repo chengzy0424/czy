@@ -1,0 +1,177 @@
+[
+  {
+    "id": "ash",
+    "level": "low60",
+    "decodedAll": true,
+    "audioHash": "SHA256=7f3fc04efaa90b6a50c134f30d32ed66f1e297752d99ae9cb4ab6f8835e65552",
+    "audioUnchanged": true
+  },
+  {
+    "id": "ash",
+    "level": "720",
+    "decodedAll": true,
+    "audioHash": "SHA256=7f3fc04efaa90b6a50c134f30d32ed66f1e297752d99ae9cb4ab6f8835e65552",
+    "audioUnchanged": true
+  },
+  {
+    "id": "csol",
+    "level": "low60",
+    "decodedAll": true,
+    "audioHash": "SHA256=66e351d7db7624e09830096bdfd9eb2fb8f932bf54e5086ed596262e8a83edc0",
+    "audioUnchanged": true
+  },
+  {
+    "id": "ash",
+    "level": "hd",
+    "decodedAll": true,
+    "audioHash": "SHA256=7f3fc04efaa90b6a50c134f30d32ed66f1e297752d99ae9cb4ab6f8835e65552",
+    "audioUnchanged": true
+  },
+  {
+    "id": "csol",
+    "level": "720",
+    "decodedAll": true,
+    "audioHash": "SHA256=66e351d7db7624e09830096bdfd9eb2fb8f932bf54e5086ed596262e8a83edc0",
+    "audioUnchanged": true
+  },
+  {
+    "id": "tower",
+    "level": "low",
+    "decodedAll": true,
+    "audioHash": "SHA256=86948609e08cb7081998181aecf573d444165c81222cf74d19daaf070a2725e7",
+    "audioUnchanged": true
+  },
+  {
+    "id": "tower",
+    "level": "720",
+    "decodedAll": true,
+    "audioHash": "SHA256=86948609e08cb7081998181aecf573d444165c81222cf74d19daaf070a2725e7",
+    "audioUnchanged": true
+  },
+  {
+    "id": "mines",
+    "level": "low",
+    "decodedAll": true,
+    "audioHash": "SHA256=4605948ddb2fc00e6ca17e5b1aed41203cc26f7c7eb23ee8b450be202b5639f4",
+    "audioUnchanged": true
+  },
+  {
+    "id": "mines",
+    "level": "720",
+    "decodedAll": true,
+    "audioHash": "SHA256=4605948ddb2fc00e6ca17e5b1aed41203cc26f7c7eb23ee8b450be202b5639f4",
+    "audioUnchanged": true
+  },
+  {
+    "id": "murphy",
+    "level": "low",
+    "decodedAll": true,
+    "audioHash": "SHA256=dbb9affb8eafd651dc116d58a432bd41a3e0d06468b59b2ce611fd80d7883a95",
+    "audioUnchanged": true
+  },
+  {
+    "id": "csol",
+    "level": "hd",
+    "decodedAll": true,
+    "audioHash": "SHA256=66e351d7db7624e09830096bdfd9eb2fb8f932bf54e5086ed596262e8a83edc0",
+    "audioUnchanged": true
+  },
+  {
+    "id": "murphy",
+    "level": "720",
+    "decodedAll": true,
+    "audioHash": "SHA256=dbb9affb8eafd651dc116d58a432bd41a3e0d06468b59b2ce611fd80d7883a95",
+    "audioUnchanged": true
+  },
+  {
+    "id": "hyrum",
+    "level": "low",
+    "decodedAll": true,
+    "audioHash": "SHA256=9f7f5da12575cf733e2eebdd0202c3dceb9bdba27316c9f66fde792a131a8c89",
+    "audioUnchanged": true
+  },
+  {
+    "id": "murphy",
+    "level": "hd",
+    "decodedAll": true,
+    "audioHash": "SHA256=dbb9affb8eafd651dc116d58a432bd41a3e0d06468b59b2ce611fd80d7883a95",
+    "audioUnchanged": true
+  },
+  {
+    "id": "hyrum",
+    "level": "720",
+    "decodedAll": true,
+    "audioHash": "SHA256=9f7f5da12575cf733e2eebdd0202c3dceb9bdba27316c9f66fde792a131a8c89",
+    "audioUnchanged": true
+  },
+  {
+    "id": "familiar",
+    "level": "low",
+    "decodedAll": true,
+    "audioHash": "SHA256=f9fd2982a1c0a0dc5a22c4d9afcbefa7eee79ca32be2da3214201da9c5a905a8",
+    "audioUnchanged": true
+  },
+  {
+    "id": "familiar",
+    "level": "720",
+    "decodedAll": true,
+    "audioHash": "SHA256=f9fd2982a1c0a0dc5a22c4d9afcbefa7eee79ca32be2da3214201da9c5a905a8",
+    "audioUnchanged": true
+  },
+  {
+    "id": "hyrum",
+    "level": "hd",
+    "decodedAll": true,
+    "audioHash": "SHA256=9f7f5da12575cf733e2eebdd0202c3dceb9bdba27316c9f66fde792a131a8c89",
+    "audioUnchanged": true
+  },
+  {
+    "id": "town",
+    "level": "low",
+    "decodedAll": true,
+    "audioHash": "SHA256=382a31a0e773c38c93818289ca66c9dbe9dd8f623ddb18b740a36e456d3bcbe2",
+    "audioUnchanged": true
+  },
+  {
+    "id": "town",
+    "level": "720",
+    "decodedAll": true,
+    "audioHash": "SHA256=382a31a0e773c38c93818289ca66c9dbe9dd8f623ddb18b740a36e456d3bcbe2",
+    "audioUnchanged": true
+  },
+  {
+    "id": "familiar",
+    "level": "hd",
+    "decodedAll": true,
+    "audioHash": "SHA256=f9fd2982a1c0a0dc5a22c4d9afcbefa7eee79ca32be2da3214201da9c5a905a8",
+    "audioUnchanged": true
+  },
+  {
+    "id": "arc",
+    "level": "low",
+    "decodedAll": true,
+    "audioHash": "SHA256=1a4ab0b3fea043ddecff779a273f59c8753ceaaa9f93078793174a1b9bf0ab73",
+    "audioUnchanged": true
+  },
+  {
+    "id": "town",
+    "level": "hd",
+    "decodedAll": true,
+    "audioHash": "SHA256=382a31a0e773c38c93818289ca66c9dbe9dd8f623ddb18b740a36e456d3bcbe2",
+    "audioUnchanged": true
+  },
+  {
+    "id": "arc",
+    "level": "720",
+    "decodedAll": true,
+    "audioHash": "SHA256=1a4ab0b3fea043ddecff779a273f59c8753ceaaa9f93078793174a1b9bf0ab73",
+    "audioUnchanged": true
+  },
+  {
+    "id": "arc",
+    "level": "hd",
+    "decodedAll": true,
+    "audioHash": "SHA256=1a4ab0b3fea043ddecff779a273f59c8753ceaaa9f93078793174a1b9bf0ab73",
+    "audioUnchanged": true
+  }
+]

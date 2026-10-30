@@ -1,0 +1,408 @@
+{
+  "date": "2026-10-30T13:36:58.430Z",
+  "videos": [
+    {
+      "id": "tower",
+      "requests": [
+        {
+          "url": "https://chengzy0424.github.io/czy/media/tower-demo-audio.mp4?v=20261030-audio",
+          "at": 150,
+          "bytes": 3871168,
+          "responseMs": 344,
+          "status": 206,
+          "headers": {
+            "x-fastly-request-id": "53da740411cdb2a37fa13d0466d8f3d417a82d1b",
+            "etag": "\"6ae49ab9-3d1fa3\"",
+            "age": "519",
+            "x-github-request-id": "51A4:3286EA:F00C:10F50:6AE49B74",
+            "expires": "Fri, 30 Oct 2026 13:38:21 GMT",
+            "x-proxy-cache": "MISS",
+            "x-cache": "HIT",
+            "date": "Fri, 30 Oct 2026 13:37:00 GMT",
+            "content-type": "video/mp4",
+            "last-modified": "Fri, 30 Oct 2026 13:25:13 GMT",
+            "x-served-by": "cache-pao-kpao1770061-PAO",
+            "x-cache-hits": "0",
+            "vary": "Accept-Encoding",
+            "strict-transport-security": "max-age=31556952",
+            "cache-control": "max-age=600",
+            "x-github-edge-region": "westus3",
+            "x-timer": "S1793367420.005523,VS0,VE1",
+            "Content-Range": "bytes 0-4005794/4005795",
+            "via": "1.1 varnish",
+            "accept-ranges": "bytes",
+            "access-control-allow-origin": "*",
+            "Content-Length": "4005795",
+            "server": "GitHub.com"
+          },
+          "protocol": "h2",
+          "lastDataMs": 1355
+        }
+      ],
+      "firstPlayMs": 827,
+      "state": {
+        "time": 2.665052,
+        "duration": 29.013,
+        "ready": 4,
+        "paused": false,
+        "src": "https://chengzy0424.github.io/czy/media/tower-demo-audio.mp4?v=20261030-audio",
+        "buffered": [
+          [
+            0,
+            28.037
+          ]
+        ],
+        "status": "游戏原声 · 720p · 原声"
+      }
+    },
+    {
+      "id": "ash",
+      "requests": [
+        {
+          "url": "https://chengzy0424.github.io/czy/media/ash-demo-low.mp4?v=20261030-audio",
+          "at": 85,
+          "bytes": 3610304,
+          "responseMs": 284,
+          "status": 206,
+          "headers": {
+            "x-fastly-request-id": "174de70aac920c033636a8f3a1e0a3fd93affd8c",
+            "etag": "\"6ae49aba-6d6946\"",
+            "age": "493",
+            "x-github-request-id": "C6D4:139E25:E1E7:101A9:6AE49B93",
+            "expires": "Fri, 30 Oct 2026 13:38:52 GMT",
+            "x-proxy-cache": "MISS",
+            "x-cache": "HIT",
+            "date": "Fri, 30 Oct 2026 13:37:05 GMT",
+            "content-type": "video/mp4",
+            "last-modified": "Fri, 30 Oct 2026 13:25:14 GMT",
+            "x-served-by": "cache-pao-kpao1770061-PAO",
+            "x-cache-hits": "0",
+            "vary": "Accept-Encoding",
+            "strict-transport-security": "max-age=31556952",
+            "cache-control": "max-age=600",
+            "x-github-edge-region": "westus3",
+            "x-timer": "S1793367425.236634,VS0,VE1",
+            "Content-Range": "bytes 0-7170373/7170374",
+            "via": "1.1 varnish",
+            "accept-ranges": "bytes",
+            "access-control-allow-origin": "*",
+            "Content-Length": "7170374",
+            "server": "GitHub.com"
+          },
+          "protocol": "h2",
+          "lastDataMs": 1668
+        }
+      ],
+      "firstPlayMs": 1120,
+      "state": {
+        "time": 2.714986,
+        "duration": 61.610667,
+        "ready": 4,
+        "paused": false,
+        "src": "https://chengzy0424.github.io/czy/media/ash-demo-low.mp4?v=20261030-audio",
+        "buffered": [
+          [
+            0,
+            31.02
+          ]
+        ],
+        "status": "游戏原声 · 流畅 · 30帧"
+      }
+    },
+    {
+      "id": "csol",
+      "requests": [
+        {
+          "url": "https://chengzy0424.github.io/czy/media/csol-demo-low.mp4?v=20261030-audio",
+          "at": 86,
+          "bytes": 3643182,
+          "responseMs": 760,
+          "status": 206,
+          "headers": {
+            "x-fastly-request-id": "063e353b448a83e604aad8583c86a8bf101c785c",
+            "etag": "\"6ae49ab9-5496d3\"",
+            "age": "0",
+            "x-github-request-id": "6378:381891:1111F:135D7:6AE49D86",
+            "expires": "Fri, 30 Oct 2026 13:47:10 GMT",
+            "x-proxy-cache": "MISS",
+            "x-cache": "MISS",
+            "date": "Fri, 30 Oct 2026 13:37:11 GMT",
+            "content-type": "video/mp4",
+            "last-modified": "Fri, 30 Oct 2026 13:25:13 GMT",
+            "x-served-by": "cache-pao-kpao1770061-PAO",
+            "x-cache-hits": "0",
+            "vary": "Accept-Encoding",
+            "strict-transport-security": "max-age=31556952",
+            "cache-control": "max-age=600",
+            "x-github-edge-region": "westus3",
+            "x-timer": "S1793367431.656210,VS0,VE464",
+            "Content-Range": "bytes 0-5543634/5543635",
+            "via": "1.1 varnish",
+            "accept-ranges": "bytes",
+            "access-control-allow-origin": "*",
+            "Content-Length": "5543635",
+            "x-origin-cache": "HIT",
+            "server": "GitHub.com"
+          },
+          "protocol": "h2",
+          "lastDataMs": 2375
+        }
+      ],
+      "firstPlayMs": 1607,
+      "state": {
+        "time": 2.737217,
+        "duration": 42.026667,
+        "ready": 4,
+        "paused": false,
+        "src": "https://chengzy0424.github.io/czy/media/csol-demo-low.mp4?v=20261030-audio",
+        "buffered": [
+          [
+            0,
+            27.618
+          ]
+        ],
+        "status": "游戏原声 · 流畅 · 30帧"
+      }
+    },
+    {
+      "id": "mines",
+      "requests": [
+        {
+          "url": "https://chengzy0424.github.io/czy/media/mines-demo-audio.mp4?v=20261030-audio",
+          "at": 86,
+          "bytes": 729830,
+          "responseMs": 546,
+          "status": 206,
+          "headers": {
+            "x-fastly-request-id": "9e5241694513196d0b384799acb76ee214050f90",
+            "etag": "\"6ae49aba-b22e6\"",
+            "age": "0",
+            "x-github-request-id": "4F82:1678B2:11422:138E9:6AE49D8C",
+            "expires": "Fri, 30 Oct 2026 13:47:16 GMT",
+            "x-proxy-cache": "MISS",
+            "x-cache": "MISS",
+            "date": "Fri, 30 Oct 2026 13:37:16 GMT",
+            "content-type": "video/mp4",
+            "last-modified": "Fri, 30 Oct 2026 13:25:14 GMT",
+            "x-served-by": "cache-pao-kpao1770061-PAO",
+            "x-cache-hits": "0",
+            "vary": "Accept-Encoding",
+            "strict-transport-security": "max-age=31556952",
+            "cache-control": "max-age=600",
+            "x-github-edge-region": "westus3",
+            "x-timer": "S1793367437.570621,VS0,VE258",
+            "Content-Range": "bytes 0-729829/729830",
+            "via": "1.1 varnish",
+            "accept-ranges": "bytes",
+            "access-control-allow-origin": "*",
+            "Content-Length": "729830",
+            "server": "GitHub.com"
+          },
+          "protocol": "h2",
+          "lastDataMs": 1703
+        }
+      ],
+      "firstPlayMs": 1629,
+      "state": {
+        "time": 2.638878,
+        "duration": 21.983333,
+        "ready": 4,
+        "paused": false,
+        "src": "https://chengzy0424.github.io/czy/media/mines-demo-audio.mp4?v=20261030-audio",
+        "buffered": [
+          [
+            0,
+            21.983333
+          ]
+        ],
+        "status": "游戏原声 · 720p · 原声"
+      }
+    },
+    {
+      "id": "murphy",
+      "requests": [
+        {
+          "url": "https://chengzy0424.github.io/czy/media/murphy-720.mp4?v=20261030-audio",
+          "at": 101,
+          "bytes": 2241792,
+          "responseMs": 299,
+          "status": 206,
+          "headers": {
+            "x-fastly-request-id": "40fa7f5a9f0b5365723b8e3d0e733383e2d52d69",
+            "etag": "\"6ae49aba-7635dc\"",
+            "age": "485",
+            "x-github-request-id": "9F14:3E0D68:E88F:10866:6AE49BAC",
+            "expires": "Fri, 30 Oct 2026 13:39:17 GMT",
+            "x-proxy-cache": "MISS",
+            "x-cache": "HIT",
+            "date": "Fri, 30 Oct 2026 13:37:22 GMT",
+            "content-type": "video/mp4",
+            "last-modified": "Fri, 30 Oct 2026 13:25:14 GMT",
+            "x-served-by": "cache-pao-kpao1770061-PAO",
+            "x-cache-hits": "0",
+            "vary": "Accept-Encoding",
+            "strict-transport-security": "max-age=31556952",
+            "cache-control": "max-age=600",
+            "x-github-edge-region": "westus3",
+            "x-timer": "S1793367442.261420,VS0,VE1",
+            "Content-Range": "bytes 0-7747035/7747036",
+            "via": "1.1 varnish",
+            "accept-ranges": "bytes",
+            "access-control-allow-origin": "*",
+            "Content-Length": "7747036",
+            "server": "GitHub.com"
+          },
+          "protocol": "h2",
+          "lastDataMs": 3522
+        }
+      ],
+      "firstPlayMs": 1125,
+      "state": {
+        "time": 2.741633,
+        "duration": 124.017007,
+        "ready": 4,
+        "paused": false,
+        "src": "https://chengzy0424.github.io/czy/media/murphy-720.mp4?v=20261030-audio",
+        "buffered": [
+          [
+            0,
+            35.887
+          ]
+        ],
+        "status": "正在播放 · 720p · 快速播放"
+      }
+    },
+    {
+      "id": "hyrum",
+      "requests": [
+        {
+          "url": "https://chengzy0424.github.io/czy/media/hyrum-720.mp4?v=20261030-audio",
+          "at": 103,
+          "bytes": 1304375,
+          "responseMs": 7396,
+          "status": 206,
+          "headers": {
+            "x-fastly-request-id": "c22564197388a66a49242ca0e0e7c550c00737d7",
+            "etag": "\"6ae49ab9-7d1517\"",
+            "age": "0",
+            "x-github-request-id": "89AC:3E996B:10095:1253B:6AE49D96",
+            "expires": "Fri, 30 Oct 2026 13:47:27 GMT",
+            "x-proxy-cache": "MISS",
+            "x-cache": "MISS",
+            "date": "Fri, 30 Oct 2026 13:37:27 GMT",
+            "content-type": "video/mp4",
+            "last-modified": "Fri, 30 Oct 2026 13:25:13 GMT",
+            "x-served-by": "cache-pao-kpao1770061-PAO",
+            "x-cache-hits": "0",
+            "vary": "Accept-Encoding",
+            "strict-transport-security": "max-age=31556952",
+            "cache-control": "max-age=600",
+            "x-github-edge-region": "westus3",
+            "x-timer": "S1793367447.290007,VS0,VE627",
+            "Content-Range": "bytes 0-8197398/8197399",
+            "via": "1.1 varnish",
+            "accept-ranges": "bytes",
+            "access-control-allow-origin": "*",
+            "Content-Length": "8197399",
+            "server": "GitHub.com"
+          },
+          "protocol": "h2",
+          "lastDataMs": 10599
+        }
+      ],
+      "firstPlayMs": 8132,
+      "state": {
+        "time": 2.736351,
+        "duration": 150.016,
+        "ready": 4,
+        "paused": false,
+        "src": "https://chengzy0424.github.io/czy/media/hyrum-720.mp4?v=20261030-audio",
+        "buffered": [
+          [
+            0,
+            23.87
+          ]
+        ],
+        "status": "正在播放 · 720p · 快速播放"
+      }
+    },
+    {
+      "id": "familiar",
+      "requests": [
+        {
+          "url": "https://chengzy0424.github.io/czy/media/familiar-720.mp4?v=20261030-audio",
+          "at": 100,
+          "bytes": 0,
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "url": "https://chengzy0424.github.io/czy/media/familiar-720.mp4?v=20261030-audio&retry=1",
+          "at": 8102,
+          "bytes": 0
+        }
+      ],
+      "timeout": true,
+      "state": {
+        "time": 0,
+        "duration": null,
+        "ready": 0,
+        "paused": false,
+        "src": "https://chengzy0424.github.io/czy/media/familiar-720.mp4?v=20261030-audio&retry=1",
+        "buffered": [],
+        "status": "正在缓冲…"
+      }
+    },
+    {
+      "id": "town",
+      "requests": [
+        {
+          "url": "https://chengzy0424.github.io/czy/media/town-720.mp4?v=20261030-audio",
+          "at": 136,
+          "bytes": 0,
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "url": "https://chengzy0424.github.io/czy/media/town-720.mp4?v=20261030-audio&retry=1",
+          "at": 8142,
+          "bytes": 0
+        }
+      ],
+      "timeout": true,
+      "state": {
+        "time": 0,
+        "duration": null,
+        "ready": 0,
+        "paused": false,
+        "src": "https://chengzy0424.github.io/czy/media/town-720.mp4?v=20261030-audio&retry=1",
+        "buffered": [],
+        "status": "正在缓冲…"
+      }
+    },
+    {
+      "id": "arc",
+      "requests": [
+        {
+          "url": "https://chengzy0424.github.io/czy/media/arc-720.mp4?v=20261030-audio",
+          "at": 102,
+          "bytes": 0,
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "url": "https://chengzy0424.github.io/czy/media/arc-720.mp4?v=20261030-audio&retry=1",
+          "at": 8106,
+          "bytes": 0
+        }
+      ],
+      "timeout": true,
+      "state": {
+        "time": 0,
+        "duration": null,
+        "ready": 0,
+        "paused": false,
+        "src": "https://chengzy0424.github.io/czy/media/arc-720.mp4?v=20261030-audio&retry=1",
+        "buffered": [],
+        "status": "正在缓冲…"
+      }
+    }
+  ]
+}

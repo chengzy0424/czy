@@ -1,0 +1,285 @@
+{
+  "base": "http://127.0.0.1:4181/",
+  "streams": [
+    {
+      "id": "ash",
+      "level": "low60",
+      "firstBytes": 140357,
+      "parts": 31
+    },
+    {
+      "id": "ash",
+      "level": "720",
+      "firstBytes": 311931,
+      "parts": 31
+    },
+    {
+      "id": "ash",
+      "level": "hd",
+      "firstBytes": 451951,
+      "parts": 31
+    },
+    {
+      "id": "csol",
+      "level": "low60",
+      "firstBytes": 112937,
+      "parts": 21
+    },
+    {
+      "id": "csol",
+      "level": "720",
+      "firstBytes": 244045,
+      "parts": 21
+    },
+    {
+      "id": "csol",
+      "level": "hd",
+      "firstBytes": 359075,
+      "parts": 21
+    },
+    {
+      "id": "tower",
+      "level": "low",
+      "firstBytes": 110311,
+      "parts": 15
+    },
+    {
+      "id": "tower",
+      "level": "720",
+      "firstBytes": 279454,
+      "parts": 15
+    },
+    {
+      "id": "mines",
+      "level": "low",
+      "firstBytes": 33174,
+      "parts": 11
+    },
+    {
+      "id": "mines",
+      "level": "720",
+      "firstBytes": 84241,
+      "parts": 11
+    },
+    {
+      "id": "murphy",
+      "level": "low",
+      "firstBytes": 63505,
+      "parts": 62
+    },
+    {
+      "id": "murphy",
+      "level": "720",
+      "firstBytes": 160641,
+      "parts": 62
+    },
+    {
+      "id": "murphy",
+      "level": "hd",
+      "firstBytes": 365499,
+      "parts": 62
+    },
+    {
+      "id": "hyrum",
+      "level": "low",
+      "firstBytes": 67813,
+      "parts": 75
+    },
+    {
+      "id": "hyrum",
+      "level": "720",
+      "firstBytes": 149493,
+      "parts": 75
+    },
+    {
+      "id": "hyrum",
+      "level": "hd",
+      "firstBytes": 322973,
+      "parts": 75
+    },
+    {
+      "id": "familiar",
+      "level": "low",
+      "firstBytes": 49796,
+      "parts": 93
+    },
+    {
+      "id": "familiar",
+      "level": "720",
+      "firstBytes": 112026,
+      "parts": 93
+    },
+    {
+      "id": "familiar",
+      "level": "hd",
+      "firstBytes": 232167,
+      "parts": 93
+    },
+    {
+      "id": "town",
+      "level": "low",
+      "firstBytes": 38409,
+      "parts": 32
+    },
+    {
+      "id": "town",
+      "level": "720",
+      "firstBytes": 49546,
+      "parts": 32
+    },
+    {
+      "id": "town",
+      "level": "hd",
+      "firstBytes": 62305,
+      "parts": 32
+    },
+    {
+      "id": "arc",
+      "level": "low",
+      "firstBytes": 116706,
+      "parts": 11
+    },
+    {
+      "id": "arc",
+      "level": "720",
+      "firstBytes": 270688,
+      "parts": 11
+    },
+    {
+      "id": "arc",
+      "level": "hd",
+      "firstBytes": 541171,
+      "parts": 11
+    }
+  ],
+  "media": [
+    {
+      "file": "tower-demo-audio.mp4",
+      "bytes": 4005795,
+      "faststart": true,
+      "audio": true,
+      "range": 206
+    },
+    {
+      "file": "ash-demo-low.mp4",
+      "bytes": 7170374,
+      "faststart": true,
+      "audio": true,
+      "range": 206
+    },
+    {
+      "file": "ash-demo-audio.mp4",
+      "bytes": 17774422,
+      "faststart": true,
+      "audio": true,
+      "range": 206
+    },
+    {
+      "file": "ash-demo-hd.mp4",
+      "bytes": 27039041,
+      "faststart": true,
+      "audio": true,
+      "range": 206
+    },
+    {
+      "file": "csol-demo-low.mp4",
+      "bytes": 5543635,
+      "faststart": true,
+      "audio": true,
+      "range": 206
+    },
+    {
+      "file": "csol-demo-audio.mp4",
+      "bytes": 13708760,
+      "faststart": true,
+      "audio": true,
+      "range": 206
+    },
+    {
+      "file": "csol-demo-hd.mp4",
+      "bytes": 20707121,
+      "faststart": true,
+      "audio": true,
+      "range": 206
+    },
+    {
+      "file": "mines-demo-audio.mp4",
+      "bytes": 729830,
+      "faststart": true,
+      "audio": true,
+      "range": 206
+    },
+    {
+      "file": "murphy-720.mp4",
+      "bytes": 7747036,
+      "faststart": true,
+      "audio": true,
+      "range": 206
+    },
+    {
+      "file": "murphy-1080.mp4",
+      "bytes": 15580259,
+      "faststart": true,
+      "audio": true,
+      "range": 206
+    },
+    {
+      "file": "hyrum-720.mp4",
+      "bytes": 8197399,
+      "faststart": true,
+      "audio": true,
+      "range": 206
+    },
+    {
+      "file": "hyrum-1080.mp4",
+      "bytes": 17204518,
+      "faststart": true,
+      "audio": true,
+      "range": 206
+    },
+    {
+      "file": "familiar-720.mp4",
+      "bytes": 8939955,
+      "faststart": true,
+      "audio": true,
+      "range": 206
+    },
+    {
+      "file": "familiar-1080.mp4",
+      "bytes": 23034196,
+      "faststart": true,
+      "audio": true,
+      "range": 206
+    },
+    {
+      "file": "town-720.mp4",
+      "bytes": 10475433,
+      "faststart": true,
+      "audio": true,
+      "range": 206
+    },
+    {
+      "file": "town-1080.mp4",
+      "bytes": 18218445,
+      "faststart": true,
+      "audio": true,
+      "range": 206
+    },
+    {
+      "file": "arc-720.mp4",
+      "bytes": 3563316,
+      "faststart": true,
+      "audio": true,
+      "range": 206
+    },
+    {
+      "file": "arc-1080.mp4",
+      "bytes": 6027766,
+      "faststart": true,
+      "audio": true,
+      "range": 206
+    }
+  ],
+  "covers": 27,
+  "gameBuildsPresent": false
+}

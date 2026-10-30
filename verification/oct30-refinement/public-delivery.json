@@ -1,0 +1,17 @@
+{
+  "verifiedAt": "2026-10-30T11:39:55.834927+00:00",
+  "url": "https://chengzy0424.github.io/czy/",
+  "implementationCommit": "e93b0083b21551cab6b35e361c93e2a99b88eae5",
+  "deploymentRun": "https://github.com/chengzy0424/czy/actions/runs/41048801741",
+  "deploymentConclusion": "success",
+  "htmlStatus": 200,
+  "htmlEntry": "assets/index-vlkbzpSg.js",
+  "cssEntry": "assets/index-DgjCrgE6.css",
+  "videoVariantsRange206": 14,
+  "rangeBytesPerFile": 2048,
+  "coversOK": 27,
+  "videosActuallyStarted": 9,
+  "initialVideoOrGameRequests": 0,
+  "physicalPhoneTested": false,
+  "remainingPerformanceLimitation": "Observed public first contentful paint 5.972s desktop and 0.612s phone-size simulation; some video startup checks took about 6-21s. Network delivery is variable; not a guarantee of instant loading."
+}

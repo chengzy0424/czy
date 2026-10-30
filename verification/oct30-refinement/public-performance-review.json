@@ -1,0 +1,179 @@
+{
+  "at": "2026-10-30T11:36:16.120Z",
+  "base": "https://chengzy0424.github.io/czy/",
+  "conditions": "Windows isolated headless Edge; no CPU/network throttling; HTTP cache disabled for startup. Mobile sizes simulated on the same desktop device.",
+  "views": [
+    {
+      "width": 1440,
+      "height": 900,
+      "startup": {
+        "audit": {
+          "longTasks": [
+            {
+              "start": 6572.099999997765,
+              "duration": 119
+            },
+            {
+              "start": 6735.699999999255,
+              "duration": 61
+            }
+          ],
+          "errors": [],
+          "ready": 6794.89999999851,
+          "cls": 0.00020988886745541838
+        },
+        "paint": [
+          {
+            "name": "first-paint",
+            "ms": 5972
+          },
+          {
+            "name": "first-contentful-paint",
+            "ms": 5972
+          }
+        ],
+        "mediaRequests": 0,
+        "metrics": {
+          "frames": 1762,
+          "points": 44000,
+          "dpr": 1,
+          "drawCalls": 46,
+          "triangles": 40594,
+          "lastDrawSubmissionMs": 0.29999999701976776,
+          "quality": 1,
+          "reduced": false,
+          "chapter": 0,
+          "frameP50": "5.6",
+          "frameP95": "5.7"
+        },
+        "gpu": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4050 Laptop GPU (0x000028E1) Direct3D11 vs_5_0 ps_5_0, D3D11)"
+      },
+      "scenes": [
+        {
+          "id": "home",
+          "metrics": {
+            "frames": 1762,
+            "points": 44000,
+            "dpr": 1,
+            "drawCalls": 46,
+            "triangles": 40594,
+            "lastDrawSubmissionMs": 0.29999999701976776,
+            "quality": 1,
+            "reduced": false,
+            "chapter": 0,
+            "frameP50": "5.6",
+            "frameP95": "5.7"
+          }
+        },
+        {
+          "id": "spatial-gallery",
+          "metrics": {
+            "frames": 2802,
+            "points": 44000,
+            "dpr": 1,
+            "drawCalls": 24,
+            "triangles": 65352,
+            "lastDrawSubmissionMs": 0.6999999992549419,
+            "quality": 1,
+            "reduced": false,
+            "chapter": 1.9999999999999976,
+            "frameP50": "5.5",
+            "frameP95": "5.7"
+          }
+        },
+        {
+          "id": "machine",
+          "metrics": {
+            "frames": 3702,
+            "points": 44000,
+            "dpr": 1,
+            "drawCalls": 51,
+            "triangles": 46176,
+            "lastDrawSubmissionMs": 0.30000000074505806,
+            "quality": 1,
+            "reduced": false,
+            "chapter": 3.999999999999995,
+            "frameP50": "5.6",
+            "frameP95": "5.7"
+          }
+        },
+        {
+          "id": "lab",
+          "metrics": {
+            "frames": 4782,
+            "points": 44000,
+            "dpr": 1,
+            "drawCalls": 9,
+            "triangles": 20832,
+            "lastDrawSubmissionMs": 0.20000000298023224,
+            "quality": 1,
+            "reduced": false,
+            "chapter": 4.99999999999999,
+            "frameP50": "5.6",
+            "frameP95": "5.7"
+          }
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "startup": {
+        "audit": {
+          "longTasks": [
+            {
+              "start": 1094.8999999985099,
+              "duration": 118
+            }
+          ],
+          "errors": [],
+          "ready": 1269.199999999255,
+          "cls": 0.0005183883261082785
+        },
+        "paint": [
+          {
+            "name": "first-paint",
+            "ms": 612
+          },
+          {
+            "name": "first-contentful-paint",
+            "ms": 612
+          }
+        ],
+        "mediaRequests": 0,
+        "metrics": {
+          "frames": 1949,
+          "points": 11000,
+          "dpr": 1,
+          "drawCalls": 31,
+          "triangles": 30656,
+          "lastDrawSubmissionMs": 0.3999999985098839,
+          "quality": 1,
+          "reduced": false,
+          "chapter": 0,
+          "frameP50": "5.6",
+          "frameP95": "5.8"
+        },
+        "gpu": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4050 Laptop GPU (0x000028E1) Direct3D11 vs_5_0 ps_5_0, D3D11)"
+      },
+      "scenes": [
+        {
+          "id": "home",
+          "metrics": {
+            "frames": 1949,
+            "points": 11000,
+            "dpr": 1,
+            "drawCalls": 31,
+            "triangles": 30656,
+            "lastDrawSubmissionMs": 0.3999999985098839,
+            "quality": 1,
+            "reduced": false,
+            "chapter": 0,
+            "frameP50": "5.6",
+            "frameP95": "5.8"
+          }
+        }
+      ]
+    }
+  ]
+}

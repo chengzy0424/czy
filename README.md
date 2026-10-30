@@ -2,7 +2,7 @@
 
 数字媒体技术专业。展示 Unity 游戏开发、软件开发、视频制作与剪辑及 AI 影像创作。
 
-公开地址：https://chengzy0424.github.io/czy/ 。本轮发布与浏览器验证记录见 `verification/oct30-release.json`。
+公开地址：https://chengzy0424.github.io/czy/ 。最新视觉修正与浏览器验证记录见 `verification/oct30-refinement/README.md`；此前的影片接入记录见 `verification/oct30-release.json`。
 
 ## 内容
 

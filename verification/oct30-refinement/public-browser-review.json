@@ -1,0 +1,227 @@
+{
+  "base": "https://chengzy0424.github.io/czy/",
+  "label": "public",
+  "at": "2026-10-30T11:34:04.299Z",
+  "media": [
+    {
+      "kind": "game",
+      "id": "tower",
+      "observedPlayingWithinMs": 1313,
+      "first": {
+        "time": 1.49,
+        "duration": 26.066667,
+        "src": "https://chengzy0424.github.io/czy/media/tower-demo.mp4",
+        "error": null,
+        "ready": 4,
+        "frames": 265
+      },
+      "after": {
+        "time": 2.9027,
+        "frames": 265,
+        "quality": {}
+      }
+    },
+    {
+      "kind": "game",
+      "id": "ash",
+      "observedPlayingWithinMs": 931,
+      "first": {
+        "time": 1.4869,
+        "duration": 24.033333,
+        "src": "https://chengzy0424.github.io/czy/media/ash-demo.mp4",
+        "error": null,
+        "ready": 4,
+        "frames": 265
+      },
+      "after": {
+        "time": 2.8968,
+        "frames": 265,
+        "quality": {}
+      }
+    },
+    {
+      "kind": "game",
+      "id": "csol",
+      "observedPlayingWithinMs": 946,
+      "first": {
+        "time": 1.4936,
+        "duration": 22.066667,
+        "src": "https://chengzy0424.github.io/czy/media/csol-demo.mp4",
+        "error": null,
+        "ready": 4,
+        "frames": 265
+      },
+      "after": {
+        "time": 2.9051,
+        "frames": 265,
+        "quality": {}
+      }
+    },
+    {
+      "kind": "game",
+      "id": "mines",
+      "observedPlayingWithinMs": 938,
+      "first": {
+        "time": 1.4748,
+        "duration": 18.033333,
+        "src": "https://chengzy0424.github.io/czy/media/mines-demo.mp4",
+        "error": null,
+        "ready": 4,
+        "frames": 265
+      },
+      "after": {
+        "time": 2.8843,
+        "frames": 265,
+        "quality": {}
+      }
+    },
+    {
+      "kind": "film",
+      "id": "murphy",
+      "observedPlayingWithinMs": 812,
+      "first": {
+        "time": 1.543126,
+        "duration": 124.017007,
+        "src": "https://chengzy0424.github.io/czy/media/murphy-720.mp4",
+        "error": null,
+        "ready": 4,
+        "frames": 265
+      },
+      "after": {
+        "time": 2.957924,
+        "frames": 265,
+        "quality": {}
+      }
+    },
+    {
+      "kind": "film",
+      "id": "hyrum",
+      "observedPlayingWithinMs": 6188,
+      "first": {
+        "time": 1.43838,
+        "duration": 150.016,
+        "src": "https://chengzy0424.github.io/czy/media/hyrum-720.mp4",
+        "error": null,
+        "ready": 4,
+        "frames": 265
+      },
+      "after": {
+        "time": 2.844126,
+        "frames": 265,
+        "quality": {}
+      }
+    },
+    {
+      "kind": "film",
+      "id": "familiar",
+      "observedPlayingWithinMs": 16281,
+      "first": {
+        "time": 1.453038,
+        "duration": 184.203991,
+        "src": "https://chengzy0424.github.io/czy/media/familiar-720.mp4",
+        "error": null,
+        "ready": 4,
+        "frames": 265
+      },
+      "after": {
+        "time": 2.863061,
+        "frames": 265,
+        "quality": {}
+      }
+    },
+    {
+      "kind": "film",
+      "id": "town",
+      "observedPlayingWithinMs": 20983,
+      "first": {
+        "time": 1.405446,
+        "duration": 64.017007,
+        "src": "https://chengzy0424.github.io/czy/media/town-720.mp4",
+        "error": null,
+        "ready": 4,
+        "frames": 265
+      },
+      "after": {
+        "time": 2.816406,
+        "frames": 265,
+        "quality": {}
+      }
+    },
+    {
+      "kind": "film",
+      "id": "arc",
+      "observedPlayingWithinMs": 5188,
+      "first": {
+        "time": 1.47659,
+        "duration": 20.132993,
+        "src": "https://chengzy0424.github.io/czy/media/arc-720.mp4",
+        "error": null,
+        "ready": 4,
+        "frames": 265
+      },
+      "after": {
+        "time": 2.897149,
+        "frames": 265,
+        "quality": {}
+      }
+    }
+  ],
+  "screens": [
+    {
+      "width": 768,
+      "scrollWidth": 768,
+      "webgl": true,
+      "name": "程子悦.",
+      "phone": "电话：13318994968"
+    },
+    {
+      "width": 414,
+      "scrollWidth": 414,
+      "webgl": true,
+      "name": "程子悦.",
+      "phone": "电话：13318994968"
+    },
+    {
+      "width": 390,
+      "scrollWidth": 390,
+      "webgl": true,
+      "name": "程子悦.",
+      "phone": "电话：13318994968"
+    },
+    {
+      "width": 375,
+      "scrollWidth": 375,
+      "webgl": true,
+      "name": "程子悦.",
+      "phone": "电话：13318994968"
+    },
+    {
+      "width": 320,
+      "scrollWidth": 320,
+      "webgl": true,
+      "name": "程子悦.",
+      "phone": "电话：13318994968"
+    }
+  ],
+  "errors": [],
+  "initial": {
+    "webgl": true,
+    "videos": 0,
+    "mediaRequests": 0,
+    "metrics": "{\"frames\":169,\"points\":44000,\"dpr\":1,\"drawCalls\":46,\"triangles\":40594,\"lastDrawSubmissionMs\":0.5999999977648258,\"quality\":1,\"reduced\":false,\"chapter\":0,\"frameP50\":\"5.6\",\"frameP95\":\"5.8\"}"
+  },
+  "directBypass": true,
+  "qualitySwitch": {
+    "src": "https://chengzy0424.github.io/czy/media/arc-1080.mp4",
+    "time": 5.219251
+  },
+  "mobileVideo": {
+    "time": 0.296195,
+    "width": 322,
+    "error": null
+  },
+  "reduced": {
+    "pressed": "true",
+    "class": true
+  }
+}

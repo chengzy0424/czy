@@ -31,3 +31,11 @@ The raw Taste snapshot was taken before the last tablet and metadata-size correc
 The tools did not report a universal pass. Their DOM-only motion and visual-fill rules do not see WebGL objects; initial-video rules conflict with intentional on-demand loading; generic bans on fine outlines and category labels conflict with the explicitly requested reference. These findings are retained in the raw report, not hidden or described as zero failures. Manual scene review found actual tablet clipping and text/card intersections, which were corrected and re-captured. Necessary project metadata was enlarged to 13px; small environmental annotations remain subordinate.
 
 No physical mobile handset, Safari or Firefox was tested in this round. Existing static fallback, reduced motion and pause-during-playback remain available. The work is an original reference-directed portfolio, not a claim of pixel-identical reproduction of Active Theory.
+
+## Public-host follow-up
+
+Implementation e93b008 deployed successfully via GitHub Pages run 41048801741. The published HTML returned HTTP 200 and the new asset names. Nine videos started and advanced; 14 encoded variants returned HTTP 206 for byte ranges and all 27 covers were reachable. Public browser checks at 768/414/390/375/320px recorded no DOM overflow or runtime exceptions.
+
+Public performance was variable: first contentful paint 5.972s on the desktop-size run and 0.612s on the phone-size run; WebGL ready at 6.795s and 1.269s respectively. Frame intervals after startup remained about 5.6ms median / 5.7–5.8ms p95 on the RTX 4050. These are two observations, not percentile statistics across users. Several film startup checks took roughly 6–21s; the check includes control/polling overhead and is not a precise time-to-first-decoded-frame instrument. This remaining public-delivery delay must not be described as universal fast playback. No new paid hosting was enabled.
+
+See public-browser-review.json, public-performance-review.json and public-delivery.json. The final follow-up commit only adds documentation and evidence; application assets remain identical.

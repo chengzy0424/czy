@@ -1,0 +1,77 @@
+✔ a relative HLS manifest resolves on published Pages before a route retry (1.4648ms)
+✔ a fragment requested from the repository fallback can return to Pages (0.2453ms)
+✔ local previews and unrelated assets never route to the public repository (0.2149ms)
+{"mobile":false,"meshes":124,"triangles":207182,"honeycombCells":1377}
+{"mobile":true,"meshes":102,"triangles":139766,"honeycombCells":703}
+✔ all six passages share a finite continuous and reversible camera path (84.7577ms)
+✔ solid emblem, segmented spine, mechanical chamber and honeycomb have finite 3D geometry (266.1632ms)
+✔ gallery boards have varying depth, actual thickness and project metadata (71.8078ms)
+✔ emblem and machine core remain in the viewport at target desktop and phone sizes (2.835ms)
+✔ particles stay clustered at the reference objects, with stable counts and spring recovery (82.2049ms)
+✖ rapid category changes leave one accessible panel; keyboard selection matches content (28.9692ms)
+✖ details load on demand and return restores opener and scroll (11.7136ms)
+✖ reduced motion and direct-work bypass retain usable content (17.173ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 8
+ℹ fail 3
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 732.8405
+
+✖ failing tests:
+
+test at tests\weave.test.mjs:27:1
+✖ rapid category changes leave one accessible panel; keyboard selection matches content (28.9692ms)
+  main.js:79
+  const mediaWarmObserver=new IntersectionObserver(entries=>{
+                          ^
+
+  ReferenceError: IntersectionObserver is not defined
+      at main.js:79:25
+      at Script.runInContext (node:vm:149:12)
+      at Script.runInNewContext (node:vm:154:17)
+      at Object.runInNewContext (node:vm:310:38)
+      at setup (file:///D:/Codex%20code/2026-10-31/github-chengzy0424-czy-https-chengzy0424-github-2/work/czy-source/portfolio-source/tests/weave.test.mjs:22:5)
+      at TestContext.<anonymous> (file:///D:/Codex%20code/2026-10-31/github-chengzy0424-czy-https-chengzy0424-github-2/work/czy-source/portfolio-source/tests/weave.test.mjs:28:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1306:25)
+      at Test.start (node:internal/test_runner/test:1177:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:385:17)
+
+test at tests\weave.test.mjs:37:1
+✖ details load on demand and return restores opener and scroll (11.7136ms)
+  main.js:79
+  const mediaWarmObserver=new IntersectionObserver(entries=>{
+                          ^
+
+  ReferenceError: IntersectionObserver is not defined
+      at main.js:79:25
+      at Script.runInContext (node:vm:149:12)
+      at Script.runInNewContext (node:vm:154:17)
+      at Object.runInNewContext (node:vm:310:38)
+      at setup (file:///D:/Codex%20code/2026-10-31/github-chengzy0424-czy-https-chengzy0424-github-2/work/czy-source/portfolio-source/tests/weave.test.mjs:22:5)
+      at TestContext.<anonymous> (file:///D:/Codex%20code/2026-10-31/github-chengzy0424-czy-https-chengzy0424-github-2/work/czy-source/portfolio-source/tests/weave.test.mjs:38:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1306:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:897:18)
+      at Test.postRun (node:internal/test_runner/test:1447:19)
+
+test at tests\weave.test.mjs:49:1
+✖ reduced motion and direct-work bypass retain usable content (17.173ms)
+  main.js:79
+  const mediaWarmObserver=new IntersectionObserver(entries=>{
+                          ^
+
+  ReferenceError: IntersectionObserver is not defined
+      at main.js:79:25
+      at Script.runInContext (node:vm:149:12)
+      at Script.runInNewContext (node:vm:154:17)
+      at Object.runInNewContext (node:vm:310:38)
+      at setup (file:///D:/Codex%20code/2026-10-31/github-chengzy0424-czy-https-chengzy0424-github-2/work/czy-source/portfolio-source/tests/weave.test.mjs:22:5)
+      at TestContext.<anonymous> (file:///D:/Codex%20code/2026-10-31/github-chengzy0424-czy-https-chengzy0424-github-2/work/czy-source/portfolio-source/tests/weave.test.mjs:50:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1306:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:897:18)
+      at Test.postRun (node:internal/test_runner/test:1447:19)

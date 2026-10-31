@@ -60,15 +60,16 @@ export function startMedia(kind,id,slot){
  const controller=createStreamPlayer({video,path:'./'+stream.path,levels,
   fallback:'./media/'+(kind==='game'?gameMedia[id].levels[0][2]:id+'-720.mp4'),
   onStatus:text=>{status.textContent=text;},onQuality:index=>{video.dataset.quality=levels[index]?.key||'auto';},
+  onMode:mode=>{video.dataset.playbackMode=mode;select.disabled=mode==='fallback';},
   onFailure:text=>{clearWait();status.textContent=text;recovery.hidden=false;}
  });
  video.addEventListener('waiting',offerRecovery);
  video.addEventListener('playing',()=>{clearWait();recovery.hidden=true;});
  video.addEventListener('pause',clearWait);
  select.addEventListener('change',()=>controller.quality(Number(select.value)));
- retry.addEventListener('click',()=>{recovery.hidden=true;select.disabled=false;controller.retry();offerRecovery();});
- fallbackButton.addEventListener('click',()=>{recovery.hidden=true;select.disabled=true;controller.compatibility();offerRecovery();});
+ retry.addEventListener('click',()=>{recovery.hidden=true;controller.retry();offerRecovery();});
+ fallbackButton.addEventListener('click',()=>{recovery.hidden=true;controller.compatibility();offerRecovery();});
  video._release=()=>{disposed=true;clearWait();controller.destroy();};
  controller.start();offerRecovery();document.querySelector('dialog').scrollTop=0;
 }
-export function releaseMedia(root){root.querySelectorAll('video').forEach(v=>{v._release?.();v.pause();v.removeAttribute('src');v.load();});}
+export function releaseMedia(root){root.querySelectorAll('video').forEach(v=>{if(v._release)v._release();else{v.pause();v.removeAttribute('src');v.load();}});}

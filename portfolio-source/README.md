@@ -40,3 +40,7 @@ GitHub Pages 使用相对资源路径。仓库根目录是发布产物，portfol
 本轮四帧结构修正与验证：[oct30-reference-match](verification/oct30-reference-match/review.md)。
 
 本轮原声媒体与交互精修验证：[oct30-audio-refinement](verification/oct30-audio-refinement/review.md)。
+
+## 跨浏览器回归
+
+`pnpm test` 运行基础与播放器状态测试，`pnpm test:browser` 运行 Playwright 跨浏览器矩阵。依赖安装、单独选择浏览器、真实媒体路径和结果边界见 [tests/browser/README.md](tests/browser/README.md)。本轮记录见 [兼容性报告](../verification/oct31-browser-compatibility/review.md)。实体 Safari/iPhone 尚未验证，不能用 WebKit 引擎或触摸模拟代替。

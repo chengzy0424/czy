@@ -18,6 +18,9 @@ function setup(reduced=false){
  Object.defineProperty(document.querySelector('#home'),'offsetTop',{value:0});Object.defineProperty(document.querySelector('#contact'),'offsetTop',{value:2100});
  const context={document,Element:dom.Element,console,math,portfolio,scrollToChapter,innerHeight:900,scrollY:0,performance:{now:()=>1},location:{search:''},URLSearchParams,history:{replaceState(){}},getComputedStyle:()=>({getPropertyValue:()=>88}),requestAnimationFrame:cb=>{frames.set(++id,cb);return id;},cancelAnimationFrame:id=>frames.delete(id),setInterval(){},matchMedia:query=>{const q={matches:query.includes('reduced-motion')&&reduced,addEventListener:(_,cb)=>q.change=cb};queries.push(q);return q;}};
  context.window={addEventListener:(name,cb)=>listeners[name]=cb,scrollTo:({top})=>context.scrollY=top};
+ // These DOM tests do not load a browser's visibility observer or player chunks.
+ context.IntersectionObserver=class{observe(){} disconnect(){}};
+ context.portfolio={...portfolio,prepareVideoPlayer:()=>Promise.resolve()};
  const code=readFileSync(new URL('../src/main.js',import.meta.url),'utf8').replace("import {clamp,smooth} from './weave-math.js';","const {clamp,smooth}=math;").replace("import {scrollToChapter} from './space-path.js';","").replace("import {games,films,gameDetail,gameList,filmList,startMedia,releaseMedia,prepareVideoPlayer} from './portfolio.js';","const {games,films,gameDetail,gameList,filmList,startMedia,releaseMedia,prepareVideoPlayer}=portfolio;");
  vm.runInNewContext(code,context,{filename:'main.js'});
  const click=selector=>document.querySelector(selector).dispatchEvent(new dom.Event('click',{bubbles:true,cancelable:true}));

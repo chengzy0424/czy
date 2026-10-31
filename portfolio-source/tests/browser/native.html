@@ -1,0 +1,20 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><title>Native HLS controller regression fixture</title>
+<button id="start">Start native test</button><button id="pause">Pause</button>
+<button id="retry">Retry</button><button id="fallback">MP4</button><button id="destroy">Destroy</button>
+<select id="quality" aria-label="Quality"><option value="-1">Auto</option><option value="0">Low</option><option value="1">720p</option><option value="2">HD</option></select>
+<p id="status"></p><div id="slot"></div>
+<script type="module">
+import {createStreamPlayer} from '../../src/stream-player.js';
+import catalog from '../../src/stream-catalog.json';
+let controller;const slot=document.querySelector('#slot'),status=document.querySelector('#status');
+document.querySelector('#start').onclick=()=>{
+ controller?.destroy();const video=document.createElement('video');video.controls=true;video.playsInline=true;video.style.width='640px';slot.replaceChildren(video);
+ controller=createStreamPlayer({video,path:'/media/stream-v1/csol/master.m3u8',levels:catalog.csol.levels.map(l=>({key:l.level,label:l.level})),fallback:'/media/csol-demo-low.mp4',
+  onStatus:text=>status.textContent=text,onQuality:()=>{},onFailure:text=>status.textContent=text,onMode:mode=>video.dataset.playbackMode=mode});controller.start();
+};
+document.querySelector('#pause').onclick=()=>slot.querySelector('video').pause();
+document.querySelector('#retry').onclick=()=>controller.retry();
+document.querySelector('#fallback').onclick=()=>controller.compatibility();
+document.querySelector('#destroy').onclick=()=>controller.destroy();
+document.querySelector('#quality').onchange=event=>controller.quality(Number(event.target.value));
+</script></html>

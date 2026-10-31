@@ -1,0 +1,268 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\Tuanjie\\Tuanjie AI\\Tuanjie Cowork\\cli\\bin\\win32-x64\\node.exe",
+      "D:\\Codex code\\2026-10-31\\github-chengzy0424-czy-https-chengzy0424-github-2\\work\\czy-source\\portfolio-source\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "--project=edge",
+      "--grep",
+      "no streaming capability"
+    ],
+    "configFile": "D:\\Codex code\\2026-10-31\\github-chengzy0424-czy-https-chengzy0424-github-2\\work\\czy-source\\portfolio-source\\playwright.config.mjs",
+    "rootDir": "D:/Codex code/2026-10-31/github-chengzy0424-czy-https-chengzy0424-github-2/work/czy-source/portfolio-source/tests/browser",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "D:/Codex code/2026-10-31/github-chengzy0424-czy-https-chengzy0424-github-2/work/czy-source/portfolio-source/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chrome",
+        "name": "chrome",
+        "testDir": "D:/Codex code/2026-10-31/github-chengzy0424-czy-https-chengzy0424-github-2/work/czy-source/portfolio-source/tests/browser",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.spec.mjs"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "D:/Codex code/2026-10-31/github-chengzy0424-czy-https-chengzy0424-github-2/work/czy-source/portfolio-source/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "edge",
+        "name": "edge",
+        "testDir": "D:/Codex code/2026-10-31/github-chengzy0424-czy-https-chengzy0424-github-2/work/czy-source/portfolio-source/tests/browser",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.spec.mjs"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "D:/Codex code/2026-10-31/github-chengzy0424-czy-https-chengzy0424-github-2/work/czy-source/portfolio-source/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "firefox",
+        "name": "firefox",
+        "testDir": "D:/Codex code/2026-10-31/github-chengzy0424-czy-https-chengzy0424-github-2/work/czy-source/portfolio-source/tests/browser",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.spec.mjs"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "D:/Codex code/2026-10-31/github-chengzy0424-czy-https-chengzy0424-github-2/work/czy-source/portfolio-source/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "webkit",
+        "name": "webkit",
+        "testDir": "D:/Codex code/2026-10-31/github-chengzy0424-czy-https-chengzy0424-github-2/work/czy-source/portfolio-source/tests/browser",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.spec.mjs"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "D:/Codex code/2026-10-31/github-chengzy0424-czy-https-chengzy0424-github-2/work/czy-source/portfolio-source/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "edge-native-branch",
+        "name": "edge-native-branch",
+        "testDir": "D:/Codex code/2026-10-31/github-chengzy0424-czy-https-chengzy0424-github-2/work/czy-source/portfolio-source/tests/browser",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.spec.mjs"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "D:/Codex code/2026-10-31/github-chengzy0424-czy-https-chengzy0424-github-2/work/czy-source/portfolio-source/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "edge-touch",
+        "name": "edge-touch",
+        "testDir": "D:/Codex code/2026-10-31/github-chengzy0424-czy-https-chengzy0424-github-2/work/czy-source/portfolio-source/tests/browser",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.spec.mjs"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "D:/Codex code/2026-10-31/github-chengzy0424-czy-https-chengzy0424-github-2/work/czy-source/portfolio-source/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "webkit-touch",
+        "name": "webkit-touch",
+        "testDir": "D:/Codex code/2026-10-31/github-chengzy0424-czy-https-chengzy0424-github-2/work/czy-source/portfolio-source/tests/browser",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.spec.mjs"
+        ],
+        "timeout": 90000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "../verification/oct31-browser-compatibility/browser-before.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.62.1",
+    "workers": 1,
+    "webServer": {
+      "command": "node tests/browser/server.mjs",
+      "url": "http://127.0.0.1:4186",
+      "reuseExistingServer": true,
+      "timeout": 60000
+    }
+  },
+  "suites": [
+    {
+      "title": "playback.spec.mjs",
+      "file": "playback.spec.mjs",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "no streaming capability selects MP4 and disables unavailable quality choices",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "edge",
+              "projectName": "edge",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 25462,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeDisabled\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  getByLabel('影片画质')\nExpected: disabled\nReceived: enabled\nTimeout:  20000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeDisabled\" with timeout 20000ms\u001b[22m\n\u001b[2m  - waiting for getByLabel('影片画质')\u001b[22m\n\u001b[2m    43 × locator resolved to <select aria-label=\"影片画质\">…</select>\u001b[22m\n\u001b[2m       - unexpected value \"enabled\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeDisabled\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  getByLabel('影片画质')\nExpected: disabled\nReceived: enabled\nTimeout:  20000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeDisabled\" with timeout 20000ms\u001b[22m\n\u001b[2m  - waiting for getByLabel('影片画质')\u001b[22m\n\u001b[2m    43 × locator resolved to <select aria-label=\"影片画质\">…</select>\u001b[22m\n\u001b[2m       - unexpected value \"enabled\"\u001b[22m\n\n    at D:\\Codex code\\2026-10-31\\github-chengzy0424-czy-https-chengzy0424-github-2\\work\\czy-source\\portfolio-source\\tests\\browser\\playback.spec.mjs:125:40",
+                    "location": {
+                      "file": "D:\\Codex code\\2026-10-31\\github-chengzy0424-czy-https-chengzy0424-github-2\\work\\czy-source\\portfolio-source\\tests\\browser\\playback.spec.mjs",
+                      "column": 40,
+                      "line": 125
+                    },
+                    "snippet": "  123 |  const caps=await visit(page,info);test.skip(!caps.mp4,'No MP4 decoder.');\n  124 |  const video=await openVideo(page,'tower');await hasStarted(video);\n> 125 |  await expect(page.getByLabel('影片画质')).toBeDisabled();expect((await mediaState(video)).src).toMatch(/tower-demo-audio\\.mp4/);\n      |                                        ^\n  126 | });\n  127 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\Codex code\\2026-10-31\\github-chengzy0424-czy-https-chengzy0424-github-2\\work\\czy-source\\portfolio-source\\tests\\browser\\playback.spec.mjs",
+                        "column": 40,
+                        "line": 125
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeDisabled\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  getByLabel('影片画质')\nExpected: disabled\nReceived: enabled\nTimeout:  20000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeDisabled\" with timeout 20000ms\u001b[22m\n\u001b[2m  - waiting for getByLabel('影片画质')\u001b[22m\n\u001b[2m    43 × locator resolved to <select aria-label=\"影片画质\">…</select>\u001b[22m\n\u001b[2m       - unexpected value \"enabled\"\u001b[22m\n\n\n  123 |  const caps=await visit(page,info);test.skip(!caps.mp4,'No MP4 decoder.');\n  124 |  const video=await openVideo(page,'tower');await hasStarted(video);\n> 125 |  await expect(page.getByLabel('影片画质')).toBeDisabled();expect((await mediaState(video)).src).toMatch(/tower-demo-audio\\.mp4/);\n      |                                        ^\n  126 | });\n  127 |\n    at D:\\Codex code\\2026-10-31\\github-chengzy0424-czy-https-chengzy0424-github-2\\work\\czy-source\\portfolio-source\\tests\\browser\\playback.spec.mjs:125:40"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-31T04:17:15.726Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "environment",
+                      "contentType": "application/json",
+                      "body": "ewogICJwcm9qZWN0IjogImVkZ2UiLAogICJtZWRpYU9yaWdpbiI6ICJodHRwczovL2NoZW5nenkwNDI0LmdpdGh1Yi5pby9jenkiLAogICJ1YSI6ICJNb3ppbGxhLzUuMCAoV2luZG93cyBOVCAxMC4wOyBXaW42NDsgeDY0KSBBcHBsZVdlYktpdC81MzcuMzYgKEtIVE1MLCBsaWtlIEdlY2tvKSBIZWFkbGVzc0Nocm9tZS8xNTYuMC4wLjAgU2FmYXJpLzUzNy4zNiBFZGcvMTU2LjAuMC4wIiwKICAicGxhdGZvcm0iOiAiV2luMzIiLAogICJuYXRpdmVIbHMiOiAiIiwKICAibXA0IjogInByb2JhYmx5IiwKICAibXNlIjogZmFsc2UsCiAgInRvdWNoIjogMAp9"
+                    },
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\Codex code\\2026-10-31\\github-chengzy0424-czy-https-chengzy0424-github-2\\work\\czy-source\\portfolio-source\\test-results\\playback-no-streaming-capa-a1f68-unavailable-quality-choices-edge\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\Codex code\\2026-10-31\\github-chengzy0424-czy-https-chengzy0424-github-2\\work\\czy-source\\portfolio-source\\test-results\\playback-no-streaming-capa-a1f68-unavailable-quality-choices-edge\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\Codex code\\2026-10-31\\github-chengzy0424-czy-https-chengzy0424-github-2\\work\\czy-source\\portfolio-source\\test-results\\playback-no-streaming-capa-a1f68-unavailable-quality-choices-edge\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\Codex code\\2026-10-31\\github-chengzy0424-czy-https-chengzy0424-github-2\\work\\czy-source\\portfolio-source\\tests\\browser\\playback.spec.mjs",
+                    "column": 40,
+                    "line": 125
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "392ce7657d10ee24873f-68f310005e8c938f6a70",
+          "file": "playback.spec.mjs",
+          "line": 117,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-31T04:17:12.326Z",
+    "duration": 33738.574,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}

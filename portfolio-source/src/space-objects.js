@@ -143,8 +143,12 @@ export async function buildWorld({mobile=false,documentRef=document,onTexture=()
  const lab=new T.Group();lab.position.set(0,-34,0);world.add(lab);
  const gridMaterial=new T.MeshPhysicalMaterial({color:0xd2dbd5,metalness:.87,roughness:.38,clearcoat:1,iridescence:.3,iridescenceThicknessRange:[240,410],envMapIntensity:.65});
  const grid=createDrapedGrid(gridMaterial,mobile);lab.add(grid);opaque.push(grid);
- const disc=torus(lab,.59,.025,silver,[0,-.05,1.4]);
- lab.add(tube([[0,-.44,1.42],[0,.34,1.42]],.035,silver,8));lab.add(tube([[-.39,-.05,1.42],[.39,-.05,1.42]],.035,silver,8));
+ // Keep the complete marker in front of the relief, including the bevels.
+ grid.computeBoundingBox();
+ const labMarker=new T.Group();labMarker.name='lab-marker';
+ labMarker.position.set(0,-.05,grid.boundingBox.max.z+.25);lab.add(labMarker);
+ torus(labMarker,.59,.025,silver);
+ labMarker.add(tube([[0,-.39,.02],[0,.39,.02]],.035,silver,8));labMarker.add(tube([[-.39,0,.02],[.39,0,.02]],.035,silver,8));
  const backdropGeo=new T.PlaneGeometry(8.2,4.9,48,24),backPos=backdropGeo.attributes.position;for(let i=0;i<backPos.count;i++)backPos.setZ(i,drapeHeight(backPos.getX(i),backPos.getY(i))-.09);backdropGeo.computeVertexNormals();
  const backdrop=mesh(backdropGeo,new T.MeshStandardMaterial({color:0x040a0d,metalness:.45,roughness:.5}),lab);
  lab.rotation.y=-.16;lab.rotation.z=.055;
@@ -169,3 +173,4 @@ export function particleField(count,mobile=false){
  }
  return {position,color,meta};
 }
+

@@ -31,6 +31,27 @@ async function geometryWorld(mobile=false){
  const previous=globalThis.Image;globalThis.Image=class{set src(_) {}};
  const world=await buildWorld({mobile,documentRef:doc});globalThis.Image=previous;return world;
 }
+test('lab ring and cross remain visible in front of the honeycomb through the viewing motion',async()=>{
+ for(const mobile of [false,true]){
+  const w=await geometryWorld(mobile);
+  const marker=w.lab.getObjectByName('lab-marker');
+  assert.ok(marker,'lab marker group missing');
+  const targets=Array.from({length:24},(_,i)=>new T.Vector3(.59*Math.cos(i*Math.PI/12),.59*Math.sin(i*Math.PI/12),0));
+  targets.push(...[[-.35,0,.02],[.35,0,.02],[0,-.35,.02],[0,.35,.02]].map(p=>new T.Vector3(...p)));
+  for(const chapter of [4.9,5,5.1])for(const turn of [-.035,0,.035]){
+   const pose=cameraPose(chapter,mobile,mobile?390/844:16/9);
+   const eye=new T.Vector3(...pose.eye);
+   w.lab.rotation.y=-.16+turn;w.world.updateMatrixWorld(true);
+   for(const target of targets){
+    const direction=marker.localToWorld(target.clone()).sub(eye).normalize();
+    const hit=new T.Raycaster(eye,direction).intersectObject(w.lab,true)[0];
+    assert.ok(hit&&marker.children.includes(hit.object),`honeycomb hides marker: mobile=${mobile}, chapter=${chapter}, turn=${turn}`);
+   }
+  }
+  w.dispose();
+ }
+});
+
 test('solid emblem, segmented spine, mechanical chamber and honeycomb have finite 3D geometry',async()=>{
  for(const mobile of [false,true]){
   const w=await geometryWorld(mobile);let triangles=0,meshes=0;
@@ -63,3 +84,4 @@ test('particles stay clustered at the reference objects, with stable counts and 
  const counts=[0,0,0,0];for(let i=0;i<44000;i++)counts[a.meta[i*3+1]]++;assert.deepEqual(counts,[11000,11000,11000,11000]);
  for(const hz of [30,60,120]){let p=1,v=0;for(let i=0;i<hz*2;i++)[p,v]=springStep(p,v,0,1/hz);assert.ok(Math.abs(p)<.0001&&Math.abs(v)<.001);}
 });
+

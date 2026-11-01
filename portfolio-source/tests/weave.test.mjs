@@ -17,6 +17,8 @@ function setup(reduced=false){
  const works=document.querySelector('#works');Object.defineProperty(works,'offsetTop',{value:1000});Object.defineProperty(works,'offsetHeight',{value:1100});
  Object.defineProperty(document.querySelector('#home'),'offsetTop',{value:0});Object.defineProperty(document.querySelector('#contact'),'offsetTop',{value:2100});
  const context={document,Element:dom.Element,console,math,portfolio,scrollToChapter,innerHeight:900,scrollY:0,performance:{now:()=>1},location:{search:''},URLSearchParams,history:{replaceState(){}},getComputedStyle:()=>({getPropertyValue:()=>88}),requestAnimationFrame:cb=>{frames.set(++id,cb);return id;},cancelAnimationFrame:id=>frames.delete(id),setInterval(){},matchMedia:query=>{const q={matches:query.includes('reduced-motion')&&reduced,addEventListener:(_,cb)=>q.change=cb};queries.push(q);return q;}};
+ // Viewport-triggered media warmup is outside these DOM interaction tests.
+ context.IntersectionObserver=class{observe(){}unobserve(){}disconnect(){}};
  context.window={addEventListener:(name,cb)=>listeners[name]=cb,scrollTo:({top})=>context.scrollY=top};
  const code=readFileSync(new URL('../src/main.js',import.meta.url),'utf8').replace("import {clamp,smooth} from './weave-math.js';","const {clamp,smooth}=math;").replace("import {scrollToChapter} from './space-path.js';","").replace("import {games,films,gameDetail,gameList,filmList,startMedia,releaseMedia,prepareVideoPlayer} from './portfolio.js';","const {games,films,gameDetail,gameList,filmList,startMedia,releaseMedia,prepareVideoPlayer}=portfolio;");
  vm.runInNewContext(code,context,{filename:'main.js'});
@@ -54,3 +56,4 @@ test('reduced motion and direct-work bypass retain usable content',()=>{
  app.click('#tab-software');assert.equal(app.document.querySelector('#panel-software').hidden,false);
  assert.ok(app.document.querySelector('a[href="mailto:434902760@qq.com"]'));
 });
+

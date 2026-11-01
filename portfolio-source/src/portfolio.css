@@ -107,9 +107,9 @@
  .works h2{font-size:30px}.gallery-stage .gallery-caption h2{font-size:22px}
 }
 
-/* Reference composition: lettering sits across the draped surface on wide screens. */
+/* Keep the lab caption in the left reading rail, clear of the central marker. */
 .confluence-stage{height:125svh}.confluence-link{position:absolute;bottom:65px;left:50%;transform:translateX(-50%);font-size:14px;min-height:48px;display:flex;align-items:center;gap:28px;color:#d2ddd8;background:#04090ca8;padding:10px 20px;white-space:nowrap}
-@media(min-width:1101px){.lab-copy{display:grid;left:29%;top:43%;width:47%;max-width:700px;grid-template-columns:150px 240px;column-gap:160px;align-items:center;background:none;text-shadow:0 2px 12px #04090c}.lab-copy .section-label{grid-column:1/-1;font-size:11px;margin-bottom:12px}.lab-copy h2{grid-column:1;grid-row:2/4;font-size:46px}.lab-copy>p:not(.section-label){grid-column:2;margin:0;font-size:13px}.lab-copy>.text-action{grid-column:2;margin-top:8px;font-size:13px}.lab-copy h2 span{font-size:.6em}}
+@media(min-width:1101px){.lab-copy{display:block;left:var(--gutter);top:34%;width:24vw;max-width:280px;background:linear-gradient(90deg,#04090cd4,#04090c00);text-shadow:0 2px 12px #04090c}.lab-copy .section-label{font-size:12px;margin-bottom:18px}.lab-copy h2{font-size:clamp(46px,4.4vw,64px)}.lab-copy>p:not(.section-label){margin-top:22px;font-size:14px}.lab-copy>.text-action{margin-top:18px;font-size:14px}.lab-copy h2 span{font-size:.6em}}
 @media(max-width:760px){.confluence-stage{height:110svh}.confluence-link{font-size:13px;bottom:70px}}
 @media(prefers-reduced-motion:reduce){.confluence-link{transition:none}}
 
@@ -132,3 +132,4 @@
 @media(prefers-reduced-motion:reduce){.journey-nav,.journey-nav a::after,.journey-nav span{transition:none}}
 .hero-kicker,.explore-link,.motion-control,.hero-bottom,.footer-name>span,.dialog-close,.sculpture-note,.journey-nav span,.detail-cover figcaption,.game-picker small{font-size:13px}
 .media-recovery:not([hidden]){display:flex;flex-wrap:wrap;gap:12px;margin:0 0 14px}.media-recovery[hidden]{display:none}.media-recovery .media-retry{border:1px solid #607b75;border-radius:4px;font-size:13px}.media-recovery .media-retry:hover{background:#1b3933}.player-toolbar select:disabled{opacity:.55}
+

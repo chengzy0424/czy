@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import * as T from 'three';
 import {descentField,descentOpacity,createDescent} from '../src/space-descent.js';
-import {opticsStrength,opticsSize,scenePixelRatio} from '../src/space-optics.js';
+import {scenePixelRatio} from '../src/space-quality.js';
 import {cameraPose,SCENE_Y} from '../src/space-path.js';
 
 test('descent cloud continuously bridges the LAB and closing scene in both viewport classes',()=>{
@@ -34,12 +34,15 @@ test('descent fades continuously, returns on reverse scroll and freezes under re
  }
 });
 
-test('optical pass stays within a bounded pixel budget and ramps in without a cut',()=>{
- for(const [w,h,dpr,mobile] of [[3840,2160,2,false],[1660,940,1,false],[390,844,3,true]]){
-  const size=opticsSize(w,h,dpr,mobile);assert.ok(size.width<=(mobile?680:1280));assert.ok(Math.abs(size.width/size.height-w/h)<.005);
-  const reduced=opticsSize(w,h,dpr,mobile,.75);assert.ok(reduced.width<=size.width);
-  const ratio=scenePixelRatio(w,h,dpr,mobile);assert.ok(w*h*ratio*ratio<=(mobile?1_000_001:3_000_001),'retina viewport exceeds output pixel budget');
+test('render budget preserves native subject detail before dropping supersampling',()=>{
+ for(const [w,h,dpr,mobile] of [[3840,2160,2,false],[2560,1440,2,false],[1920,1080,2,false],[1660,940,1,false],[390,844,3,true]]){
+  const normal=scenePixelRatio(w,h,dpr,mobile);
+  for(const quality of [1,.75]){
+   const ratio=scenePixelRatio(w,h,dpr,mobile,quality),budget=mobile?1_000_000:3_000_000;
+   assert.ok(w*h*ratio*ratio<=budget+1,'retina viewport exceeds output pixel budget');
+   assert.ok(ratio<=dpr&&ratio<=normal,'quality fallback increases pixel cost');
+   if(w*h<=budget)assert.ok(ratio>=1,'ordinary viewport is downscaled and then enlarged');
+  }
  }
- assert.equal(opticsStrength(4.5),0);assert.equal(opticsStrength(5),1);
- for(let n=0;n<100;n++)assert.ok(Math.abs(opticsStrength(4.4+n/100)-opticsStrength(4.4+(n+1)/100))<.04);
+ assert.equal(scenePixelRatio(1660,940,1,false,.75),1);
 });

@@ -33,9 +33,11 @@ export function createDescent({mobile=false}={}){
    p.x+=sin(phase+p.y*.7)*.17;p.y+=cos(phase+p.x*.8)*.12;p.z+=sin(phase*.8+p.x)*.18;
    p.x+=sin(p.y*.8)*uTravel*.15;
    vec4 mv=modelViewMatrix*vec4(p,1.);gl_Position=projectionMatrix*mv;
-   vBlur=max(aMeta.y*.8,smoothstep(9.,21.,-mv.z)*.7);
-   float size=1.4+pow(aMeta.z,3.)*5.2+aMeta.y*7.;
-   gl_PointSize=clamp(size*uPixelRatio*12./max(4.,-mv.z),1.,17.*uPixelRatio);
+   // Mid-distance grains remain distinct like the reference. Defocus is
+   // reserved for the sparse foreground motes and the farthest cloud.
+   vBlur=max(aMeta.y*.65,smoothstep(19.,32.,-mv.z)*.35);
+   float size=1.25+pow(aMeta.z,3.)*3.7+aMeta.y*3.8;
+   gl_PointSize=clamp(size*uPixelRatio*12./max(4.,-mv.z),1.,12.*uPixelRatio);
    vTint=aTint;vAngle=aMeta.x*6.28;vOpacity=uOpacity*(.34+aMeta.x*.58)*(1.-smoothstep(24.,43.,-mv.z))*(1.-aMeta.y*.45);
   }`,fragmentShader:`
   varying vec3 vTint;varying float vOpacity,vBlur,vAngle;

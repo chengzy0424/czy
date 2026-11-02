@@ -3,7 +3,7 @@ import {cameraPose,passageStrength,galleryCardPose,galleryTurn,GALLERY_DESCENT,S
 import {buildWorld,particleField} from './space-objects.js';
 import {createWater} from './space-water.js';
 import {createPlumes} from './space-plumes.js';
-import {createOptics,opticsStrength,scenePixelRatio} from './space-optics.js';
+import {scenePixelRatio} from './space-quality.js';
 import {createDescent} from './space-descent.js';
 import {createLabEnvironment,loadLabEnvironment} from './space-lab-surface.js';
 import {damp,clamp,smooth,springStep} from './weave-math.js';
@@ -98,7 +98,7 @@ export async function createSpace({container,state,onFailure=()=>{},onSelect=()=
  world.gallery.traverse(object=>{if(object.geometry)galleryMeshes.push(object);});
  const water=createWater({mobile});scene.add(water);
  const plumes=createPlumes({mobile});plumes.group.position.y=SCENE_Y.confluence;scene.add(plumes.group);
- const optics=createOptics({mobile}),descent=createDescent({mobile});scene.add(descent.points);
+ const descent=createDescent({mobile});scene.add(descent.points);
  const glassTarget=new T.WebGLRenderTarget(640,480,{depthBuffer:true});
  const glassUniforms={uGlassScene:{value:glassTarget.texture},uGlassResolution:{value:new T.Vector2()},uGlassTime:{value:0},uGlassActive:{value:0}};
  for(const card of world.cards){
@@ -146,7 +146,7 @@ export async function createSpace({container,state,onFailure=()=>{},onSelect=()=
   ray.setFromCamera(pointer,camera);const hit=ray.intersectObjects([...world.pickables,...world.opaque].filter(o=>{for(let p=o;p;p=p.parent)if(!p.visible)return false;return true;}),false)[0];
   if(hit?.object.userData.detail)hovered=world.cards.find(c=>c.spec.id===hit.object.userData.detail);
  }
- function resize(){const dpr=scenePixelRatio(innerWidth,innerHeight,devicePixelRatio||1,mobile,quality);renderer.setPixelRatio(dpr);renderer.setSize(innerWidth,innerHeight);uniforms.uDpr.value=dpr;optics.resize(innerWidth,innerHeight,dpr,quality);renderer.getDrawingBufferSize(glassUniforms.uGlassResolution.value);glassTarget.setSize(Math.min(960,innerWidth),Math.round(Math.min(960,innerWidth)*innerHeight/innerWidth));camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix();wake();}
+ function resize(){const dpr=scenePixelRatio(innerWidth,innerHeight,devicePixelRatio||1,mobile,quality);renderer.setPixelRatio(dpr);renderer.setSize(innerWidth,innerHeight);uniforms.uDpr.value=dpr;renderer.getDrawingBufferSize(glassUniforms.uGlassResolution.value);glassTarget.setSize(Math.min(960,innerWidth),Math.round(Math.min(960,innerWidth)*innerHeight/innerWidth));camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix();wake();}
  function updateScene(dt){
   const reduced=state.reduced;
   const previous=progress;
@@ -231,10 +231,9 @@ export async function createSpace({container,state,onFailure=()=>{},onSelect=()=
   const refract=!mobile&&quality===1&&progress>1.65&&progress<3.5;
   glassUniforms.uGlassActive.value=refract?1:0;glassUniforms.uGlassTime.value=state.reduced?0:time;
   if(refract){world.cardDeck.visible=false;renderer.setRenderTarget(glassTarget);renderer.render(scene,camera);renderer.setRenderTarget(null);world.cardDeck.visible=true;}
-  const soft=opticsStrength(progress)>.001,pixelRatio=soft?optics.pixelRatio:renderer.getPixelRatio();
+  const pixelRatio=renderer.getPixelRatio();
   uniforms.uDpr.value=pixelRatio;descent.update(time,progress,state.reduced,travelEnergy,pixelRatio,quality);
-  if(soft){const pose=cameraPose(progress,mobile,camera.aspect),focus=camera.position.distanceTo(new T.Vector3(...pose.look))-.8;optics.render(renderer,scene,camera,progress,focus);}
-  else renderer.render(scene,camera);
+  renderer.render(scene,camera);
   if(lost)return;drawMs=performance.now()-start;frames++;
   document.body.classList.add('webgl-ready');
   if(frames%180===0&&frameTimes.length>150){const sorted=[...frameTimes].sort((a,b)=>a-b);slowWindows=sorted[Math.floor(sorted.length*.9)]>29?slowWindows+1:0;if(slowWindows>=2&&quality===1){quality=.75;geo.setDrawRange(0,Math.floor(count*.72));resize();}}
@@ -249,10 +248,9 @@ export async function createSpace({container,state,onFailure=()=>{},onSelect=()=
  // Geometry generation yields between sections; first paint never waits on these assets.
  camera.position.set(0,0,10.5);camera.lookAt(0,0,0);
  await yieldControl();await renderer.compileAsync(scene,camera);
- await yieldControl();await optics.compile(renderer,scene,camera);
  window.addEventListener('pointermove',onMove,{passive:true});window.addEventListener('pointerdown',onDown,{passive:true});window.addEventListener('pointerup',onUp,{passive:true});
  document.addEventListener('pointerleave',onLeave);document.addEventListener('visibilitychange',visibility);window.addEventListener('blur',onLeave);window.addEventListener('resize',resize);
  renderer.domElement.addEventListener('webglcontextlost',contextLost);renderer.domElement.addEventListener('webglcontextrestored',contextRestored);sceneInitialized=true;resize();
- return {wake,pause,metrics:()=>({frames,points:geo.drawRange.count===Infinity?count:geo.drawRange.count,dpr:renderer.getPixelRatio(),drawCalls:renderer.info.render.calls,triangles:renderer.info.render.triangles,lastDrawSubmissionMs:drawMs,frameTimesMs:[...frameTimes],quality,optics:optics.size,descentPoints:descent.points.visible?descent.points.geometry.drawRange.count:0,reduced:state.reduced,chapter:progress}),dispose(){disposed=true;pause();window.removeEventListener('pointermove',onMove);window.removeEventListener('pointerdown',onDown);window.removeEventListener('pointerup',onUp);document.removeEventListener('pointerleave',onLeave);document.removeEventListener('visibilitychange',visibility);window.removeEventListener('blur',onLeave);window.removeEventListener('resize',resize);renderer.domElement.removeEventListener('webglcontextlost',contextLost);renderer.domElement.removeEventListener('webglcontextrestored',contextRestored);world.dispose();plumes.dispose();descent.dispose();optics.dispose();glassTarget.dispose();water.geometry.dispose();water.dispose();geo.dispose();pointMaterial.dispose();env.dispose();labEnvironment.dispose();renderer.dispose();renderer.domElement.remove();}};
+ return {wake,pause,metrics:()=>({frames,points:geo.drawRange.count===Infinity?count:geo.drawRange.count,dpr:renderer.getPixelRatio(),drawCalls:renderer.info.render.calls,triangles:renderer.info.render.triangles,lastDrawSubmissionMs:drawMs,frameTimesMs:[...frameTimes],quality,descentPoints:descent.points.visible?descent.points.geometry.drawRange.count:0,reduced:state.reduced,chapter:progress}),dispose(){disposed=true;pause();window.removeEventListener('pointermove',onMove);window.removeEventListener('pointerdown',onDown);window.removeEventListener('pointerup',onUp);document.removeEventListener('pointerleave',onLeave);document.removeEventListener('visibilitychange',visibility);window.removeEventListener('blur',onLeave);window.removeEventListener('resize',resize);renderer.domElement.removeEventListener('webglcontextlost',contextLost);renderer.domElement.removeEventListener('webglcontextrestored',contextRestored);world.dispose();plumes.dispose();descent.dispose();glassTarget.dispose();water.geometry.dispose();water.dispose();geo.dispose();pointMaterial.dispose();env.dispose();labEnvironment.dispose();renderer.dispose();renderer.domElement.remove();}};
 }
 

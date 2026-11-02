@@ -29,8 +29,11 @@ const bandFragment = `
   float flow=mist(vec2(x*12.-uTime*.045,vUv.y*2.7+uSeed));
   float drift=(noise21(vec2(x*11.-uTime*.035,uSeed))-.5)*.32;
   float across=(vUv.y-.5)*2.+drift;
-  float milk=exp(-across*across*5.5);
-  float blush=exp(-across*across*2.5);
+  // The reference resolves a narrow luminous center inside each soft current.
+  // Keep that local structure instead of smearing a wide band of white light.
+  float milk=exp(-across*across*14.);
+  float core=exp(-across*across*48.);
+  float blush=exp(-across*across*3.5);
   float edge=1.-smoothstep(.78,1.,abs((vUv.y-.5)*2.));
   float ends=smoothstep(0.,.13,x)*(1.-smoothstep(.72,1.,x));
   // Soft internal clouding breaks the highlight without outlining the strip.
@@ -39,7 +42,7 @@ const bandFragment = `
   vec3 rose=vec3(.48,.016,.075);
   vec3 cream=mix(vec3(.92,.55,.49),vec3(1.32,1.12,.84),smoothstep(.12,.8,x));
   vec3 color=mix(rose,cream,milk*.87)*(.7+flow*.32);
-  float alpha=(milk*.69*eddies+blush*.19)*density*edge*ends*uOpacity;
+  float alpha=(milk*.64*eddies+core*.19+blush*.11)*density*edge*ends*uOpacity;
   gl_FragColor=vec4(color,alpha);
   #include <tonemapping_fragment>
   #include <colorspace_fragment>
@@ -80,8 +83,8 @@ function ribbonGeometry(index,mobile){
  const segments=mobile?48:80,rows=mobile?2:4;
  const geometry=new T.PlaneGeometry(1,1,segments,rows);
  const position=geometry.attributes.position,uv=geometry.attributes.uv;
- const offsets=[-1.48,-.69,.14,.98,1.82];
- const breadth=[1.52,1.35,1.65,1.42,1.28][index];
+ const offsets=[-1.4,-.5,.35,1.15];
+ const breadth=[1.42,1.25,1.5,1.28][index];
  for(let i=0;i<position.count;i++){
   const t=uv.getX(i),side=(uv.getY(i)-.5)*breadth;
   const x=-5.2+t*14.2;
@@ -128,13 +131,14 @@ export function createPlumes({mobile=false}={}){
   mesh.position.fromArray(spec.position);mesh.rotation.set(.03*(i-2),.09*(i-2),spec.turn);
   geometry.computeBoundingSphere();geometry.boundingSphere.radius+=.4;
  }
- for(let i=0;i<5;i++){
+ for(let i=0;i<4;i++){
   const material=new T.ShaderMaterial({
    uniforms:{uTime:time,uOpacity:opacity,uSeed:{value:i*.39}},
    vertexShader:bandVertex,fragmentShader:bandFragment,transparent:true,
    depthWrite:false,depthTest:true,side:T.DoubleSide,blending:T.NormalBlending
   });
-  add(ribbonGeometry(i,mobile),material,`closing-cream-current-${i}`);
+  const current=add(ribbonGeometry(i,mobile),material,`closing-cream-current-${i}`);
+  current.position.y=-1.15;
  }
  const bounds=new T.Box3().setFromObject(group).expandByScalar(.5);
  group.userData.localBounds={min:bounds.min.toArray(),max:bounds.max.toArray()};

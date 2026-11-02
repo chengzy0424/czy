@@ -1,11 +1,13 @@
 import * as T from 'three';
 import {mergeGeometries} from 'three/addons/utils/BufferGeometryUtils.js';
 
+export const GALLERY_SPINE_BOUNDS=Object.freeze({top:4.5,bottom:-9.9});
 // Unequal joints and swept processes keep the column organic at close range.
-// Reuse the same segment budget and merge it into one draw call.
+// Thirty fixed joints continue below the original nineteen at the same spacing.
+// Scrolling only moves the viewpoint; the merged geometry never stretches.
 export function vertebraeGeometry(mobile=false){
- const parts=[],joints=[],layers=19,around=mobile?32:48,section=8;let vertexCursor=0;
- for(let layer=0;layer<layers;layer++){
+ const parts=[],joints=[],around=mobile?28:40,section=8,spurSegments=10;let vertexCursor=0;
+ for(let layer=-11;layer<19;layer++){
   const jointStart=vertexCursor;
   const g=new T.TorusGeometry(1,.16,section,around),p=g.attributes.position;
   const y=(layer-9)*.49+.045*Math.sin(layer*1.91),twist=layer*.31+.22*Math.sin(layer*.83);
@@ -27,9 +29,9 @@ export function vertebraeGeometry(mobile=false){
    const length=.62+.31*(.5+.5*Math.sin(layer*1.37+side*2.1))+(side===2?.16:0);
    const bend=.19*Math.sin(layer*.59+side*1.8),lift=.12+.13*Math.cos(layer*.7+side);
    for(let k=0;k<5;k++){const t=k/4,r=.63+t*length,angle=a+bend*t;points.push(new T.Vector3(Math.cos(angle)*r+sway,y+t*lift-.12*Math.sin(t*Math.PI),Math.sin(angle)*r+swayZ));}
-   const curve=new T.CatmullRomCurve3(points),b=new T.TubeGeometry(curve,12,.13,6,false),bp=b.attributes.position;
+   const curve=new T.CatmullRomCurve3(points),b=new T.TubeGeometry(curve,spurSegments,.13,6,false),bp=b.attributes.position;
    for(let k=0;k<bp.count;k++){
-    const t=Math.floor(k/7)/12,center=curve.getPointAt(t),taper=.14+.86*Math.pow(1-t,.7);
+    const t=Math.floor(k/7)/spurSegments,center=curve.getPointAt(t),taper=.14+.86*Math.pow(1-t,.7);
     bp.setXYZ(k,center.x+(bp.getX(k)-center.x)*taper,center.y+(bp.getY(k)-center.y)*taper*.6,center.z+(bp.getZ(k)-center.z)*taper);
    }
    b.computeVertexNormals();parts.push(b);vertexCursor+=bp.count;
@@ -37,8 +39,7 @@ export function vertebraeGeometry(mobile=false){
   joints.push({start:jointStart,count:vertexCursor-jointStart,y});
  }
  const geometry=mergeGeometries(parts);parts.forEach(g=>g.dispose());
- // Runtime may translate whole joints apart without stretching their thickness.
- // Contiguous ranges also keep CPU raycasting aligned with the rendered spine.
+ // Retain joint ranges and their original coordinates for geometry invariants.
  const restY=new Float32Array(geometry.attributes.position.count);
  for(let i=0;i<restY.length;i++)restY[i]=geometry.attributes.position.getY(i);
  geometry.userData.joints=joints;geometry.userData.restY=restY;

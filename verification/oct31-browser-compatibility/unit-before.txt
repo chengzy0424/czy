@@ -1,0 +1,140 @@
+✔ native start calls play synchronously in the user action (2.0583ms)
+✖ native retry retains the explicitly selected rendition (0.9276ms)
+✖ paused rapid quality changes and MP4 recovery retain position and intent (0.6455ms)
+✖ source-replacement pause events do not override a newer play request (0.4738ms)
+✖ destroy cancels native media and makes late actions inert (0.4542ms)
+✖ late autoplay rejection cannot overwrite a new source status (0.9047ms)
+✖ native and fallback modes notify the quality control (2.5246ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 1
+ℹ fail 6
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 70.8012
+
+✖ failing tests:
+
+test at ..\..\baseline-player.test.mjs:29:1
+✖ native retry retains the explicitly selected rendition (0.9276ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /720\/index.m3u8$/. Input:
+
+  'https://example.test/media/master.m3u8'
+
+      at TestContext.<anonymous> (file:///D:/Codex%20code/2026-10-31/github-chengzy0424-czy-https-chengzy0424-github-2/work/baseline-player.test.mjs:31:59)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1306:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:897:18)
+      at Test.postRun (node:internal/test_runner/test:1447:19)
+      at Test.run (node:internal/test_runner/test:1372:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:385:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'https://example.test/media/master.m3u8',
+    expected: /720\/index.m3u8$/,
+    operator: 'match',
+    diff: 'simple'
+  }
+
+test at ..\..\baseline-player.test.mjs:34:1
+✖ paused rapid quality changes and MP4 recovery retain position and intent (0.6455ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+
+  false !== true
+
+      at TestContext.<anonymous> (file:///D:/Codex%20code/2026-10-31/github-chengzy0424-czy-https-chengzy0424-github-2/work/baseline-player.test.mjs:37:44)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1306:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:897:18)
+      at Test.postRun (node:internal/test_runner/test:1447:19)
+      at Test.run (node:internal/test_runner/test:1372:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:897:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at ..\..\baseline-player.test.mjs:40:1
+✖ source-replacement pause events do not override a newer play request (0.4738ms)
+  AssertionError [ERR_ASSERTION]: Expected "actual" to be strictly unequal to: '已暂停'
+      at TestContext.<anonymous> (file:///D:/Codex%20code/2026-10-31/github-chengzy0424-czy-https-chengzy0424-github-2/work/baseline-player.test.mjs:44:9)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1306:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:897:18)
+      at Test.postRun (node:internal/test_runner/test:1447:19)
+      at Test.run (node:internal/test_runner/test:1372:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:897:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: '已暂停',
+    expected: '已暂停',
+    operator: 'notStrictEqual',
+    diff: 'simple'
+  }
+
+test at ..\..\baseline-player.test.mjs:46:1
+✖ destroy cancels native media and makes late actions inert (0.4542ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+
+  + 'https://example.test/media/master.m3u8'
+  - ''
+
+      at TestContext.<anonymous> (file:///D:/Codex%20code/2026-10-31/github-chengzy0424-czy-https-chengzy0424-github-2/work/baseline-player.test.mjs:48:9)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1306:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:897:18)
+      at Test.postRun (node:internal/test_runner/test:1447:19)
+      at Test.run (node:internal/test_runner/test:1372:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:897:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'https://example.test/media/master.m3u8',
+    expected: '',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at ..\..\baseline-player.test.mjs:52:1
+✖ late autoplay rejection cannot overwrite a new source status (0.9047ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+
+  + '点击播放按钮开始观看'
+  - '正在连接兼容视频…'
+
+      at TestContext.<anonymous> (file:///D:/Codex%20code/2026-10-31/github-chengzy0424-czy-https-chengzy0424-github-2/work/baseline-player.test.mjs:57:9)
+      at async Test.run (node:internal/test_runner/test:1313:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:897:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: '点击播放按钮开始观看',
+    expected: '正在连接兼容视频…',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at ..\..\baseline-player.test.mjs:59:1
+✖ native and fallback modes notify the quality control (2.5246ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+
+    assert.ok(modes.includes('native'))
+
+      at TestContext.<anonymous> (file:///D:/Codex%20code/2026-10-31/github-chengzy0424-czy-https-chengzy0424-github-2/work/baseline-player.test.mjs:61:9)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1306:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:897:18)
+      at Test.postRun (node:internal/test_runner/test:1447:19)
+      at Test.run (node:internal/test_runner/test:1372:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:897:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

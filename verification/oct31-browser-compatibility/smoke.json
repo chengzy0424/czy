@@ -1,0 +1,1301 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\Tuanjie\\Tuanjie AI\\Tuanjie Cowork\\cli\\bin\\win32-x64\\node.exe",
+      "D:\\Codex code\\2026-10-31\\github-chengzy0424-czy-https-chengzy0424-github-2\\work\\czy-source\\portfolio-source\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "--grep",
+      "first screen|csol:|no streaming capability"
+    ],
+    "configFile": "D:\\Codex code\\2026-10-31\\github-chengzy0424-czy-https-chengzy0424-github-2\\work\\czy-source\\portfolio-source\\playwright.config.mjs",
+    "rootDir": "D:/Codex code/2026-10-31/github-chengzy0424-czy-https-chengzy0424-github-2/work/czy-source/portfolio-source/tests/browser",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "D:/Codex code/2026-10-31/github-chengzy0424-czy-https-chengzy0424-github-2/work/czy-source/portfolio-source/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chrome",
+        "name": "chrome",
+        "testDir": "D:/Codex code/2026-10-31/github-chengzy0424-czy-https-chengzy0424-github-2/work/czy-source/portfolio-source/tests/browser",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.spec.mjs"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "D:/Codex code/2026-10-31/github-chengzy0424-czy-https-chengzy0424-github-2/work/czy-source/portfolio-source/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "edge",
+        "name": "edge",
+        "testDir": "D:/Codex code/2026-10-31/github-chengzy0424-czy-https-chengzy0424-github-2/work/czy-source/portfolio-source/tests/browser",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.spec.mjs"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "D:/Codex code/2026-10-31/github-chengzy0424-czy-https-chengzy0424-github-2/work/czy-source/portfolio-source/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "firefox",
+        "name": "firefox",
+        "testDir": "D:/Codex code/2026-10-31/github-chengzy0424-czy-https-chengzy0424-github-2/work/czy-source/portfolio-source/tests/browser",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.spec.mjs"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "D:/Codex code/2026-10-31/github-chengzy0424-czy-https-chengzy0424-github-2/work/czy-source/portfolio-source/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "webkit",
+        "name": "webkit",
+        "testDir": "D:/Codex code/2026-10-31/github-chengzy0424-czy-https-chengzy0424-github-2/work/czy-source/portfolio-source/tests/browser",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.spec.mjs"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "D:/Codex code/2026-10-31/github-chengzy0424-czy-https-chengzy0424-github-2/work/czy-source/portfolio-source/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "edge-native-branch",
+        "name": "edge-native-branch",
+        "testDir": "D:/Codex code/2026-10-31/github-chengzy0424-czy-https-chengzy0424-github-2/work/czy-source/portfolio-source/tests/browser",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.spec.mjs"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "D:/Codex code/2026-10-31/github-chengzy0424-czy-https-chengzy0424-github-2/work/czy-source/portfolio-source/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "edge-touch",
+        "name": "edge-touch",
+        "testDir": "D:/Codex code/2026-10-31/github-chengzy0424-czy-https-chengzy0424-github-2/work/czy-source/portfolio-source/tests/browser",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.spec.mjs"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "D:/Codex code/2026-10-31/github-chengzy0424-czy-https-chengzy0424-github-2/work/czy-source/portfolio-source/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "webkit-touch",
+        "name": "webkit-touch",
+        "testDir": "D:/Codex code/2026-10-31/github-chengzy0424-czy-https-chengzy0424-github-2/work/czy-source/portfolio-source/tests/browser",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.spec.mjs"
+        ],
+        "timeout": 90000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "../verification/oct31-browser-compatibility/smoke.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.62.1",
+    "workers": 1,
+    "webServer": {
+      "command": "node tests/browser/server.mjs",
+      "url": "http://127.0.0.1:4186",
+      "reuseExistingServer": true,
+      "timeout": 60000
+    }
+  },
+  "suites": [
+    {
+      "title": "playback.spec.mjs",
+      "file": "playback.spec.mjs",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "first screen and browsing never fetch video; narrow touch layout and dialog return",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chrome",
+              "projectName": "chrome",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3605,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-31T04:18:33.731Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "environment",
+                      "contentType": "application/json",
+                      "body": "ewogICJwcm9qZWN0IjogImNocm9tZSIsCiAgIm1lZGlhT3JpZ2luIjogImh0dHBzOi8vY2hlbmd6eTA0MjQuZ2l0aHViLmlvL2N6eSIsCiAgInVhIjogIk1vemlsbGEvNS4wIChXaW5kb3dzIE5UIDEwLjA7IFdpbjY0OyB4NjQpIEFwcGxlV2ViS2l0LzUzNy4zNiAoS0hUTUwsIGxpa2UgR2Vja28pIEhlYWRsZXNzQ2hyb21lLzE1Ni4wLjAuMCBTYWZhcmkvNTM3LjM2IiwKICAicGxhdGZvcm0iOiAiV2luMzIiLAogICJuYXRpdmVIbHMiOiAibWF5YmUiLAogICJtcDQiOiAicHJvYmFibHkiLAogICJtc2UiOiB0cnVlLAogICJ0b3VjaCI6IDAKfQ=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "392ce7657d10ee24873f-afc8bdd73a20d0af8307",
+          "file": "playback.spec.mjs",
+          "line": 64,
+          "column": 1
+        },
+        {
+          "title": "csol: start, audio signal, seek, pause, quality and release",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chrome",
+              "projectName": "chrome",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 50757,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m866\u001b[39m\nReceived: \u001b[31m478\u001b[39m\n\nCall Log:\n- Timeout 20000ms exceeded while waiting on the predicate",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m866\u001b[39m\nReceived: \u001b[31m478\u001b[39m\n\nCall Log:\n- Timeout 20000ms exceeded while waiting on the predicate\n    at D:\\Codex code\\2026-10-31\\github-chengzy0424-czy-https-chengzy0424-github-2\\work\\czy-source\\portfolio-source\\tests\\browser\\playback.spec.mjs:98:74",
+                    "location": {
+                      "file": "D:\\Codex code\\2026-10-31\\github-chengzy0424-czy-https-chengzy0424-github-2\\work\\czy-source\\portfolio-source\\tests\\browser\\playback.spec.mjs",
+                      "column": 74,
+                      "line": 98
+                    },
+                    "snippet": "   96 |  await expect.poll(()=>video.evaluate((v,t)=>v.currentTime-t,target)).toBeGreaterThan(.3);\n   97 |  const last=catalog[id].levels.at(-1);\n>  98 |  await expect.poll(()=>video.evaluate(v=>v.videoHeight),{timeout:20000}).toBe(last.height);\n      |                                                                          ^\n   99 |  await select.selectOption('-1');await hasStarted(video);\n  100 |  expect((await mediaState(video)).volume).toBeCloseTo(.45,2);\n  101 |  await info.attach('playback-evidence',{body:JSON.stringify({id,browser:browser.version(),startupMs,start,continuous,final:await mediaState(video),audit:await page.evaluate(()=>window.__mediaAudit),requestCount:requests.length,seekInput:'HTMLMediaElement.currentTime; not a physical scrub gesture'},null,2),contentType:'application/json'});"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\Codex code\\2026-10-31\\github-chengzy0424-czy-https-chengzy0424-github-2\\work\\czy-source\\portfolio-source\\tests\\browser\\playback.spec.mjs",
+                        "column": 74,
+                        "line": 98
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m866\u001b[39m\nReceived: \u001b[31m478\u001b[39m\n\nCall Log:\n- Timeout 20000ms exceeded while waiting on the predicate\n\n   96 |  await expect.poll(()=>video.evaluate((v,t)=>v.currentTime-t,target)).toBeGreaterThan(.3);\n   97 |  const last=catalog[id].levels.at(-1);\n>  98 |  await expect.poll(()=>video.evaluate(v=>v.videoHeight),{timeout:20000}).toBe(last.height);\n      |                                                                          ^\n   99 |  await select.selectOption('-1');await hasStarted(video);\n  100 |  expect((await mediaState(video)).volume).toBeCloseTo(.45,2);\n  101 |  await info.attach('playback-evidence',{body:JSON.stringify({id,browser:browser.version(),startupMs,start,continuous,final:await mediaState(video),audit:await page.evaluate(()=>window.__mediaAudit),requestCount:requests.length,seekInput:'HTMLMediaElement.currentTime; not a physical scrub gesture'},null,2),contentType:'application/json'});\n    at D:\\Codex code\\2026-10-31\\github-chengzy0424-czy-https-chengzy0424-github-2\\work\\czy-source\\portfolio-source\\tests\\browser\\playback.spec.mjs:98:74"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-31T04:18:37.701Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "environment",
+                      "contentType": "application/json",
+                      "body": "ewogICJwcm9qZWN0IjogImNocm9tZSIsCiAgIm1lZGlhT3JpZ2luIjogImh0dHBzOi8vY2hlbmd6eTA0MjQuZ2l0aHViLmlvL2N6eSIsCiAgInVhIjogIk1vemlsbGEvNS4wIChXaW5kb3dzIE5UIDEwLjA7IFdpbjY0OyB4NjQpIEFwcGxlV2ViS2l0LzUzNy4zNiAoS0hUTUwsIGxpa2UgR2Vja28pIEhlYWRsZXNzQ2hyb21lLzE1Ni4wLjAuMCBTYWZhcmkvNTM3LjM2IiwKICAicGxhdGZvcm0iOiAiV2luMzIiLAogICJuYXRpdmVIbHMiOiAibWF5YmUiLAogICJtcDQiOiAicHJvYmFibHkiLAogICJtc2UiOiB0cnVlLAogICJ0b3VjaCI6IDAKfQ=="
+                    },
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\Codex code\\2026-10-31\\github-chengzy0424-czy-https-chengzy0424-github-2\\work\\czy-source\\portfolio-source\\test-results\\playback-csol-start-audio--46dd0-k-pause-quality-and-release-chrome\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\Codex code\\2026-10-31\\github-chengzy0424-czy-https-chengzy0424-github-2\\work\\czy-source\\portfolio-source\\test-results\\playback-csol-start-audio--46dd0-k-pause-quality-and-release-chrome\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\Codex code\\2026-10-31\\github-chengzy0424-czy-https-chengzy0424-github-2\\work\\czy-source\\portfolio-source\\test-results\\playback-csol-start-audio--46dd0-k-pause-quality-and-release-chrome\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\Codex code\\2026-10-31\\github-chengzy0424-czy-https-chengzy0424-github-2\\work\\czy-source\\portfolio-source\\tests\\browser\\playback.spec.mjs",
+                    "column": 74,
+                    "line": 98
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "392ce7657d10ee24873f-a24a8486ea17eb2de247",
+          "file": "playback.spec.mjs",
+          "line": 78,
+          "column": 21
+        },
+        {
+          "title": "no streaming capability selects MP4 and disables unavailable quality choices",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chrome",
+              "projectName": "chrome",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 7852,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-31T04:19:34.247Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "environment",
+                      "contentType": "application/json",
+                      "body": "ewogICJwcm9qZWN0IjogImNocm9tZSIsCiAgIm1lZGlhT3JpZ2luIjogImh0dHBzOi8vY2hlbmd6eTA0MjQuZ2l0aHViLmlvL2N6eSIsCiAgInVhIjogIk1vemlsbGEvNS4wIChXaW5kb3dzIE5UIDEwLjA7IFdpbjY0OyB4NjQpIEFwcGxlV2ViS2l0LzUzNy4zNiAoS0hUTUwsIGxpa2UgR2Vja28pIEhlYWRsZXNzQ2hyb21lLzE1Ni4wLjAuMCBTYWZhcmkvNTM3LjM2IiwKICAicGxhdGZvcm0iOiAiV2luMzIiLAogICJuYXRpdmVIbHMiOiAiIiwKICAibXA0IjogInByb2JhYmx5IiwKICAibXNlIjogZmFsc2UsCiAgInRvdWNoIjogMAp9"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "392ce7657d10ee24873f-dc2083010cba4d2ac718",
+          "file": "playback.spec.mjs",
+          "line": 117,
+          "column": 1
+        },
+        {
+          "title": "first screen and browsing never fetch video; narrow touch layout and dialog return",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "edge",
+              "projectName": "edge",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2194,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-31T04:19:43.200Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "environment",
+                      "contentType": "application/json",
+                      "body": "ewogICJwcm9qZWN0IjogImVkZ2UiLAogICJtZWRpYU9yaWdpbiI6ICJodHRwczovL2NoZW5nenkwNDI0LmdpdGh1Yi5pby9jenkiLAogICJ1YSI6ICJNb3ppbGxhLzUuMCAoV2luZG93cyBOVCAxMC4wOyBXaW42NDsgeDY0KSBBcHBsZVdlYktpdC81MzcuMzYgKEtIVE1MLCBsaWtlIEdlY2tvKSBIZWFkbGVzc0Nocm9tZS8xNTYuMC4wLjAgU2FmYXJpLzUzNy4zNiBFZGcvMTU2LjAuMC4wIiwKICAicGxhdGZvcm0iOiAiV2luMzIiLAogICJuYXRpdmVIbHMiOiAibWF5YmUiLAogICJtcDQiOiAicHJvYmFibHkiLAogICJtc2UiOiB0cnVlLAogICJ0b3VjaCI6IDAKfQ=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "392ce7657d10ee24873f-1656dabfcb44705246b1",
+          "file": "playback.spec.mjs",
+          "line": 64,
+          "column": 1
+        },
+        {
+          "title": "csol: start, audio signal, seek, pause, quality and release",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "edge",
+              "projectName": "edge",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 40934,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m866\u001b[39m\nReceived: \u001b[31m478\u001b[39m\n\nCall Log:\n- Timeout 20000ms exceeded while waiting on the predicate",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m866\u001b[39m\nReceived: \u001b[31m478\u001b[39m\n\nCall Log:\n- Timeout 20000ms exceeded while waiting on the predicate\n    at D:\\Codex code\\2026-10-31\\github-chengzy0424-czy-https-chengzy0424-github-2\\work\\czy-source\\portfolio-source\\tests\\browser\\playback.spec.mjs:98:74",
+                    "location": {
+                      "file": "D:\\Codex code\\2026-10-31\\github-chengzy0424-czy-https-chengzy0424-github-2\\work\\czy-source\\portfolio-source\\tests\\browser\\playback.spec.mjs",
+                      "column": 74,
+                      "line": 98
+                    },
+                    "snippet": "   96 |  await expect.poll(()=>video.evaluate((v,t)=>v.currentTime-t,target)).toBeGreaterThan(.3);\n   97 |  const last=catalog[id].levels.at(-1);\n>  98 |  await expect.poll(()=>video.evaluate(v=>v.videoHeight),{timeout:20000}).toBe(last.height);\n      |                                                                          ^\n   99 |  await select.selectOption('-1');await hasStarted(video);\n  100 |  expect((await mediaState(video)).volume).toBeCloseTo(.45,2);\n  101 |  await info.attach('playback-evidence',{body:JSON.stringify({id,browser:browser.version(),startupMs,start,continuous,final:await mediaState(video),audit:await page.evaluate(()=>window.__mediaAudit),requestCount:requests.length,seekInput:'HTMLMediaElement.currentTime; not a physical scrub gesture'},null,2),contentType:'application/json'});"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\Codex code\\2026-10-31\\github-chengzy0424-czy-https-chengzy0424-github-2\\work\\czy-source\\portfolio-source\\tests\\browser\\playback.spec.mjs",
+                        "column": 74,
+                        "line": 98
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m866\u001b[39m\nReceived: \u001b[31m478\u001b[39m\n\nCall Log:\n- Timeout 20000ms exceeded while waiting on the predicate\n\n   96 |  await expect.poll(()=>video.evaluate((v,t)=>v.currentTime-t,target)).toBeGreaterThan(.3);\n   97 |  const last=catalog[id].levels.at(-1);\n>  98 |  await expect.poll(()=>video.evaluate(v=>v.videoHeight),{timeout:20000}).toBe(last.height);\n      |                                                                          ^\n   99 |  await select.selectOption('-1');await hasStarted(video);\n  100 |  expect((await mediaState(video)).volume).toBeCloseTo(.45,2);\n  101 |  await info.attach('playback-evidence',{body:JSON.stringify({id,browser:browser.version(),startupMs,start,continuous,final:await mediaState(video),audit:await page.evaluate(()=>window.__mediaAudit),requestCount:requests.length,seekInput:'HTMLMediaElement.currentTime; not a physical scrub gesture'},null,2),contentType:'application/json'});\n    at D:\\Codex code\\2026-10-31\\github-chengzy0424-czy-https-chengzy0424-github-2\\work\\czy-source\\portfolio-source\\tests\\browser\\playback.spec.mjs:98:74"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-31T04:19:45.775Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "environment",
+                      "contentType": "application/json",
+                      "body": "ewogICJwcm9qZWN0IjogImVkZ2UiLAogICJtZWRpYU9yaWdpbiI6ICJodHRwczovL2NoZW5nenkwNDI0LmdpdGh1Yi5pby9jenkiLAogICJ1YSI6ICJNb3ppbGxhLzUuMCAoV2luZG93cyBOVCAxMC4wOyBXaW42NDsgeDY0KSBBcHBsZVdlYktpdC81MzcuMzYgKEtIVE1MLCBsaWtlIEdlY2tvKSBIZWFkbGVzc0Nocm9tZS8xNTYuMC4wLjAgU2FmYXJpLzUzNy4zNiBFZGcvMTU2LjAuMC4wIiwKICAicGxhdGZvcm0iOiAiV2luMzIiLAogICJuYXRpdmVIbHMiOiAibWF5YmUiLAogICJtcDQiOiAicHJvYmFibHkiLAogICJtc2UiOiB0cnVlLAogICJ0b3VjaCI6IDAKfQ=="
+                    },
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\Codex code\\2026-10-31\\github-chengzy0424-czy-https-chengzy0424-github-2\\work\\czy-source\\portfolio-source\\test-results\\playback-csol-start-audio--46dd0-k-pause-quality-and-release-edge\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\Codex code\\2026-10-31\\github-chengzy0424-czy-https-chengzy0424-github-2\\work\\czy-source\\portfolio-source\\test-results\\playback-csol-start-audio--46dd0-k-pause-quality-and-release-edge\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\Codex code\\2026-10-31\\github-chengzy0424-czy-https-chengzy0424-github-2\\work\\czy-source\\portfolio-source\\test-results\\playback-csol-start-audio--46dd0-k-pause-quality-and-release-edge\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\Codex code\\2026-10-31\\github-chengzy0424-czy-https-chengzy0424-github-2\\work\\czy-source\\portfolio-source\\tests\\browser\\playback.spec.mjs",
+                    "column": 74,
+                    "line": 98
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "392ce7657d10ee24873f-a84df1f4bc3c863e134e",
+          "file": "playback.spec.mjs",
+          "line": 78,
+          "column": 21
+        },
+        {
+          "title": "no streaming capability selects MP4 and disables unavailable quality choices",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "edge",
+              "projectName": "edge",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3911,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-31T04:20:31.467Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "environment",
+                      "contentType": "application/json",
+                      "body": "ewogICJwcm9qZWN0IjogImVkZ2UiLAogICJtZWRpYU9yaWdpbiI6ICJodHRwczovL2NoZW5nenkwNDI0LmdpdGh1Yi5pby9jenkiLAogICJ1YSI6ICJNb3ppbGxhLzUuMCAoV2luZG93cyBOVCAxMC4wOyBXaW42NDsgeDY0KSBBcHBsZVdlYktpdC81MzcuMzYgKEtIVE1MLCBsaWtlIEdlY2tvKSBIZWFkbGVzc0Nocm9tZS8xNTYuMC4wLjAgU2FmYXJpLzUzNy4zNiBFZGcvMTU2LjAuMC4wIiwKICAicGxhdGZvcm0iOiAiV2luMzIiLAogICJuYXRpdmVIbHMiOiAiIiwKICAibXA0IjogInByb2JhYmx5IiwKICAibXNlIjogZmFsc2UsCiAgInRvdWNoIjogMAp9"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "392ce7657d10ee24873f-68f310005e8c938f6a70",
+          "file": "playback.spec.mjs",
+          "line": 117,
+          "column": 1
+        },
+        {
+          "title": "first screen and browsing never fetch video; narrow touch layout and dialog return",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 5462,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-31T04:20:36.751Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "environment",
+                      "contentType": "application/json",
+                      "body": "ewogICJwcm9qZWN0IjogImZpcmVmb3giLAogICJtZWRpYU9yaWdpbiI6ICJodHRwczovL2NoZW5nenkwNDI0LmdpdGh1Yi5pby9jenkiLAogICJ1YSI6ICJNb3ppbGxhLzUuMCAoV2luZG93cyBOVCAxMC4wOyBXaW42NDsgeDY0OyBydjoxNTMuMCkgR2Vja28vMjAxMDAxMDEgRmlyZWZveC8xNTMuMCIsCiAgInBsYXRmb3JtIjogIldpbjMyIiwKICAibmF0aXZlSGxzIjogIiIsCiAgIm1wNCI6ICJwcm9iYWJseSIsCiAgIm1zZSI6IHRydWUsCiAgInRvdWNoIjogMAp9"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "392ce7657d10ee24873f-4fb584debfe54bfb25c8",
+          "file": "playback.spec.mjs",
+          "line": 64,
+          "column": 1
+        },
+        {
+          "title": "csol: start, audio signal, seek, pause, quality and release",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 10438,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: > \u001b[32m2\u001b[39m\nReceived:   \u001b[31m1.498666\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: > \u001b[32m2\u001b[39m\nReceived:   \u001b[31m1.498666\u001b[39m\n    at D:\\Codex code\\2026-10-31\\github-chengzy0424-czy-https-chengzy0424-github-2\\work\\czy-source\\portfolio-source\\tests\\browser\\playback.spec.mjs:86:110",
+                    "location": {
+                      "file": "D:\\Codex code\\2026-10-31\\github-chengzy0424-czy-https-chengzy0424-github-2\\work\\czy-source\\portfolio-source\\tests\\browser\\playback.spec.mjs",
+                      "column": 110,
+                      "line": 86
+                    },
+                    "snippet": "  84 |  await expect.poll(()=>page.evaluate(()=>window.__mediaAudit.peak),{timeout:18000}).toBeGreaterThan(.00001);\n  85 |  const start=await mediaState(video);expect(start.muted).toBe(false);expect(start.width).toBeGreaterThan(0);\n> 86 |  await page.waitForTimeout(3000);const continuous=await mediaState(video);expect(continuous.time-start.time).toBeGreaterThan(2);\n     |                                                                                                              ^\n  87 |  // Media API seek is portable; native scrub-bar touch gestures remain device QA.\n  88 |  const target=await video.evaluate(v=>{v.pause();v.volume=.45;v.currentTime=v.duration*.6;return v.currentTime;});\n  89 |  await expect.poll(()=>video.evaluate(v=>!v.seeking&&Math.abs(v.currentTime-v.duration*.6)<.8)).toBe(true);"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\Codex code\\2026-10-31\\github-chengzy0424-czy-https-chengzy0424-github-2\\work\\czy-source\\portfolio-source\\tests\\browser\\playback.spec.mjs",
+                        "column": 110,
+                        "line": 86
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: > \u001b[32m2\u001b[39m\nReceived:   \u001b[31m1.498666\u001b[39m\n\n  84 |  await expect.poll(()=>page.evaluate(()=>window.__mediaAudit.peak),{timeout:18000}).toBeGreaterThan(.00001);\n  85 |  const start=await mediaState(video);expect(start.muted).toBe(false);expect(start.width).toBeGreaterThan(0);\n> 86 |  await page.waitForTimeout(3000);const continuous=await mediaState(video);expect(continuous.time-start.time).toBeGreaterThan(2);\n     |                                                                                                              ^\n  87 |  // Media API seek is portable; native scrub-bar touch gestures remain device QA.\n  88 |  const target=await video.evaluate(v=>{v.pause();v.volume=.45;v.currentTime=v.duration*.6;return v.currentTime;});\n  89 |  await expect.poll(()=>video.evaluate(v=>!v.seeking&&Math.abs(v.currentTime-v.duration*.6)<.8)).toBe(true);\n    at D:\\Codex code\\2026-10-31\\github-chengzy0424-czy-https-chengzy0424-github-2\\work\\czy-source\\portfolio-source\\tests\\browser\\playback.spec.mjs:86:110"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-31T04:20:43.225Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "environment",
+                      "contentType": "application/json",
+                      "body": "ewogICJwcm9qZWN0IjogImZpcmVmb3giLAogICJtZWRpYU9yaWdpbiI6ICJodHRwczovL2NoZW5nenkwNDI0LmdpdGh1Yi5pby9jenkiLAogICJ1YSI6ICJNb3ppbGxhLzUuMCAoV2luZG93cyBOVCAxMC4wOyBXaW42NDsgeDY0OyBydjoxNTMuMCkgR2Vja28vMjAxMDAxMDEgRmlyZWZveC8xNTMuMCIsCiAgInBsYXRmb3JtIjogIldpbjMyIiwKICAibmF0aXZlSGxzIjogIiIsCiAgIm1wNCI6ICJwcm9iYWJseSIsCiAgIm1zZSI6IHRydWUsCiAgInRvdWNoIjogMAp9"
+                    },
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\Codex code\\2026-10-31\\github-chengzy0424-czy-https-chengzy0424-github-2\\work\\czy-source\\portfolio-source\\test-results\\playback-csol-start-audio--46dd0-k-pause-quality-and-release-firefox\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\Codex code\\2026-10-31\\github-chengzy0424-czy-https-chengzy0424-github-2\\work\\czy-source\\portfolio-source\\test-results\\playback-csol-start-audio--46dd0-k-pause-quality-and-release-firefox\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\Codex code\\2026-10-31\\github-chengzy0424-czy-https-chengzy0424-github-2\\work\\czy-source\\portfolio-source\\test-results\\playback-csol-start-audio--46dd0-k-pause-quality-and-release-firefox\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\Codex code\\2026-10-31\\github-chengzy0424-czy-https-chengzy0424-github-2\\work\\czy-source\\portfolio-source\\tests\\browser\\playback.spec.mjs",
+                    "column": 110,
+                    "line": 86
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "392ce7657d10ee24873f-7456ae5438c1ac88cd04",
+          "file": "playback.spec.mjs",
+          "line": 78,
+          "column": 21
+        },
+        {
+          "title": "no streaming capability selects MP4 and disables unavailable quality choices",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 5812,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-31T04:20:54.945Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "environment",
+                      "contentType": "application/json",
+                      "body": "ewogICJwcm9qZWN0IjogImZpcmVmb3giLAogICJtZWRpYU9yaWdpbiI6ICJodHRwczovL2NoZW5nenkwNDI0LmdpdGh1Yi5pby9jenkiLAogICJ1YSI6ICJNb3ppbGxhLzUuMCAoV2luZG93cyBOVCAxMC4wOyBXaW42NDsgeDY0OyBydjoxNTMuMCkgR2Vja28vMjAxMDAxMDEgRmlyZWZveC8xNTMuMCIsCiAgInBsYXRmb3JtIjogIldpbjMyIiwKICAibmF0aXZlSGxzIjogIiIsCiAgIm1wNCI6ICJwcm9iYWJseSIsCiAgIm1zZSI6IGZhbHNlLAogICJ0b3VjaCI6IDAKfQ=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "392ce7657d10ee24873f-7459880b3f54d6f72da0",
+          "file": "playback.spec.mjs",
+          "line": 117,
+          "column": 1
+        },
+        {
+          "title": "first screen and browsing never fetch video; narrow touch layout and dialog return",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3502,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-31T04:21:03.853Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "environment",
+                      "contentType": "application/json",
+                      "body": "ewogICJwcm9qZWN0IjogIndlYmtpdCIsCiAgIm1lZGlhT3JpZ2luIjogImh0dHBzOi8vY2hlbmd6eTA0MjQuZ2l0aHViLmlvL2N6eSIsCiAgInVhIjogIk1vemlsbGEvNS4wIChNYWNpbnRvc2g7IEludGVsIE1hYyBPUyBYIDEwXzE1XzcpIEFwcGxlV2ViS2l0LzYwNS4xLjE1IChLSFRNTCwgbGlrZSBHZWNrbykgVmVyc2lvbi8yNi41IFNhZmFyaS82MDUuMS4xNSIsCiAgInBsYXRmb3JtIjogIldpbjMyIiwKICAibmF0aXZlSGxzIjogIiIsCiAgIm1wNCI6ICJwcm9iYWJseSIsCiAgIm1zZSI6IGZhbHNlLAogICJ0b3VjaCI6IDAKfQ=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "392ce7657d10ee24873f-819739f088bf3d6baf9b",
+          "file": "playback.spec.mjs",
+          "line": 64,
+          "column": 1
+        },
+        {
+          "title": "csol: start, audio signal, seek, pause, quality and release",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 21797,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: > \u001b[32m0.00001\u001b[39m\nReceived:   \u001b[31m0\u001b[39m\n\nCall Log:\n- Timeout 18000ms exceeded while waiting on the predicate",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: > \u001b[32m0.00001\u001b[39m\nReceived:   \u001b[31m0\u001b[39m\n\nCall Log:\n- Timeout 18000ms exceeded while waiting on the predicate\n    at D:\\Codex code\\2026-10-31\\github-chengzy0424-czy-https-chengzy0424-github-2\\work\\czy-source\\portfolio-source\\tests\\browser\\playback.spec.mjs:84:85",
+                    "location": {
+                      "file": "D:\\Codex code\\2026-10-31\\github-chengzy0424-czy-https-chengzy0424-github-2\\work\\czy-source\\portfolio-source\\tests\\browser\\playback.spec.mjs",
+                      "column": 85,
+                      "line": 84
+                    },
+                    "snippet": "  82 |  test.skip(info.project.name==='edge-native-branch'&&!caps.nativeHls,'Edge exposes no native HLS decoder.');\n  83 |  const clicked=Date.now(),video=await openVideo(page,id);await hasStarted(video);const startupMs=Date.now()-clicked;\n> 84 |  await expect.poll(()=>page.evaluate(()=>window.__mediaAudit.peak),{timeout:18000}).toBeGreaterThan(.00001);\n     |                                                                                     ^\n  85 |  const start=await mediaState(video);expect(start.muted).toBe(false);expect(start.width).toBeGreaterThan(0);\n  86 |  await page.waitForTimeout(3000);const continuous=await mediaState(video);expect(continuous.time-start.time).toBeGreaterThan(2);\n  87 |  // Media API seek is portable; native scrub-bar touch gestures remain device QA."
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\Codex code\\2026-10-31\\github-chengzy0424-czy-https-chengzy0424-github-2\\work\\czy-source\\portfolio-source\\tests\\browser\\playback.spec.mjs",
+                        "column": 85,
+                        "line": 84
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: > \u001b[32m0.00001\u001b[39m\nReceived:   \u001b[31m0\u001b[39m\n\nCall Log:\n- Timeout 18000ms exceeded while waiting on the predicate\n\n  82 |  test.skip(info.project.name==='edge-native-branch'&&!caps.nativeHls,'Edge exposes no native HLS decoder.');\n  83 |  const clicked=Date.now(),video=await openVideo(page,id);await hasStarted(video);const startupMs=Date.now()-clicked;\n> 84 |  await expect.poll(()=>page.evaluate(()=>window.__mediaAudit.peak),{timeout:18000}).toBeGreaterThan(.00001);\n     |                                                                                     ^\n  85 |  const start=await mediaState(video);expect(start.muted).toBe(false);expect(start.width).toBeGreaterThan(0);\n  86 |  await page.waitForTimeout(3000);const continuous=await mediaState(video);expect(continuous.time-start.time).toBeGreaterThan(2);\n  87 |  // Media API seek is portable; native scrub-bar touch gestures remain device QA.\n    at D:\\Codex code\\2026-10-31\\github-chengzy0424-czy-https-chengzy0424-github-2\\work\\czy-source\\portfolio-source\\tests\\browser\\playback.spec.mjs:84:85"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-31T04:21:08.070Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "environment",
+                      "contentType": "application/json",
+                      "body": "ewogICJwcm9qZWN0IjogIndlYmtpdCIsCiAgIm1lZGlhT3JpZ2luIjogImh0dHBzOi8vY2hlbmd6eTA0MjQuZ2l0aHViLmlvL2N6eSIsCiAgInVhIjogIk1vemlsbGEvNS4wIChNYWNpbnRvc2g7IEludGVsIE1hYyBPUyBYIDEwXzE1XzcpIEFwcGxlV2ViS2l0LzYwNS4xLjE1IChLSFRNTCwgbGlrZSBHZWNrbykgVmVyc2lvbi8yNi41IFNhZmFyaS82MDUuMS4xNSIsCiAgInBsYXRmb3JtIjogIldpbjMyIiwKICAibmF0aXZlSGxzIjogIiIsCiAgIm1wNCI6ICJwcm9iYWJseSIsCiAgIm1zZSI6IGZhbHNlLAogICJ0b3VjaCI6IDAKfQ=="
+                    },
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\Codex code\\2026-10-31\\github-chengzy0424-czy-https-chengzy0424-github-2\\work\\czy-source\\portfolio-source\\test-results\\playback-csol-start-audio--46dd0-k-pause-quality-and-release-webkit\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\Codex code\\2026-10-31\\github-chengzy0424-czy-https-chengzy0424-github-2\\work\\czy-source\\portfolio-source\\test-results\\playback-csol-start-audio--46dd0-k-pause-quality-and-release-webkit\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\Codex code\\2026-10-31\\github-chengzy0424-czy-https-chengzy0424-github-2\\work\\czy-source\\portfolio-source\\test-results\\playback-csol-start-audio--46dd0-k-pause-quality-and-release-webkit\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\Codex code\\2026-10-31\\github-chengzy0424-czy-https-chengzy0424-github-2\\work\\czy-source\\portfolio-source\\tests\\browser\\playback.spec.mjs",
+                    "column": 85,
+                    "line": 84
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "392ce7657d10ee24873f-892b232316b6e8339eea",
+          "file": "playback.spec.mjs",
+          "line": 78,
+          "column": 21
+        },
+        {
+          "title": "no streaming capability selects MP4 and disables unavailable quality choices",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 12460,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-31T04:21:30.596Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "environment",
+                      "contentType": "application/json",
+                      "body": "ewogICJwcm9qZWN0IjogIndlYmtpdCIsCiAgIm1lZGlhT3JpZ2luIjogImh0dHBzOi8vY2hlbmd6eTA0MjQuZ2l0aHViLmlvL2N6eSIsCiAgInVhIjogIk1vemlsbGEvNS4wIChNYWNpbnRvc2g7IEludGVsIE1hYyBPUyBYIDEwXzE1XzcpIEFwcGxlV2ViS2l0LzYwNS4xLjE1IChLSFRNTCwgbGlrZSBHZWNrbykgVmVyc2lvbi8yNi41IFNhZmFyaS82MDUuMS4xNSIsCiAgInBsYXRmb3JtIjogIldpbjMyIiwKICAibmF0aXZlSGxzIjogIiIsCiAgIm1wNCI6ICJwcm9iYWJseSIsCiAgIm1zZSI6IGZhbHNlLAogICJ0b3VjaCI6IDAKfQ=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "392ce7657d10ee24873f-e98e0e0c0168e593b3bf",
+          "file": "playback.spec.mjs",
+          "line": 117,
+          "column": 1
+        },
+        {
+          "title": "first screen and browsing never fetch video; narrow touch layout and dialog return",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "edge-native-branch",
+              "projectName": "edge-native-branch",
+              "results": [
+                {
+                  "workerIndex": 8,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2111,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-31T04:21:43.542Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "environment",
+                      "contentType": "application/json",
+                      "body": "ewogICJwcm9qZWN0IjogImVkZ2UtbmF0aXZlLWJyYW5jaCIsCiAgIm1lZGlhT3JpZ2luIjogImh0dHBzOi8vY2hlbmd6eTA0MjQuZ2l0aHViLmlvL2N6eSIsCiAgInVhIjogIk1vemlsbGEvNS4wIChXaW5kb3dzIE5UIDEwLjA7IFdpbjY0OyB4NjQpIEFwcGxlV2ViS2l0LzUzNy4zNiAoS0hUTUwsIGxpa2UgR2Vja28pIEhlYWRsZXNzQ2hyb21lLzE1Ni4wLjAuMCBTYWZhcmkvNTM3LjM2IEVkZy8xNTYuMC4wLjAiLAogICJwbGF0Zm9ybSI6ICJXaW4zMiIsCiAgIm5hdGl2ZUhscyI6ICJtYXliZSIsCiAgIm1wNCI6ICJwcm9iYWJseSIsCiAgIm1zZSI6IGZhbHNlLAogICJ0b3VjaCI6IDAKfQ=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "392ce7657d10ee24873f-01437694ee4cd5737a34",
+          "file": "playback.spec.mjs",
+          "line": 64,
+          "column": 1
+        },
+        {
+          "title": "csol: start, audio signal, seek, pause, quality and release",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "edge-native-branch",
+              "projectName": "edge-native-branch",
+              "results": [
+                {
+                  "workerIndex": 8,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 41497,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m\n\nCall Log:\n- Timeout 40000ms exceeded while waiting on the predicate",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m\n\nCall Log:\n- Timeout 40000ms exceeded while waiting on the predicate\n    at hasStarted (D:\\Codex code\\2026-10-31\\github-chengzy0424-czy-https-chengzy0424-github-2\\work\\czy-source\\portfolio-source\\tests\\browser\\playback.spec.mjs:55:137)\n    at D:\\Codex code\\2026-10-31\\github-chengzy0424-czy-https-chengzy0424-github-2\\work\\czy-source\\portfolio-source\\tests\\browser\\playback.spec.mjs:83:64",
+                    "location": {
+                      "file": "D:\\Codex code\\2026-10-31\\github-chengzy0424-czy-https-chengzy0424-github-2\\work\\czy-source\\portfolio-source\\tests\\browser\\playback.spec.mjs",
+                      "column": 137,
+                      "line": 55
+                    },
+                    "snippet": "  53 |  return page.locator('video');\n  54 | }\n> 55 | async function hasStarted(video){await expect.poll(()=>video.evaluate(v=>!v.paused&&v.currentTime>.2&&v.readyState>=2),{timeout:40000}).toBe(true);}\n     |                                                                                                                                         ^\n  56 | async function mediaState(video){return video.evaluate(v=>({time:v.currentTime,paused:v.paused,volume:v.volume,muted:v.muted,src:v.currentSrc,readyState:v.readyState,width:v.videoWidth,height:v.videoHeight,error:v.error?.code||null,decodedAudio:v.webkitAudioDecodedByteCount??null,frames:v.getVideoPlaybackQuality?.().totalVideoFrames??null}));}\n  57 | async function closeAndCheck(page,requests){\n  58 |  await tap(page,page.getByRole('button',{name:'关闭项目详情',exact:true}));await expect(page.locator('video')).toHaveCount(0);"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\Codex code\\2026-10-31\\github-chengzy0424-czy-https-chengzy0424-github-2\\work\\czy-source\\portfolio-source\\tests\\browser\\playback.spec.mjs",
+                        "column": 137,
+                        "line": 55
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m\n\nCall Log:\n- Timeout 40000ms exceeded while waiting on the predicate\n\n  53 |  return page.locator('video');\n  54 | }\n> 55 | async function hasStarted(video){await expect.poll(()=>video.evaluate(v=>!v.paused&&v.currentTime>.2&&v.readyState>=2),{timeout:40000}).toBe(true);}\n     |                                                                                                                                         ^\n  56 | async function mediaState(video){return video.evaluate(v=>({time:v.currentTime,paused:v.paused,volume:v.volume,muted:v.muted,src:v.currentSrc,readyState:v.readyState,width:v.videoWidth,height:v.videoHeight,error:v.error?.code||null,decodedAudio:v.webkitAudioDecodedByteCount??null,frames:v.getVideoPlaybackQuality?.().totalVideoFrames??null}));}\n  57 | async function closeAndCheck(page,requests){\n  58 |  await tap(page,page.getByRole('button',{name:'关闭项目详情',exact:true}));await expect(page.locator('video')).toHaveCount(0);\n    at hasStarted (D:\\Codex code\\2026-10-31\\github-chengzy0424-czy-https-chengzy0424-github-2\\work\\czy-source\\portfolio-source\\tests\\browser\\playback.spec.mjs:55:137)\n    at D:\\Codex code\\2026-10-31\\github-chengzy0424-czy-https-chengzy0424-github-2\\work\\czy-source\\portfolio-source\\tests\\browser\\playback.spec.mjs:83:64"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-31T04:21:45.844Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "environment",
+                      "contentType": "application/json",
+                      "body": "ewogICJwcm9qZWN0IjogImVkZ2UtbmF0aXZlLWJyYW5jaCIsCiAgIm1lZGlhT3JpZ2luIjogImh0dHBzOi8vY2hlbmd6eTA0MjQuZ2l0aHViLmlvL2N6eSIsCiAgInVhIjogIk1vemlsbGEvNS4wIChXaW5kb3dzIE5UIDEwLjA7IFdpbjY0OyB4NjQpIEFwcGxlV2ViS2l0LzUzNy4zNiAoS0hUTUwsIGxpa2UgR2Vja28pIEhlYWRsZXNzQ2hyb21lLzE1Ni4wLjAuMCBTYWZhcmkvNTM3LjM2IEVkZy8xNTYuMC4wLjAiLAogICJwbGF0Zm9ybSI6ICJXaW4zMiIsCiAgIm5hdGl2ZUhscyI6ICJtYXliZSIsCiAgIm1wNCI6ICJwcm9iYWJseSIsCiAgIm1zZSI6IGZhbHNlLAogICJ0b3VjaCI6IDAKfQ=="
+                    },
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\Codex code\\2026-10-31\\github-chengzy0424-czy-https-chengzy0424-github-2\\work\\czy-source\\portfolio-source\\test-results\\playback-csol-start-audio--46dd0-k-pause-quality-and-release-edge-native-branch\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\Codex code\\2026-10-31\\github-chengzy0424-czy-https-chengzy0424-github-2\\work\\czy-source\\portfolio-source\\test-results\\playback-csol-start-audio--46dd0-k-pause-quality-and-release-edge-native-branch\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\Codex code\\2026-10-31\\github-chengzy0424-czy-https-chengzy0424-github-2\\work\\czy-source\\portfolio-source\\test-results\\playback-csol-start-audio--46dd0-k-pause-quality-and-release-edge-native-branch\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\Codex code\\2026-10-31\\github-chengzy0424-czy-https-chengzy0424-github-2\\work\\czy-source\\portfolio-source\\tests\\browser\\playback.spec.mjs",
+                    "column": 137,
+                    "line": 55
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "392ce7657d10ee24873f-57ed44e56612564a7bc9",
+          "file": "playback.spec.mjs",
+          "line": 78,
+          "column": 21
+        },
+        {
+          "title": "no streaming capability selects MP4 and disables unavailable quality choices",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "edge-native-branch",
+              "projectName": "edge-native-branch",
+              "results": [
+                {
+                  "workerIndex": 9,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3880,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-31T04:22:28.719Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "environment",
+                      "contentType": "application/json",
+                      "body": "ewogICJwcm9qZWN0IjogImVkZ2UtbmF0aXZlLWJyYW5jaCIsCiAgIm1lZGlhT3JpZ2luIjogImh0dHBzOi8vY2hlbmd6eTA0MjQuZ2l0aHViLmlvL2N6eSIsCiAgInVhIjogIk1vemlsbGEvNS4wIChXaW5kb3dzIE5UIDEwLjA7IFdpbjY0OyB4NjQpIEFwcGxlV2ViS2l0LzUzNy4zNiAoS0hUTUwsIGxpa2UgR2Vja28pIEhlYWRsZXNzQ2hyb21lLzE1Ni4wLjAuMCBTYWZhcmkvNTM3LjM2IEVkZy8xNTYuMC4wLjAiLAogICJwbGF0Zm9ybSI6ICJXaW4zMiIsCiAgIm5hdGl2ZUhscyI6ICIiLAogICJtcDQiOiAicHJvYmFibHkiLAogICJtc2UiOiBmYWxzZSwKICAidG91Y2giOiAwCn0="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "392ce7657d10ee24873f-b0019f1a70fa2f957113",
+          "file": "playback.spec.mjs",
+          "line": 117,
+          "column": 1
+        },
+        {
+          "title": "first screen and browsing never fetch video; narrow touch layout and dialog return",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "edge-touch",
+              "projectName": "edge-touch",
+              "results": [
+                {
+                  "workerIndex": 10,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2078,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-31T04:22:33.382Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "environment",
+                      "contentType": "application/json",
+                      "body": "ewogICJwcm9qZWN0IjogImVkZ2UtdG91Y2giLAogICJtZWRpYU9yaWdpbiI6ICJodHRwczovL2NoZW5nenkwNDI0LmdpdGh1Yi5pby9jenkiLAogICJ1YSI6ICJNb3ppbGxhLzUuMCAoV2luZG93cyBOVCAxMC4wOyBXaW42NDsgeDY0KSBBcHBsZVdlYktpdC81MzcuMzYgKEtIVE1MLCBsaWtlIEdlY2tvKSBIZWFkbGVzc0Nocm9tZS8xNTYuMC4wLjAgU2FmYXJpLzUzNy4zNiBFZGcvMTU2LjAuMC4wIiwKICAicGxhdGZvcm0iOiAiV2luMzIiLAogICJuYXRpdmVIbHMiOiAibWF5YmUiLAogICJtcDQiOiAicHJvYmFibHkiLAogICJtc2UiOiB0cnVlLAogICJ0b3VjaCI6IDEKfQ=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "392ce7657d10ee24873f-9812c7628416e8e90179",
+          "file": "playback.spec.mjs",
+          "line": 64,
+          "column": 1
+        },
+        {
+          "title": "csol: start, audio signal, seek, pause, quality and release",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "edge-touch",
+              "projectName": "edge-touch",
+              "results": [
+                {
+                  "workerIndex": 10,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 34081,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m866\u001b[39m\nReceived: \u001b[31m478\u001b[39m\n\nCall Log:\n- Timeout 20000ms exceeded while waiting on the predicate",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m866\u001b[39m\nReceived: \u001b[31m478\u001b[39m\n\nCall Log:\n- Timeout 20000ms exceeded while waiting on the predicate\n    at D:\\Codex code\\2026-10-31\\github-chengzy0424-czy-https-chengzy0424-github-2\\work\\czy-source\\portfolio-source\\tests\\browser\\playback.spec.mjs:98:74",
+                    "location": {
+                      "file": "D:\\Codex code\\2026-10-31\\github-chengzy0424-czy-https-chengzy0424-github-2\\work\\czy-source\\portfolio-source\\tests\\browser\\playback.spec.mjs",
+                      "column": 74,
+                      "line": 98
+                    },
+                    "snippet": "   96 |  await expect.poll(()=>video.evaluate((v,t)=>v.currentTime-t,target)).toBeGreaterThan(.3);\n   97 |  const last=catalog[id].levels.at(-1);\n>  98 |  await expect.poll(()=>video.evaluate(v=>v.videoHeight),{timeout:20000}).toBe(last.height);\n      |                                                                          ^\n   99 |  await select.selectOption('-1');await hasStarted(video);\n  100 |  expect((await mediaState(video)).volume).toBeCloseTo(.45,2);\n  101 |  await info.attach('playback-evidence',{body:JSON.stringify({id,browser:browser.version(),startupMs,start,continuous,final:await mediaState(video),audit:await page.evaluate(()=>window.__mediaAudit),requestCount:requests.length,seekInput:'HTMLMediaElement.currentTime; not a physical scrub gesture'},null,2),contentType:'application/json'});"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\Codex code\\2026-10-31\\github-chengzy0424-czy-https-chengzy0424-github-2\\work\\czy-source\\portfolio-source\\tests\\browser\\playback.spec.mjs",
+                        "column": 74,
+                        "line": 98
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m866\u001b[39m\nReceived: \u001b[31m478\u001b[39m\n\nCall Log:\n- Timeout 20000ms exceeded while waiting on the predicate\n\n   96 |  await expect.poll(()=>video.evaluate((v,t)=>v.currentTime-t,target)).toBeGreaterThan(.3);\n   97 |  const last=catalog[id].levels.at(-1);\n>  98 |  await expect.poll(()=>video.evaluate(v=>v.videoHeight),{timeout:20000}).toBe(last.height);\n      |                                                                          ^\n   99 |  await select.selectOption('-1');await hasStarted(video);\n  100 |  expect((await mediaState(video)).volume).toBeCloseTo(.45,2);\n  101 |  await info.attach('playback-evidence',{body:JSON.stringify({id,browser:browser.version(),startupMs,start,continuous,final:await mediaState(video),audit:await page.evaluate(()=>window.__mediaAudit),requestCount:requests.length,seekInput:'HTMLMediaElement.currentTime; not a physical scrub gesture'},null,2),contentType:'application/json'});\n    at D:\\Codex code\\2026-10-31\\github-chengzy0424-czy-https-chengzy0424-github-2\\work\\czy-source\\portfolio-source\\tests\\browser\\playback.spec.mjs:98:74"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-31T04:22:35.647Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "environment",
+                      "contentType": "application/json",
+                      "body": "ewogICJwcm9qZWN0IjogImVkZ2UtdG91Y2giLAogICJtZWRpYU9yaWdpbiI6ICJodHRwczovL2NoZW5nenkwNDI0LmdpdGh1Yi5pby9jenkiLAogICJ1YSI6ICJNb3ppbGxhLzUuMCAoV2luZG93cyBOVCAxMC4wOyBXaW42NDsgeDY0KSBBcHBsZVdlYktpdC81MzcuMzYgKEtIVE1MLCBsaWtlIEdlY2tvKSBIZWFkbGVzc0Nocm9tZS8xNTYuMC4wLjAgU2FmYXJpLzUzNy4zNiBFZGcvMTU2LjAuMC4wIiwKICAicGxhdGZvcm0iOiAiV2luMzIiLAogICJuYXRpdmVIbHMiOiAibWF5YmUiLAogICJtcDQiOiAicHJvYmFibHkiLAogICJtc2UiOiB0cnVlLAogICJ0b3VjaCI6IDEKfQ=="
+                    },
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\Codex code\\2026-10-31\\github-chengzy0424-czy-https-chengzy0424-github-2\\work\\czy-source\\portfolio-source\\test-results\\playback-csol-start-audio--46dd0-k-pause-quality-and-release-edge-touch\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\Codex code\\2026-10-31\\github-chengzy0424-czy-https-chengzy0424-github-2\\work\\czy-source\\portfolio-source\\test-results\\playback-csol-start-audio--46dd0-k-pause-quality-and-release-edge-touch\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\Codex code\\2026-10-31\\github-chengzy0424-czy-https-chengzy0424-github-2\\work\\czy-source\\portfolio-source\\test-results\\playback-csol-start-audio--46dd0-k-pause-quality-and-release-edge-touch\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\Codex code\\2026-10-31\\github-chengzy0424-czy-https-chengzy0424-github-2\\work\\czy-source\\portfolio-source\\tests\\browser\\playback.spec.mjs",
+                    "column": 74,
+                    "line": 98
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "392ce7657d10ee24873f-4e06e9ae31013e6d026c",
+          "file": "playback.spec.mjs",
+          "line": 78,
+          "column": 21
+        },
+        {
+          "title": "no streaming capability selects MP4 and disables unavailable quality choices",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "edge-touch",
+              "projectName": "edge-touch",
+              "results": [
+                {
+                  "workerIndex": 11,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 14255,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-31T04:23:11.564Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "environment",
+                      "contentType": "application/json",
+                      "body": "ewogICJwcm9qZWN0IjogImVkZ2UtdG91Y2giLAogICJtZWRpYU9yaWdpbiI6ICJodHRwczovL2NoZW5nenkwNDI0LmdpdGh1Yi5pby9jenkiLAogICJ1YSI6ICJNb3ppbGxhLzUuMCAoV2luZG93cyBOVCAxMC4wOyBXaW42NDsgeDY0KSBBcHBsZVdlYktpdC81MzcuMzYgKEtIVE1MLCBsaWtlIEdlY2tvKSBIZWFkbGVzc0Nocm9tZS8xNTYuMC4wLjAgU2FmYXJpLzUzNy4zNiBFZGcvMTU2LjAuMC4wIiwKICAicGxhdGZvcm0iOiAiV2luMzIiLAogICJuYXRpdmVIbHMiOiAiIiwKICAibXA0IjogInByb2JhYmx5IiwKICAibXNlIjogZmFsc2UsCiAgInRvdWNoIjogMQp9"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "392ce7657d10ee24873f-1f1418fdac1a413713ff",
+          "file": "playback.spec.mjs",
+          "line": 117,
+          "column": 1
+        },
+        {
+          "title": "first screen and browsing never fetch video; narrow touch layout and dialog return",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-touch",
+              "projectName": "webkit-touch",
+              "results": [
+                {
+                  "workerIndex": 12,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2387,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-31T04:23:26.698Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "environment",
+                      "contentType": "application/json",
+                      "body": "ewogICJwcm9qZWN0IjogIndlYmtpdC10b3VjaCIsCiAgIm1lZGlhT3JpZ2luIjogImh0dHBzOi8vY2hlbmd6eTA0MjQuZ2l0aHViLmlvL2N6eSIsCiAgInVhIjogIk1vemlsbGEvNS4wIChNYWNpbnRvc2g7IEludGVsIE1hYyBPUyBYIDEwXzE1XzcpIEFwcGxlV2ViS2l0LzYwNS4xLjE1IChLSFRNTCwgbGlrZSBHZWNrbykgVmVyc2lvbi8yNi41IFNhZmFyaS82MDUuMS4xNSIsCiAgInBsYXRmb3JtIjogIldpbjMyIiwKICAibmF0aXZlSGxzIjogIiIsCiAgIm1wNCI6ICJwcm9iYWJseSIsCiAgIm1zZSI6IGZhbHNlLAogICJ0b3VjaCI6IDAKfQ=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "392ce7657d10ee24873f-9083869469952830bc49",
+          "file": "playback.spec.mjs",
+          "line": 64,
+          "column": 1
+        },
+        {
+          "title": "csol: start, audio signal, seek, pause, quality and release",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-touch",
+              "projectName": "webkit-touch",
+              "results": [
+                {
+                  "workerIndex": 12,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 20535,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: > \u001b[32m0.00001\u001b[39m\nReceived:   \u001b[31m0\u001b[39m\n\nCall Log:\n- Timeout 18000ms exceeded while waiting on the predicate",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: > \u001b[32m0.00001\u001b[39m\nReceived:   \u001b[31m0\u001b[39m\n\nCall Log:\n- Timeout 18000ms exceeded while waiting on the predicate\n    at D:\\Codex code\\2026-10-31\\github-chengzy0424-czy-https-chengzy0424-github-2\\work\\czy-source\\portfolio-source\\tests\\browser\\playback.spec.mjs:84:85",
+                    "location": {
+                      "file": "D:\\Codex code\\2026-10-31\\github-chengzy0424-czy-https-chengzy0424-github-2\\work\\czy-source\\portfolio-source\\tests\\browser\\playback.spec.mjs",
+                      "column": 85,
+                      "line": 84
+                    },
+                    "snippet": "  82 |  test.skip(info.project.name==='edge-native-branch'&&!caps.nativeHls,'Edge exposes no native HLS decoder.');\n  83 |  const clicked=Date.now(),video=await openVideo(page,id);await hasStarted(video);const startupMs=Date.now()-clicked;\n> 84 |  await expect.poll(()=>page.evaluate(()=>window.__mediaAudit.peak),{timeout:18000}).toBeGreaterThan(.00001);\n     |                                                                                     ^\n  85 |  const start=await mediaState(video);expect(start.muted).toBe(false);expect(start.width).toBeGreaterThan(0);\n  86 |  await page.waitForTimeout(3000);const continuous=await mediaState(video);expect(continuous.time-start.time).toBeGreaterThan(2);\n  87 |  // Media API seek is portable; native scrub-bar touch gestures remain device QA."
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\Codex code\\2026-10-31\\github-chengzy0424-czy-https-chengzy0424-github-2\\work\\czy-source\\portfolio-source\\tests\\browser\\playback.spec.mjs",
+                        "column": 85,
+                        "line": 84
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: > \u001b[32m0.00001\u001b[39m\nReceived:   \u001b[31m0\u001b[39m\n\nCall Log:\n- Timeout 18000ms exceeded while waiting on the predicate\n\n  82 |  test.skip(info.project.name==='edge-native-branch'&&!caps.nativeHls,'Edge exposes no native HLS decoder.');\n  83 |  const clicked=Date.now(),video=await openVideo(page,id);await hasStarted(video);const startupMs=Date.now()-clicked;\n> 84 |  await expect.poll(()=>page.evaluate(()=>window.__mediaAudit.peak),{timeout:18000}).toBeGreaterThan(.00001);\n     |                                                                                     ^\n  85 |  const start=await mediaState(video);expect(start.muted).toBe(false);expect(start.width).toBeGreaterThan(0);\n  86 |  await page.waitForTimeout(3000);const continuous=await mediaState(video);expect(continuous.time-start.time).toBeGreaterThan(2);\n  87 |  // Media API seek is portable; native scrub-bar touch gestures remain device QA.\n    at D:\\Codex code\\2026-10-31\\github-chengzy0424-czy-https-chengzy0424-github-2\\work\\czy-source\\portfolio-source\\tests\\browser\\playback.spec.mjs:84:85"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-31T04:23:29.157Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "environment",
+                      "contentType": "application/json",
+                      "body": "ewogICJwcm9qZWN0IjogIndlYmtpdC10b3VjaCIsCiAgIm1lZGlhT3JpZ2luIjogImh0dHBzOi8vY2hlbmd6eTA0MjQuZ2l0aHViLmlvL2N6eSIsCiAgInVhIjogIk1vemlsbGEvNS4wIChNYWNpbnRvc2g7IEludGVsIE1hYyBPUyBYIDEwXzE1XzcpIEFwcGxlV2ViS2l0LzYwNS4xLjE1IChLSFRNTCwgbGlrZSBHZWNrbykgVmVyc2lvbi8yNi41IFNhZmFyaS82MDUuMS4xNSIsCiAgInBsYXRmb3JtIjogIldpbjMyIiwKICAibmF0aXZlSGxzIjogIiIsCiAgIm1wNCI6ICJwcm9iYWJseSIsCiAgIm1zZSI6IGZhbHNlLAogICJ0b3VjaCI6IDAKfQ=="
+                    },
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\Codex code\\2026-10-31\\github-chengzy0424-czy-https-chengzy0424-github-2\\work\\czy-source\\portfolio-source\\test-results\\playback-csol-start-audio--46dd0-k-pause-quality-and-release-webkit-touch\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\Codex code\\2026-10-31\\github-chengzy0424-czy-https-chengzy0424-github-2\\work\\czy-source\\portfolio-source\\test-results\\playback-csol-start-audio--46dd0-k-pause-quality-and-release-webkit-touch\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\Codex code\\2026-10-31\\github-chengzy0424-czy-https-chengzy0424-github-2\\work\\czy-source\\portfolio-source\\test-results\\playback-csol-start-audio--46dd0-k-pause-quality-and-release-webkit-touch\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\Codex code\\2026-10-31\\github-chengzy0424-czy-https-chengzy0424-github-2\\work\\czy-source\\portfolio-source\\tests\\browser\\playback.spec.mjs",
+                    "column": 85,
+                    "line": 84
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "392ce7657d10ee24873f-eacb02810a57d1a7c638",
+          "file": "playback.spec.mjs",
+          "line": 78,
+          "column": 21
+        },
+        {
+          "title": "no streaming capability selects MP4 and disables unavailable quality choices",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-touch",
+              "projectName": "webkit-touch",
+              "results": [
+                {
+                  "workerIndex": 13,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 9382,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-31T04:23:50.309Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "environment",
+                      "contentType": "application/json",
+                      "body": "ewogICJwcm9qZWN0IjogIndlYmtpdC10b3VjaCIsCiAgIm1lZGlhT3JpZ2luIjogImh0dHBzOi8vY2hlbmd6eTA0MjQuZ2l0aHViLmlvL2N6eSIsCiAgInVhIjogIk1vemlsbGEvNS4wIChNYWNpbnRvc2g7IEludGVsIE1hYyBPUyBYIDEwXzE1XzcpIEFwcGxlV2ViS2l0LzYwNS4xLjE1IChLSFRNTCwgbGlrZSBHZWNrbykgVmVyc2lvbi8yNi41IFNhZmFyaS82MDUuMS4xNSIsCiAgInBsYXRmb3JtIjogIldpbjMyIiwKICAibmF0aXZlSGxzIjogIiIsCiAgIm1wNCI6ICJwcm9iYWJseSIsCiAgIm1zZSI6IGZhbHNlLAogICJ0b3VjaCI6IDAKfQ=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "392ce7657d10ee24873f-9cc068d49f24c57de79d",
+          "file": "playback.spec.mjs",
+          "line": 117,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-31T04:18:32.073Z",
+    "duration": 327925.42600000004,
+    "expected": 14,
+    "skipped": 0,
+    "unexpected": 7,
+    "flaky": 0
+  }
+}

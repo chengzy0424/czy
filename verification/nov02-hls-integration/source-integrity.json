@@ -1,0 +1,48 @@
+{
+  "baseline": "5ae553a73e9354e7230bef8ccd82f1efc94b62b0",
+  "testedCandidate": "292e4bd4496735df728f2dbc397df0f83447a538",
+  "tree": "952623309ea78c3f3d13d26f3698c95b70e78321",
+  "unchangedSourceFiles": [
+    "portfolio-source/index.html",
+    "portfolio-source/src/lab-environment-data.js",
+    "portfolio-source/src/main.js",
+    "portfolio-source/src/portfolio.css",
+    "portfolio-source/src/space-forms.js",
+    "portfolio-source/src/space-lab-surface.js",
+    "portfolio-source/src/space-lab.js",
+    "portfolio-source/src/space-machine.js",
+    "portfolio-source/src/space-objects.js",
+    "portfolio-source/src/space-path.js",
+    "portfolio-source/src/space-plumes.js",
+    "portfolio-source/src/space-water.js",
+    "portfolio-source/src/space.css",
+    "portfolio-source/src/space.js",
+    "portfolio-source/src/stream-catalog.json",
+    "portfolio-source/src/stream-startup.json",
+    "portfolio-source/src/style.css",
+    "portfolio-source/src/weave-math.js",
+    "portfolio-source/src/weave.js"
+  ],
+  "changedSourceFiles": [
+    "portfolio-source/src/portfolio.js",
+    "portfolio-source/src/stream-player.js"
+  ],
+  "sha256": {
+    "index.html": "a719a0d2cc6c7224ca77d07c1f4475f39ebfec998d9653aa762e0649b8702c6f",
+    "assets/hls.light-ZsiUf9Hl.js": "1079e24211f83a277b8213ee3ec6a024432660a28e0f3b5b9e74e1bafae86bc7",
+    "assets/index-BM4z3J61.js": "8b89735ed20e37060acafacd65c0e3b0d4cf032fbc6c4890f1786408ea829e74",
+    "assets/index-BcffEIWe.css": "8559480cefc0af884bd3c52cb2cc5eeb67812eb353e767a16148cd72d2ed12f0",
+    "assets/lab-environment-data-_JpzV9hk.js": "842ebc529ecb3ffd6a97d4a8b1a797cba83c8683f2bc3c8a1f42da5e79e5960d",
+    "assets/space-LnrVby_c.js": "367365bf6c89b0fff37667c3b3f8bc822c2bef989df6fdc4af7d59bfd1ea8381",
+    "assets/stream-startup-BlZEzGcy.js": "a8ab8bd0e80834d19d9cf2a9b1bfd807596e6c9f4789116b3b62cd2070ec42d3",
+    "assets/three-DfROk9v3.js": "8d5eff547ec57d9571eb7deaf5fbc981d49e3957e4a3e1111f01386d33c1fbf8",
+    "portfolio-source/src/portfolio.js": "09313d27d38e9378b534841451509d1d9a398d2a4523c4614b7d3284f272f9a2",
+    "portfolio-source/src/stream-player.js": "2d6df46722eabef75dbfd72938310ce4ac9c10798397c2d3608c47b9d9fc4e4d"
+  },
+  "testedPullRequestMerge": "7327f05f3d4de5c647c927805a62360189e3a8f8",
+  "fixSource": "f8d3687ffa9e4d5935935c3d63e5877462cb59c4",
+  "playerFilesMatchPR2": {
+    "portfolio-source/src/portfolio.js": true,
+    "portfolio-source/src/stream-player.js": true
+  }
+}

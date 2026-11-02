@@ -1,0 +1,236 @@
+Listing tests:
+  [chromium] › controls.spec.mjs:3:1 › Chromium native controls accept pause, scrub drag and resume
+  [chromium] › gallery.spec.mjs:8:1 › seven rotating gallery boards open the right project and restore the scroll journey
+  [chromium] › native.spec.mjs:2:1 › native retry keeps the selected manifest; rapid paused changes, MP4 and destroy
+  [chromium] › playback.spec.mjs:97:1 › first screen and browsing never fetch video; narrow touch layout and dialog return
+  [chromium] › playback.spec.mjs:111:21 › tower: start, audio evidence, seek, pause, quality and release
+  [chromium] › playback.spec.mjs:111:21 › ash: start, audio evidence, seek, pause, quality and release
+  [chromium] › playback.spec.mjs:111:21 › csol: start, audio evidence, seek, pause, quality and release
+  [chromium] › playback.spec.mjs:111:21 › mines: start, audio evidence, seek, pause, quality and release
+  [chromium] › playback.spec.mjs:111:21 › murphy: start, audio evidence, seek, pause, quality and release
+  [chromium] › playback.spec.mjs:111:21 › hyrum: start, audio evidence, seek, pause, quality and release
+  [chromium] › playback.spec.mjs:111:21 › familiar: start, audio evidence, seek, pause, quality and release
+  [chromium] › playback.spec.mjs:111:21 › town: start, audio evidence, seek, pause, quality and release
+  [chromium] › playback.spec.mjs:111:21 › arc: start, audio evidence, seek, pause, quality and release
+  [chromium] › playback.spec.mjs:141:1 › failed segments expose MP4 recovery and release it on close
+  [chromium] › playback.spec.mjs:155:1 › audio decoder or PCM evidence is available
+  [chromium] › playback.spec.mjs:166:21 › tower: no streaming capability selects MP4 and disables unavailable quality choices
+  [chromium] › playback.spec.mjs:166:21 › ash: no streaming capability selects MP4 and disables unavailable quality choices
+  [chromium] › playback.spec.mjs:166:21 › csol: no streaming capability selects MP4 and disables unavailable quality choices
+  [chromium] › playback.spec.mjs:166:21 › mines: no streaming capability selects MP4 and disables unavailable quality choices
+  [chromium] › playback.spec.mjs:166:21 › murphy: no streaming capability selects MP4 and disables unavailable quality choices
+  [chromium] › playback.spec.mjs:166:21 › hyrum: no streaming capability selects MP4 and disables unavailable quality choices
+  [chromium] › playback.spec.mjs:166:21 › familiar: no streaming capability selects MP4 and disables unavailable quality choices
+  [chromium] › playback.spec.mjs:166:21 › town: no streaming capability selects MP4 and disables unavailable quality choices
+  [chromium] › playback.spec.mjs:166:21 › arc: no streaming capability selects MP4 and disables unavailable quality choices
+  [chromium] › playback.spec.mjs:183:1 › close during startup and return-to-list both release the current video
+  [chromium] › playback.spec.mjs:192:1 › 3D scene pauses behind the dialog and resumes after closing
+  [chromium-touch] › controls.spec.mjs:3:1 › Chromium native controls accept pause, scrub drag and resume
+  [chromium-touch] › gallery.spec.mjs:8:1 › seven rotating gallery boards open the right project and restore the scroll journey
+  [chromium-touch] › native.spec.mjs:2:1 › native retry keeps the selected manifest; rapid paused changes, MP4 and destroy
+  [chromium-touch] › playback.spec.mjs:97:1 › first screen and browsing never fetch video; narrow touch layout and dialog return
+  [chromium-touch] › playback.spec.mjs:111:21 › tower: start, audio evidence, seek, pause, quality and release
+  [chromium-touch] › playback.spec.mjs:111:21 › ash: start, audio evidence, seek, pause, quality and release
+  [chromium-touch] › playback.spec.mjs:111:21 › csol: start, audio evidence, seek, pause, quality and release
+  [chromium-touch] › playback.spec.mjs:111:21 › mines: start, audio evidence, seek, pause, quality and release
+  [chromium-touch] › playback.spec.mjs:111:21 › murphy: start, audio evidence, seek, pause, quality and release
+  [chromium-touch] › playback.spec.mjs:111:21 › hyrum: start, audio evidence, seek, pause, quality and release
+  [chromium-touch] › playback.spec.mjs:111:21 › familiar: start, audio evidence, seek, pause, quality and release
+  [chromium-touch] › playback.spec.mjs:111:21 › town: start, audio evidence, seek, pause, quality and release
+  [chromium-touch] › playback.spec.mjs:111:21 › arc: start, audio evidence, seek, pause, quality and release
+  [chromium-touch] › playback.spec.mjs:141:1 › failed segments expose MP4 recovery and release it on close
+  [chromium-touch] › playback.spec.mjs:155:1 › audio decoder or PCM evidence is available
+  [chromium-touch] › playback.spec.mjs:166:21 › tower: no streaming capability selects MP4 and disables unavailable quality choices
+  [chromium-touch] › playback.spec.mjs:166:21 › ash: no streaming capability selects MP4 and disables unavailable quality choices
+  [chromium-touch] › playback.spec.mjs:166:21 › csol: no streaming capability selects MP4 and disables unavailable quality choices
+  [chromium-touch] › playback.spec.mjs:166:21 › mines: no streaming capability selects MP4 and disables unavailable quality choices
+  [chromium-touch] › playback.spec.mjs:166:21 › murphy: no streaming capability selects MP4 and disables unavailable quality choices
+  [chromium-touch] › playback.spec.mjs:166:21 › hyrum: no streaming capability selects MP4 and disables unavailable quality choices
+  [chromium-touch] › playback.spec.mjs:166:21 › familiar: no streaming capability selects MP4 and disables unavailable quality choices
+  [chromium-touch] › playback.spec.mjs:166:21 › town: no streaming capability selects MP4 and disables unavailable quality choices
+  [chromium-touch] › playback.spec.mjs:166:21 › arc: no streaming capability selects MP4 and disables unavailable quality choices
+  [chromium-touch] › playback.spec.mjs:183:1 › close during startup and return-to-list both release the current video
+  [chromium-touch] › playback.spec.mjs:192:1 › 3D scene pauses behind the dialog and resumes after closing
+  [chrome] › controls.spec.mjs:3:1 › Chromium native controls accept pause, scrub drag and resume
+  [chrome] › gallery.spec.mjs:8:1 › seven rotating gallery boards open the right project and restore the scroll journey
+  [chrome] › native.spec.mjs:2:1 › native retry keeps the selected manifest; rapid paused changes, MP4 and destroy
+  [chrome] › playback.spec.mjs:97:1 › first screen and browsing never fetch video; narrow touch layout and dialog return
+  [chrome] › playback.spec.mjs:111:21 › tower: start, audio evidence, seek, pause, quality and release
+  [chrome] › playback.spec.mjs:111:21 › ash: start, audio evidence, seek, pause, quality and release
+  [chrome] › playback.spec.mjs:111:21 › csol: start, audio evidence, seek, pause, quality and release
+  [chrome] › playback.spec.mjs:111:21 › mines: start, audio evidence, seek, pause, quality and release
+  [chrome] › playback.spec.mjs:111:21 › murphy: start, audio evidence, seek, pause, quality and release
+  [chrome] › playback.spec.mjs:111:21 › hyrum: start, audio evidence, seek, pause, quality and release
+  [chrome] › playback.spec.mjs:111:21 › familiar: start, audio evidence, seek, pause, quality and release
+  [chrome] › playback.spec.mjs:111:21 › town: start, audio evidence, seek, pause, quality and release
+  [chrome] › playback.spec.mjs:111:21 › arc: start, audio evidence, seek, pause, quality and release
+  [chrome] › playback.spec.mjs:141:1 › failed segments expose MP4 recovery and release it on close
+  [chrome] › playback.spec.mjs:155:1 › audio decoder or PCM evidence is available
+  [chrome] › playback.spec.mjs:166:21 › tower: no streaming capability selects MP4 and disables unavailable quality choices
+  [chrome] › playback.spec.mjs:166:21 › ash: no streaming capability selects MP4 and disables unavailable quality choices
+  [chrome] › playback.spec.mjs:166:21 › csol: no streaming capability selects MP4 and disables unavailable quality choices
+  [chrome] › playback.spec.mjs:166:21 › mines: no streaming capability selects MP4 and disables unavailable quality choices
+  [chrome] › playback.spec.mjs:166:21 › murphy: no streaming capability selects MP4 and disables unavailable quality choices
+  [chrome] › playback.spec.mjs:166:21 › hyrum: no streaming capability selects MP4 and disables unavailable quality choices
+  [chrome] › playback.spec.mjs:166:21 › familiar: no streaming capability selects MP4 and disables unavailable quality choices
+  [chrome] › playback.spec.mjs:166:21 › town: no streaming capability selects MP4 and disables unavailable quality choices
+  [chrome] › playback.spec.mjs:166:21 › arc: no streaming capability selects MP4 and disables unavailable quality choices
+  [chrome] › playback.spec.mjs:183:1 › close during startup and return-to-list both release the current video
+  [chrome] › playback.spec.mjs:192:1 › 3D scene pauses behind the dialog and resumes after closing
+  [edge] › controls.spec.mjs:3:1 › Chromium native controls accept pause, scrub drag and resume
+  [edge] › gallery.spec.mjs:8:1 › seven rotating gallery boards open the right project and restore the scroll journey
+  [edge] › native.spec.mjs:2:1 › native retry keeps the selected manifest; rapid paused changes, MP4 and destroy
+  [edge] › playback.spec.mjs:97:1 › first screen and browsing never fetch video; narrow touch layout and dialog return
+  [edge] › playback.spec.mjs:111:21 › tower: start, audio evidence, seek, pause, quality and release
+  [edge] › playback.spec.mjs:111:21 › ash: start, audio evidence, seek, pause, quality and release
+  [edge] › playback.spec.mjs:111:21 › csol: start, audio evidence, seek, pause, quality and release
+  [edge] › playback.spec.mjs:111:21 › mines: start, audio evidence, seek, pause, quality and release
+  [edge] › playback.spec.mjs:111:21 › murphy: start, audio evidence, seek, pause, quality and release
+  [edge] › playback.spec.mjs:111:21 › hyrum: start, audio evidence, seek, pause, quality and release
+  [edge] › playback.spec.mjs:111:21 › familiar: start, audio evidence, seek, pause, quality and release
+  [edge] › playback.spec.mjs:111:21 › town: start, audio evidence, seek, pause, quality and release
+  [edge] › playback.spec.mjs:111:21 › arc: start, audio evidence, seek, pause, quality and release
+  [edge] › playback.spec.mjs:141:1 › failed segments expose MP4 recovery and release it on close
+  [edge] › playback.spec.mjs:155:1 › audio decoder or PCM evidence is available
+  [edge] › playback.spec.mjs:166:21 › tower: no streaming capability selects MP4 and disables unavailable quality choices
+  [edge] › playback.spec.mjs:166:21 › ash: no streaming capability selects MP4 and disables unavailable quality choices
+  [edge] › playback.spec.mjs:166:21 › csol: no streaming capability selects MP4 and disables unavailable quality choices
+  [edge] › playback.spec.mjs:166:21 › mines: no streaming capability selects MP4 and disables unavailable quality choices
+  [edge] › playback.spec.mjs:166:21 › murphy: no streaming capability selects MP4 and disables unavailable quality choices
+  [edge] › playback.spec.mjs:166:21 › hyrum: no streaming capability selects MP4 and disables unavailable quality choices
+  [edge] › playback.spec.mjs:166:21 › familiar: no streaming capability selects MP4 and disables unavailable quality choices
+  [edge] › playback.spec.mjs:166:21 › town: no streaming capability selects MP4 and disables unavailable quality choices
+  [edge] › playback.spec.mjs:166:21 › arc: no streaming capability selects MP4 and disables unavailable quality choices
+  [edge] › playback.spec.mjs:183:1 › close during startup and return-to-list both release the current video
+  [edge] › playback.spec.mjs:192:1 › 3D scene pauses behind the dialog and resumes after closing
+  [firefox] › controls.spec.mjs:3:1 › Chromium native controls accept pause, scrub drag and resume
+  [firefox] › gallery.spec.mjs:8:1 › seven rotating gallery boards open the right project and restore the scroll journey
+  [firefox] › native.spec.mjs:2:1 › native retry keeps the selected manifest; rapid paused changes, MP4 and destroy
+  [firefox] › playback.spec.mjs:97:1 › first screen and browsing never fetch video; narrow touch layout and dialog return
+  [firefox] › playback.spec.mjs:111:21 › tower: start, audio evidence, seek, pause, quality and release
+  [firefox] › playback.spec.mjs:111:21 › ash: start, audio evidence, seek, pause, quality and release
+  [firefox] › playback.spec.mjs:111:21 › csol: start, audio evidence, seek, pause, quality and release
+  [firefox] › playback.spec.mjs:111:21 › mines: start, audio evidence, seek, pause, quality and release
+  [firefox] › playback.spec.mjs:111:21 › murphy: start, audio evidence, seek, pause, quality and release
+  [firefox] › playback.spec.mjs:111:21 › hyrum: start, audio evidence, seek, pause, quality and release
+  [firefox] › playback.spec.mjs:111:21 › familiar: start, audio evidence, seek, pause, quality and release
+  [firefox] › playback.spec.mjs:111:21 › town: start, audio evidence, seek, pause, quality and release
+  [firefox] › playback.spec.mjs:111:21 › arc: start, audio evidence, seek, pause, quality and release
+  [firefox] › playback.spec.mjs:141:1 › failed segments expose MP4 recovery and release it on close
+  [firefox] › playback.spec.mjs:155:1 › audio decoder or PCM evidence is available
+  [firefox] › playback.spec.mjs:166:21 › tower: no streaming capability selects MP4 and disables unavailable quality choices
+  [firefox] › playback.spec.mjs:166:21 › ash: no streaming capability selects MP4 and disables unavailable quality choices
+  [firefox] › playback.spec.mjs:166:21 › csol: no streaming capability selects MP4 and disables unavailable quality choices
+  [firefox] › playback.spec.mjs:166:21 › mines: no streaming capability selects MP4 and disables unavailable quality choices
+  [firefox] › playback.spec.mjs:166:21 › murphy: no streaming capability selects MP4 and disables unavailable quality choices
+  [firefox] › playback.spec.mjs:166:21 › hyrum: no streaming capability selects MP4 and disables unavailable quality choices
+  [firefox] › playback.spec.mjs:166:21 › familiar: no streaming capability selects MP4 and disables unavailable quality choices
+  [firefox] › playback.spec.mjs:166:21 › town: no streaming capability selects MP4 and disables unavailable quality choices
+  [firefox] › playback.spec.mjs:166:21 › arc: no streaming capability selects MP4 and disables unavailable quality choices
+  [firefox] › playback.spec.mjs:183:1 › close during startup and return-to-list both release the current video
+  [firefox] › playback.spec.mjs:192:1 › 3D scene pauses behind the dialog and resumes after closing
+  [webkit] › controls.spec.mjs:3:1 › Chromium native controls accept pause, scrub drag and resume
+  [webkit] › gallery.spec.mjs:8:1 › seven rotating gallery boards open the right project and restore the scroll journey
+  [webkit] › native.spec.mjs:2:1 › native retry keeps the selected manifest; rapid paused changes, MP4 and destroy
+  [webkit] › playback.spec.mjs:97:1 › first screen and browsing never fetch video; narrow touch layout and dialog return
+  [webkit] › playback.spec.mjs:111:21 › tower: start, audio evidence, seek, pause, quality and release
+  [webkit] › playback.spec.mjs:111:21 › ash: start, audio evidence, seek, pause, quality and release
+  [webkit] › playback.spec.mjs:111:21 › csol: start, audio evidence, seek, pause, quality and release
+  [webkit] › playback.spec.mjs:111:21 › mines: start, audio evidence, seek, pause, quality and release
+  [webkit] › playback.spec.mjs:111:21 › murphy: start, audio evidence, seek, pause, quality and release
+  [webkit] › playback.spec.mjs:111:21 › hyrum: start, audio evidence, seek, pause, quality and release
+  [webkit] › playback.spec.mjs:111:21 › familiar: start, audio evidence, seek, pause, quality and release
+  [webkit] › playback.spec.mjs:111:21 › town: start, audio evidence, seek, pause, quality and release
+  [webkit] › playback.spec.mjs:111:21 › arc: start, audio evidence, seek, pause, quality and release
+  [webkit] › playback.spec.mjs:141:1 › failed segments expose MP4 recovery and release it on close
+  [webkit] › playback.spec.mjs:155:1 › audio decoder or PCM evidence is available
+  [webkit] › playback.spec.mjs:166:21 › tower: no streaming capability selects MP4 and disables unavailable quality choices
+  [webkit] › playback.spec.mjs:166:21 › ash: no streaming capability selects MP4 and disables unavailable quality choices
+  [webkit] › playback.spec.mjs:166:21 › csol: no streaming capability selects MP4 and disables unavailable quality choices
+  [webkit] › playback.spec.mjs:166:21 › mines: no streaming capability selects MP4 and disables unavailable quality choices
+  [webkit] › playback.spec.mjs:166:21 › murphy: no streaming capability selects MP4 and disables unavailable quality choices
+  [webkit] › playback.spec.mjs:166:21 › hyrum: no streaming capability selects MP4 and disables unavailable quality choices
+  [webkit] › playback.spec.mjs:166:21 › familiar: no streaming capability selects MP4 and disables unavailable quality choices
+  [webkit] › playback.spec.mjs:166:21 › town: no streaming capability selects MP4 and disables unavailable quality choices
+  [webkit] › playback.spec.mjs:166:21 › arc: no streaming capability selects MP4 and disables unavailable quality choices
+  [webkit] › playback.spec.mjs:183:1 › close during startup and return-to-list both release the current video
+  [webkit] › playback.spec.mjs:192:1 › 3D scene pauses behind the dialog and resumes after closing
+  [edge-native-branch] › controls.spec.mjs:3:1 › Chromium native controls accept pause, scrub drag and resume
+  [edge-native-branch] › gallery.spec.mjs:8:1 › seven rotating gallery boards open the right project and restore the scroll journey
+  [edge-native-branch] › native.spec.mjs:2:1 › native retry keeps the selected manifest; rapid paused changes, MP4 and destroy
+  [edge-native-branch] › playback.spec.mjs:97:1 › first screen and browsing never fetch video; narrow touch layout and dialog return
+  [edge-native-branch] › playback.spec.mjs:111:21 › tower: start, audio evidence, seek, pause, quality and release
+  [edge-native-branch] › playback.spec.mjs:111:21 › ash: start, audio evidence, seek, pause, quality and release
+  [edge-native-branch] › playback.spec.mjs:111:21 › csol: start, audio evidence, seek, pause, quality and release
+  [edge-native-branch] › playback.spec.mjs:111:21 › mines: start, audio evidence, seek, pause, quality and release
+  [edge-native-branch] › playback.spec.mjs:111:21 › murphy: start, audio evidence, seek, pause, quality and release
+  [edge-native-branch] › playback.spec.mjs:111:21 › hyrum: start, audio evidence, seek, pause, quality and release
+  [edge-native-branch] › playback.spec.mjs:111:21 › familiar: start, audio evidence, seek, pause, quality and release
+  [edge-native-branch] › playback.spec.mjs:111:21 › town: start, audio evidence, seek, pause, quality and release
+  [edge-native-branch] › playback.spec.mjs:111:21 › arc: start, audio evidence, seek, pause, quality and release
+  [edge-native-branch] › playback.spec.mjs:141:1 › failed segments expose MP4 recovery and release it on close
+  [edge-native-branch] › playback.spec.mjs:155:1 › audio decoder or PCM evidence is available
+  [edge-native-branch] › playback.spec.mjs:166:21 › tower: no streaming capability selects MP4 and disables unavailable quality choices
+  [edge-native-branch] › playback.spec.mjs:166:21 › ash: no streaming capability selects MP4 and disables unavailable quality choices
+  [edge-native-branch] › playback.spec.mjs:166:21 › csol: no streaming capability selects MP4 and disables unavailable quality choices
+  [edge-native-branch] › playback.spec.mjs:166:21 › mines: no streaming capability selects MP4 and disables unavailable quality choices
+  [edge-native-branch] › playback.spec.mjs:166:21 › murphy: no streaming capability selects MP4 and disables unavailable quality choices
+  [edge-native-branch] › playback.spec.mjs:166:21 › hyrum: no streaming capability selects MP4 and disables unavailable quality choices
+  [edge-native-branch] › playback.spec.mjs:166:21 › familiar: no streaming capability selects MP4 and disables unavailable quality choices
+  [edge-native-branch] › playback.spec.mjs:166:21 › town: no streaming capability selects MP4 and disables unavailable quality choices
+  [edge-native-branch] › playback.spec.mjs:166:21 › arc: no streaming capability selects MP4 and disables unavailable quality choices
+  [edge-native-branch] › playback.spec.mjs:183:1 › close during startup and return-to-list both release the current video
+  [edge-native-branch] › playback.spec.mjs:192:1 › 3D scene pauses behind the dialog and resumes after closing
+  [edge-touch] › controls.spec.mjs:3:1 › Chromium native controls accept pause, scrub drag and resume
+  [edge-touch] › gallery.spec.mjs:8:1 › seven rotating gallery boards open the right project and restore the scroll journey
+  [edge-touch] › native.spec.mjs:2:1 › native retry keeps the selected manifest; rapid paused changes, MP4 and destroy
+  [edge-touch] › playback.spec.mjs:97:1 › first screen and browsing never fetch video; narrow touch layout and dialog return
+  [edge-touch] › playback.spec.mjs:111:21 › tower: start, audio evidence, seek, pause, quality and release
+  [edge-touch] › playback.spec.mjs:111:21 › ash: start, audio evidence, seek, pause, quality and release
+  [edge-touch] › playback.spec.mjs:111:21 › csol: start, audio evidence, seek, pause, quality and release
+  [edge-touch] › playback.spec.mjs:111:21 › mines: start, audio evidence, seek, pause, quality and release
+  [edge-touch] › playback.spec.mjs:111:21 › murphy: start, audio evidence, seek, pause, quality and release
+  [edge-touch] › playback.spec.mjs:111:21 › hyrum: start, audio evidence, seek, pause, quality and release
+  [edge-touch] › playback.spec.mjs:111:21 › familiar: start, audio evidence, seek, pause, quality and release
+  [edge-touch] › playback.spec.mjs:111:21 › town: start, audio evidence, seek, pause, quality and release
+  [edge-touch] › playback.spec.mjs:111:21 › arc: start, audio evidence, seek, pause, quality and release
+  [edge-touch] › playback.spec.mjs:141:1 › failed segments expose MP4 recovery and release it on close
+  [edge-touch] › playback.spec.mjs:155:1 › audio decoder or PCM evidence is available
+  [edge-touch] › playback.spec.mjs:166:21 › tower: no streaming capability selects MP4 and disables unavailable quality choices
+  [edge-touch] › playback.spec.mjs:166:21 › ash: no streaming capability selects MP4 and disables unavailable quality choices
+  [edge-touch] › playback.spec.mjs:166:21 › csol: no streaming capability selects MP4 and disables unavailable quality choices
+  [edge-touch] › playback.spec.mjs:166:21 › mines: no streaming capability selects MP4 and disables unavailable quality choices
+  [edge-touch] › playback.spec.mjs:166:21 › murphy: no streaming capability selects MP4 and disables unavailable quality choices
+  [edge-touch] › playback.spec.mjs:166:21 › hyrum: no streaming capability selects MP4 and disables unavailable quality choices
+  [edge-touch] › playback.spec.mjs:166:21 › familiar: no streaming capability selects MP4 and disables unavailable quality choices
+  [edge-touch] › playback.spec.mjs:166:21 › town: no streaming capability selects MP4 and disables unavailable quality choices
+  [edge-touch] › playback.spec.mjs:166:21 › arc: no streaming capability selects MP4 and disables unavailable quality choices
+  [edge-touch] › playback.spec.mjs:183:1 › close during startup and return-to-list both release the current video
+  [edge-touch] › playback.spec.mjs:192:1 › 3D scene pauses behind the dialog and resumes after closing
+  [webkit-touch] › controls.spec.mjs:3:1 › Chromium native controls accept pause, scrub drag and resume
+  [webkit-touch] › gallery.spec.mjs:8:1 › seven rotating gallery boards open the right project and restore the scroll journey
+  [webkit-touch] › native.spec.mjs:2:1 › native retry keeps the selected manifest; rapid paused changes, MP4 and destroy
+  [webkit-touch] › playback.spec.mjs:97:1 › first screen and browsing never fetch video; narrow touch layout and dialog return
+  [webkit-touch] › playback.spec.mjs:111:21 › tower: start, audio evidence, seek, pause, quality and release
+  [webkit-touch] › playback.spec.mjs:111:21 › ash: start, audio evidence, seek, pause, quality and release
+  [webkit-touch] › playback.spec.mjs:111:21 › csol: start, audio evidence, seek, pause, quality and release
+  [webkit-touch] › playback.spec.mjs:111:21 › mines: start, audio evidence, seek, pause, quality and release
+  [webkit-touch] › playback.spec.mjs:111:21 › murphy: start, audio evidence, seek, pause, quality and release
+  [webkit-touch] › playback.spec.mjs:111:21 › hyrum: start, audio evidence, seek, pause, quality and release
+  [webkit-touch] › playback.spec.mjs:111:21 › familiar: start, audio evidence, seek, pause, quality and release
+  [webkit-touch] › playback.spec.mjs:111:21 › town: start, audio evidence, seek, pause, quality and release
+  [webkit-touch] › playback.spec.mjs:111:21 › arc: start, audio evidence, seek, pause, quality and release
+  [webkit-touch] › playback.spec.mjs:141:1 › failed segments expose MP4 recovery and release it on close
+  [webkit-touch] › playback.spec.mjs:155:1 › audio decoder or PCM evidence is available
+  [webkit-touch] › playback.spec.mjs:166:21 › tower: no streaming capability selects MP4 and disables unavailable quality choices
+  [webkit-touch] › playback.spec.mjs:166:21 › ash: no streaming capability selects MP4 and disables unavailable quality choices
+  [webkit-touch] › playback.spec.mjs:166:21 › csol: no streaming capability selects MP4 and disables unavailable quality choices
+  [webkit-touch] › playback.spec.mjs:166:21 › mines: no streaming capability selects MP4 and disables unavailable quality choices
+  [webkit-touch] › playback.spec.mjs:166:21 › murphy: no streaming capability selects MP4 and disables unavailable quality choices
+  [webkit-touch] › playback.spec.mjs:166:21 › hyrum: no streaming capability selects MP4 and disables unavailable quality choices
+  [webkit-touch] › playback.spec.mjs:166:21 › familiar: no streaming capability selects MP4 and disables unavailable quality choices
+  [webkit-touch] › playback.spec.mjs:166:21 › town: no streaming capability selects MP4 and disables unavailable quality choices
+  [webkit-touch] › playback.spec.mjs:166:21 › arc: no streaming capability selects MP4 and disables unavailable quality choices
+  [webkit-touch] › playback.spec.mjs:183:1 › close during startup and return-to-list both release the current video
+  [webkit-touch] › playback.spec.mjs:192:1 › 3D scene pauses behind the dialog and resumes after closing
+Total: 234 tests in 4 files

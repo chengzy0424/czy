@@ -1,0 +1,30 @@
+{
+  "project": "native-webkit",
+  "stats": {
+    "startTime": "2026-11-02T13:21:44.055Z",
+    "duration": 14020.402,
+    "expected": 1,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "ci": {
+    "commitHref": "https://github.com/chengzy0424/czy/commit/7327f05f3d4de5c647c927805a62360189e3a8f8",
+    "commitHash": "7327f05f3d4de5c647c927805a62360189e3a8f8",
+    "prHref": "https://github.com/chengzy0424/czy/pull/3",
+    "prTitle": "整合 HLS 修复与最新三维画廊，重建生产资源并验证九部影片",
+    "prBaseHash": "5ae553a73e9354e7230bef8ccd82f1efc94b62b0",
+    "buildHref": "https://github.com/chengzy0424/czy/actions/runs/41451975414"
+  },
+  "errors": [],
+  "tests": [
+    {
+      "title": "native retry keeps the selected manifest; rapid paused changes, MP4 and destroy",
+      "file": "native.spec.mjs",
+      "status": "expected",
+      "resultStatus": "passed",
+      "durationMs": 10818,
+      "annotations": []
+    }
+  ]
+}

@@ -7,3 +7,5 @@ media/murphy.mp4
 media/hyrum.mp4
 *.log
 portfolio-source/.finesse/
+portfolio-source/test-results*/
+portfolio-source/playwright-report/

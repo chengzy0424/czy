@@ -1,0 +1,904 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\Tuanjie\\Tuanjie AI\\Tuanjie Cowork\\cli\\bin\\win32-x64\\node.exe",
+      "D:\\Codex code\\2026-10-31\\github-chengzy0424-czy-https-chengzy0424-github-2\\work\\czy-source\\portfolio-source\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "playback.spec.mjs",
+      "--project=edge",
+      "--output=test-results-production"
+    ],
+    "configFile": "D:\\Codex code\\2026-10-31\\github-chengzy0424-czy-https-chengzy0424-github-2\\work\\czy-source\\portfolio-source\\playwright.config.mjs",
+    "rootDir": "D:/Codex code/2026-10-31/github-chengzy0424-czy-https-chengzy0424-github-2/work/czy-source/portfolio-source/tests/browser",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "D:/Codex code/2026-10-31/github-chengzy0424-czy-https-chengzy0424-github-2/work/czy-source/portfolio-source/test-results-production",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chrome",
+        "name": "chrome",
+        "testDir": "D:/Codex code/2026-10-31/github-chengzy0424-czy-https-chengzy0424-github-2/work/czy-source/portfolio-source/tests/browser",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.spec.mjs"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "D:/Codex code/2026-10-31/github-chengzy0424-czy-https-chengzy0424-github-2/work/czy-source/portfolio-source/test-results-production",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "edge",
+        "name": "edge",
+        "testDir": "D:/Codex code/2026-10-31/github-chengzy0424-czy-https-chengzy0424-github-2/work/czy-source/portfolio-source/tests/browser",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.spec.mjs"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "D:/Codex code/2026-10-31/github-chengzy0424-czy-https-chengzy0424-github-2/work/czy-source/portfolio-source/test-results-production",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "firefox",
+        "name": "firefox",
+        "testDir": "D:/Codex code/2026-10-31/github-chengzy0424-czy-https-chengzy0424-github-2/work/czy-source/portfolio-source/tests/browser",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.spec.mjs"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "D:/Codex code/2026-10-31/github-chengzy0424-czy-https-chengzy0424-github-2/work/czy-source/portfolio-source/test-results-production",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "webkit",
+        "name": "webkit",
+        "testDir": "D:/Codex code/2026-10-31/github-chengzy0424-czy-https-chengzy0424-github-2/work/czy-source/portfolio-source/tests/browser",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.spec.mjs"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "D:/Codex code/2026-10-31/github-chengzy0424-czy-https-chengzy0424-github-2/work/czy-source/portfolio-source/test-results-production",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "edge-native-branch",
+        "name": "edge-native-branch",
+        "testDir": "D:/Codex code/2026-10-31/github-chengzy0424-czy-https-chengzy0424-github-2/work/czy-source/portfolio-source/tests/browser",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.spec.mjs"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "D:/Codex code/2026-10-31/github-chengzy0424-czy-https-chengzy0424-github-2/work/czy-source/portfolio-source/test-results-production",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "edge-touch",
+        "name": "edge-touch",
+        "testDir": "D:/Codex code/2026-10-31/github-chengzy0424-czy-https-chengzy0424-github-2/work/czy-source/portfolio-source/tests/browser",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.spec.mjs"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "D:/Codex code/2026-10-31/github-chengzy0424-czy-https-chengzy0424-github-2/work/czy-source/portfolio-source/test-results-production",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "webkit-touch",
+        "name": "webkit-touch",
+        "testDir": "D:/Codex code/2026-10-31/github-chengzy0424-czy-https-chengzy0424-github-2/work/czy-source/portfolio-source/tests/browser",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.spec.mjs"
+        ],
+        "timeout": 90000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "../verification/oct31-browser-compatibility/production-edge.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.62.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "playback.spec.mjs",
+      "file": "playback.spec.mjs",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "first screen and browsing never fetch video; narrow touch layout and dialog return",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "edge",
+              "projectName": "edge",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2080,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-31T04:43:53.935Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "environment",
+                      "contentType": "application/json",
+                      "body": "ewogICJwcm9qZWN0IjogImVkZ2UiLAogICJtZWRpYU9yaWdpbiI6ICJyZXBvc2l0b3J5IiwKICAidWEiOiAiTW96aWxsYS81LjAgKFdpbmRvd3MgTlQgMTAuMDsgV2luNjQ7IHg2NCkgQXBwbGVXZWJLaXQvNTM3LjM2IChLSFRNTCwgbGlrZSBHZWNrbykgSGVhZGxlc3NDaHJvbWUvMTU2LjAuMC4wIFNhZmFyaS81MzcuMzYgRWRnLzE1Ni4wLjAuMCIsCiAgInBsYXRmb3JtIjogIldpbjMyIiwKICAibmF0aXZlSGxzIjogIm1heWJlIiwKICAibXA0IjogInByb2JhYmx5IiwKICAibXNlIjogdHJ1ZSwKICAidG91Y2giOiAwCn0="
+                    },
+                    {
+                      "name": "final-state",
+                      "contentType": "application/json",
+                      "body": "ewogICJhdWRpdCI6IHsKICAgICJwZWFrIjogMCwKICAgICJldmVudHMiOiBbXSwKICAgICJhdWRpb0Vycm9yIjogbnVsbAogIH0sCiAgInZpZGVvIjogbnVsbAp9"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "392ce7657d10ee24873f-1656dabfcb44705246b1",
+          "file": "playback.spec.mjs",
+          "line": 95,
+          "column": 1
+        },
+        {
+          "title": "tower: start, audio evidence, seek, pause, quality and release",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "edge",
+              "projectName": "edge",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 8294,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-31T04:43:56.204Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "environment",
+                      "contentType": "application/json",
+                      "body": "ewogICJwcm9qZWN0IjogImVkZ2UiLAogICJtZWRpYU9yaWdpbiI6ICJyZXBvc2l0b3J5IiwKICAidWEiOiAiTW96aWxsYS81LjAgKFdpbmRvd3MgTlQgMTAuMDsgV2luNjQ7IHg2NCkgQXBwbGVXZWJLaXQvNTM3LjM2IChLSFRNTCwgbGlrZSBHZWNrbykgSGVhZGxlc3NDaHJvbWUvMTU2LjAuMC4wIFNhZmFyaS81MzcuMzYgRWRnLzE1Ni4wLjAuMCIsCiAgInBsYXRmb3JtIjogIldpbjMyIiwKICAibmF0aXZlSGxzIjogIm1heWJlIiwKICAibXA0IjogInByb2JhYmx5IiwKICAibXNlIjogdHJ1ZSwKICAidG91Y2giOiAwCn0="
+                    },
+                    {
+                      "name": "playback-evidence",
+                      "contentType": "application/json",
+                      "body": "ewogICJpZCI6ICJ0b3dlciIsCiAgImJyb3dzZXIiOiAiMTU2LjAuNDMxNC41MCIsCiAgImZsb3dUb1BsYXlpbmdNcyI6IDIyNDcsCiAgImF1ZGlvIjogewogICAgIm1ldGhvZCI6ICJicm93c2VyIGF1ZGlvIGRlY29kZXIgYnl0ZSBjb3VudGVyIgogIH0sCiAgInN0YXJ0IjogewogICAgInRpbWUiOiAwLjcwMDg5MSwKICAgICJwYXVzZWQiOiBmYWxzZSwKICAgICJ2b2x1bWUiOiAwLjgsCiAgICAibXV0ZWQiOiBmYWxzZSwKICAgICJzcmMiOiAiYmxvYjpodHRwOi8vMTI3LjAuMC4xOjQxODcvYTQ3N2FkZGYtMjAwMy00NTU5LWJhMWEtZDQ2ZTcxODgwNzgzIiwKICAgICJyZWFkeVN0YXRlIjogNCwKICAgICJ3aWR0aCI6IDg1NCwKICAgICJoZWlnaHQiOiA0ODAsCiAgICAiZXJyb3IiOiBudWxsLAogICAgImRlY29kZWRBdWRpbyI6IDE3MzE2LAogICAgImZyYW1lcyI6IDIzCiAgfSwKICAiY29udGludW91cyI6IHsKICAgICJ0aW1lIjogMy43MTQzMDQsCiAgICAicGF1c2VkIjogZmFsc2UsCiAgICAidm9sdW1lIjogMC44LAogICAgIm11dGVkIjogZmFsc2UsCiAgICAic3JjIjogImJsb2I6aHR0cDovLzEyNy4wLjAuMTo0MTg3L2E0NzdhZGRmLTIwMDMtNDU1OS1iYTFhLWQ0NmU3MTg4MDc4MyIsCiAgICAicmVhZHlTdGF0ZSI6IDQsCiAgICAid2lkdGgiOiAxMjgwLAogICAgImhlaWdodCI6IDcyMCwKICAgICJlcnJvciI6IG51bGwsCiAgICAiZGVjb2RlZEF1ZGlvIjogNjgyMzQsCiAgICAiZnJhbWVzIjogMTE0CiAgfSwKICAiZmluYWwiOiB7CiAgICAidGltZSI6IDE3Ljc4NjE3OCwKICAgICJwYXVzZWQiOiBmYWxzZSwKICAgICJ2b2x1bWUiOiAwLjQ1LAogICAgIm11dGVkIjogZmFsc2UsCiAgICAic3JjIjogImJsb2I6aHR0cDovLzEyNy4wLjAuMTo0MTg3L2E0NzdhZGRmLTIwMDMtNDU1OS1iYTFhLWQ0NmU3MTg4MDc4MyIsCiAgICAicmVhZHlTdGF0ZSI6IDQsCiAgICAid2lkdGgiOiAxMjgwLAogICAgImhlaWdodCI6IDcyMCwKICAgICJlcnJvciI6IG51bGwsCiAgICAiZGVjb2RlZEF1ZGlvIjogNzk1NzIsCiAgICAiZnJhbWVzIjogMTI5CiAgfSwKICAiYXVkaXQiOiB7CiAgICAicGVhayI6IDAsCiAgICAiZXZlbnRzIjogWwogICAgICB7CiAgICAgICAgImV2ZW50IjogIndhaXRpbmciLAogICAgICAgICJ0aW1lIjogMCwKICAgICAgICAiYXQiOiAxNTM2Ljg5OTk5OTk5OTkwNjkKICAgICAgfSwKICAgICAgewogICAgICAgICJldmVudCI6ICJwbGF5aW5nIiwKICAgICAgICAidGltZSI6IDAsCiAgICAgICAgImF0IjogMTU4Ni44OTk5OTk5OTk5MDY5CiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiZXZlbnQiOiAicGF1c2UiLAogICAgICAgICJ0aW1lIjogMTcuNDIwNTk5LAogICAgICAgICJhdCI6IDUzOTMuNzAwMDAwMDAwMTg2CiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiZXZlbnQiOiAic2Vla2luZyIsCiAgICAgICAgInRpbWUiOiAxNy40MjA1OTksCiAgICAgICAgImF0IjogNTM5My43MDAwMDAwMDAxODYKICAgICAgfSwKICAgICAgewogICAgICAgICJldmVudCI6ICJzZWVrZWQiLAogICAgICAgICJ0aW1lIjogMTcuNDIwNTk5LAogICAgICAgICJhdCI6IDU0MjEuNzk5OTk5OTk5ODE0CiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiZXZlbnQiOiAicGxheWluZyIsCiAgICAgICAgInRpbWUiOiAxNy40MjA1OTksCiAgICAgICAgImF0IjogNjA5Ny4yMDAwMDAwMDAxODYKICAgICAgfQogICAgXSwKICAgICJhdWRpb0Vycm9yIjogbnVsbAogIH0sCiAgInJlcXVlc3RDb3VudCI6IDI4LAogICJzZWVrSW5wdXQiOiAiSFRNTE1lZGlhRWxlbWVudC5jdXJyZW50VGltZTsgbm90IGEgcGh5c2ljYWwgc2NydWIgZ2VzdHVyZSIKfQ=="
+                    },
+                    {
+                      "name": "final-state",
+                      "contentType": "application/json",
+                      "body": "ewogICJhdWRpdCI6IHsKICAgICJwZWFrIjogMCwKICAgICJldmVudHMiOiBbCiAgICAgIHsKICAgICAgICAiZXZlbnQiOiAid2FpdGluZyIsCiAgICAgICAgInRpbWUiOiAwLAogICAgICAgICJhdCI6IDE1MzYuODk5OTk5OTk5OTA2OQogICAgICB9LAogICAgICB7CiAgICAgICAgImV2ZW50IjogInBsYXlpbmciLAogICAgICAgICJ0aW1lIjogMCwKICAgICAgICAiYXQiOiAxNTg2Ljg5OTk5OTk5OTkwNjkKICAgICAgfSwKICAgICAgewogICAgICAgICJldmVudCI6ICJwYXVzZSIsCiAgICAgICAgInRpbWUiOiAxNy40MjA1OTksCiAgICAgICAgImF0IjogNTM5My43MDAwMDAwMDAxODYKICAgICAgfSwKICAgICAgewogICAgICAgICJldmVudCI6ICJzZWVraW5nIiwKICAgICAgICAidGltZSI6IDE3LjQyMDU5OSwKICAgICAgICAiYXQiOiA1MzkzLjcwMDAwMDAwMDE4NgogICAgICB9LAogICAgICB7CiAgICAgICAgImV2ZW50IjogInNlZWtlZCIsCiAgICAgICAgInRpbWUiOiAxNy40MjA1OTksCiAgICAgICAgImF0IjogNTQyMS43OTk5OTk5OTk4MTQKICAgICAgfSwKICAgICAgewogICAgICAgICJldmVudCI6ICJwbGF5aW5nIiwKICAgICAgICAidGltZSI6IDE3LjQyMDU5OSwKICAgICAgICAiYXQiOiA2MDk3LjIwMDAwMDAwMDE4NgogICAgICB9CiAgICBdLAogICAgImF1ZGlvRXJyb3IiOiBudWxsCiAgfSwKICAidmlkZW8iOiB7CiAgICAidGltZSI6IDAsCiAgICAicGF1c2VkIjogdHJ1ZSwKICAgICJyZWFkeVN0YXRlIjogMCwKICAgICJtb2RlIjogImhscyIsCiAgICAic3JjIjogImJsb2I6aHR0cDovLzEyNy4wLjAuMTo0MTg3L2E0NzdhZGRmLTIwMDMtNDU1OS1iYTFhLWQ0NmU3MTg4MDc4MyIsCiAgICAibXV0ZWQiOiBmYWxzZSwKICAgICJ2b2x1bWUiOiAwLjQ1LAogICAgIndpZHRoIjogMCwKICAgICJoZWlnaHQiOiAwLAogICAgImRlY29kZWRBdWRpbyI6IDAsCiAgICAiYXVkaW9UcmFja3MiOiBudWxsLAogICAgImJ1ZmZlcmVkIjogW10KICB9Cn0="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "392ce7657d10ee24873f-5943d0cd0c0a0dc76303",
+          "file": "playback.spec.mjs",
+          "line": 109,
+          "column": 21
+        },
+        {
+          "title": "ash: start, audio evidence, seek, pause, quality and release",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "edge",
+              "projectName": "edge",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 8120,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-31T04:44:04.506Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "environment",
+                      "contentType": "application/json",
+                      "body": "ewogICJwcm9qZWN0IjogImVkZ2UiLAogICJtZWRpYU9yaWdpbiI6ICJyZXBvc2l0b3J5IiwKICAidWEiOiAiTW96aWxsYS81LjAgKFdpbmRvd3MgTlQgMTAuMDsgV2luNjQ7IHg2NCkgQXBwbGVXZWJLaXQvNTM3LjM2IChLSFRNTCwgbGlrZSBHZWNrbykgSGVhZGxlc3NDaHJvbWUvMTU2LjAuMC4wIFNhZmFyaS81MzcuMzYgRWRnLzE1Ni4wLjAuMCIsCiAgInBsYXRmb3JtIjogIldpbjMyIiwKICAibmF0aXZlSGxzIjogIm1heWJlIiwKICAibXA0IjogInByb2JhYmx5IiwKICAibXNlIjogdHJ1ZSwKICAidG91Y2giOiAwCn0="
+                    },
+                    {
+                      "name": "playback-evidence",
+                      "contentType": "application/json",
+                      "body": "ewogICJpZCI6ICJhc2giLAogICJicm93c2VyIjogIjE1Ni4wLjQzMTQuNTAiLAogICJmbG93VG9QbGF5aW5nTXMiOiA5NTksCiAgImF1ZGlvIjogewogICAgIm1ldGhvZCI6ICJicm93c2VyIGF1ZGlvIGRlY29kZXIgYnl0ZSBjb3VudGVyIgogIH0sCiAgInN0YXJ0IjogewogICAgInRpbWUiOiAwLjIyODk5LAogICAgInBhdXNlZCI6IGZhbHNlLAogICAgInZvbHVtZSI6IDAuOCwKICAgICJtdXRlZCI6IGZhbHNlLAogICAgInNyYyI6ICJibG9iOmh0dHA6Ly8xMjcuMC4wLjE6NDE4Ny83ZTlhN2EyMC0wNDIzLTRkNmEtYTE0Ni0xMzcxZTgyZGRiMDYiLAogICAgInJlYWR5U3RhdGUiOiA0LAogICAgIndpZHRoIjogODU0LAogICAgImhlaWdodCI6IDQ4MCwKICAgICJlcnJvciI6IG51bGwsCiAgICAiZGVjb2RlZEF1ZGlvIjogODcwOSwKICAgICJmcmFtZXMiOiAxNgogIH0sCiAgImNvbnRpbnVvdXMiOiB7CiAgICAidGltZSI6IDMuMjQ1NCwKICAgICJwYXVzZWQiOiBmYWxzZSwKICAgICJ2b2x1bWUiOiAwLjgsCiAgICAibXV0ZWQiOiBmYWxzZSwKICAgICJzcmMiOiAiYmxvYjpodHRwOi8vMTI3LjAuMC4xOjQxODcvN2U5YTdhMjAtMDQyMy00ZDZhLWExNDYtMTM3MWU4MmRkYjA2IiwKICAgICJyZWFkeVN0YXRlIjogNCwKICAgICJ3aWR0aCI6IDEyODAsCiAgICAiaGVpZ2h0IjogNzIwLAogICAgImVycm9yIjogbnVsbCwKICAgICJkZWNvZGVkQXVkaW8iOiA1NzgyNCwKICAgICJmcmFtZXMiOiAxOTcKICB9LAogICJmaW5hbCI6IHsKICAgICJ0aW1lIjogMzguMjc2ODgzLAogICAgInBhdXNlZCI6IGZhbHNlLAogICAgInZvbHVtZSI6IDAuNDUsCiAgICAibXV0ZWQiOiBmYWxzZSwKICAgICJzcmMiOiAiYmxvYjpodHRwOi8vMTI3LjAuMC4xOjQxODcvN2U5YTdhMjAtMDQyMy00ZDZhLWExNDYtMTM3MWU4MmRkYjA2IiwKICAgICJyZWFkeVN0YXRlIjogNCwKICAgICJ3aWR0aCI6IDE1NDQsCiAgICAiaGVpZ2h0IjogODY4LAogICAgImVycm9yIjogbnVsbCwKICAgICJkZWNvZGVkQXVkaW8iOiA4NDk4MiwKICAgICJmcmFtZXMiOiAyNzgKICB9LAogICJhdWRpdCI6IHsKICAgICJwZWFrIjogMCwKICAgICJldmVudHMiOiBbCiAgICAgIHsKICAgICAgICAiZXZlbnQiOiAid2FpdGluZyIsCiAgICAgICAgInRpbWUiOiAwLAogICAgICAgICJhdCI6IDc0MS4xMDAwMDAwMDAwOTMxCiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiZXZlbnQiOiAicGxheWluZyIsCiAgICAgICAgInRpbWUiOiAwLAogICAgICAgICJhdCI6IDc2NgogICAgICB9LAogICAgICB7CiAgICAgICAgImV2ZW50IjogInBhdXNlIiwKICAgICAgICAidGltZSI6IDM2Ljk2LAogICAgICAgICJhdCI6IDQxMDAuNQogICAgICB9LAogICAgICB7CiAgICAgICAgImV2ZW50IjogInNlZWtpbmciLAogICAgICAgICJ0aW1lIjogMzYuOTYsCiAgICAgICAgImF0IjogNDEwMC43MDAwMDAwMDAxODYKICAgICAgfSwKICAgICAgewogICAgICAgICJldmVudCI6ICJzZWVrZWQiLAogICAgICAgICJ0aW1lIjogMzYuOTYsCiAgICAgICAgImF0IjogNDE1NC44OTk5OTk5OTk5MDcKICAgICAgfSwKICAgICAgewogICAgICAgICJldmVudCI6ICJwbGF5aW5nIiwKICAgICAgICAidGltZSI6IDM2Ljk2LAogICAgICAgICJhdCI6IDQ5NzEuNzk5OTk5OTk5ODE0CiAgICAgIH0KICAgIF0sCiAgICAiYXVkaW9FcnJvciI6IG51bGwKICB9LAogICJyZXF1ZXN0Q291bnQiOiA1NSwKICAic2Vla0lucHV0IjogIkhUTUxNZWRpYUVsZW1lbnQuY3VycmVudFRpbWU7IG5vdCBhIHBoeXNpY2FsIHNjcnViIGdlc3R1cmUiCn0="
+                    },
+                    {
+                      "name": "final-state",
+                      "contentType": "application/json",
+                      "body": "ewogICJhdWRpdCI6IHsKICAgICJwZWFrIjogMCwKICAgICJldmVudHMiOiBbCiAgICAgIHsKICAgICAgICAiZXZlbnQiOiAid2FpdGluZyIsCiAgICAgICAgInRpbWUiOiAwLAogICAgICAgICJhdCI6IDc0MS4xMDAwMDAwMDAwOTMxCiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiZXZlbnQiOiAicGxheWluZyIsCiAgICAgICAgInRpbWUiOiAwLAogICAgICAgICJhdCI6IDc2NgogICAgICB9LAogICAgICB7CiAgICAgICAgImV2ZW50IjogInBhdXNlIiwKICAgICAgICAidGltZSI6IDM2Ljk2LAogICAgICAgICJhdCI6IDQxMDAuNQogICAgICB9LAogICAgICB7CiAgICAgICAgImV2ZW50IjogInNlZWtpbmciLAogICAgICAgICJ0aW1lIjogMzYuOTYsCiAgICAgICAgImF0IjogNDEwMC43MDAwMDAwMDAxODYKICAgICAgfSwKICAgICAgewogICAgICAgICJldmVudCI6ICJzZWVrZWQiLAogICAgICAgICJ0aW1lIjogMzYuOTYsCiAgICAgICAgImF0IjogNDE1NC44OTk5OTk5OTk5MDcKICAgICAgfSwKICAgICAgewogICAgICAgICJldmVudCI6ICJwbGF5aW5nIiwKICAgICAgICAidGltZSI6IDM2Ljk2LAogICAgICAgICJhdCI6IDQ5NzEuNzk5OTk5OTk5ODE0CiAgICAgIH0KICAgIF0sCiAgICAiYXVkaW9FcnJvciI6IG51bGwKICB9LAogICJ2aWRlbyI6IHsKICAgICJ0aW1lIjogMCwKICAgICJwYXVzZWQiOiB0cnVlLAogICAgInJlYWR5U3RhdGUiOiAwLAogICAgIm1vZGUiOiAiaGxzIiwKICAgICJzcmMiOiAiYmxvYjpodHRwOi8vMTI3LjAuMC4xOjQxODcvN2U5YTdhMjAtMDQyMy00ZDZhLWExNDYtMTM3MWU4MmRkYjA2IiwKICAgICJtdXRlZCI6IGZhbHNlLAogICAgInZvbHVtZSI6IDAuNDUsCiAgICAid2lkdGgiOiAwLAogICAgImhlaWdodCI6IDAsCiAgICAiZGVjb2RlZEF1ZGlvIjogMCwKICAgICJhdWRpb1RyYWNrcyI6IG51bGwsCiAgICAiYnVmZmVyZWQiOiBbXQogIH0KfQ=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "392ce7657d10ee24873f-ce5261dc4aecca1f285a",
+          "file": "playback.spec.mjs",
+          "line": 109,
+          "column": 21
+        },
+        {
+          "title": "csol: start, audio evidence, seek, pause, quality and release",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "edge",
+              "projectName": "edge",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 8014,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-31T04:44:12.634Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "environment",
+                      "contentType": "application/json",
+                      "body": "ewogICJwcm9qZWN0IjogImVkZ2UiLAogICJtZWRpYU9yaWdpbiI6ICJyZXBvc2l0b3J5IiwKICAidWEiOiAiTW96aWxsYS81LjAgKFdpbmRvd3MgTlQgMTAuMDsgV2luNjQ7IHg2NCkgQXBwbGVXZWJLaXQvNTM3LjM2IChLSFRNTCwgbGlrZSBHZWNrbykgSGVhZGxlc3NDaHJvbWUvMTU2LjAuMC4wIFNhZmFyaS81MzcuMzYgRWRnLzE1Ni4wLjAuMCIsCiAgInBsYXRmb3JtIjogIldpbjMyIiwKICAibmF0aXZlSGxzIjogIm1heWJlIiwKICAibXA0IjogInByb2JhYmx5IiwKICAibXNlIjogdHJ1ZSwKICAidG91Y2giOiAwCn0="
+                    },
+                    {
+                      "name": "playback-evidence",
+                      "contentType": "application/json",
+                      "body": "ewogICJpZCI6ICJjc29sIiwKICAiYnJvd3NlciI6ICIxNTYuMC40MzE0LjUwIiwKICAiZmxvd1RvUGxheWluZ01zIjogOTg5LAogICJhdWRpbyI6IHsKICAgICJtZXRob2QiOiAiYnJvd3NlciBhdWRpbyBkZWNvZGVyIGJ5dGUgY291bnRlciIKICB9LAogICJzdGFydCI6IHsKICAgICJ0aW1lIjogMC4yNTcyMDYsCiAgICAicGF1c2VkIjogZmFsc2UsCiAgICAidm9sdW1lIjogMC44LAogICAgIm11dGVkIjogZmFsc2UsCiAgICAic3JjIjogImJsb2I6aHR0cDovLzEyNy4wLjAuMTo0MTg3L2Q3ZGY0N2NiLWY5OTQtNDU5Ni1hM2ZhLWRmN2NmMjQxZjBmYiIsCiAgICAicmVhZHlTdGF0ZSI6IDQsCiAgICAid2lkdGgiOiA4NTQsCiAgICAiaGVpZ2h0IjogNDc4LAogICAgImVycm9yIjogbnVsbCwKICAgICJkZWNvZGVkQXVkaW8iOiA5NDA1LAogICAgImZyYW1lcyI6IDE4CiAgfSwKICAiY29udGludW91cyI6IHsKICAgICJ0aW1lIjogMy4yNzQxNjEsCiAgICAicGF1c2VkIjogZmFsc2UsCiAgICAidm9sdW1lIjogMC44LAogICAgIm11dGVkIjogZmFsc2UsCiAgICAic3JjIjogImJsb2I6aHR0cDovLzEyNy4wLjAuMTo0MTg3L2Q3ZGY0N2NiLWY5OTQtNDU5Ni1hM2ZhLWRmN2NmMjQxZjBmYiIsCiAgICAicmVhZHlTdGF0ZSI6IDQsCiAgICAid2lkdGgiOiAxMjgwLAogICAgImhlaWdodCI6IDcxOCwKICAgICJlcnJvciI6IG51bGwsCiAgICAiZGVjb2RlZEF1ZGlvIjogNTg3NzIsCiAgICAiZnJhbWVzIjogMTk4CiAgfSwKICAiZmluYWwiOiB7CiAgICAidGltZSI6IDI2LjQ2ODI5MywKICAgICJwYXVzZWQiOiBmYWxzZSwKICAgICJ2b2x1bWUiOiAwLjQ1LAogICAgIm11dGVkIjogZmFsc2UsCiAgICAic3JjIjogImJsb2I6aHR0cDovLzEyNy4wLjAuMTo0MTg3L2Q3ZGY0N2NiLWY5OTQtNDU5Ni1hM2ZhLWRmN2NmMjQxZjBmYiIsCiAgICAicmVhZHlTdGF0ZSI6IDQsCiAgICAid2lkdGgiOiAxNTQ0LAogICAgImhlaWdodCI6IDg2NiwKICAgICJlcnJvciI6IG51bGwsCiAgICAiZGVjb2RlZEF1ZGlvIjogODUxMDgsCiAgICAiZnJhbWVzIjogMjc0CiAgfSwKICAiYXVkaXQiOiB7CiAgICAicGVhayI6IDAsCiAgICAiZXZlbnRzIjogWwogICAgICB7CiAgICAgICAgImV2ZW50IjogIndhaXRpbmciLAogICAgICAgICJ0aW1lIjogMCwKICAgICAgICAiYXQiOiA3NTAKICAgICAgfSwKICAgICAgewogICAgICAgICJldmVudCI6ICJwbGF5aW5nIiwKICAgICAgICAidGltZSI6IDAsCiAgICAgICAgImF0IjogNzY1Ljc5OTk5OTk5OTgxMzcKICAgICAgfSwKICAgICAgewogICAgICAgICJldmVudCI6ICJwYXVzZSIsCiAgICAgICAgInRpbWUiOiAyNS4yLAogICAgICAgICJhdCI6IDQxMzAuNQogICAgICB9LAogICAgICB7CiAgICAgICAgImV2ZW50IjogInNlZWtpbmciLAogICAgICAgICJ0aW1lIjogMjUuMiwKICAgICAgICAiYXQiOiA0MTMwLjUKICAgICAgfSwKICAgICAgewogICAgICAgICJldmVudCI6ICJzZWVrZWQiLAogICAgICAgICJ0aW1lIjogMjUuMiwKICAgICAgICAiYXQiOiA0MTk3LjEwMDAwMDAwMDA5MwogICAgICB9LAogICAgICB7CiAgICAgICAgImV2ZW50IjogInBsYXlpbmciLAogICAgICAgICJ0aW1lIjogMjUuMiwKICAgICAgICAiYXQiOiA0ODk5LjY5OTk5OTk5OTcyMQogICAgICB9CiAgICBdLAogICAgImF1ZGlvRXJyb3IiOiBudWxsCiAgfSwKICAicmVxdWVzdENvdW50IjogMzcsCiAgInNlZWtJbnB1dCI6ICJIVE1MTWVkaWFFbGVtZW50LmN1cnJlbnRUaW1lOyBub3QgYSBwaHlzaWNhbCBzY3J1YiBnZXN0dXJlIgp9"
+                    },
+                    {
+                      "name": "final-state",
+                      "contentType": "application/json",
+                      "body": "ewogICJhdWRpdCI6IHsKICAgICJwZWFrIjogMCwKICAgICJldmVudHMiOiBbCiAgICAgIHsKICAgICAgICAiZXZlbnQiOiAid2FpdGluZyIsCiAgICAgICAgInRpbWUiOiAwLAogICAgICAgICJhdCI6IDc1MAogICAgICB9LAogICAgICB7CiAgICAgICAgImV2ZW50IjogInBsYXlpbmciLAogICAgICAgICJ0aW1lIjogMCwKICAgICAgICAiYXQiOiA3NjUuNzk5OTk5OTk5ODEzNwogICAgICB9LAogICAgICB7CiAgICAgICAgImV2ZW50IjogInBhdXNlIiwKICAgICAgICAidGltZSI6IDI1LjIsCiAgICAgICAgImF0IjogNDEzMC41CiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiZXZlbnQiOiAic2Vla2luZyIsCiAgICAgICAgInRpbWUiOiAyNS4yLAogICAgICAgICJhdCI6IDQxMzAuNQogICAgICB9LAogICAgICB7CiAgICAgICAgImV2ZW50IjogInNlZWtlZCIsCiAgICAgICAgInRpbWUiOiAyNS4yLAogICAgICAgICJhdCI6IDQxOTcuMTAwMDAwMDAwMDkzCiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiZXZlbnQiOiAicGxheWluZyIsCiAgICAgICAgInRpbWUiOiAyNS4yLAogICAgICAgICJhdCI6IDQ4OTkuNjk5OTk5OTk5NzIxCiAgICAgIH0KICAgIF0sCiAgICAiYXVkaW9FcnJvciI6IG51bGwKICB9LAogICJ2aWRlbyI6IHsKICAgICJ0aW1lIjogMCwKICAgICJwYXVzZWQiOiB0cnVlLAogICAgInJlYWR5U3RhdGUiOiAwLAogICAgIm1vZGUiOiAiaGxzIiwKICAgICJzcmMiOiAiYmxvYjpodHRwOi8vMTI3LjAuMC4xOjQxODcvZDdkZjQ3Y2ItZjk5NC00NTk2LWEzZmEtZGY3Y2YyNDFmMGZiIiwKICAgICJtdXRlZCI6IGZhbHNlLAogICAgInZvbHVtZSI6IDAuNDUsCiAgICAid2lkdGgiOiAwLAogICAgImhlaWdodCI6IDAsCiAgICAiZGVjb2RlZEF1ZGlvIjogMCwKICAgICJhdWRpb1RyYWNrcyI6IG51bGwsCiAgICAiYnVmZmVyZWQiOiBbXQogIH0KfQ=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "392ce7657d10ee24873f-14b300e30a19d7d12dd3",
+          "file": "playback.spec.mjs",
+          "line": 109,
+          "column": 21
+        },
+        {
+          "title": "mines: start, audio evidence, seek, pause, quality and release",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "edge",
+              "projectName": "edge",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 7443,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-31T04:44:20.656Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "environment",
+                      "contentType": "application/json",
+                      "body": "ewogICJwcm9qZWN0IjogImVkZ2UiLAogICJtZWRpYU9yaWdpbiI6ICJyZXBvc2l0b3J5IiwKICAidWEiOiAiTW96aWxsYS81LjAgKFdpbmRvd3MgTlQgMTAuMDsgV2luNjQ7IHg2NCkgQXBwbGVXZWJLaXQvNTM3LjM2IChLSFRNTCwgbGlrZSBHZWNrbykgSGVhZGxlc3NDaHJvbWUvMTU2LjAuMC4wIFNhZmFyaS81MzcuMzYgRWRnLzE1Ni4wLjAuMCIsCiAgInBsYXRmb3JtIjogIldpbjMyIiwKICAibmF0aXZlSGxzIjogIm1heWJlIiwKICAibXA0IjogInByb2JhYmx5IiwKICAibXNlIjogdHJ1ZSwKICAidG91Y2giOiAwCn0="
+                    },
+                    {
+                      "name": "playback-evidence",
+                      "contentType": "application/json",
+                      "body": "ewogICJpZCI6ICJtaW5lcyIsCiAgImJyb3dzZXIiOiAiMTU2LjAuNDMxNC41MCIsCiAgImZsb3dUb1BsYXlpbmdNcyI6IDE0NDQsCiAgImF1ZGlvIjogewogICAgIm1ldGhvZCI6ICJicm93c2VyIGF1ZGlvIGRlY29kZXIgYnl0ZSBjb3VudGVyIgogIH0sCiAgInN0YXJ0IjogewogICAgInRpbWUiOiAwLjczMjAwOCwKICAgICJwYXVzZWQiOiBmYWxzZSwKICAgICJ2b2x1bWUiOiAwLjgsCiAgICAibXV0ZWQiOiBmYWxzZSwKICAgICJzcmMiOiAiYmxvYjpodHRwOi8vMTI3LjAuMC4xOjQxODcvZmZmZTA5NzAtNDE1YS00ZGZkLTkyOGItMzBjY2Y4YjdiYjBhIiwKICAgICJyZWFkeVN0YXRlIjogNCwKICAgICJ3aWR0aCI6IDg1NCwKICAgICJoZWlnaHQiOiA0ODAsCiAgICAiZXJyb3IiOiBudWxsLAogICAgImRlY29kZWRBdWRpbyI6IDIyNjgsCiAgICAiZnJhbWVzIjogMjQKICB9LAogICJjb250aW51b3VzIjogewogICAgInRpbWUiOiAzLjc1Mzg1OSwKICAgICJwYXVzZWQiOiBmYWxzZSwKICAgICJ2b2x1bWUiOiAwLjgsCiAgICAibXV0ZWQiOiBmYWxzZSwKICAgICJzcmMiOiAiYmxvYjpodHRwOi8vMTI3LjAuMC4xOjQxODcvZmZmZTA5NzAtNDE1YS00ZGZkLTkyOGItMzBjY2Y4YjdiYjBhIiwKICAgICJyZWFkeVN0YXRlIjogNCwKICAgICJ3aWR0aCI6IDEyODAsCiAgICAiaGVpZ2h0IjogNzIwLAogICAgImVycm9yIjogbnVsbCwKICAgICJkZWNvZGVkQXVkaW8iOiA3NTE3LAogICAgImZyYW1lcyI6IDExNAogIH0sCiAgImZpbmFsIjogewogICAgInRpbWUiOiAxMy41NjEzNCwKICAgICJwYXVzZWQiOiBmYWxzZSwKICAgICJ2b2x1bWUiOiAwLjQ1LAogICAgIm11dGVkIjogZmFsc2UsCiAgICAic3JjIjogImJsb2I6aHR0cDovLzEyNy4wLjAuMTo0MTg3L2ZmZmUwOTcwLTQxNWEtNGRmZC05MjhiLTMwY2NmOGI3YmIwYSIsCiAgICAicmVhZHlTdGF0ZSI6IDQsCiAgICAid2lkdGgiOiAxMjgwLAogICAgImhlaWdodCI6IDcyMCwKICAgICJlcnJvciI6IG51bGwsCiAgICAiZGVjb2RlZEF1ZGlvIjogNzkyMCwKICAgICJmcmFtZXMiOiAxMjkKICB9LAogICJhdWRpdCI6IHsKICAgICJwZWFrIjogMCwKICAgICJldmVudHMiOiBbCiAgICAgIHsKICAgICAgICAiZXZlbnQiOiAid2FpdGluZyIsCiAgICAgICAgInRpbWUiOiAwLAogICAgICAgICJhdCI6IDcyOC43OTk5OTk5OTk4MTM3CiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiZXZlbnQiOiAicGxheWluZyIsCiAgICAgICAgInRpbWUiOiAwLAogICAgICAgICJhdCI6IDc0Mi42MDAwMDAwMDAwOTMxCiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiZXZlbnQiOiAicGF1c2UiLAogICAgICAgICJ0aW1lIjogMTMuMjE5OTk5LAogICAgICAgICJhdCI6IDQ1OTEuMzk5OTk5OTk5OTA3CiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiZXZlbnQiOiAic2Vla2luZyIsCiAgICAgICAgInRpbWUiOiAxMy4yMTk5OTksCiAgICAgICAgImF0IjogNDU5My4xMDAwMDAwMDAwOTMKICAgICAgfSwKICAgICAgewogICAgICAgICJldmVudCI6ICJzZWVrZWQiLAogICAgICAgICJ0aW1lIjogMTMuMjE5OTk5LAogICAgICAgICJhdCI6IDQ2MzMuNjk5OTk5OTk5NzIxCiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiZXZlbnQiOiAicGxheWluZyIsCiAgICAgICAgInRpbWUiOiAxMy4yMTk5OTksCiAgICAgICAgImF0IjogNTI3MC43OTk5OTk5OTk4MTQKICAgICAgfQogICAgXSwKICAgICJhdWRpb0Vycm9yIjogbnVsbAogIH0sCiAgInJlcXVlc3RDb3VudCI6IDIwLAogICJzZWVrSW5wdXQiOiAiSFRNTE1lZGlhRWxlbWVudC5jdXJyZW50VGltZTsgbm90IGEgcGh5c2ljYWwgc2NydWIgZ2VzdHVyZSIKfQ=="
+                    },
+                    {
+                      "name": "final-state",
+                      "contentType": "application/json",
+                      "body": "ewogICJhdWRpdCI6IHsKICAgICJwZWFrIjogMCwKICAgICJldmVudHMiOiBbCiAgICAgIHsKICAgICAgICAiZXZlbnQiOiAid2FpdGluZyIsCiAgICAgICAgInRpbWUiOiAwLAogICAgICAgICJhdCI6IDcyOC43OTk5OTk5OTk4MTM3CiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiZXZlbnQiOiAicGxheWluZyIsCiAgICAgICAgInRpbWUiOiAwLAogICAgICAgICJhdCI6IDc0Mi42MDAwMDAwMDAwOTMxCiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiZXZlbnQiOiAicGF1c2UiLAogICAgICAgICJ0aW1lIjogMTMuMjE5OTk5LAogICAgICAgICJhdCI6IDQ1OTEuMzk5OTk5OTk5OTA3CiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiZXZlbnQiOiAic2Vla2luZyIsCiAgICAgICAgInRpbWUiOiAxMy4yMTk5OTksCiAgICAgICAgImF0IjogNDU5My4xMDAwMDAwMDAwOTMKICAgICAgfSwKICAgICAgewogICAgICAgICJldmVudCI6ICJzZWVrZWQiLAogICAgICAgICJ0aW1lIjogMTMuMjE5OTk5LAogICAgICAgICJhdCI6IDQ2MzMuNjk5OTk5OTk5NzIxCiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiZXZlbnQiOiAicGxheWluZyIsCiAgICAgICAgInRpbWUiOiAxMy4yMTk5OTksCiAgICAgICAgImF0IjogNTI3MC43OTk5OTk5OTk4MTQKICAgICAgfQogICAgXSwKICAgICJhdWRpb0Vycm9yIjogbnVsbAogIH0sCiAgInZpZGVvIjogewogICAgInRpbWUiOiAwLAogICAgInBhdXNlZCI6IHRydWUsCiAgICAicmVhZHlTdGF0ZSI6IDAsCiAgICAibW9kZSI6ICJobHMiLAogICAgInNyYyI6ICJibG9iOmh0dHA6Ly8xMjcuMC4wLjE6NDE4Ny9mZmZlMDk3MC00MTVhLTRkZmQtOTI4Yi0zMGNjZjhiN2JiMGEiLAogICAgIm11dGVkIjogZmFsc2UsCiAgICAidm9sdW1lIjogMC40NSwKICAgICJ3aWR0aCI6IDAsCiAgICAiaGVpZ2h0IjogMCwKICAgICJkZWNvZGVkQXVkaW8iOiAwLAogICAgImF1ZGlvVHJhY2tzIjogbnVsbCwKICAgICJidWZmZXJlZCI6IFtdCiAgfQp9"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "392ce7657d10ee24873f-3507ab8e5e7a449a5a71",
+          "file": "playback.spec.mjs",
+          "line": 109,
+          "column": 21
+        },
+        {
+          "title": "murphy: start, audio evidence, seek, pause, quality and release",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "edge",
+              "projectName": "edge",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 8927,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-31T04:44:28.107Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "environment",
+                      "contentType": "application/json",
+                      "body": "ewogICJwcm9qZWN0IjogImVkZ2UiLAogICJtZWRpYU9yaWdpbiI6ICJyZXBvc2l0b3J5IiwKICAidWEiOiAiTW96aWxsYS81LjAgKFdpbmRvd3MgTlQgMTAuMDsgV2luNjQ7IHg2NCkgQXBwbGVXZWJLaXQvNTM3LjM2IChLSFRNTCwgbGlrZSBHZWNrbykgSGVhZGxlc3NDaHJvbWUvMTU2LjAuMC4wIFNhZmFyaS81MzcuMzYgRWRnLzE1Ni4wLjAuMCIsCiAgInBsYXRmb3JtIjogIldpbjMyIiwKICAibmF0aXZlSGxzIjogIm1heWJlIiwKICAibXA0IjogInByb2JhYmx5IiwKICAibXNlIjogdHJ1ZSwKICAidG91Y2giOiAwCn0="
+                    },
+                    {
+                      "name": "playback-evidence",
+                      "contentType": "application/json",
+                      "body": "ewogICJpZCI6ICJtdXJwaHkiLAogICJicm93c2VyIjogIjE1Ni4wLjQzMTQuNTAiLAogICJmbG93VG9QbGF5aW5nTXMiOiAxNDg4LAogICJhdWRpbyI6IHsKICAgICJtZXRob2QiOiAiYnJvd3NlciBhdWRpbyBkZWNvZGVyIGJ5dGUgY291bnRlciIKICB9LAogICJzdGFydCI6IHsKICAgICJ0aW1lIjogMC4yNDE2OTIsCiAgICAicGF1c2VkIjogZmFsc2UsCiAgICAidm9sdW1lIjogMC44LAogICAgIm11dGVkIjogZmFsc2UsCiAgICAic3JjIjogImJsb2I6aHR0cDovLzEyNy4wLjAuMTo0MTg3LzczZWM5NTgxLWQzZWItNDA0YS1hY2RiLTc3MTQ2ZmYwOGUwYiIsCiAgICAicmVhZHlTdGF0ZSI6IDQsCiAgICAid2lkdGgiOiA4NTQsCiAgICAiaGVpZ2h0IjogNDgwLAogICAgImVycm9yIjogbnVsbCwKICAgICJkZWNvZGVkQXVkaW8iOiA2NzM5LAogICAgImZyYW1lcyI6IDEwCiAgfSwKICAiY29udGludW91cyI6IHsKICAgICJ0aW1lIjogMy4yNjU4MjYsCiAgICAicGF1c2VkIjogZmFsc2UsCiAgICAidm9sdW1lIjogMC44LAogICAgIm11dGVkIjogZmFsc2UsCiAgICAic3JjIjogImJsb2I6aHR0cDovLzEyNy4wLjAuMTo0MTg3LzczZWM5NTgxLWQzZWItNDA0YS1hY2RiLTc3MTQ2ZmYwOGUwYiIsCiAgICAicmVhZHlTdGF0ZSI6IDQsCiAgICAid2lkdGgiOiAxMjgwLAogICAgImhlaWdodCI6IDcyMCwKICAgICJlcnJvciI6IG51bGwsCiAgICAiZGVjb2RlZEF1ZGlvIjogNDM4ODQsCiAgICAiZnJhbWVzIjogMTAwCiAgfSwKICAiZmluYWwiOiB7CiAgICAidGltZSI6IDc2LjE2MDM1MSwKICAgICJwYXVzZWQiOiBmYWxzZSwKICAgICJ2b2x1bWUiOiAwLjQ1LAogICAgIm11dGVkIjogZmFsc2UsCiAgICAic3JjIjogImJsb2I6aHR0cDovLzEyNy4wLjAuMTo0MTg3LzczZWM5NTgxLWQzZWItNDA0YS1hY2RiLTc3MTQ2ZmYwOGUwYiIsCiAgICAicmVhZHlTdGF0ZSI6IDQsCiAgICAid2lkdGgiOiAxOTIwLAogICAgImhlaWdodCI6IDEwODAsCiAgICAiZXJyb3IiOiBudWxsLAogICAgImRlY29kZWRBdWRpbyI6IDcwNjQ3LAogICAgImZyYW1lcyI6IDE1MwogIH0sCiAgImF1ZGl0IjogewogICAgInBlYWsiOiAwLAogICAgImV2ZW50cyI6IFsKICAgICAgewogICAgICAgICJldmVudCI6ICJ3YWl0aW5nIiwKICAgICAgICAidGltZSI6IDAsCiAgICAgICAgImF0IjogMTI2Ny41CiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiZXZlbnQiOiAicGxheWluZyIsCiAgICAgICAgInRpbWUiOiAwLAogICAgICAgICJhdCI6IDEyODUuNQogICAgICB9LAogICAgICB7CiAgICAgICAgImV2ZW50IjogInBhdXNlIiwKICAgICAgICAidGltZSI6IDc0LjM4LAogICAgICAgICJhdCI6IDQ2NDIuMzAwMDAwMDAwMjc5CiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiZXZlbnQiOiAic2Vla2luZyIsCiAgICAgICAgInRpbWUiOiA3NC4zOCwKICAgICAgICAiYXQiOiA0NjQyLjUKICAgICAgfSwKICAgICAgewogICAgICAgICJldmVudCI6ICJzZWVrZWQiLAogICAgICAgICJ0aW1lIjogNzQuMzgsCiAgICAgICAgImF0IjogNDY1NS40MDAwMDAwMDAzNzI1CiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiZXZlbnQiOiAicGxheWluZyIsCiAgICAgICAgInRpbWUiOiA3NC4zOCwKICAgICAgICAiYXQiOiA1MzAwLjUKICAgICAgfQogICAgXSwKICAgICJhdWRpb0Vycm9yIjogbnVsbAogIH0sCiAgInJlcXVlc3RDb3VudCI6IDUwLAogICJzZWVrSW5wdXQiOiAiSFRNTE1lZGlhRWxlbWVudC5jdXJyZW50VGltZTsgbm90IGEgcGh5c2ljYWwgc2NydWIgZ2VzdHVyZSIKfQ=="
+                    },
+                    {
+                      "name": "final-state",
+                      "contentType": "application/json",
+                      "body": "ewogICJhdWRpdCI6IHsKICAgICJwZWFrIjogMCwKICAgICJldmVudHMiOiBbCiAgICAgIHsKICAgICAgICAiZXZlbnQiOiAid2FpdGluZyIsCiAgICAgICAgInRpbWUiOiAwLAogICAgICAgICJhdCI6IDEyNjcuNQogICAgICB9LAogICAgICB7CiAgICAgICAgImV2ZW50IjogInBsYXlpbmciLAogICAgICAgICJ0aW1lIjogMCwKICAgICAgICAiYXQiOiAxMjg1LjUKICAgICAgfSwKICAgICAgewogICAgICAgICJldmVudCI6ICJwYXVzZSIsCiAgICAgICAgInRpbWUiOiA3NC4zOCwKICAgICAgICAiYXQiOiA0NjQyLjMwMDAwMDAwMDI3OQogICAgICB9LAogICAgICB7CiAgICAgICAgImV2ZW50IjogInNlZWtpbmciLAogICAgICAgICJ0aW1lIjogNzQuMzgsCiAgICAgICAgImF0IjogNDY0Mi41CiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiZXZlbnQiOiAic2Vla2VkIiwKICAgICAgICAidGltZSI6IDc0LjM4LAogICAgICAgICJhdCI6IDQ2NTUuNDAwMDAwMDAwMzcyNQogICAgICB9LAogICAgICB7CiAgICAgICAgImV2ZW50IjogInBsYXlpbmciLAogICAgICAgICJ0aW1lIjogNzQuMzgsCiAgICAgICAgImF0IjogNTMwMC41CiAgICAgIH0KICAgIF0sCiAgICAiYXVkaW9FcnJvciI6IG51bGwKICB9LAogICJ2aWRlbyI6IHsKICAgICJ0aW1lIjogMCwKICAgICJwYXVzZWQiOiB0cnVlLAogICAgInJlYWR5U3RhdGUiOiAwLAogICAgIm1vZGUiOiAiaGxzIiwKICAgICJzcmMiOiAiYmxvYjpodHRwOi8vMTI3LjAuMC4xOjQxODcvNzNlYzk1ODEtZDNlYi00MDRhLWFjZGItNzcxNDZmZjA4ZTBiIiwKICAgICJtdXRlZCI6IGZhbHNlLAogICAgInZvbHVtZSI6IDAuNDUsCiAgICAid2lkdGgiOiAwLAogICAgImhlaWdodCI6IDAsCiAgICAiZGVjb2RlZEF1ZGlvIjogMCwKICAgICJhdWRpb1RyYWNrcyI6IG51bGwsCiAgICAiYnVmZmVyZWQiOiBbXQogIH0KfQ=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "392ce7657d10ee24873f-13d04bc9e22eb1aef761",
+          "file": "playback.spec.mjs",
+          "line": 109,
+          "column": 21
+        },
+        {
+          "title": "hyrum: start, audio evidence, seek, pause, quality and release",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "edge",
+              "projectName": "edge",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 9976,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-31T04:44:37.042Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "environment",
+                      "contentType": "application/json",
+                      "body": "ewogICJwcm9qZWN0IjogImVkZ2UiLAogICJtZWRpYU9yaWdpbiI6ICJyZXBvc2l0b3J5IiwKICAidWEiOiAiTW96aWxsYS81LjAgKFdpbmRvd3MgTlQgMTAuMDsgV2luNjQ7IHg2NCkgQXBwbGVXZWJLaXQvNTM3LjM2IChLSFRNTCwgbGlrZSBHZWNrbykgSGVhZGxlc3NDaHJvbWUvMTU2LjAuMC4wIFNhZmFyaS81MzcuMzYgRWRnLzE1Ni4wLjAuMCIsCiAgInBsYXRmb3JtIjogIldpbjMyIiwKICAibmF0aXZlSGxzIjogIm1heWJlIiwKICAibXA0IjogInByb2JhYmx5IiwKICAibXNlIjogdHJ1ZSwKICAidG91Y2giOiAwCn0="
+                    },
+                    {
+                      "name": "playback-evidence",
+                      "contentType": "application/json",
+                      "body": "ewogICJpZCI6ICJoeXJ1bSIsCiAgImJyb3dzZXIiOiAiMTU2LjAuNDMxNC41MCIsCiAgImZsb3dUb1BsYXlpbmdNcyI6IDE5ODQsCiAgImF1ZGlvIjogewogICAgIm1ldGhvZCI6ICJicm93c2VyIGF1ZGlvIGRlY29kZXIgYnl0ZSBjb3VudGVyIgogIH0sCiAgInN0YXJ0IjogewogICAgInRpbWUiOiAwLjcyNDkwNywKICAgICJwYXVzZWQiOiBmYWxzZSwKICAgICJ2b2x1bWUiOiAwLjgsCiAgICAibXV0ZWQiOiBmYWxzZSwKICAgICJzcmMiOiAiYmxvYjpodHRwOi8vMTI3LjAuMC4xOjQxODcvOWMyMmU3M2YtMTY4YS00ZWY5LTgzYWUtYWIwMWM5MTFhZTY5IiwKICAgICJyZWFkeVN0YXRlIjogNCwKICAgICJ3aWR0aCI6IDg1NCwKICAgICJoZWlnaHQiOiA0ODAsCiAgICAiZXJyb3IiOiBudWxsLAogICAgImRlY29kZWRBdWRpbyI6IDEzNDQ1LAogICAgImZyYW1lcyI6IDI0CiAgfSwKICAiY29udGludW91cyI6IHsKICAgICJ0aW1lIjogMy43NDI0NDYsCiAgICAicGF1c2VkIjogZmFsc2UsCiAgICAidm9sdW1lIjogMC44LAogICAgIm11dGVkIjogZmFsc2UsCiAgICAic3JjIjogImJsb2I6aHR0cDovLzEyNy4wLjAuMTo0MTg3LzljMjJlNzNmLTE2OGEtNGVmOS04M2FlLWFiMDFjOTExYWU2OSIsCiAgICAicmVhZHlTdGF0ZSI6IDQsCiAgICAid2lkdGgiOiAxMjgwLAogICAgImhlaWdodCI6IDcyMCwKICAgICJlcnJvciI6IG51bGwsCiAgICAiZGVjb2RlZEF1ZGlvIjogNTE0OTYsCiAgICAiZnJhbWVzIjogMTE0CiAgfSwKICAiZmluYWwiOiB7CiAgICAidGltZSI6IDkyLjI2MTA2LAogICAgInBhdXNlZCI6IGZhbHNlLAogICAgInZvbHVtZSI6IDAuNDUsCiAgICAibXV0ZWQiOiBmYWxzZSwKICAgICJzcmMiOiAiYmxvYjpodHRwOi8vMTI3LjAuMC4xOjQxODcvOWMyMmU3M2YtMTY4YS00ZWY5LTgzYWUtYWIwMWM5MTFhZTY5IiwKICAgICJyZWFkeVN0YXRlIjogNCwKICAgICJ3aWR0aCI6IDE5MjAsCiAgICAiaGVpZ2h0IjogMTA4MCwKICAgICJlcnJvciI6IG51bGwsCiAgICAiZGVjb2RlZEF1ZGlvIjogODQ0NTIsCiAgICAiZnJhbWVzIjogMTQxCiAgfSwKICAiYXVkaXQiOiB7CiAgICAicGVhayI6IDAsCiAgICAiZXZlbnRzIjogWwogICAgICB7CiAgICAgICAgImV2ZW50IjogIndhaXRpbmciLAogICAgICAgICJ0aW1lIjogMCwKICAgICAgICAiYXQiOiAxMjgwLjIwMDAwMDAwMDE4NjMKICAgICAgfSwKICAgICAgewogICAgICAgICJldmVudCI6ICJwbGF5aW5nIiwKICAgICAgICAidGltZSI6IDAsCiAgICAgICAgImF0IjogMTI5OC4zOTk5OTk5OTk5MDY5CiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiZXZlbnQiOiAicGF1c2UiLAogICAgICAgICJ0aW1lIjogODkuOTU5OTk5LAogICAgICAgICJhdCI6IDUxMjguNjAwMDAwMDAwMDkzCiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiZXZlbnQiOiAic2Vla2luZyIsCiAgICAgICAgInRpbWUiOiA4OS45NTk5OTksCiAgICAgICAgImF0IjogNTEyOC42MDAwMDAwMDAwOTMKICAgICAgfSwKICAgICAgewogICAgICAgICJldmVudCI6ICJzZWVrZWQiLAogICAgICAgICJ0aW1lIjogODkuOTU5OTk5LAogICAgICAgICJhdCI6IDUxODIuMzk5OTk5OTk5OTA3CiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiZXZlbnQiOiAicGxheWluZyIsCiAgICAgICAgInRpbWUiOiA4OS45NTk5OTksCiAgICAgICAgImF0IjogNTg0MS42MDAwMDAwMDAwOTMKICAgICAgfQogICAgXSwKICAgICJhdWRpb0Vycm9yIjogbnVsbAogIH0sCiAgInJlcXVlc3RDb3VudCI6IDYzLAogICJzZWVrSW5wdXQiOiAiSFRNTE1lZGlhRWxlbWVudC5jdXJyZW50VGltZTsgbm90IGEgcGh5c2ljYWwgc2NydWIgZ2VzdHVyZSIKfQ=="
+                    },
+                    {
+                      "name": "final-state",
+                      "contentType": "application/json",
+                      "body": "ewogICJhdWRpdCI6IHsKICAgICJwZWFrIjogMCwKICAgICJldmVudHMiOiBbCiAgICAgIHsKICAgICAgICAiZXZlbnQiOiAid2FpdGluZyIsCiAgICAgICAgInRpbWUiOiAwLAogICAgICAgICJhdCI6IDEyODAuMjAwMDAwMDAwMTg2MwogICAgICB9LAogICAgICB7CiAgICAgICAgImV2ZW50IjogInBsYXlpbmciLAogICAgICAgICJ0aW1lIjogMCwKICAgICAgICAiYXQiOiAxMjk4LjM5OTk5OTk5OTkwNjkKICAgICAgfSwKICAgICAgewogICAgICAgICJldmVudCI6ICJwYXVzZSIsCiAgICAgICAgInRpbWUiOiA4OS45NTk5OTksCiAgICAgICAgImF0IjogNTEyOC42MDAwMDAwMDAwOTMKICAgICAgfSwKICAgICAgewogICAgICAgICJldmVudCI6ICJzZWVraW5nIiwKICAgICAgICAidGltZSI6IDg5Ljk1OTk5OSwKICAgICAgICAiYXQiOiA1MTI4LjYwMDAwMDAwMDA5MwogICAgICB9LAogICAgICB7CiAgICAgICAgImV2ZW50IjogInNlZWtlZCIsCiAgICAgICAgInRpbWUiOiA4OS45NTk5OTksCiAgICAgICAgImF0IjogNTE4Mi4zOTk5OTk5OTk5MDcKICAgICAgfSwKICAgICAgewogICAgICAgICJldmVudCI6ICJwbGF5aW5nIiwKICAgICAgICAidGltZSI6IDg5Ljk1OTk5OSwKICAgICAgICAiYXQiOiA1ODQxLjYwMDAwMDAwMDA5MwogICAgICB9CiAgICBdLAogICAgImF1ZGlvRXJyb3IiOiBudWxsCiAgfSwKICAidmlkZW8iOiB7CiAgICAidGltZSI6IDAsCiAgICAicGF1c2VkIjogdHJ1ZSwKICAgICJyZWFkeVN0YXRlIjogMCwKICAgICJtb2RlIjogImhscyIsCiAgICAic3JjIjogImJsb2I6aHR0cDovLzEyNy4wLjAuMTo0MTg3LzljMjJlNzNmLTE2OGEtNGVmOS04M2FlLWFiMDFjOTExYWU2OSIsCiAgICAibXV0ZWQiOiBmYWxzZSwKICAgICJ2b2x1bWUiOiAwLjQ1LAogICAgIndpZHRoIjogMCwKICAgICJoZWlnaHQiOiAwLAogICAgImRlY29kZWRBdWRpbyI6IDAsCiAgICAiYXVkaW9UcmFja3MiOiBudWxsLAogICAgImJ1ZmZlcmVkIjogW10KICB9Cn0="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "392ce7657d10ee24873f-e8b77b45bbcb1349de09",
+          "file": "playback.spec.mjs",
+          "line": 109,
+          "column": 21
+        },
+        {
+          "title": "familiar: start, audio evidence, seek, pause, quality and release",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "edge",
+              "projectName": "edge",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 9416,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-31T04:44:47.025Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "environment",
+                      "contentType": "application/json",
+                      "body": "ewogICJwcm9qZWN0IjogImVkZ2UiLAogICJtZWRpYU9yaWdpbiI6ICJyZXBvc2l0b3J5IiwKICAidWEiOiAiTW96aWxsYS81LjAgKFdpbmRvd3MgTlQgMTAuMDsgV2luNjQ7IHg2NCkgQXBwbGVXZWJLaXQvNTM3LjM2IChLSFRNTCwgbGlrZSBHZWNrbykgSGVhZGxlc3NDaHJvbWUvMTU2LjAuMC4wIFNhZmFyaS81MzcuMzYgRWRnLzE1Ni4wLjAuMCIsCiAgInBsYXRmb3JtIjogIldpbjMyIiwKICAibmF0aXZlSGxzIjogIm1heWJlIiwKICAibXA0IjogInByb2JhYmx5IiwKICAibXNlIjogdHJ1ZSwKICAidG91Y2giOiAwCn0="
+                    },
+                    {
+                      "name": "playback-evidence",
+                      "contentType": "application/json",
+                      "body": "ewogICJpZCI6ICJmYW1pbGlhciIsCiAgImJyb3dzZXIiOiAiMTU2LjAuNDMxNC41MCIsCiAgImZsb3dUb1BsYXlpbmdNcyI6IDE1MDMsCiAgImF1ZGlvIjogewogICAgIm1ldGhvZCI6ICJicm93c2VyIGF1ZGlvIGRlY29kZXIgYnl0ZSBjb3VudGVyIgogIH0sCiAgInN0YXJ0IjogewogICAgInRpbWUiOiAwLjIzNTc0MywKICAgICJwYXVzZWQiOiBmYWxzZSwKICAgICJ2b2x1bWUiOiAwLjgsCiAgICAibXV0ZWQiOiBmYWxzZSwKICAgICJzcmMiOiAiYmxvYjpodHRwOi8vMTI3LjAuMC4xOjQxODcvZmY0YWJkZGEtZjcxNS00YjU2LWExMWYtYzlhZGYxMjE5YWY3IiwKICAgICJyZWFkeVN0YXRlIjogNCwKICAgICJ3aWR0aCI6IDg1NCwKICAgICJoZWlnaHQiOiA0ODAsCiAgICAiZXJyb3IiOiBudWxsLAogICAgImRlY29kZWRBdWRpbyI6IDY4NjQsCiAgICAiZnJhbWVzIjogOQogIH0sCiAgImNvbnRpbnVvdXMiOiB7CiAgICAidGltZSI6IDMuMjYyMjg5LAogICAgInBhdXNlZCI6IGZhbHNlLAogICAgInZvbHVtZSI6IDAuOCwKICAgICJtdXRlZCI6IGZhbHNlLAogICAgInNyYyI6ICJibG9iOmh0dHA6Ly8xMjcuMC4wLjE6NDE4Ny9mZjRhYmRkYS1mNzE1LTRiNTYtYTExZi1jOWFkZjEyMTlhZjciLAogICAgInJlYWR5U3RhdGUiOiA0LAogICAgIndpZHRoIjogMTI4MCwKICAgICJoZWlnaHQiOiA3MjAsCiAgICAiZXJyb3IiOiBudWxsLAogICAgImRlY29kZWRBdWRpbyI6IDQzODA3LAogICAgImZyYW1lcyI6IDEwMAogIH0sCiAgImZpbmFsIjogewogICAgInRpbWUiOiAxMTIuNzc2MzY3LAogICAgInBhdXNlZCI6IGZhbHNlLAogICAgInZvbHVtZSI6IDAuNDUsCiAgICAibXV0ZWQiOiBmYWxzZSwKICAgICJzcmMiOiAiYmxvYjpodHRwOi8vMTI3LjAuMC4xOjQxODcvZmY0YWJkZGEtZjcxNS00YjU2LWExMWYtYzlhZGYxMjE5YWY3IiwKICAgICJyZWFkeVN0YXRlIjogNCwKICAgICJ3aWR0aCI6IDE5MjAsCiAgICAiaGVpZ2h0IjogMTA4MCwKICAgICJlcnJvciI6IG51bGwsCiAgICAiZGVjb2RlZEF1ZGlvIjogNzY3NDEsCiAgICAiZnJhbWVzIjogMTcwCiAgfSwKICAiYXVkaXQiOiB7CiAgICAicGVhayI6IDAsCiAgICAiZXZlbnRzIjogWwogICAgICB7CiAgICAgICAgImV2ZW50IjogIndhaXRpbmciLAogICAgICAgICJ0aW1lIjogMCwKICAgICAgICAiYXQiOiAxMjk4LjYwMDAwMDAwMDA5MzEKICAgICAgfSwKICAgICAgewogICAgICAgICJldmVudCI6ICJwbGF5aW5nIiwKICAgICAgICAidGltZSI6IDAuMDAwMTA3LAogICAgICAgICJhdCI6IDEzMTUuNzk5OTk5OTk5ODEzNwogICAgICB9LAogICAgICB7CiAgICAgICAgImV2ZW50IjogInBhdXNlIiwKICAgICAgICAidGltZSI6IDExMC40Nzk5OTksCiAgICAgICAgImF0IjogNDY1NgogICAgICB9LAogICAgICB7CiAgICAgICAgImV2ZW50IjogInNlZWtpbmciLAogICAgICAgICJ0aW1lIjogMTEwLjQ3OTk5OSwKICAgICAgICAiYXQiOiA0NjU2CiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiZXZlbnQiOiAic2Vla2VkIiwKICAgICAgICAidGltZSI6IDExMC40Nzk5OTksCiAgICAgICAgImF0IjogNDY2OS41CiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiZXZlbnQiOiAicGxheWluZyIsCiAgICAgICAgInRpbWUiOiAxMTAuNDc5OTk5LAogICAgICAgICJhdCI6IDUyODMuMzk5OTk5OTk5OTA3CiAgICAgIH0KICAgIF0sCiAgICAiYXVkaW9FcnJvciI6IG51bGwKICB9LAogICJyZXF1ZXN0Q291bnQiOiA1NywKICAic2Vla0lucHV0IjogIkhUTUxNZWRpYUVsZW1lbnQuY3VycmVudFRpbWU7IG5vdCBhIHBoeXNpY2FsIHNjcnViIGdlc3R1cmUiCn0="
+                    },
+                    {
+                      "name": "final-state",
+                      "contentType": "application/json",
+                      "body": "ewogICJhdWRpdCI6IHsKICAgICJwZWFrIjogMCwKICAgICJldmVudHMiOiBbCiAgICAgIHsKICAgICAgICAiZXZlbnQiOiAid2FpdGluZyIsCiAgICAgICAgInRpbWUiOiAwLAogICAgICAgICJhdCI6IDEyOTguNjAwMDAwMDAwMDkzMQogICAgICB9LAogICAgICB7CiAgICAgICAgImV2ZW50IjogInBsYXlpbmciLAogICAgICAgICJ0aW1lIjogMC4wMDAxMDcsCiAgICAgICAgImF0IjogMTMxNS43OTk5OTk5OTk4MTM3CiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiZXZlbnQiOiAicGF1c2UiLAogICAgICAgICJ0aW1lIjogMTEwLjQ3OTk5OSwKICAgICAgICAiYXQiOiA0NjU2CiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiZXZlbnQiOiAic2Vla2luZyIsCiAgICAgICAgInRpbWUiOiAxMTAuNDc5OTk5LAogICAgICAgICJhdCI6IDQ2NTYKICAgICAgfSwKICAgICAgewogICAgICAgICJldmVudCI6ICJzZWVrZWQiLAogICAgICAgICJ0aW1lIjogMTEwLjQ3OTk5OSwKICAgICAgICAiYXQiOiA0NjY5LjUKICAgICAgfSwKICAgICAgewogICAgICAgICJldmVudCI6ICJwbGF5aW5nIiwKICAgICAgICAidGltZSI6IDExMC40Nzk5OTksCiAgICAgICAgImF0IjogNTI4My4zOTk5OTk5OTk5MDcKICAgICAgfQogICAgXSwKICAgICJhdWRpb0Vycm9yIjogbnVsbAogIH0sCiAgInZpZGVvIjogewogICAgInRpbWUiOiAwLAogICAgInBhdXNlZCI6IHRydWUsCiAgICAicmVhZHlTdGF0ZSI6IDAsCiAgICAibW9kZSI6ICJobHMiLAogICAgInNyYyI6ICJibG9iOmh0dHA6Ly8xMjcuMC4wLjE6NDE4Ny9mZjRhYmRkYS1mNzE1LTRiNTYtYTExZi1jOWFkZjEyMTlhZjciLAogICAgIm11dGVkIjogZmFsc2UsCiAgICAidm9sdW1lIjogMC40NSwKICAgICJ3aWR0aCI6IDAsCiAgICAiaGVpZ2h0IjogMCwKICAgICJkZWNvZGVkQXVkaW8iOiAwLAogICAgImF1ZGlvVHJhY2tzIjogbnVsbCwKICAgICJidWZmZXJlZCI6IFtdCiAgfQp9"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "392ce7657d10ee24873f-aad5453717e33dc67409",
+          "file": "playback.spec.mjs",
+          "line": 109,
+          "column": 21
+        },
+        {
+          "title": "town: start, audio evidence, seek, pause, quality and release",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "edge",
+              "projectName": "edge",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 9565,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-31T04:44:56.450Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "environment",
+                      "contentType": "application/json",
+                      "body": "ewogICJwcm9qZWN0IjogImVkZ2UiLAogICJtZWRpYU9yaWdpbiI6ICJyZXBvc2l0b3J5IiwKICAidWEiOiAiTW96aWxsYS81LjAgKFdpbmRvd3MgTlQgMTAuMDsgV2luNjQ7IHg2NCkgQXBwbGVXZWJLaXQvNTM3LjM2IChLSFRNTCwgbGlrZSBHZWNrbykgSGVhZGxlc3NDaHJvbWUvMTU2LjAuMC4wIFNhZmFyaS81MzcuMzYgRWRnLzE1Ni4wLjAuMCIsCiAgInBsYXRmb3JtIjogIldpbjMyIiwKICAibmF0aXZlSGxzIjogIm1heWJlIiwKICAibXA0IjogInByb2JhYmx5IiwKICAibXNlIjogdHJ1ZSwKICAidG91Y2giOiAwCn0="
+                    },
+                    {
+                      "name": "playback-evidence",
+                      "contentType": "application/json",
+                      "body": "ewogICJpZCI6ICJ0b3duIiwKICAiYnJvd3NlciI6ICIxNTYuMC40MzE0LjUwIiwKICAiZmxvd1RvUGxheWluZ01zIjogMTUyNSwKICAiYXVkaW8iOiB7CiAgICAibWV0aG9kIjogImJyb3dzZXIgYXVkaW8gZGVjb2RlciBieXRlIGNvdW50ZXIiCiAgfSwKICAic3RhcnQiOiB7CiAgICAidGltZSI6IDAuMjUwMzc5LAogICAgInBhdXNlZCI6IGZhbHNlLAogICAgInZvbHVtZSI6IDAuOCwKICAgICJtdXRlZCI6IGZhbHNlLAogICAgInNyYyI6ICJibG9iOmh0dHA6Ly8xMjcuMC4wLjE6NDE4Ny80MWYwNzEyMi00ZjFjLTQ1MmYtODZkNC0yM2I0MGZiOTFkZjgiLAogICAgInJlYWR5U3RhdGUiOiA0LAogICAgIndpZHRoIjogODU0LAogICAgImhlaWdodCI6IDQ4MCwKICAgICJlcnJvciI6IG51bGwsCiAgICAiZGVjb2RlZEF1ZGlvIjogNjgwMCwKICAgICJmcmFtZXMiOiAxMAogIH0sCiAgImNvbnRpbnVvdXMiOiB7CiAgICAidGltZSI6IDMuMjY0MzksCiAgICAicGF1c2VkIjogZmFsc2UsCiAgICAidm9sdW1lIjogMC44LAogICAgIm11dGVkIjogZmFsc2UsCiAgICAic3JjIjogImJsb2I6aHR0cDovLzEyNy4wLjAuMTo0MTg3LzQxZjA3MTIyLTRmMWMtNDUyZi04NmQ0LTIzYjQwZmI5MWRmOCIsCiAgICAicmVhZHlTdGF0ZSI6IDQsCiAgICAid2lkdGgiOiAxMjgwLAogICAgImhlaWdodCI6IDcyMCwKICAgICJlcnJvciI6IG51bGwsCiAgICAiZGVjb2RlZEF1ZGlvIjogNDQxNjEsCiAgICAiZnJhbWVzIjogOTkKICB9LAogICJmaW5hbCI6IHsKICAgICJ0aW1lIjogNDAuNjkxNzkzLAogICAgInBhdXNlZCI6IGZhbHNlLAogICAgInZvbHVtZSI6IDAuNDUsCiAgICAibXV0ZWQiOiBmYWxzZSwKICAgICJzcmMiOiAiYmxvYjpodHRwOi8vMTI3LjAuMC4xOjQxODcvNDFmMDcxMjItNGYxYy00NTJmLTg2ZDQtMjNiNDBmYjkxZGY4IiwKICAgICJyZWFkeVN0YXRlIjogNCwKICAgICJ3aWR0aCI6IDE5MjAsCiAgICAiaGVpZ2h0IjogMTA4MCwKICAgICJlcnJvciI6IG51bGwsCiAgICAiZGVjb2RlZEF1ZGlvIjogNzc5MzYsCiAgICAiZnJhbWVzIjogMTcxCiAgfSwKICAiYXVkaXQiOiB7CiAgICAicGVhayI6IDAsCiAgICAiZXZlbnRzIjogWwogICAgICB7CiAgICAgICAgImV2ZW50IjogIndhaXRpbmciLAogICAgICAgICJ0aW1lIjogMCwKICAgICAgICAiYXQiOiAxMjk5LjYwMDAwMDAwMDA5MzEKICAgICAgfSwKICAgICAgewogICAgICAgICJldmVudCI6ICJwbGF5aW5nIiwKICAgICAgICAidGltZSI6IDAsCiAgICAgICAgImF0IjogMTMxNC41CiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiZXZlbnQiOiAicGF1c2UiLAogICAgICAgICJ0aW1lIjogMzguMzU5OTk5LAogICAgICAgICJhdCI6IDQ2NjYuNzAwMDAwMDAwMTg2CiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiZXZlbnQiOiAic2Vla2luZyIsCiAgICAgICAgInRpbWUiOiAzOC4zNTk5OTksCiAgICAgICAgImF0IjogNDY2Ni44MDAwMDAwMDAyNzkKICAgICAgfSwKICAgICAgewogICAgICAgICJldmVudCI6ICJzZWVrZWQiLAogICAgICAgICJ0aW1lIjogMzguMzU5OTk5LAogICAgICAgICJhdCI6IDQ2ODAuNDAwMDAwMDAwMzcyNQogICAgICB9LAogICAgICB7CiAgICAgICAgImV2ZW50IjogInBsYXlpbmciLAogICAgICAgICJ0aW1lIjogMzguMzU5OTk5LAogICAgICAgICJhdCI6IDUzNTYuNzAwMDAwMDAwMTg2CiAgICAgIH0KICAgIF0sCiAgICAiYXVkaW9FcnJvciI6IG51bGwKICB9LAogICJyZXF1ZXN0Q291bnQiOiA1MCwKICAic2Vla0lucHV0IjogIkhUTUxNZWRpYUVsZW1lbnQuY3VycmVudFRpbWU7IG5vdCBhIHBoeXNpY2FsIHNjcnViIGdlc3R1cmUiCn0="
+                    },
+                    {
+                      "name": "final-state",
+                      "contentType": "application/json",
+                      "body": "ewogICJhdWRpdCI6IHsKICAgICJwZWFrIjogMCwKICAgICJldmVudHMiOiBbCiAgICAgIHsKICAgICAgICAiZXZlbnQiOiAid2FpdGluZyIsCiAgICAgICAgInRpbWUiOiAwLAogICAgICAgICJhdCI6IDEyOTkuNjAwMDAwMDAwMDkzMQogICAgICB9LAogICAgICB7CiAgICAgICAgImV2ZW50IjogInBsYXlpbmciLAogICAgICAgICJ0aW1lIjogMCwKICAgICAgICAiYXQiOiAxMzE0LjUKICAgICAgfSwKICAgICAgewogICAgICAgICJldmVudCI6ICJwYXVzZSIsCiAgICAgICAgInRpbWUiOiAzOC4zNTk5OTksCiAgICAgICAgImF0IjogNDY2Ni43MDAwMDAwMDAxODYKICAgICAgfSwKICAgICAgewogICAgICAgICJldmVudCI6ICJzZWVraW5nIiwKICAgICAgICAidGltZSI6IDM4LjM1OTk5OSwKICAgICAgICAiYXQiOiA0NjY2LjgwMDAwMDAwMDI3OQogICAgICB9LAogICAgICB7CiAgICAgICAgImV2ZW50IjogInNlZWtlZCIsCiAgICAgICAgInRpbWUiOiAzOC4zNTk5OTksCiAgICAgICAgImF0IjogNDY4MC40MDAwMDAwMDAzNzI1CiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiZXZlbnQiOiAicGxheWluZyIsCiAgICAgICAgInRpbWUiOiAzOC4zNTk5OTksCiAgICAgICAgImF0IjogNTM1Ni43MDAwMDAwMDAxODYKICAgICAgfQogICAgXSwKICAgICJhdWRpb0Vycm9yIjogbnVsbAogIH0sCiAgInZpZGVvIjogewogICAgInRpbWUiOiAwLAogICAgInBhdXNlZCI6IHRydWUsCiAgICAicmVhZHlTdGF0ZSI6IDAsCiAgICAibW9kZSI6ICJobHMiLAogICAgInNyYyI6ICJibG9iOmh0dHA6Ly8xMjcuMC4wLjE6NDE4Ny80MWYwNzEyMi00ZjFjLTQ1MmYtODZkNC0yM2I0MGZiOTFkZjgiLAogICAgIm11dGVkIjogZmFsc2UsCiAgICAidm9sdW1lIjogMC40NSwKICAgICJ3aWR0aCI6IDAsCiAgICAiaGVpZ2h0IjogMCwKICAgICJkZWNvZGVkQXVkaW8iOiAwLAogICAgImF1ZGlvVHJhY2tzIjogbnVsbCwKICAgICJidWZmZXJlZCI6IFtdCiAgfQp9"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "392ce7657d10ee24873f-fc67878f60ba82912bad",
+          "file": "playback.spec.mjs",
+          "line": 109,
+          "column": 21
+        },
+        {
+          "title": "arc: start, audio evidence, seek, pause, quality and release",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "edge",
+              "projectName": "edge",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 9487,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-31T04:45:06.024Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "environment",
+                      "contentType": "application/json",
+                      "body": "ewogICJwcm9qZWN0IjogImVkZ2UiLAogICJtZWRpYU9yaWdpbiI6ICJyZXBvc2l0b3J5IiwKICAidWEiOiAiTW96aWxsYS81LjAgKFdpbmRvd3MgTlQgMTAuMDsgV2luNjQ7IHg2NCkgQXBwbGVXZWJLaXQvNTM3LjM2IChLSFRNTCwgbGlrZSBHZWNrbykgSGVhZGxlc3NDaHJvbWUvMTU2LjAuMC4wIFNhZmFyaS81MzcuMzYgRWRnLzE1Ni4wLjAuMCIsCiAgInBsYXRmb3JtIjogIldpbjMyIiwKICAibmF0aXZlSGxzIjogIm1heWJlIiwKICAibXA0IjogInByb2JhYmx5IiwKICAibXNlIjogdHJ1ZSwKICAidG91Y2giOiAwCn0="
+                    },
+                    {
+                      "name": "playback-evidence",
+                      "contentType": "application/json",
+                      "body": "ewogICJpZCI6ICJhcmMiLAogICJicm93c2VyIjogIjE1Ni4wLjQzMTQuNTAiLAogICJmbG93VG9QbGF5aW5nTXMiOiAxNTUzLAogICJhdWRpbyI6IHsKICAgICJtZXRob2QiOiAiYnJvd3NlciBhdWRpbyBkZWNvZGVyIGJ5dGUgY291bnRlciIKICB9LAogICJzdGFydCI6IHsKICAgICJ0aW1lIjogMC4yNjAyMTEsCiAgICAicGF1c2VkIjogZmFsc2UsCiAgICAidm9sdW1lIjogMC44LAogICAgIm11dGVkIjogZmFsc2UsCiAgICAic3JjIjogImJsb2I6aHR0cDovLzEyNy4wLjAuMTo0MTg3LzA1ZjFjMTU5LWMwNjUtNGZhOS04MzY0LTUxNDc1NzI1MDk2YSIsCiAgICAicmVhZHlTdGF0ZSI6IDQsCiAgICAid2lkdGgiOiA4NTQsCiAgICAiaGVpZ2h0IjogNDgwLAogICAgImVycm9yIjogbnVsbCwKICAgICJkZWNvZGVkQXVkaW8iOiA3MDkyLAogICAgImZyYW1lcyI6IDkKICB9LAogICJjb250aW51b3VzIjogewogICAgInRpbWUiOiAzLjI3NzkwNSwKICAgICJwYXVzZWQiOiBmYWxzZSwKICAgICJ2b2x1bWUiOiAwLjgsCiAgICAibXV0ZWQiOiBmYWxzZSwKICAgICJzcmMiOiAiYmxvYjpodHRwOi8vMTI3LjAuMC4xOjQxODcvMDVmMWMxNTktYzA2NS00ZmE5LTgzNjQtNTE0NzU3MjUwOTZhIiwKICAgICJyZWFkeVN0YXRlIjogNCwKICAgICJ3aWR0aCI6IDEyODAsCiAgICAiaGVpZ2h0IjogNzIwLAogICAgImVycm9yIjogbnVsbCwKICAgICJkZWNvZGVkQXVkaW8iOiA0NDM0MSwKICAgICJmcmFtZXMiOiAxMDAKICB9LAogICJmaW5hbCI6IHsKICAgICJ0aW1lIjogMTQuMzYxNjk1LAogICAgInBhdXNlZCI6IGZhbHNlLAogICAgInZvbHVtZSI6IDAuNDUsCiAgICAibXV0ZWQiOiBmYWxzZSwKICAgICJzcmMiOiAiYmxvYjpodHRwOi8vMTI3LjAuMC4xOjQxODcvMDVmMWMxNTktYzA2NS00ZmE5LTgzNjQtNTE0NzU3MjUwOTZhIiwKICAgICJyZWFkeVN0YXRlIjogNCwKICAgICJ3aWR0aCI6IDE5MjAsCiAgICAiaGVpZ2h0IjogMTA4MCwKICAgICJlcnJvciI6IG51bGwsCiAgICAiZGVjb2RlZEF1ZGlvIjogNzY1MDUsCiAgICAiZnJhbWVzIjogMTY4CiAgfSwKICAiYXVkaXQiOiB7CiAgICAicGVhayI6IDAsCiAgICAiZXZlbnRzIjogWwogICAgICB7CiAgICAgICAgImV2ZW50IjogIndhaXRpbmciLAogICAgICAgICJ0aW1lIjogMCwKICAgICAgICAiYXQiOiAxMzI0LjcwMDAwMDAwMDE4NjMKICAgICAgfSwKICAgICAgewogICAgICAgICJldmVudCI6ICJwbGF5aW5nIiwKICAgICAgICAidGltZSI6IDAsCiAgICAgICAgImF0IjogMTMzOS42MDAwMDAwMDAwOTMxCiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiZXZlbnQiOiAicGF1c2UiLAogICAgICAgICJ0aW1lIjogMTIuMDkzNzI3LAogICAgICAgICJhdCI6IDQ3MTEuMTAwMDAwMDAwMDkzCiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiZXZlbnQiOiAic2Vla2luZyIsCiAgICAgICAgInRpbWUiOiAxMi4wOTM3MjcsCiAgICAgICAgImF0IjogNDcxMS4yMDAwMDAwMDAxODYKICAgICAgfSwKICAgICAgewogICAgICAgICJldmVudCI6ICJzZWVrZWQiLAogICAgICAgICJ0aW1lIjogMTIuMDkzNzI3LAogICAgICAgICJhdCI6IDQ3MTQuNQogICAgICB9LAogICAgICB7CiAgICAgICAgImV2ZW50IjogInBsYXlpbmciLAogICAgICAgICJ0aW1lIjogMTIuMDkzNzI3LAogICAgICAgICJhdCI6IDUzMzkuNDAwMDAwMDAwMzcyNQogICAgICB9CiAgICBdLAogICAgImF1ZGlvRXJyb3IiOiBudWxsCiAgfSwKICAicmVxdWVzdENvdW50IjogMjIsCiAgInNlZWtJbnB1dCI6ICJIVE1MTWVkaWFFbGVtZW50LmN1cnJlbnRUaW1lOyBub3QgYSBwaHlzaWNhbCBzY3J1YiBnZXN0dXJlIgp9"
+                    },
+                    {
+                      "name": "final-state",
+                      "contentType": "application/json",
+                      "body": "ewogICJhdWRpdCI6IHsKICAgICJwZWFrIjogMCwKICAgICJldmVudHMiOiBbCiAgICAgIHsKICAgICAgICAiZXZlbnQiOiAid2FpdGluZyIsCiAgICAgICAgInRpbWUiOiAwLAogICAgICAgICJhdCI6IDEzMjQuNzAwMDAwMDAwMTg2MwogICAgICB9LAogICAgICB7CiAgICAgICAgImV2ZW50IjogInBsYXlpbmciLAogICAgICAgICJ0aW1lIjogMCwKICAgICAgICAiYXQiOiAxMzM5LjYwMDAwMDAwMDA5MzEKICAgICAgfSwKICAgICAgewogICAgICAgICJldmVudCI6ICJwYXVzZSIsCiAgICAgICAgInRpbWUiOiAxMi4wOTM3MjcsCiAgICAgICAgImF0IjogNDcxMS4xMDAwMDAwMDAwOTMKICAgICAgfSwKICAgICAgewogICAgICAgICJldmVudCI6ICJzZWVraW5nIiwKICAgICAgICAidGltZSI6IDEyLjA5MzcyNywKICAgICAgICAiYXQiOiA0NzExLjIwMDAwMDAwMDE4NgogICAgICB9LAogICAgICB7CiAgICAgICAgImV2ZW50IjogInNlZWtlZCIsCiAgICAgICAgInRpbWUiOiAxMi4wOTM3MjcsCiAgICAgICAgImF0IjogNDcxNC41CiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiZXZlbnQiOiAicGxheWluZyIsCiAgICAgICAgInRpbWUiOiAxMi4wOTM3MjcsCiAgICAgICAgImF0IjogNTMzOS40MDAwMDAwMDAzNzI1CiAgICAgIH0KICAgIF0sCiAgICAiYXVkaW9FcnJvciI6IG51bGwKICB9LAogICJ2aWRlbyI6IHsKICAgICJ0aW1lIjogMCwKICAgICJwYXVzZWQiOiB0cnVlLAogICAgInJlYWR5U3RhdGUiOiAwLAogICAgIm1vZGUiOiAiaGxzIiwKICAgICJzcmMiOiAiYmxvYjpodHRwOi8vMTI3LjAuMC4xOjQxODcvMDVmMWMxNTktYzA2NS00ZmE5LTgzNjQtNTE0NzU3MjUwOTZhIiwKICAgICJtdXRlZCI6IGZhbHNlLAogICAgInZvbHVtZSI6IDAuNDUsCiAgICAid2lkdGgiOiAwLAogICAgImhlaWdodCI6IDAsCiAgICAiZGVjb2RlZEF1ZGlvIjogMCwKICAgICJhdWRpb1RyYWNrcyI6IG51bGwsCiAgICAiYnVmZmVyZWQiOiBbXQogIH0KfQ=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "392ce7657d10ee24873f-668a78d68df88cc538fe",
+          "file": "playback.spec.mjs",
+          "line": 109,
+          "column": 21
+        },
+        {
+          "title": "failed segments expose MP4 recovery and release it on close",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "edge",
+              "projectName": "edge",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4375,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-31T04:45:15.519Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "environment",
+                      "contentType": "application/json",
+                      "body": "ewogICJwcm9qZWN0IjogImVkZ2UiLAogICJtZWRpYU9yaWdpbiI6ICJyZXBvc2l0b3J5IiwKICAidWEiOiAiTW96aWxsYS81LjAgKFdpbmRvd3MgTlQgMTAuMDsgV2luNjQ7IHg2NCkgQXBwbGVXZWJLaXQvNTM3LjM2IChLSFRNTCwgbGlrZSBHZWNrbykgSGVhZGxlc3NDaHJvbWUvMTU2LjAuMC4wIFNhZmFyaS81MzcuMzYgRWRnLzE1Ni4wLjAuMCIsCiAgInBsYXRmb3JtIjogIldpbjMyIiwKICAibmF0aXZlSGxzIjogIm1heWJlIiwKICAibXA0IjogInByb2JhYmx5IiwKICAibXNlIjogdHJ1ZSwKICAidG91Y2giOiAwCn0="
+                    },
+                    {
+                      "name": "final-state",
+                      "contentType": "application/json",
+                      "body": "ewogICJhdWRpdCI6IHsKICAgICJwZWFrIjogMCwKICAgICJldmVudHMiOiBbCiAgICAgIHsKICAgICAgICAiZXZlbnQiOiAid2FpdGluZyIsCiAgICAgICAgInRpbWUiOiAwLAogICAgICAgICJhdCI6IDIwODYuMjk5OTk5OTk5ODEzNwogICAgICB9LAogICAgICB7CiAgICAgICAgImV2ZW50IjogInBsYXlpbmciLAogICAgICAgICJ0aW1lIjogMCwKICAgICAgICAiYXQiOiAyMTE5LjUKICAgICAgfQogICAgXSwKICAgICJhdWRpb0Vycm9yIjogbnVsbAogIH0sCiAgInZpZGVvIjogewogICAgInRpbWUiOiAwLAogICAgInBhdXNlZCI6IHRydWUsCiAgICAicmVhZHlTdGF0ZSI6IDAsCiAgICAibW9kZSI6ICJmYWxsYmFjayIsCiAgICAic3JjIjogImh0dHA6Ly8xMjcuMC4wLjE6NDE4Ny9tZWRpYS9jc29sLWRlbW8tbG93Lm1wNCIsCiAgICAibXV0ZWQiOiBmYWxzZSwKICAgICJ2b2x1bWUiOiAwLjgsCiAgICAid2lkdGgiOiAwLAogICAgImhlaWdodCI6IDAsCiAgICAiZGVjb2RlZEF1ZGlvIjogMCwKICAgICJhdWRpb1RyYWNrcyI6IG51bGwsCiAgICAiYnVmZmVyZWQiOiBbXQogIH0KfQ=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "392ce7657d10ee24873f-b63d213792929e2ed8d7",
+          "file": "playback.spec.mjs",
+          "line": 139,
+          "column": 1
+        },
+        {
+          "title": "audio decoder or PCM evidence is available",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "edge",
+              "projectName": "edge",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1451,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-31T04:45:19.901Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "environment",
+                      "contentType": "application/json",
+                      "body": "ewogICJwcm9qZWN0IjogImVkZ2UiLAogICJtZWRpYU9yaWdpbiI6ICJyZXBvc2l0b3J5IiwKICAidWEiOiAiTW96aWxsYS81LjAgKFdpbmRvd3MgTlQgMTAuMDsgV2luNjQ7IHg2NCkgQXBwbGVXZWJLaXQvNTM3LjM2IChLSFRNTCwgbGlrZSBHZWNrbykgSGVhZGxlc3NDaHJvbWUvMTU2LjAuMC4wIFNhZmFyaS81MzcuMzYgRWRnLzE1Ni4wLjAuMCIsCiAgInBsYXRmb3JtIjogIldpbjMyIiwKICAibmF0aXZlSGxzIjogIm1heWJlIiwKICAibXA0IjogInByb2JhYmx5IiwKICAibXNlIjogdHJ1ZSwKICAidG91Y2giOiAwCn0="
+                    },
+                    {
+                      "name": "final-state",
+                      "contentType": "application/json",
+                      "body": "ewogICJhdWRpdCI6IHsKICAgICJwZWFrIjogMCwKICAgICJldmVudHMiOiBbCiAgICAgIHsKICAgICAgICAiZXZlbnQiOiAid2FpdGluZyIsCiAgICAgICAgInRpbWUiOiAwLAogICAgICAgICJhdCI6IDgxMi40MDAwMDAwMDAzNzI1CiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiZXZlbnQiOiAicGxheWluZyIsCiAgICAgICAgInRpbWUiOiAwLAogICAgICAgICJhdCI6IDgyNy44MDAwMDAwMDAyNzk0CiAgICAgIH0KICAgIF0sCiAgICAiYXVkaW9FcnJvciI6IG51bGwKICB9LAogICJzdGF0dXMiOiAi5q2j5Zyo5pKt5pS+IMK3IOa1geeVhSDCtyA0ODBwIiwKICAidmlkZW8iOiB7CiAgICAidGltZSI6IDAuMjczNzI3LAogICAgInBhdXNlZCI6IGZhbHNlLAogICAgInJlYWR5U3RhdGUiOiA0LAogICAgIm1vZGUiOiAiaGxzIiwKICAgICJzcmMiOiAiYmxvYjpodHRwOi8vMTI3LjAuMC4xOjQxODcvMzUyZDIxODctY2Y1ZC00ZjM4LTkzODMtMjZjZDFiZDFlNWJkIiwKICAgICJtdXRlZCI6IGZhbHNlLAogICAgInZvbHVtZSI6IDAuOCwKICAgICJ3aWR0aCI6IDg1NCwKICAgICJoZWlnaHQiOiA0NzgsCiAgICAiZGVjb2RlZEF1ZGlvIjogOTc1NCwKICAgICJhdWRpb1RyYWNrcyI6IG51bGwsCiAgICAiYnVmZmVyZWQiOiBbCiAgICAgIFsKICAgICAgICAwLAogICAgICAgIDMxLjk3ODY2NgogICAgICBdCiAgICBdCiAgfQp9"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "392ce7657d10ee24873f-9bedecaa11743fb982a6",
+          "file": "playback.spec.mjs",
+          "line": 153,
+          "column": 1
+        },
+        {
+          "title": "no streaming capability selects MP4 and disables unavailable quality choices",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "edge",
+              "projectName": "edge",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2189,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-31T04:45:21.360Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "environment",
+                      "contentType": "application/json",
+                      "body": "ewogICJwcm9qZWN0IjogImVkZ2UiLAogICJtZWRpYU9yaWdpbiI6ICJyZXBvc2l0b3J5IiwKICAidWEiOiAiTW96aWxsYS81LjAgKFdpbmRvd3MgTlQgMTAuMDsgV2luNjQ7IHg2NCkgQXBwbGVXZWJLaXQvNTM3LjM2IChLSFRNTCwgbGlrZSBHZWNrbykgSGVhZGxlc3NDaHJvbWUvMTU2LjAuMC4wIFNhZmFyaS81MzcuMzYgRWRnLzE1Ni4wLjAuMCIsCiAgInBsYXRmb3JtIjogIldpbjMyIiwKICAibmF0aXZlSGxzIjogIiIsCiAgIm1wNCI6ICJwcm9iYWJseSIsCiAgIm1zZSI6IGZhbHNlLAogICJ0b3VjaCI6IDAKfQ=="
+                    },
+                    {
+                      "name": "final-state",
+                      "contentType": "application/json",
+                      "body": "ewogICJhdWRpdCI6IHsKICAgICJwZWFrIjogMCwKICAgICJldmVudHMiOiBbCiAgICAgIHsKICAgICAgICAiZXZlbnQiOiAid2FpdGluZyIsCiAgICAgICAgInRpbWUiOiAwLAogICAgICAgICJhdCI6IDE0NzIuMjk5OTk5OTk5ODEzNwogICAgICB9LAogICAgICB7CiAgICAgICAgImV2ZW50IjogInBsYXlpbmciLAogICAgICAgICJ0aW1lIjogMCwKICAgICAgICAiYXQiOiAxNTA5Ljg5OTk5OTk5OTkwNjkKICAgICAgfQogICAgXSwKICAgICJhdWRpb0Vycm9yIjogbnVsbAogIH0sCiAgInN0YXR1cyI6ICLmraPlnKjmkq3mlL4gwrcg5YW85a655pKt5pS+IiwKICAidmlkZW8iOiB7CiAgICAidGltZSI6IDAuMzEzNzU2LAogICAgInBhdXNlZCI6IGZhbHNlLAogICAgInJlYWR5U3RhdGUiOiA0LAogICAgIm1vZGUiOiAiZmFsbGJhY2siLAogICAgInNyYyI6ICJodHRwOi8vMTI3LjAuMC4xOjQxODcvbWVkaWEvdG93ZXItZGVtby1hdWRpby5tcDQiLAogICAgIm11dGVkIjogZmFsc2UsCiAgICAidm9sdW1lIjogMC44LAogICAgIndpZHRoIjogMTI4MCwKICAgICJoZWlnaHQiOiA3MjAsCiAgICAiZGVjb2RlZEF1ZGlvIjogMTEzODIsCiAgICAiYXVkaW9UcmFja3MiOiBudWxsLAogICAgImJ1ZmZlcmVkIjogWwogICAgICBbCiAgICAgICAgMCwKICAgICAgICAyMi43ODMKICAgICAgXQogICAgXQogIH0KfQ=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "392ce7657d10ee24873f-68f310005e8c938f6a70",
+          "file": "playback.spec.mjs",
+          "line": 164,
+          "column": 1
+        },
+        {
+          "title": "close during startup and return-to-list both release the current video",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "edge",
+              "projectName": "edge",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2873,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-31T04:45:23.556Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "environment",
+                      "contentType": "application/json",
+                      "body": "ewogICJwcm9qZWN0IjogImVkZ2UiLAogICJtZWRpYU9yaWdpbiI6ICJyZXBvc2l0b3J5IiwKICAidWEiOiAiTW96aWxsYS81LjAgKFdpbmRvd3MgTlQgMTAuMDsgV2luNjQ7IHg2NCkgQXBwbGVXZWJLaXQvNTM3LjM2IChLSFRNTCwgbGlrZSBHZWNrbykgSGVhZGxlc3NDaHJvbWUvMTU2LjAuMC4wIFNhZmFyaS81MzcuMzYgRWRnLzE1Ni4wLjAuMCIsCiAgInBsYXRmb3JtIjogIldpbjMyIiwKICAibmF0aXZlSGxzIjogIm1heWJlIiwKICAibXA0IjogInByb2JhYmx5IiwKICAibXNlIjogdHJ1ZSwKICAidG91Y2giOiAwCn0="
+                    },
+                    {
+                      "name": "final-state",
+                      "contentType": "application/json",
+                      "body": "ewogICJhdWRpdCI6IHsKICAgICJwZWFrIjogMCwKICAgICJldmVudHMiOiBbXSwKICAgICJhdWRpb0Vycm9yIjogbnVsbAogIH0sCiAgInZpZGVvIjogewogICAgInRpbWUiOiAwLAogICAgInBhdXNlZCI6IHRydWUsCiAgICAicmVhZHlTdGF0ZSI6IDAsCiAgICAibW9kZSI6ICJobHMiLAogICAgInNyYyI6ICJibG9iOmh0dHA6Ly8xMjcuMC4wLjE6NDE4Ny9kNTFjNGZjMy05ZTZhLTQ5MDMtOWVjYy02N2RmYzdjMWYxMTEiLAogICAgIm11dGVkIjogZmFsc2UsCiAgICAidm9sdW1lIjogMC44LAogICAgIndpZHRoIjogMCwKICAgICJoZWlnaHQiOiAwLAogICAgImRlY29kZWRBdWRpbyI6IDAsCiAgICAiYXVkaW9UcmFja3MiOiBudWxsLAogICAgImJ1ZmZlcmVkIjogW10KICB9Cn0="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "392ce7657d10ee24873f-9f4b953cf100036708bd",
+          "file": "playback.spec.mjs",
+          "line": 175,
+          "column": 1
+        },
+        {
+          "title": "3D scene pauses behind the dialog and resumes after closing",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "edge",
+              "projectName": "edge",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 5192,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-31T04:45:26.435Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "environment",
+                      "contentType": "application/json",
+                      "body": "ewogICJwcm9qZWN0IjogImVkZ2UiLAogICJtZWRpYU9yaWdpbiI6ICJyZXBvc2l0b3J5IiwKICAidWEiOiAiTW96aWxsYS81LjAgKFdpbmRvd3MgTlQgMTAuMDsgV2luNjQ7IHg2NCkgQXBwbGVXZWJLaXQvNTM3LjM2IChLSFRNTCwgbGlrZSBHZWNrbykgSGVhZGxlc3NDaHJvbWUvMTU2LjAuMC4wIFNhZmFyaS81MzcuMzYgRWRnLzE1Ni4wLjAuMCIsCiAgInBsYXRmb3JtIjogIldpbjMyIiwKICAibmF0aXZlSGxzIjogIm1heWJlIiwKICAibXA0IjogInByb2JhYmx5IiwKICAibXNlIjogdHJ1ZSwKICAidG91Y2giOiAwCn0="
+                    },
+                    {
+                      "name": "final-state",
+                      "contentType": "application/json",
+                      "body": "ewogICJhdWRpdCI6IHsKICAgICJwZWFrIjogMCwKICAgICJldmVudHMiOiBbXSwKICAgICJhdWRpb0Vycm9yIjogbnVsbAogIH0sCiAgInZpZGVvIjogbnVsbAp9"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "392ce7657d10ee24873f-28cb399666a1715e8b16",
+          "file": "playback.spec.mjs",
+          "line": 184,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-31T04:43:53.568Z",
+    "duration": 99013.816,
+    "expected": 15,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

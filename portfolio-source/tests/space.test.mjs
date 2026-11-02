@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import * as T from 'three';
-import {cameraPose,scrollToChapter,galleryCardPose,CARD_SPECS} from '../src/space-path.js';
+import {cameraPose,scrollToChapter,galleryCardPose,galleryDescent,GALLERY_DESCENT,SCENE_Y,CARD_SPECS} from '../src/space-path.js';
 import {buildWorld,particleField} from '../src/space-objects.js';
 import {springStep} from '../src/weave-math.js';
 
@@ -72,16 +72,56 @@ test('gallery boards have varying depth, actual thickness and project metadata',
  assert.match(CARD_SPECS.find(c=>c.id==='lab').note,/空格里的小镇/);w.dispose();
 });
 
+test('gallery skeleton extends downward by separating rigid joints and retracts without deforming their thickness',async()=>{
+ for(const mobile of [false,true]){
+  const w=await geometryWorld(mobile),position=w.spine.geometry.attributes.position;
+  assert.ok(w.galleryStructure&&w.spine.parent===w.galleryStructure,'spine is missing its extension rig');
+  assert.notEqual(w.cardDeck.parent,w.galleryStructure,'project cards must not inherit skeleton stretch');
+  const {joints,restY}=w.spine.geometry.userData;assert.equal(joints.length,19);
+  assert.equal(restY.length,position.count);assert.equal(joints.reduce((n,joint)=>n+joint.count,0),position.count);
+  const point=new T.Vector3();
+  function jointBounds(){
+   w.world.updateMatrixWorld(true);
+   return joints.map(joint=>{
+    let min=Infinity,max=-Infinity;
+    for(let i=joint.start;i<joint.start+joint.count;i++){
+     point.fromBufferAttribute(position,i).applyMatrix4(w.spine.matrixWorld);
+     assert.ok([point.x,point.y,point.z].every(Number.isFinite));min=Math.min(min,point.y);max=Math.max(max,point.y);
+    }
+    return {min,max,center:(min+max)/2,thickness:max-min};
+   });
+  }
+  const rest=jointBounds();
+  for(const stretch of [1+GALLERY_DESCENT/18,1+GALLERY_DESCENT/9,1]){
+   w.extendGallery(stretch);const next=jointBounds();
+   next.forEach((joint,index)=>assert.ok(Math.abs(joint.thickness-rest[index].thickness)<.00001,'extension squashes a vertebra'));
+   const lowest=next[0].center-rest[0].center,highest=next.at(-1).center-rest.at(-1).center;
+   if(stretch>1){assert.ok(lowest<-.1,'skeleton does not extend downwards');assert.ok(Math.abs(highest)<.1,'top of skeleton is not anchored');}
+   if(stretch===1+GALLERY_DESCENT/9){
+    assert.ok(lowest<-5&&lowest>-5.3,'lower joints do not follow the gallery descent');
+    const machineBox=new T.Box3().setFromObject(w.machine),skeletonBottom=Math.min(...next.map(joint=>joint.min));
+    assert.ok(skeletonBottom-machineBox.max.y>2,'extended skeleton intersects the following machine scene');
+   }
+   if(stretch===1){
+    for(let i=0;i<position.count;i++)assert.equal(position.getY(i),restY[i],'return scroll fails to restore original joints');
+    next.forEach((joint,index)=>assert.ok(Math.abs(joint.center-rest[index].center)<1e-10));
+   }
+  }
+  w.dispose();
+ }
+});
+
 test('each gallery project reaches a readable unobstructed front position along a reversible helix',async()=>{
  for(const mobile of [false,true]){
   const w=await geometryWorld(mobile);
   for(let selected=0;selected<CARD_SPECS.length;selected++){
    const progress=2+selected/(CARD_SPECS.length-1),camera=cameraPose(progress,mobile,mobile?390/844:16/9);
+   w.extendGallery(1+galleryDescent(progress)/9);
    w.cards.forEach((card,index)=>{const pose=galleryCardPose(index,progress,mobile);card.group.position.fromArray(pose.position);card.group.rotation.set(...pose.rotation);});
    w.world.updateMatrixWorld(true);
    const front=galleryCardPose(selected,progress,mobile),target=w.cards[selected].face.getWorldPosition(new T.Vector3()),eye=new T.Vector3(...camera.eye);
    assert.ok(front.visible&&front.focus>.99,'project never receives a reading position');
-   assert.ok(Math.abs(front.position[1])<.00001&&Math.abs(front.rotation[1])<.00001,'front project is tilted or displaced vertically');
+   assert.ok(Math.abs(front.position[1]+galleryDescent(progress))<.00001&&Math.abs(front.rotation[1])<.00001,'front project is tilted or displaced from its descending reading position');
    const hit=new T.Raycaster(eye,target.clone().sub(eye).normalize()).intersectObjects([...w.pickables,...w.opaque],false)[0];
    assert.equal(hit?.object,w.cards[selected].face,'another object blocks project '+CARD_SPECS[selected].id);
   }
@@ -91,7 +131,7 @@ test('each gallery project reaches a readable unobstructed front position along 
     const progress=2+n/1200,pose=galleryCardPose(index,progress,mobile);
     assert.deepEqual(pose,galleryCardPose(index,progress,mobile),'gallery position depends on scroll history');
     assert.ok([...pose.position,...pose.rotation,pose.focus].every(Number.isFinite));
-    assert.ok(Math.abs(pose.position[1])<4,'gallery exceeds its vertical viewing region');
+    assert.ok(Math.abs(pose.position[1]+galleryDescent(progress))<4,'gallery exceeds its descending vertical viewing region');
     for(const field of ['position','rotation'])for(let axis=0;axis<3;axis++)assert.ok(Math.abs(pose[field][axis]-previous[field][axis])<.05,'gallery jumps between cards');
     previous=pose;
    }
@@ -99,9 +139,33 @@ test('each gallery project reaches a readable unobstructed front position along 
   w.dispose();
  }
 });
+test('gallery descent carries the camera and project reading positions together without reversing or jumping',()=>{
+ assert.equal(galleryDescent(-1),0);assert.equal(galleryDescent(2),0);
+ assert.equal(galleryDescent(3),GALLERY_DESCENT);assert.equal(galleryDescent(6),GALLERY_DESCENT);
+ let previous=0;
+ for(let n=0;n<=2000;n++){
+  const progress=2+n/2000,descent=galleryDescent(progress);
+  assert.ok(Number.isFinite(descent)&&descent>=previous&&descent-previous<.005,'descent reverses or jumps');
+  assert.equal(descent,galleryDescent(progress),'descent depends on scroll history');
+  for(const mobile of [false,true]){
+   const camera=cameraPose(progress,mobile),start=cameraPose(2,mobile);
+   assert.ok(Math.abs(camera.eye[1]-start.eye[1]+descent)<1e-10,'camera eye leaves the descent');
+   assert.ok(Math.abs(camera.look[1]-start.look[1]+descent)<1e-10,'camera target leaves the descent');
+   for(let index=0;index<CARD_SPECS.length;index++){
+    const card=galleryCardPose(index,progress,mobile);
+    assert.ok(Math.abs(card.position[1]-camera.look[1]+SCENE_Y.gallery)<4,'project leaves the camera reading region');
+   }
+  }
+  previous=descent;
+ }
+ for(let index=0;index<CARD_SPECS.length;index++){
+  const progress=2+index/(CARD_SPECS.length-1),card=galleryCardPose(index,progress),camera=cameraPose(progress);
+  assert.ok(Math.abs(card.position[1]-camera.look[1]+SCENE_Y.gallery)<1e-10,'front project drifts relative to camera');
+ }
+});
 test('emblem and machine core remain in the viewport at target desktop and phone sizes',()=>{
  for(const [width,height,mobile] of [[1920,1080,false],[1440,900,false],[1024,768,false],[768,1024,false],[390,844,true],[320,720,true]]){
-  for(const [chapter,center,radius] of [[0,[mobile?.4:2,0,0],1.25],[4,[0,-24,0],2.25],[5,[0,-34,0],3.9]]){
+  for(const [chapter,center,radius] of [[0,[mobile?.4:2,0,0],1.25],[4,[0,SCENE_Y.machine,0],2.25],[5,[0,SCENE_Y.lab,0],3.9]]){
    const pose=cameraPose(chapter,mobile,width/height),camera=new T.PerspectiveCamera(mobile?43:40,width/height,.1,100);camera.position.fromArray(pose.eye);camera.lookAt(...pose.look);camera.updateMatrixWorld();
    for(const dx of [-radius,radius]){const p=new T.Vector3(center[0]+dx,center[1],center[2]).project(camera);assert.ok(Math.abs(p.x)<1.1,`clipping ${width} chapter ${chapter} x=${p.x}`);}
   }

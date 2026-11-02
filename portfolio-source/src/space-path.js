@@ -6,8 +6,15 @@ export function chapterBlend(t){return smooth(clamp((t-.09)/.82));}
 export function passageStrength(p){return Math.sin(Math.PI*chapterBlend(p-Math.floor(p)))**2;}
 export const GALLERY_DESCENT=5.2;
 export const SCENE_Y={gallery:-13,machine:-24-GALLERY_DESCENT,lab:-34-GALLERY_DESCENT,confluence:-45.5-GALLERY_DESCENT};
-// The camera and boards share one descent while the skeleton extends behind them.
-export function galleryDescent(progress){return chapterBlend(clamp(progress-2))*GALLERY_DESCENT;}
+const GALLERY_CARD_COUNT=7;
+// Fixed-height boards on a long spine. One scroll phase drives the viewing
+// height and the whole column's turn, including each short reading hold.
+export function galleryAdvance(progress){
+ const advance=clamp(progress-2)*(GALLERY_CARD_COUNT-1),step=Math.min(GALLERY_CARD_COUNT-2,Math.floor(advance));
+ return step+chapterBlend(advance-step);
+}
+export function galleryDescent(progress){return galleryAdvance(progress)*GALLERY_DESCENT/(GALLERY_CARD_COUNT-1);}
+export function galleryTurn(progress){return -galleryAdvance(progress)*Math.PI*2/GALLERY_CARD_COUNT;}
 const KEYS=[
  {p:0, eye:[0,0,10.5], look:[0,0,0]},
  {p:1, eye:[2.1,.15,4.6], look:[1.65,-.1,0]},
@@ -44,14 +51,11 @@ export function scrollToChapter(y,anchors){
  for(let i=0;i<anchors.length-1;i++)if(y<anchors[i+1])return i+clamp((y-anchors[i])/Math.max(1,anchors[i+1]-anchors[i]));
  return anchors.length-1;
 }
-const GALLERY_CARD_COUNT=7;
 // Every real project gets a short reading hold. The return scroll retraces the same helix.
 export function galleryCardPose(index,progress,mobile=false){
- const advance=clamp(progress-2)*(GALLERY_CARD_COUNT-1),step=Math.min(GALLERY_CARD_COUNT-2,Math.floor(advance));
- const centerIndex=step+chapterBlend(advance-step),relative=index-centerIndex;
- const phase=relative*Math.PI*2/GALLERY_CARD_COUNT;
+ const relative=index-galleryAdvance(progress),phase=index*Math.PI*2/GALLERY_CARD_COUNT+galleryTurn(progress),radius=mobile?3.3:3.8;
  return {
-  position:[(mobile?0:.65)+Math.sin(phase)*(mobile?3.3:3.8),3.8*Math.tanh(relative*.32)-galleryDescent(progress),Math.cos(phase)*3],
+  position:[(mobile?0:.65)+Math.sin(phase)*radius,-index*GALLERY_DESCENT/(GALLERY_CARD_COUNT-1),Math.cos(phase)*radius],
   rotation:[.035*Math.sin(phase),phase,.025*Math.sin(phase)],
   visible:true,
   focus:1-smooth(clamp(Math.abs(relative)/1.15))

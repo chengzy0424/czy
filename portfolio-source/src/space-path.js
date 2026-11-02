@@ -8,8 +8,8 @@ const KEYS=[
  {p:0, eye:[0,0,10.5], look:[0,0,0]},
  {p:1, eye:[2.1,.15,4.6], look:[1.65,-.1,0]},
  {p:2, eye:[0,-12.6,11.7], look:[0,-13,0]},
- {p:3, eye:[3,-13.4,10.8], look:[.65,-13.3,0]},
- {p:4, eye:[.8,-24.1,10.5], look:[0,-24,0]},
+ {p:3, eye:[0,-12.6,11.7], look:[0,-13,0]},
+ {p:4, eye:[.8,-24.5,12], look:[0,-24.6,0]},
  {p:5, eye:[-.4,-34,10.5], look:[0,-34,0]},
  {p:6, eye:[0,-45.5,12], look:[0,-45.5,0]}
 ];
@@ -21,7 +21,6 @@ export function cameraPose(progress,mobile=false,aspect=16/9){
  const passage=Math.sin(Math.PI*t)**2;
  if(i===0){eye[2]-=passage*.7;look[0]+=passage*.22;}
  if(i===1){eye[0]+=passage*1.6;eye[2]-=passage*1.8;look[0]-=passage*1.6;look[1]-=passage*3.2;}
- if(i===2){eye[2]-=passage*1.35;eye[1]+=passage*.3;}
  if(i===3){eye[0]-=passage*1.2;eye[2]+=passage*2;look[0]-=passage*.4;look[1]-=passage*1.2;}
  if(i===4){eye[0]+=passage*1.4;eye[2]+=passage*1.8;look[0]+=passage*.3;look[1]-=passage*1.4;}
  if(i===5){eye[0]-=passage*.8;eye[2]+=passage*1.5;look[1]-=passage;}
@@ -32,7 +31,7 @@ export function cameraPose(progress,mobile=false,aspect=16/9){
   const readingInset=aspect<.45?1.1:0;
   eye[1]+=(2+readingInset)*introLift;look[1]+=(2+readingInset)*introLift;
  }else eye[2]+=Math.max(0,1.24-aspect)*12;
- const roll=mobile?0:(i===2?-.055:i===3?.09:i===4?-.065:0)*passage;
+ const roll=mobile?0:(i===3?.09:i===4?-.065:0)*passage;
  return {eye,look,roll};
 }
 export function scrollToChapter(y,anchors){
@@ -40,9 +39,26 @@ export function scrollToChapter(y,anchors){
  for(let i=0;i<anchors.length-1;i++)if(y<anchors[i+1])return i+clamp((y-anchors[i])/Math.max(1,anchors[i+1]-anchors[i]));
  return anchors.length-1;
 }
+const GALLERY_CARD_COUNT=7;
+// Every real project gets a short reading hold. The return scroll retraces the same helix.
+export function galleryCardPose(index,progress,mobile=false){
+ const advance=clamp(progress-2)*(GALLERY_CARD_COUNT-1),step=Math.min(GALLERY_CARD_COUNT-2,Math.floor(advance));
+ const centerIndex=step+chapterBlend(advance-step),relative=index-centerIndex;
+ const phase=relative*Math.PI*2/GALLERY_CARD_COUNT;
+ return {
+  position:[(mobile?0:.65)+Math.sin(phase)*(mobile?3.3:3.8),3.8*Math.tanh(relative*.32),Math.cos(phase)*3],
+  rotation:[.035*Math.sin(phase),phase,.025*Math.sin(phase)],
+  visible:true,
+  focus:1-smooth(clamp(Math.abs(relative)/1.15))
+ };
+}
 export const CARD_SPECS=[
- {id:'tower',title:'TOWER DEFENSE',subtitle:'UNITY / C#',note:'四款游戏 · 实机演示',image:'./art/tower-960.webp',position:[-2,1.15,2.8],rotation:.12},
- {id:'boe',title:'HUMAN / MACHINE',subtitle:'ANDROID / KOTLIN',note:'BOE 实习 · 经历与职责',position:[2.75,-.65,2.15],rotation:-.3},
- {id:'ae',title:'MOTION & FILM',subtitle:'AE / PERSONAL FILMS',note:'三部个人影像作品',image:'./art/familiar-960.webp',position:[-2.6,1.35,-2.3],rotation:.42},
- {id:'lab',title:'THE LAB',subtitle:'AIGC / EXPLORATION',note:'空格里的小镇 · 一弧之间',image:'./art/town-960.webp',position:[-2.4,-1.2,-1.65],rotation:.38}
-];
+ {id:'tower',title:'TOWER DEFENSE',lines:['TOWER','DEFENSE'],subtitle:'UNITY / C#',note:'烽誓 · 守望 · 策略塔防',image:'./art/tower-960.webp'},
+ {id:'ash',title:'ASH EXODUS',lines:['ASH','EXODUS'],subtitle:'UNITY / FPS',note:'far cry · 原声玩法演示',image:'./art/ash-960.webp'},
+ {id:'csol',title:'CSOL FAR',lines:['CSOL','FAR'],subtitle:'UNITY / FPS',note:'Cs Oline Monster · 射击交互',image:'./art/csol-960.webp'},
+ {id:'mines',title:'MINESWEEPER',lines:['MINESWEEPER'],subtitle:'UNITY / PUZZLE',note:'扫雷 · 推理与触屏操作',image:'./art/mines-960.webp'},
+ {id:'boe',title:'HUMAN MACHINE',lines:['HUMAN','MACHINE'],subtitle:'ANDROID / KOTLIN',note:'BOE 实习 · 经历与职责'},
+ {id:'ae',title:'MOTION FILM',lines:['MOTION','FILM'],subtitle:'AE / PERSONAL FILMS',note:'三部个人影像作品',image:'./art/familiar-960.webp'},
+ {id:'lab',title:'THE LAB',lines:['THE LAB'],subtitle:'AIGC / EXPLORATION',note:'空格里的小镇 · 一弧之间',image:'./art/town-960.webp'}
+].map((spec,index)=>{const pose=galleryCardPose(index,2);return {...spec,position:pose.position,rotation:pose.rotation[1]};});
+

@@ -1,3 +1,6 @@
+import {createSegmentWarmup} from './stream-warmup.js';
+const firstSegment=createSegmentWarmup();
+export const prepareFirstSegment=(path,level)=>firstSegment.warm(path,level);
 // HLS is loaded on intent, never alongside the first-screen WebGL bundle.
 let library,preferredBackup=false;
 export function prepareVideoPlayer(){
@@ -83,6 +86,12 @@ export function createStreamPlayer({video,path,levels,fallback,onStatus,onQualit
     }
     load(context,config,callbacks){
      const resolved=new URL(context.url,location.href);
+     const warm=firstSegment.get(resolved.href);
+     if(warm){
+      this.context=context;const stats=this.stats,end=performance.now();
+      stats.loading.start=end-warm.elapsed;stats.loading.first=stats.loading.start+Math.min(warm.first,warm.elapsed);stats.loading.end=end;stats.loaded=stats.total=warm.data.byteLength;
+      queueMicrotask(()=>{if(!this.cancelled&&this.context)callbacks.onSuccess({url:resolved.href,data:warm.data.slice(0),code:200},stats,context,null);});return;
+     }
      const key=resolved.pathname.match(/(?:^|\/)(media\/stream-v1\/.*)$/)?.[1];
      const cached=bootstrap[key];
      if(cached){
@@ -109,7 +118,9 @@ export function createStreamPlayer({video,path,levels,fallback,onStatus,onQualit
    hls=new Hls({
     enableWorker:true,lowLatencyMode:false,startPosition:at,startLevel:selected<0?0:selected,
     capLevelToPlayerSize:true,maxDevicePixelRatio:1.5,
-    maxBufferLength:20,maxMaxBufferLength:30,backBufferLength:12,maxBufferSize:16*1024*1024,
+    maxBufferLength:30,maxMaxBufferLength:45,backBufferLength:8,maxBufferSize:24*1024*1024,
+    capLevelOnFPSDrop:true,fpsDroppedMonitoringPeriod:4000,fpsDroppedMonitoringThreshold:.12,
+    abrMaxWithRealBitrate:true,
     abrEwmaDefaultEstimate:700000,abrBandWidthFactor:.8,abrBandWidthUpFactor:.6,
     maxStarvationDelay:2,maxLoadingDelay:2,preserveManualLevelOnError:false,
     manifestLoadPolicy:loadPolicy(3500,8000),playlistLoadPolicy:loadPolicy(3500,8000),
@@ -151,3 +162,4 @@ export function createStreamPlayer({video,path,levels,fallback,onStatus,onQualit
   destroy(){disposed=true;generation++;clearTimeout(startTimer);events.abort();hls?.destroy();hls=undefined;}
  };
 }
+

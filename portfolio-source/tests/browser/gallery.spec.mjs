@@ -2,7 +2,7 @@ import {test,expect} from '@playwright/test';
 import {PerspectiveCamera,Vector3} from 'three';
 import {cameraPose,galleryCardPose,SCENE_Y,CARD_SPECS} from '../../src/space-path.js';
 
-// Use wheel input on desktop and scrollTo on mobile, plus real mouse/emulated
+// Use wheel input plus exact scroll checkpoints, and real mouse/emulated
 // touch input on the rendered board's projected centre.
 // No onSelect calls, synthetic DOM clicks, or replacement scene are used.
 test('seven rotating gallery boards open the right project and restore the scroll journey',async({page},info)=>{
@@ -14,18 +14,19 @@ test('seven rotating gallery boards open the right project and restore the scrol
  test.skip(await page.evaluate(()=>document.body.classList.contains('webgl-failed')),'WebGL unavailable: this run cannot verify rotating gallery hit-testing.');
  const metrics=page.locator('#prototype-metrics');await expect(metrics).toContainText('frames');
  const touch=!!info.project.use.hasTouch,viewport=page.viewportSize(),mobile=viewport.width<=760;
+ const firefox=info.project.use.browserName==='firefox';
+ if(firefox){
+  // Verify wheel input reaches the real document, without assuming an OS wheel
+  // delta equals an exact CSS-pixel distance (Firefox applies async scrolling).
+  await page.mouse.wheel(0,200);
+  await expect.poll(()=>page.evaluate(()=>scrollY)).toBeGreaterThan(0);
+  await page.waitForTimeout(750);
+ }
  const scroll=async top=>{
-  if(touch)await page.evaluate(y=>window.scrollTo({top:y,behavior:'instant'}),top);
-  else if(info.project.use.browserName==='firefox'){
-   // Firefox caps a single oversized wheel event; follow actual scroll progress.
-   for(let step=0;step<100;step++){
-    const delta=top-await page.evaluate(()=>scrollY);if(Math.abs(delta)<.5)break;
-    await page.mouse.wheel(0,Math.sign(delta)*Math.min(200,Math.abs(delta)));
-    await page.waitForTimeout(250);
-   }
-  }else await page.mouse.wheel(0,top-await page.evaluate(()=>scrollY));
+  if(touch||firefox)await page.evaluate(y=>window.scrollTo({top:y,behavior:'instant'}),top);
+  else await page.mouse.wheel(0,top-await page.evaluate(()=>scrollY));
  };
- info.annotations.push({type:'scroll-input',description:touch?'DOM scrollTo plus emulated taps; physical swipe is unverified':'mouse wheel plus mouse clicks'});
+ info.annotations.push({type:'scroll-input',description:touch?'DOM scrollTo plus emulated taps; physical swipe is unverified':firefox?'Mouse-wheel response checked; exact board checkpoints use DOM scrollTo; mouse clicks on real boards':'mouse wheel plus mouse clicks'});
  const samples=[];
  for(const [index,spec] of CARD_SPECS.entries()){
   const progress=2+index/(CARD_SPECS.length-1);

@@ -46,43 +46,153 @@ export function vertebraeGeometry(mobile=false){
  geometry.computeBoundingSphere();return geometry;
 }
 
-// The pocket and rolled hem share one parameterized surface. This also lets a
-// backing mesh follow the fold instead of assuming every tile faces forward.
-export function drapePoint(x,y,target=new T.Vector3()){
- const radius=Math.hypot((x-.58)*.86,(y+.08)*1.08);
- const pocket=-1.24*Math.exp(-radius*radius*.86)+.43*Math.exp(-(((radius-1.66)*1.55)**2));
- const rings=.047*Math.cos(radius*8.5)*Math.exp(-radius*radius*.18);
- const sweep=.17*Math.sin(x*.9+y*.3)+.1*Math.sin(y*1.6-x*.35);
- const curl=Math.max(0,-x-2.35),angle=curl*1.25,curlRadius=.8;
- const px=x<-2.35?-2.35-curlRadius*Math.sin(angle):x;
- const py=y+.055*Math.sin(y*1.3+x*.42)*Math.min(1,curl);
- return target.set(px,py,pocket+rings+sweep+curlRadius*(1-Math.cos(angle)));
+export const LAB_WAVE_PERIOD=8;
+export const LAB_LIP_SEAM=-2.35;
+const drapeFrequency=Math.PI*2/LAB_WAVE_PERIOD,drapedGrids=new WeakMap(),transitionBase=new Float64Array(15),transitionLip=new Float64Array(15);
+// Five vector coefficients describe the rest shape and two coherent harmonics.
+// The basin's curved left boundary joins the rolled mouth's right semicircle.
+function lipCoefficients(x,y,out){
+ out.fill(0);
+  const u=(LAB_LIP_SEAM-x)/1.75,theta=y/2.52*Math.PI;
+  const c=Math.cos(theta),s=Math.sin(theta),bulge=Math.sin(Math.PI*u);
+  out[0]=-3.14+(.68+.13*bulge)*c+.2*(u-.5);
+  out[1]=(1.96+.2*bulge)*s;
+  out[2]=.08+1.12*u+.29*c;
+  const a=-Math.cos(theta*2),b=Math.sin(theta*2);
+  out[3]=.045*c*a;out[4]=.07*s*a;out[5]=.085*a;
+  out[6]=.045*c*b;out[7]=.07*s*b;out[8]=.085*b;
+ return out;
 }
-export function drapeHeight(x,y){
- return drapePoint(x,y).z;
+function basinCoefficients(x,y,out){
+ out.fill(0);
+  const r=Math.hypot((x-.08)*.88,(y+.02)*1.04);
+  const pocket=-1.6*Math.exp(-r*r*.76)+.48*Math.exp(-(((r-1.78)*1.7)**2));
+  const ridges=.085*Math.cos(r*8.4)*Math.exp(-r*r*.13);
+  const sweep=.095*Math.sin(x*.75+y*.31)+.06*Math.sin(y*1.45-x*.26);
+  const curl=Math.max(0,x-2.32),angle=curl*.79;
+  out[0]=x>2.32?2.32+Math.sin(angle)/.79:x;
+  out[1]=y+.035*Math.sin(x*.8)*Math.sin(y*.9);
+  out[2]=pocket+ridges+sweep+.92*(1-Math.cos(angle));
+  const envelope=.45+.55*Math.exp(-r*r*.09),radial=r*4.15,travel=x*1.5+y*.72;
+  out[5]=-.17*envelope*Math.cos(radial);out[8]=.17*envelope*Math.sin(radial);
+  out[11]=-.045*envelope*Math.cos(travel);out[14]=.045*envelope*Math.sin(travel);
+ return out;
+}
+function drapeCoefficients(x,y,out){
+ if(x<LAB_LIP_SEAM)return lipCoefficients(x,y,out);
+ basinCoefficients(x,y,out);
+ if(x<-1.12){
+  const t=Math.min(1,(x-LAB_LIP_SEAM)/1.23),weight=1-t*t*(3-2*t);
+  const theta=Math.max(-1,Math.min(1,y/2.52))*Math.PI/2;
+  basinCoefficients(LAB_LIP_SEAM,y,transitionBase);
+  lipCoefficients(LAB_LIP_SEAM-.94*1.75,theta/Math.PI*2.52,transitionLip);
+  for(let i=0;i<15;i++)out[i]+=weight*(transitionLip[i]-transitionBase[i]);
+ }
+ return out;
+}
+export function drapePoint(x,y,target=new T.Vector3(),time=0){
+ const c=drapeCoefficients(x,y,new Float64Array(15)),phase=time*drapeFrequency;
+ const a=Math.sin(phase),b=Math.cos(phase),d=Math.sin(phase*2),e=Math.cos(phase*2);
+ return target.set(c[0]+a*c[3]+b*c[6]+d*c[9]+e*c[12],c[1]+a*c[4]+b*c[7]+d*c[10]+e*c[13],c[2]+a*c[5]+b*c[8]+d*c[11]+e*c[14]);
+}
+export function drapeHeight(x,y,time=0){return drapePoint(x,y,undefined,time).z;}
+
+// Cache the spatial derivatives once. Each animation frame only combines five
+// coefficients and forms an orthonormal tile basis; no per-cell allocations.
+export function createDrapeSampler(coordinates){
+ const values=new Float32Array(coordinates.length*45),c=new Float64Array(15),lo=new Float64Array(15),hi=new Float64Array(15);
+ for(let i=0;i<coordinates.length;i++){
+  const [x,y]=coordinates[i],offset=i*45,epsilon=.003;
+  drapeCoefficients(x,y,c);values.set(c,offset);
+  // Never cross the lip/cloth seam while measuring a patch's tangent.
+  const left=x<LAB_LIP_SEAM?x-epsilon:Math.max(x-epsilon,LAB_LIP_SEAM);
+  const right=x<LAB_LIP_SEAM?Math.min(x+epsilon,LAB_LIP_SEAM-.0000001):x+epsilon;
+  drapeCoefficients(left,y,lo);drapeCoefficients(right,y,hi);
+  for(let k=0;k<15;k++)values[offset+15+k]=(hi[k]-lo[k])/(right-left);
+  drapeCoefficients(x,y-epsilon,lo);drapeCoefficients(x,y+epsilon,hi);
+  for(let k=0;k<15;k++)values[offset+30+k]=(hi[k]-lo[k])/(epsilon*2);
+ }
+ let a=0,b=1,d=0,e=1;
+ return {
+  count:coordinates.length,values,
+  setTime(time){const phase=time*drapeFrequency;a=Math.sin(phase);b=Math.cos(phase);d=Math.sin(phase*2);e=Math.cos(phase*2);},
+  sample(index,position,tx,ty){
+   const offset=index*45;
+   for(let j=0;j<3;j++){
+    const k=offset+j*15;
+    const target=j===0?position:j===1?tx:ty;
+    target.set(values[k]+a*values[k+3]+b*values[k+6]+d*values[k+9]+e*values[k+12],values[k+1]+a*values[k+4]+b*values[k+7]+d*values[k+10]+e*values[k+13],values[k+2]+a*values[k+5]+b*values[k+8]+d*values[k+11]+e*values[k+14]);
+   }
+  },
+  bounds(padding=0){
+   const box=new T.Box3(),low=new T.Vector3(),high=new T.Vector3();
+   for(let i=0;i<coordinates.length;i++){
+    const k=i*45;
+    for(let axis=0;axis<3;axis++){
+     const span=Math.hypot(values[k+axis+3],values[k+axis+6])+Math.hypot(values[k+axis+9],values[k+axis+12])+padding;
+     low.setComponent(axis,values[k+axis]-span);high.setComponent(axis,values[k+axis]+span);
+    }
+    box.expandByPoint(low);box.expandByPoint(high);
+   }
+   return box;
+  }
+ };
+}
+
+export function updateDrapedGrid(grid,time=0){
+ const state=drapedGrids.get(grid);if(!state)throw new TypeError('Expected a draped tile grid');
+ const {sampler,basis,normal,tx,ty,position,tileScale}=state;sampler.setTime(time);
+ for(let i=0;i<grid.count;i++){
+  sampler.sample(i,position,tx,ty);tx.normalize();normal.crossVectors(tx,ty).normalize();ty.crossVectors(normal,tx).normalize();
+  basis.makeBasis(tx,ty,normal);basis.scale(tileScale);basis.setPosition(position);grid.setMatrixAt(i,basis);
+ }
+ grid.instanceMatrix.needsUpdate=true;
 }
 export function createDrapedGrid(material,mobile=false){
  const radius=mobile?.145:.105;
- const cells=[];
+ const cells=[];let lipCells=0;
  const columns=mobile?18:25,rows=mobile?9:13;
  for(let col=-columns;col<=columns;col++)for(let row=-rows;row<=rows;row++){
   const x=col*radius*1.53,y=(row+(Math.abs(col)%2)*.5)*radius*Math.sqrt(3)*1.02;
-  cells.push([x,y]);
+  if(x<LAB_LIP_SEAM)lipCells++;else cells.push([x,y]);
+ }
+ // Redistribute the existing left-strip cells around the mouth by arc length.
+ // Uniform parameter rows would leave large gaps at the ellipse's long sides.
+ const lipColumns=mobile?4:6,arc=new Float64Array(513);
+ for(let column=0;column<lipColumns;column++){
+  const u=(column+.5)/lipColumns,count=Math.floor(lipCells/lipColumns)+(column<lipCells%lipColumns?1:0),bulge=Math.sin(Math.PI*u);
+  const rx=.68+.13*bulge,ry=1.96+.2*bulge;
+  let previousX=-rx,previousY=0,previousZ=-.29;arc[0]=0;
+  for(let i=1;i<=512;i++){
+   const angle=-Math.PI+i/512*Math.PI*2,x=rx*Math.cos(angle),y=ry*Math.sin(angle),z=.29*Math.cos(angle);
+   arc[i]=arc[i-1]+Math.hypot(x-previousX,y-previousY,z-previousZ);previousX=x;previousY=y;previousZ=z;
+  }
+  let cursor=1;
+  for(let row=0;row<count;row++){
+   const distance=(row+(column%2)*.5)/count*arc[512];
+   while(cursor<512&&arc[cursor]<distance)cursor++;
+   const index=cursor-1+(distance-arc[cursor-1])/(arc[cursor]-arc[cursor-1]),angle=-Math.PI+index/512*Math.PI*2;
+   cells.push([LAB_LIP_SEAM-u*1.75,angle/Math.PI*2.52]);
+  }
  }
  // Three rings produce a bevel plus real sides with only 36 triangles per tile.
  const vertices=[0,0,.075,0,0,0],indices=[];
- for(const [scale,z] of [[.84,.075],[1,.045],[1,0]])for(let k=0;k<6;k++){const a=k*Math.PI/3;vertices.push(Math.cos(a)*radius*scale,Math.sin(a)*radius*scale,z);}
+ for(const [scale,z] of [[.93,.075],[1,.045],[1,0]])for(let k=0;k<6;k++){const a=k*Math.PI/3;vertices.push(Math.cos(a)*radius*scale,Math.sin(a)*radius*scale,z);}
  for(let k=0;k<6;k++){const n=(k+1)%6;indices.push(0,2+k,2+n,1,14+n,14+k);for(let ring=0;ring<2;ring++){const a=2+ring*6+k,b=2+ring*6+n;indices.push(a,a+6,b,b,a+6,b+6);}}
- const geo=new T.BufferGeometry();geo.setAttribute('position',new T.Float32BufferAttribute(vertices,3));geo.setIndex(indices);geo.computeVertexNormals();
- const grid=new T.InstancedMesh(geo,material,cells.length),basis=new T.Matrix4(),normal=new T.Vector3(),tx=new T.Vector3(),ty=new T.Vector3(),position=new T.Vector3(),sample=new T.Vector3(),tileScale=new T.Vector3(.9,.9,1),color=new T.Color();
+ const indexed=new T.BufferGeometry();indexed.setAttribute('position',new T.Float32BufferAttribute(vertices,3));indexed.setIndex(indices);
+ // Separate bevel/top normals keep the broad face flat rather than gem-like.
+ const geo=indexed.toNonIndexed();indexed.dispose();geo.computeVertexNormals();
+ const grid=new T.InstancedMesh(geo,material,cells.length),sampler=createDrapeSampler(cells),color=new T.Color();
+ grid.instanceMatrix.setUsage(T.DynamicDrawUsage);
+ drapedGrids.set(grid,{sampler,basis:new T.Matrix4(),normal:new T.Vector3(),tx:new T.Vector3(),ty:new T.Vector3(),position:new T.Vector3(),tileScale:new T.Vector3(.94,.94,.65)});
+ updateDrapedGrid(grid,0);
  cells.forEach(([x,y],i)=>{
-  drapePoint(x+.005,y,tx).sub(drapePoint(x-.005,y,sample)).normalize();
-  drapePoint(x,y+.005,ty).sub(drapePoint(x,y-.005,sample)).normalize();
-  normal.crossVectors(tx,ty).normalize();ty.crossVectors(normal,tx).normalize();
-  basis.makeBasis(tx,ty,normal);basis.scale(tileScale);basis.setPosition(drapePoint(x,y,position));grid.setMatrixAt(i,basis);
-  const tint=.5+.5*Math.sin(x*1.7-y*.9);color.setHSL(.43+.08*tint,.055,.22+.09*tint);grid.setColorAt(i,color);
+  const tint=.5+.5*Math.sin(x*1.2-y*.72);color.setHSL(.46,.025,.32+.065*tint);grid.setColorAt(i,color);
  });
- grid.computeBoundingBox();grid.computeBoundingSphere();grid.userData.relief=true;return grid;
+ // Every possible phase is covered, so culling and marker clearance stay valid
+ // without rescanning the instances on each animation frame.
+ grid.boundingBox=sampler.bounds(Math.hypot(radius,.075*.65));grid.boundingSphere=grid.boundingBox.getBoundingSphere(new T.Sphere());
+ grid.name='lab-honeycomb';grid.userData.relief=true;grid.userData.wavePeriod=LAB_WAVE_PERIOD;return grid;
 }
 
 export function membraneGeometry(){

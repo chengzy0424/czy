@@ -49,6 +49,14 @@ const fragment=`varying vec3 vTint;varying float vAlpha,vStreak,vAngle,vBead;voi
 #include <colorspace_fragment>
 }`;
 
+// Use the current transformed bounds: the extended skeleton can remain visible
+// well after its original group origin has left a narrow portrait viewport.
+export function galleryIntersectsView(camera,meshes,frustum=new T.Frustum(),viewProjection=new T.Matrix4()){
+ frustum.setFromProjectionMatrix(viewProjection.multiplyMatrices(camera.projectionMatrix,camera.matrixWorldInverse));
+ for(const mesh of meshes)if(frustum.intersectsObject(mesh))return true;
+ return false;
+}
+
 export async function createSpace({container,state,onFailure=()=>{},onSelect=()=>{}}){
  const yieldControl=()=>globalThis.scheduler?.yield?globalThis.scheduler.yield():new Promise(resolve=>setTimeout(resolve,0));
  const mobile=matchMedia('(max-width:760px)').matches,coarse=matchMedia('(pointer:coarse)').matches;
@@ -71,6 +79,8 @@ export async function createSpace({container,state,onFailure=()=>{},onSelect=()=
   lost=true;pause();document.body.classList.remove('webgl-ready');onFailure();
  };
  const world=await buildWorld({mobile,yieldControl,onTexture:()=>wake()});scene.add(world.world);
+ const galleryMeshes=[],galleryFrustum=new T.Frustum(),galleryViewProjection=new T.Matrix4();
+ world.gallery.traverse(object=>{if(object.geometry)galleryMeshes.push(object);});
  const water=createWater();scene.add(water);if(mobile)water.getRenderTarget().setSize(256,256);
  const glassTarget=new T.WebGLRenderTarget(640,480,{depthBuffer:true});
  const glassUniforms={uGlassScene:{value:glassTarget.texture},uGlassResolution:{value:new T.Vector2()},uGlassTime:{value:0},uGlassActive:{value:0}};
@@ -158,7 +168,7 @@ export async function createSpace({container,state,onFailure=()=>{},onSelect=()=
   water.material.uniforms.uOpacity.value=(1-smooth(clamp((progress-4.24)/.24)))*.92;
   world.lab.rotation.y=-.16+(reduced?0:Math.sin(time*.13)*.035)+(1-smooth(clamp(progress-4)))*1.15;
   // Far chapters remain in world coordinates; culling only removes unseen draw calls.
-  for(const group of [world.emblem,world.gallery,world.machine,world.lab])group.visible=Math.abs(group.position.y-pose.look[1])<14;
+  for(const group of [world.emblem,world.machine,world.lab])group.visible=Math.abs(group.position.y-pose.look[1])<14;
   for(const [index,card] of world.cards.entries()){
    card.hover=reduced?(hovered===card?1:0):damp(card.hover,hovered===card?1:0,dt,10);
    const pose=galleryCardPose(index,progress,mobile);
@@ -172,7 +182,9 @@ export async function createSpace({container,state,onFailure=()=>{},onSelect=()=
    card.face.material.opacity=.55+pose.focus*.43;
    card.edge.material.emissive.set(0xa6e4d4);card.edge.material.emissiveIntensity=card.hover*.35+passage*.13;
   }
-  scene.updateMatrixWorld(true);pick();
+  scene.updateMatrixWorld(true);
+  world.gallery.visible=galleryIntersectsView(camera,galleryMeshes,galleryFrustum,galleryViewProjection);
+  pick();
   document.body.classList.toggle('over-spatial-card',!!hovered&&!coarse);
   if(coarse&&performance.now()>touchUntil){desiredForce=0;pointerKnown=false;}
   if(reduced){force=0;forceVelocity=0;}else [force,forceVelocity]=springStep(force,forceVelocity,desiredForce,dt);

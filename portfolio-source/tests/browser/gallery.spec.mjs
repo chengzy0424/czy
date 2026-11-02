@@ -16,7 +16,14 @@ test('seven rotating gallery boards open the right project and restore the scrol
  const touch=!!info.project.use.hasTouch,viewport=page.viewportSize(),mobile=viewport.width<=760;
  const scroll=async top=>{
   if(touch)await page.evaluate(y=>window.scrollTo({top:y,behavior:'instant'}),top);
-  else await page.mouse.wheel(0,top-await page.evaluate(()=>scrollY));
+  else if(info.project.use.browserName==='firefox'){
+   // Firefox caps a single oversized wheel event; follow actual scroll progress.
+   for(let step=0;step<100;step++){
+    const delta=top-await page.evaluate(()=>scrollY);if(Math.abs(delta)<.5)break;
+    await page.mouse.wheel(0,Math.sign(delta)*Math.min(200,Math.abs(delta)));
+    await page.waitForTimeout(250);
+   }
+  }else await page.mouse.wheel(0,top-await page.evaluate(()=>scrollY));
  };
  info.annotations.push({type:'scroll-input',description:touch?'DOM scrollTo plus emulated taps; physical swipe is unverified':'mouse wheel plus mouse clicks'});
  const samples=[];

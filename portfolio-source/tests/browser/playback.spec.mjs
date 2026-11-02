@@ -21,13 +21,14 @@ test.beforeEach(async({page},info)=>{
    const video=document.querySelector('video');if(!video||video.dataset.audit)return;
    video.dataset.audit='true';window.__lastVideo=video;
    for(const event of ['playing','waiting','pause','seeking','seeked','error'])video.addEventListener(event,()=>window.__mediaAudit.events.push({event,time:video.currentTime,at:performance.now()}));
-   try{
-    // Routing native HLS into Web Audio is not portable and can itself silence
-    // playback (WebKit bug 180696). Do not alter the native audio path to test it.
+   const connectAudio=()=>{try{
+    // Wait for the actual audio track before attaching the observer graph.
+    // Native HLS is never routed through Web Audio (WebKit bug 180696).
     if(audioContext&&video.dataset.playbackMode!=='native'&&!('webkitAudioDecodedByteCount' in video)){
      analyser=audioContext.createAnalyser();audioContext.createMediaElementSource(video).connect(analyser);analyser.connect(audioContext.destination);
     }
-   }catch(e){window.__mediaAudit.audioError=e.message;}
+   }catch(e){window.__mediaAudit.audioError=e.message;}};
+   if(video.readyState>0)connectAudio();else video.addEventListener('loadedmetadata',connectAudio,{once:true});
   }).observe(document,{childList:true,subtree:true});
   setInterval(()=>{
    window.__mediaAudit.contextState=audioContext?.state;window.__mediaAudit.contextTime=audioContext?.currentTime;window.__mediaAudit.analyserConnected=!!analyser;
@@ -99,12 +100,12 @@ test('first screen and browsing never fetch video; narrow touch layout and dialo
  await tap(page,page.getByRole('link',{name:'直接查看作品',exact:true}));
  await tap(page,page.locator('[data-detail="csol"]').first());await expect(page.locator('dialog')).toBeVisible();
  await page.waitForTimeout(500);expect(requests).toEqual([]);
- expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1)).toBe(true);
+ await expect.poll(()=>page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1)).toBe(true);
  await tap(page,page.getByRole('button',{name:'关闭项目详情',exact:true}));
  await expect(page.locator('[data-detail="csol"]').first()).toBeFocused();
  await page.setViewportSize({width:320,height:720});
  await tap(page,page.locator('[data-detail="csol"]').first());
- expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1)).toBe(true);
+ await expect.poll(()=>page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1)).toBe(true);
 });
 
 for(const id of ids)test(`${id}: start, audio evidence, seek, pause, quality and release`,async({page,browser},info)=>{

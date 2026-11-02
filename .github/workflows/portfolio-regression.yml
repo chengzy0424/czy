@@ -33,6 +33,7 @@ jobs:
       - run: node tools/sync-production.mjs --check
       - run: pnpm exec playwright install --with-deps chromium firefox webkit
       - name: Provide a virtual audio output for Firefox Web Audio evidence
+        if: matrix.project == 'firefox'
         run: |
           sudo apt-get install -y pulseaudio
           pulseaudio --start --exit-idle-time=-1
@@ -40,7 +41,12 @@ jobs:
           pactl set-default-sink ci_audio
           pactl info
       - name: Test rebuilt production including all nine films and the gallery
-        run: xvfb-run -a pnpm exec playwright test --headed --project=${{ matrix.project }}
+        run: |
+          if [ '${{ matrix.project }}' = 'firefox' ]; then
+            xvfb-run -a pnpm exec playwright test --headed --project=firefox
+          else
+            pnpm exec playwright test --project=${{ matrix.project }}
+          fi
         env:
           CI: '1'
           PLAYWRIGHT_TEST_PRODUCTION: '1'

@@ -62,4 +62,4 @@ pnpm test:browser
 
 `.github/workflows/portfolio-regression.yml` 在 Linux 上检查五种桌面/模拟触摸项目的新生产构建，macOS 上单独跑 Playwright WebKit 的原生控制器测试。**macOS WebKit 仍不是 Safari 应用或 iPhone 实机测试**。工作流只验证并上传测试证据，没有部署步骤。
 
-Linux CI 使用 Xvfb 显示环境和 PulseAudio 空输出设备，音频断言仍要求非零 PCM/解码证据；这不是扬声器实听。移动 WebKit 不支持滚轮自动化，因此其画廊滚动使用 DOM scrollTo，点选使用触摸模拟；不声称覆盖实体手指滑动。
+Linux CI 的 Firefox 使用 Xvfb 显示环境和 PulseAudio 空输出设备，其余引擎使用默认 headless 模式，音频断言仍要求非零 PCM/解码证据；这不是扬声器实听。移动 WebKit 不支持滚轮自动化，因此其画廊滚动使用 DOM scrollTo，点选使用触摸模拟；不声称覆盖实体手指滑动。

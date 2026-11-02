@@ -60,7 +60,7 @@ test('solid emblem, segmented spine, mechanical chamber and honeycomb have finit
   const rim=w.lens.children[0];rim.geometry.computeBoundingBox();const size=rim.geometry.boundingBox.getSize(new T.Vector3());
   assert.ok(size.x>2.4&&size.z>.2,'emblem must have real thickness');
   assert.ok(w.spine.geometry.attributes.position.count>4000);
-  assert.ok(w.machine.children.length>(mobile?27:30),'mechanical supports and cables missing');
+  for(const name of ['machine-upper-housing','machine-recessed-basin','machine-support-columns','machine-cables-0','machine-granular-core'])assert.ok(w.machine.getObjectByName(name),'missing mechanical assembly '+name);
   const honey=w.lab.children.find(o=>o.isInstancedMesh);assert.ok(honey.count>650,'draped tile region missing');assert.equal(honey.userData.relief,true);const z=[];const mat=new T.Matrix4();for(let i=0;i<honey.count;i++){honey.getMatrixAt(i,mat);z.push(mat.elements[14]);}assert.ok(Math.max(...z)-Math.min(...z)>1,'surface needs actual relief');
   assert.ok(triangles<(mobile?170000:220000),'geometry budget exceeded '+triangles);
   console.log(JSON.stringify({mobile,meshes,triangles,honeycombCells:honey.count}));w.dispose();

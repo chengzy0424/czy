@@ -1,0 +1,2632 @@
+{
+  "project": "firefox",
+  "stats": {
+    "startTime": "2026-11-02T13:22:13.713Z",
+    "duration": 242053.05699999997,
+    "expected": 24,
+    "skipped": 1,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "ci": {
+    "commitHref": "https://github.com/chengzy0424/czy/commit/7327f05f3d4de5c647c927805a62360189e3a8f8",
+    "commitHash": "7327f05f3d4de5c647c927805a62360189e3a8f8",
+    "prHref": "https://github.com/chengzy0424/czy/pull/3",
+    "prTitle": "整合 HLS 修复与最新三维画廊，重建生产资源并验证九部影片",
+    "prBaseHash": "5ae553a73e9354e7230bef8ccd82f1efc94b62b0",
+    "buildHref": "https://github.com/chengzy0424/czy/actions/runs/41451975414"
+  },
+  "errors": [],
+  "tests": [
+    {
+      "title": "Chromium native controls accept pause, scrub drag and resume",
+      "file": "controls.spec.mjs",
+      "status": "skipped",
+      "resultStatus": "skipped",
+      "durationMs": 1213,
+      "annotations": [
+        {
+          "type": "skip",
+          "description": "Native-control geometry differs by engine; Safari/iPhone scrub gestures remain manual device QA.",
+          "location": {
+            "file": "/home/runner/work/czy/czy/portfolio-source/tests/browser/controls.spec.mjs",
+            "line": 4,
+            "column": 7
+          }
+        }
+      ]
+    },
+    {
+      "title": "seven rotating gallery boards open the right project and restore the scroll journey",
+      "file": "gallery.spec.mjs",
+      "status": "expected",
+      "resultStatus": "passed",
+      "durationMs": 55062,
+      "annotations": [
+        {
+          "type": "scroll-input",
+          "description": "Mouse-wheel response checked; exact board checkpoints use DOM scrollTo; mouse clicks on real boards"
+        }
+      ],
+      "evidence": {
+        "gallery-scroll-and-hit-evidence": [
+          {
+            "id": "tower",
+            "progress": 2,
+            "scroll": 1648,
+            "input": "mouse",
+            "hit": {
+              "x": 552.2558314104443,
+              "y": 334.4332327122013
+            }
+          },
+          {
+            "id": "ash",
+            "progress": 2.1666666666666665,
+            "scroll": 1968,
+            "input": "mouse",
+            "hit": {
+              "x": 552.2558314104443,
+              "y": 334.4332327122013
+            }
+          },
+          {
+            "id": "csol",
+            "progress": 2.3333333333333335,
+            "scroll": 2288,
+            "input": "mouse",
+            "hit": {
+              "x": 552.2558314104443,
+              "y": 334.43323271220174
+            }
+          },
+          {
+            "id": "mines",
+            "progress": 2.5,
+            "scroll": 2608,
+            "input": "mouse",
+            "hit": {
+              "x": 552.2558314104443,
+              "y": 334.4332327122015
+            }
+          },
+          {
+            "id": "boe",
+            "progress": 2.6666666666666665,
+            "scroll": 2928,
+            "input": "mouse",
+            "hit": {
+              "x": 552.2558314104443,
+              "y": 334.4332327122015
+            }
+          },
+          {
+            "id": "ae",
+            "progress": 2.8333333333333335,
+            "scroll": 3248,
+            "input": "mouse",
+            "hit": {
+              "x": 552.2558314104443,
+              "y": 334.4332327122015
+            }
+          },
+          {
+            "id": "lab",
+            "progress": 3,
+            "scroll": 3568,
+            "input": "mouse",
+            "hit": {
+              "x": 552.2558314104443,
+              "y": 334.4332327122015
+            }
+          }
+        ]
+      }
+    },
+    {
+      "title": "first screen and browsing never fetch video; narrow touch layout and dialog return",
+      "file": "playback.spec.mjs",
+      "status": "expected",
+      "resultStatus": "passed",
+      "durationMs": 3389,
+      "annotations": [],
+      "evidence": {
+        "environment": {
+          "project": "firefox",
+          "mediaOrigin": "repository",
+          "ua": "Mozilla/5.0 (X11; Linux x86_64; rv:153.0) Gecko/20100101 Firefox/153.0",
+          "platform": "Linux x86_64",
+          "nativeHls": "",
+          "mp4": "probably",
+          "mse": true,
+          "touch": 0
+        },
+        "final-state": {
+          "audit": {
+            "peak": 0,
+            "events": [],
+            "audioError": null,
+            "contextState": "suspended",
+            "contextTime": 0,
+            "analyserConnected": false
+          },
+          "video": null
+        }
+      }
+    },
+    {
+      "title": "tower: start, audio evidence, seek, pause, quality and release",
+      "file": "playback.spec.mjs",
+      "status": "expected",
+      "resultStatus": "passed",
+      "durationMs": 9509,
+      "annotations": [],
+      "evidence": {
+        "environment": {
+          "project": "firefox",
+          "mediaOrigin": "repository",
+          "ua": "Mozilla/5.0 (X11; Linux x86_64; rv:153.0) Gecko/20100101 Firefox/153.0",
+          "platform": "Linux x86_64",
+          "nativeHls": "",
+          "mp4": "probably",
+          "mse": true,
+          "touch": 0
+        },
+        "playback-evidence": {
+          "id": "tower",
+          "browser": "153.0",
+          "flowToPlayingMs": 2784,
+          "audio": {
+            "method": "nonzero Web Audio PCM signal; not a speaker test"
+          },
+          "start": {
+            "time": 0.488176,
+            "paused": false,
+            "volume": 0.8,
+            "muted": false,
+            "src": "blob:http://127.0.0.1:4186/94049f77-7ddc-4a06-8dc5-759036521fb6",
+            "readyState": 4,
+            "width": 854,
+            "height": 480,
+            "error": null,
+            "decodedAudio": null,
+            "frames": 11
+          },
+          "continuous": {
+            "time": 3.538698,
+            "paused": false,
+            "volume": 0.8,
+            "muted": false,
+            "src": "blob:http://127.0.0.1:4186/94049f77-7ddc-4a06-8dc5-759036521fb6",
+            "readyState": 4,
+            "width": 1280,
+            "height": 720,
+            "error": null,
+            "decodedAudio": null,
+            "frames": 102
+          },
+          "final": {
+            "time": 17.926511,
+            "paused": false,
+            "volume": 0.45,
+            "muted": false,
+            "src": "blob:http://127.0.0.1:4186/94049f77-7ddc-4a06-8dc5-759036521fb6",
+            "readyState": 4,
+            "width": 1280,
+            "height": 720,
+            "error": null,
+            "decodedAudio": null,
+            "frames": 117
+          },
+          "audit": {
+            "peak": 0.3818126916885376,
+            "events": [
+              {
+                "event": "waiting",
+                "time": 0,
+                "at": 2632
+              },
+              {
+                "event": "seeking",
+                "time": 0.166,
+                "at": 2633
+              },
+              {
+                "event": "seeked",
+                "time": 0.166,
+                "at": 2667
+              },
+              {
+                "event": "playing",
+                "time": 0.166,
+                "at": 2667
+              },
+              {
+                "event": "pause",
+                "time": 17.4475998,
+                "at": 6093
+              },
+              {
+                "event": "seeking",
+                "time": 17.4475998,
+                "at": 6096
+              },
+              {
+                "event": "seeked",
+                "time": 17.4475998,
+                "at": 6168
+              },
+              {
+                "event": "playing",
+                "time": 17.4475998,
+                "at": 6883
+              }
+            ],
+            "audioError": null,
+            "contextState": "running",
+            "contextTime": 5.12,
+            "analyserConnected": true
+          },
+          "requestCount": 28,
+          "seekInput": "HTMLMediaElement.currentTime; not a physical scrub gesture"
+        },
+        "final-state": {
+          "audit": {
+            "peak": 0.3818126916885376,
+            "events": [
+              {
+                "event": "waiting",
+                "time": 0,
+                "at": 2632
+              },
+              {
+                "event": "seeking",
+                "time": 0.166,
+                "at": 2633
+              },
+              {
+                "event": "seeked",
+                "time": 0.166,
+                "at": 2667
+              },
+              {
+                "event": "playing",
+                "time": 0.166,
+                "at": 2667
+              },
+              {
+                "event": "pause",
+                "time": 17.4475998,
+                "at": 6093
+              },
+              {
+                "event": "seeking",
+                "time": 17.4475998,
+                "at": 6096
+              },
+              {
+                "event": "seeked",
+                "time": 17.4475998,
+                "at": 6168
+              },
+              {
+                "event": "playing",
+                "time": 17.4475998,
+                "at": 6883
+              }
+            ],
+            "audioError": null,
+            "contextState": "running",
+            "contextTime": 6.812154195011338,
+            "analyserConnected": true
+          },
+          "video": {
+            "time": 0,
+            "paused": true,
+            "readyState": 0,
+            "mode": "hls",
+            "src": "",
+            "muted": false,
+            "volume": 0.45,
+            "width": 0,
+            "height": 0,
+            "decodedAudio": null,
+            "audioTracks": null,
+            "buffered": []
+          }
+        }
+      }
+    },
+    {
+      "title": "ash: start, audio evidence, seek, pause, quality and release",
+      "file": "playback.spec.mjs",
+      "status": "expected",
+      "resultStatus": "passed",
+      "durationMs": 16431,
+      "annotations": [],
+      "evidence": {
+        "environment": {
+          "project": "firefox",
+          "mediaOrigin": "repository",
+          "ua": "Mozilla/5.0 (X11; Linux x86_64; rv:153.0) Gecko/20100101 Firefox/153.0",
+          "platform": "Linux x86_64",
+          "nativeHls": "",
+          "mp4": "probably",
+          "mse": true,
+          "touch": 0
+        },
+        "playback-evidence": {
+          "id": "ash",
+          "browser": "153.0",
+          "flowToPlayingMs": 2519,
+          "audio": {
+            "method": "nonzero Web Audio PCM signal; not a speaker test"
+          },
+          "start": {
+            "time": 6.384972,
+            "paused": false,
+            "volume": 0.8,
+            "muted": false,
+            "src": "blob:http://127.0.0.1:4186/8ef0c6bc-c48d-4398-9bc2-b77962fae177",
+            "readyState": 4,
+            "width": 1280,
+            "height": 720,
+            "error": null,
+            "decodedAudio": null,
+            "frames": 377
+          },
+          "continuous": {
+            "time": 9.397761,
+            "paused": false,
+            "volume": 0.8,
+            "muted": false,
+            "src": "blob:http://127.0.0.1:4186/8ef0c6bc-c48d-4398-9bc2-b77962fae177",
+            "readyState": 4,
+            "width": 1280,
+            "height": 720,
+            "error": null,
+            "decodedAudio": null,
+            "frames": 559
+          },
+          "final": {
+            "time": 38.411247,
+            "paused": false,
+            "volume": 0.45,
+            "muted": false,
+            "src": "blob:http://127.0.0.1:4186/8ef0c6bc-c48d-4398-9bc2-b77962fae177",
+            "readyState": 4,
+            "width": 1544,
+            "height": 868,
+            "error": null,
+            "decodedAudio": null,
+            "frames": 646
+          },
+          "audit": {
+            "peak": 0.19422204792499542,
+            "events": [
+              {
+                "event": "waiting",
+                "time": 0,
+                "at": 2431
+              },
+              {
+                "event": "seeking",
+                "time": 0.133,
+                "at": 2432
+              },
+              {
+                "event": "seeked",
+                "time": 0.133,
+                "at": 2490
+              },
+              {
+                "event": "playing",
+                "time": 0.133,
+                "at": 2492
+              },
+              {
+                "event": "pause",
+                "time": 36.96,
+                "at": 11850
+              },
+              {
+                "event": "seeking",
+                "time": 36.96,
+                "at": 11850
+              },
+              {
+                "event": "seeked",
+                "time": 36.96,
+                "at": 12057
+              },
+              {
+                "event": "playing",
+                "time": 36.96,
+                "at": 12896
+              }
+            ],
+            "audioError": null,
+            "contextState": "running",
+            "contextTime": 12.62875283446712,
+            "analyserConnected": true
+          },
+          "requestCount": 53,
+          "seekInput": "HTMLMediaElement.currentTime; not a physical scrub gesture"
+        },
+        "final-state": {
+          "audit": {
+            "peak": 0.19422204792499542,
+            "events": [
+              {
+                "event": "waiting",
+                "time": 0,
+                "at": 2431
+              },
+              {
+                "event": "seeking",
+                "time": 0.133,
+                "at": 2432
+              },
+              {
+                "event": "seeked",
+                "time": 0.133,
+                "at": 2490
+              },
+              {
+                "event": "playing",
+                "time": 0.133,
+                "at": 2492
+              },
+              {
+                "event": "pause",
+                "time": 36.96,
+                "at": 11850
+              },
+              {
+                "event": "seeking",
+                "time": 36.96,
+                "at": 11850
+              },
+              {
+                "event": "seeked",
+                "time": 36.96,
+                "at": 12057
+              },
+              {
+                "event": "playing",
+                "time": 36.96,
+                "at": 12896
+              }
+            ],
+            "audioError": null,
+            "contextState": "running",
+            "contextTime": 14.323809523809524,
+            "analyserConnected": true
+          },
+          "video": {
+            "time": 0,
+            "paused": true,
+            "readyState": 0,
+            "mode": "hls",
+            "src": "",
+            "muted": false,
+            "volume": 0.45,
+            "width": 0,
+            "height": 0,
+            "decodedAudio": null,
+            "audioTracks": null,
+            "buffered": []
+          }
+        }
+      }
+    },
+    {
+      "title": "csol: start, audio evidence, seek, pause, quality and release",
+      "file": "playback.spec.mjs",
+      "status": "expected",
+      "resultStatus": "passed",
+      "durationMs": 11936,
+      "annotations": [],
+      "evidence": {
+        "environment": {
+          "project": "firefox",
+          "mediaOrigin": "repository",
+          "ua": "Mozilla/5.0 (X11; Linux x86_64; rv:153.0) Gecko/20100101 Firefox/153.0",
+          "platform": "Linux x86_64",
+          "nativeHls": "",
+          "mp4": "probably",
+          "mse": true,
+          "touch": 0
+        },
+        "playback-evidence": {
+          "id": "csol",
+          "browser": "153.0",
+          "flowToPlayingMs": 2362,
+          "audio": {
+            "method": "nonzero Web Audio PCM signal; not a speaker test"
+          },
+          "start": {
+            "time": 2.341798,
+            "paused": false,
+            "volume": 0.8,
+            "muted": false,
+            "src": "blob:http://127.0.0.1:4186/c51a17f7-dcd5-4208-82b7-5e921bd045cc",
+            "readyState": 4,
+            "width": 1280,
+            "height": 718,
+            "error": null,
+            "decodedAudio": null,
+            "frames": 134
+          },
+          "continuous": {
+            "time": 5.369099,
+            "paused": false,
+            "volume": 0.8,
+            "muted": false,
+            "src": "blob:http://127.0.0.1:4186/c51a17f7-dcd5-4208-82b7-5e921bd045cc",
+            "readyState": 4,
+            "width": 1280,
+            "height": 718,
+            "error": null,
+            "decodedAudio": null,
+            "frames": 316
+          },
+          "final": {
+            "time": 26.14331,
+            "paused": false,
+            "volume": 0.45,
+            "muted": false,
+            "src": "blob:http://127.0.0.1:4186/c51a17f7-dcd5-4208-82b7-5e921bd045cc",
+            "readyState": 4,
+            "width": 1544,
+            "height": 866,
+            "error": null,
+            "decodedAudio": null,
+            "frames": 375
+          },
+          "audit": {
+            "peak": 0.5654035806655884,
+            "events": [
+              {
+                "event": "waiting",
+                "time": 0,
+                "at": 2291
+              },
+              {
+                "event": "seeking",
+                "time": 0.133,
+                "at": 2293
+              },
+              {
+                "event": "seeked",
+                "time": 0.133,
+                "at": 2320
+              },
+              {
+                "event": "playing",
+                "time": 0.133,
+                "at": 2320
+              },
+              {
+                "event": "pause",
+                "time": 25.2,
+                "at": 7630
+              },
+              {
+                "event": "seeking",
+                "time": 25.2,
+                "at": 7631
+              },
+              {
+                "event": "seeked",
+                "time": 25.2,
+                "at": 7875
+              },
+              {
+                "event": "playing",
+                "time": 25.2,
+                "at": 8904
+              }
+            ],
+            "audioError": null,
+            "contextState": "running",
+            "contextTime": 8.135691609977325,
+            "analyserConnected": true
+          },
+          "requestCount": 37,
+          "seekInput": "HTMLMediaElement.currentTime; not a physical scrub gesture"
+        },
+        "final-state": {
+          "audit": {
+            "peak": 0.5654035806655884,
+            "events": [
+              {
+                "event": "waiting",
+                "time": 0,
+                "at": 2291
+              },
+              {
+                "event": "seeking",
+                "time": 0.133,
+                "at": 2293
+              },
+              {
+                "event": "seeked",
+                "time": 0.133,
+                "at": 2320
+              },
+              {
+                "event": "playing",
+                "time": 0.133,
+                "at": 2320
+              },
+              {
+                "event": "pause",
+                "time": 25.2,
+                "at": 7630
+              },
+              {
+                "event": "seeking",
+                "time": 25.2,
+                "at": 7631
+              },
+              {
+                "event": "seeked",
+                "time": 25.2,
+                "at": 7875
+              },
+              {
+                "event": "playing",
+                "time": 25.2,
+                "at": 8904
+              }
+            ],
+            "audioError": null,
+            "contextState": "running",
+            "contextTime": 9.810430839002267,
+            "analyserConnected": true
+          },
+          "video": {
+            "time": 0,
+            "paused": true,
+            "readyState": 0,
+            "mode": "hls",
+            "src": "",
+            "muted": false,
+            "volume": 0.45,
+            "width": 0,
+            "height": 0,
+            "decodedAudio": null,
+            "audioTracks": null,
+            "buffered": []
+          }
+        }
+      }
+    },
+    {
+      "title": "mines: start, audio evidence, seek, pause, quality and release",
+      "file": "playback.spec.mjs",
+      "status": "expected",
+      "resultStatus": "passed",
+      "durationMs": 9346,
+      "annotations": [],
+      "evidence": {
+        "environment": {
+          "project": "firefox",
+          "mediaOrigin": "repository",
+          "ua": "Mozilla/5.0 (X11; Linux x86_64; rv:153.0) Gecko/20100101 Firefox/153.0",
+          "platform": "Linux x86_64",
+          "nativeHls": "",
+          "mp4": "probably",
+          "mse": true,
+          "touch": 0
+        },
+        "playback-evidence": {
+          "id": "mines",
+          "browser": "153.0",
+          "flowToPlayingMs": 2424,
+          "audio": {
+            "method": "nonzero Web Audio PCM signal; not a speaker test"
+          },
+          "start": {
+            "time": 0.528811,
+            "paused": false,
+            "volume": 0.8,
+            "muted": false,
+            "src": "blob:http://127.0.0.1:4186/41d24fb2-41ec-43dd-9227-9e3c4a52611d",
+            "readyState": 4,
+            "width": 854,
+            "height": 480,
+            "error": null,
+            "decodedAudio": null,
+            "frames": 11
+          },
+          "continuous": {
+            "time": 3.5416,
+            "paused": false,
+            "volume": 0.8,
+            "muted": false,
+            "src": "blob:http://127.0.0.1:4186/41d24fb2-41ec-43dd-9227-9e3c4a52611d",
+            "readyState": 4,
+            "width": 1280,
+            "height": 720,
+            "error": null,
+            "decodedAudio": null,
+            "frames": 102
+          },
+          "final": {
+            "time": 13.734439,
+            "paused": false,
+            "volume": 0.45,
+            "muted": false,
+            "src": "blob:http://127.0.0.1:4186/41d24fb2-41ec-43dd-9227-9e3c4a52611d",
+            "readyState": 4,
+            "width": 1280,
+            "height": 720,
+            "error": null,
+            "decodedAudio": null,
+            "frames": 119
+          },
+          "audit": {
+            "peak": 0.043622519820928574,
+            "events": [
+              {
+                "event": "waiting",
+                "time": 0,
+                "at": 2415
+              },
+              {
+                "event": "seeking",
+                "time": 0.166,
+                "at": 2416
+              },
+              {
+                "event": "seeked",
+                "time": 0.166,
+                "at": 2434
+              },
+              {
+                "event": "playing",
+                "time": 0.166,
+                "at": 2435
+              },
+              {
+                "event": "pause",
+                "time": 13.223599799999999,
+                "at": 5892
+              },
+              {
+                "event": "seeking",
+                "time": 13.223599799999999,
+                "at": 5893
+              },
+              {
+                "event": "seeked",
+                "time": 13.223599799999999,
+                "at": 5947
+              },
+              {
+                "event": "playing",
+                "time": 13.223599799999999,
+                "at": 6670
+              }
+            ],
+            "audioError": null,
+            "contextState": "running",
+            "contextTime": 5.491519274376417,
+            "analyserConnected": true
+          },
+          "requestCount": 21,
+          "seekInput": "HTMLMediaElement.currentTime; not a physical scrub gesture"
+        },
+        "final-state": {
+          "audit": {
+            "peak": 0.043622519820928574,
+            "events": [
+              {
+                "event": "waiting",
+                "time": 0,
+                "at": 2415
+              },
+              {
+                "event": "seeking",
+                "time": 0.166,
+                "at": 2416
+              },
+              {
+                "event": "seeked",
+                "time": 0.166,
+                "at": 2434
+              },
+              {
+                "event": "playing",
+                "time": 0.166,
+                "at": 2435
+              },
+              {
+                "event": "pause",
+                "time": 13.223599799999999,
+                "at": 5892
+              },
+              {
+                "event": "seeking",
+                "time": 13.223599799999999,
+                "at": 5893
+              },
+              {
+                "event": "seeked",
+                "time": 13.223599799999999,
+                "at": 5947
+              },
+              {
+                "event": "playing",
+                "time": 13.223599799999999,
+                "at": 6670
+              }
+            ],
+            "audioError": null,
+            "contextState": "running",
+            "contextTime": 7.224308390022676,
+            "analyserConnected": true
+          },
+          "video": {
+            "time": 0,
+            "paused": true,
+            "readyState": 0,
+            "mode": "hls",
+            "src": "",
+            "muted": false,
+            "volume": 0.45,
+            "width": 0,
+            "height": 0,
+            "decodedAudio": null,
+            "audioTracks": null,
+            "buffered": []
+          }
+        }
+      }
+    },
+    {
+      "title": "murphy: start, audio evidence, seek, pause, quality and release",
+      "file": "playback.spec.mjs",
+      "status": "expected",
+      "resultStatus": "passed",
+      "durationMs": 11077,
+      "annotations": [],
+      "evidence": {
+        "environment": {
+          "project": "firefox",
+          "mediaOrigin": "repository",
+          "ua": "Mozilla/5.0 (X11; Linux x86_64; rv:153.0) Gecko/20100101 Firefox/153.0",
+          "platform": "Linux x86_64",
+          "nativeHls": "",
+          "mp4": "probably",
+          "mse": true,
+          "touch": 0
+        },
+        "playback-evidence": {
+          "id": "murphy",
+          "browser": "153.0",
+          "flowToPlayingMs": 2302,
+          "audio": {
+            "method": "nonzero Web Audio PCM signal; not a speaker test"
+          },
+          "start": {
+            "time": 0.525909,
+            "paused": false,
+            "volume": 0.8,
+            "muted": false,
+            "src": "blob:http://127.0.0.1:4186/6431bdb9-a717-46d8-84e9-120e9c98114a",
+            "readyState": 4,
+            "width": 854,
+            "height": 480,
+            "error": null,
+            "decodedAudio": null,
+            "frames": 12
+          },
+          "continuous": {
+            "time": 3.57643,
+            "paused": false,
+            "volume": 0.8,
+            "muted": false,
+            "src": "blob:http://127.0.0.1:4186/6431bdb9-a717-46d8-84e9-120e9c98114a",
+            "readyState": 4,
+            "width": 1280,
+            "height": 720,
+            "error": null,
+            "decodedAudio": null,
+            "frames": 103
+          },
+          "final": {
+            "time": 76.867437,
+            "paused": false,
+            "volume": 0.45,
+            "muted": false,
+            "src": "blob:http://127.0.0.1:4186/6431bdb9-a717-46d8-84e9-120e9c98114a",
+            "readyState": 4,
+            "width": 1920,
+            "height": 1080,
+            "error": null,
+            "decodedAudio": null,
+            "frames": 177
+          },
+          "audit": {
+            "peak": 0.4303630590438843,
+            "events": [
+              {
+                "event": "waiting",
+                "time": 0,
+                "at": 2228
+              },
+              {
+                "event": "seeking",
+                "time": 0.166,
+                "at": 2234
+              },
+              {
+                "event": "seeked",
+                "time": 0.166,
+                "at": 2254
+              },
+              {
+                "event": "playing",
+                "time": 0.166,
+                "at": 2255
+              },
+              {
+                "event": "pause",
+                "time": 74.3800002,
+                "at": 5719
+              },
+              {
+                "event": "seeking",
+                "time": 74.3800002,
+                "at": 5720
+              },
+              {
+                "event": "seeked",
+                "time": 74.3800002,
+                "at": 5779
+              },
+              {
+                "event": "playing",
+                "time": 74.3800002,
+                "at": 6586
+              }
+            ],
+            "audioError": null,
+            "contextState": "running",
+            "contextTime": 7.354920634920635,
+            "analyserConnected": true
+          },
+          "requestCount": 61,
+          "seekInput": "HTMLMediaElement.currentTime; not a physical scrub gesture"
+        },
+        "final-state": {
+          "audit": {
+            "peak": 0.4303630590438843,
+            "events": [
+              {
+                "event": "waiting",
+                "time": 0,
+                "at": 2228
+              },
+              {
+                "event": "seeking",
+                "time": 0.166,
+                "at": 2234
+              },
+              {
+                "event": "seeked",
+                "time": 0.166,
+                "at": 2254
+              },
+              {
+                "event": "playing",
+                "time": 0.166,
+                "at": 2255
+              },
+              {
+                "event": "pause",
+                "time": 74.3800002,
+                "at": 5719
+              },
+              {
+                "event": "seeking",
+                "time": 74.3800002,
+                "at": 5720
+              },
+              {
+                "event": "seeked",
+                "time": 74.3800002,
+                "at": 5779
+              },
+              {
+                "event": "playing",
+                "time": 74.3800002,
+                "at": 6586
+              }
+            ],
+            "audioError": null,
+            "contextState": "running",
+            "contextTime": 9.012244897959183,
+            "analyserConnected": true
+          },
+          "video": {
+            "time": 0,
+            "paused": true,
+            "readyState": 0,
+            "mode": "hls",
+            "src": "",
+            "muted": false,
+            "volume": 0.45,
+            "width": 0,
+            "height": 0,
+            "decodedAudio": null,
+            "audioTracks": null,
+            "buffered": []
+          }
+        }
+      }
+    },
+    {
+      "title": "hyrum: start, audio evidence, seek, pause, quality and release",
+      "file": "playback.spec.mjs",
+      "status": "expected",
+      "resultStatus": "passed",
+      "durationMs": 9504,
+      "annotations": [],
+      "evidence": {
+        "environment": {
+          "project": "firefox",
+          "mediaOrigin": "repository",
+          "ua": "Mozilla/5.0 (X11; Linux x86_64; rv:153.0) Gecko/20100101 Firefox/153.0",
+          "platform": "Linux x86_64",
+          "nativeHls": "",
+          "mp4": "probably",
+          "mse": true,
+          "touch": 0
+        },
+        "playback-evidence": {
+          "id": "hyrum",
+          "browser": "153.0",
+          "flowToPlayingMs": 2450,
+          "audio": {
+            "method": "nonzero Web Audio PCM signal; not a speaker test"
+          },
+          "start": {
+            "time": 0.485274,
+            "paused": false,
+            "volume": 0.8,
+            "muted": false,
+            "src": "blob:http://127.0.0.1:4186/314eacb0-f619-4517-8959-8a7f58ebd3b4",
+            "readyState": 4,
+            "width": 854,
+            "height": 480,
+            "error": null,
+            "decodedAudio": null,
+            "frames": 10
+          },
+          "continuous": {
+            "time": 3.51838,
+            "paused": false,
+            "volume": 0.8,
+            "muted": false,
+            "src": "blob:http://127.0.0.1:4186/314eacb0-f619-4517-8959-8a7f58ebd3b4",
+            "readyState": 4,
+            "width": 1280,
+            "height": 720,
+            "error": null,
+            "decodedAudio": null,
+            "frames": 102
+          },
+          "final": {
+            "time": 90.865578,
+            "paused": false,
+            "volume": 0.45,
+            "muted": false,
+            "src": "blob:http://127.0.0.1:4186/314eacb0-f619-4517-8959-8a7f58ebd3b4",
+            "readyState": 4,
+            "width": 1920,
+            "height": 1080,
+            "error": null,
+            "decodedAudio": null,
+            "frames": 125
+          },
+          "audit": {
+            "peak": 0.3321218192577362,
+            "events": [
+              {
+                "event": "waiting",
+                "time": 0,
+                "at": 2199
+              },
+              {
+                "event": "seeking",
+                "time": 0.166,
+                "at": 2201
+              },
+              {
+                "event": "seeked",
+                "time": 0.166,
+                "at": 2229
+              },
+              {
+                "event": "playing",
+                "time": 0.166,
+                "at": 2229
+              },
+              {
+                "event": "pause",
+                "time": 89.9599998,
+                "at": 5657
+              },
+              {
+                "event": "seeking",
+                "time": 89.9599998,
+                "at": 5661
+              },
+              {
+                "event": "seeked",
+                "time": 89.9599998,
+                "at": 5812
+              },
+              {
+                "event": "playing",
+                "time": 89.9599998,
+                "at": 6545
+              }
+            ],
+            "audioError": null,
+            "contextState": "running",
+            "contextTime": 5.732426303854876,
+            "analyserConnected": true
+          },
+          "requestCount": 62,
+          "seekInput": "HTMLMediaElement.currentTime; not a physical scrub gesture"
+        },
+        "final-state": {
+          "audit": {
+            "peak": 0.3321218192577362,
+            "events": [
+              {
+                "event": "waiting",
+                "time": 0,
+                "at": 2199
+              },
+              {
+                "event": "seeking",
+                "time": 0.166,
+                "at": 2201
+              },
+              {
+                "event": "seeked",
+                "time": 0.166,
+                "at": 2229
+              },
+              {
+                "event": "playing",
+                "time": 0.166,
+                "at": 2229
+              },
+              {
+                "event": "pause",
+                "time": 89.9599998,
+                "at": 5657
+              },
+              {
+                "event": "seeking",
+                "time": 89.9599998,
+                "at": 5661
+              },
+              {
+                "event": "seeked",
+                "time": 89.9599998,
+                "at": 5812
+              },
+              {
+                "event": "playing",
+                "time": 89.9599998,
+                "at": 6545
+              }
+            ],
+            "audioError": null,
+            "contextState": "running",
+            "contextTime": 7.433287981859411,
+            "analyserConnected": true
+          },
+          "video": {
+            "time": 0,
+            "paused": true,
+            "readyState": 0,
+            "mode": "hls",
+            "src": "",
+            "muted": false,
+            "volume": 0.45,
+            "width": 0,
+            "height": 0,
+            "decodedAudio": null,
+            "audioTracks": null,
+            "buffered": []
+          }
+        }
+      }
+    },
+    {
+      "title": "familiar: start, audio evidence, seek, pause, quality and release",
+      "file": "playback.spec.mjs",
+      "status": "expected",
+      "resultStatus": "passed",
+      "durationMs": 11091,
+      "annotations": [],
+      "evidence": {
+        "environment": {
+          "project": "firefox",
+          "mediaOrigin": "repository",
+          "ua": "Mozilla/5.0 (X11; Linux x86_64; rv:153.0) Gecko/20100101 Firefox/153.0",
+          "platform": "Linux x86_64",
+          "nativeHls": "",
+          "mp4": "probably",
+          "mse": true,
+          "touch": 0
+        },
+        "playback-evidence": {
+          "id": "familiar",
+          "browser": "153.0",
+          "flowToPlayingMs": 2051,
+          "audio": {
+            "method": "nonzero Web Audio PCM signal; not a speaker test"
+          },
+          "start": {
+            "time": 0.337247,
+            "paused": false,
+            "volume": 0.8,
+            "muted": false,
+            "src": "blob:http://127.0.0.1:4186/dde43db7-eb34-47d8-9b75-84fcf7926b3f",
+            "readyState": 4,
+            "width": 854,
+            "height": 480,
+            "error": null,
+            "decodedAudio": null,
+            "frames": 6
+          },
+          "continuous": {
+            "time": 3.350036,
+            "paused": false,
+            "volume": 0.8,
+            "muted": false,
+            "src": "blob:http://127.0.0.1:4186/dde43db7-eb34-47d8-9b75-84fcf7926b3f",
+            "readyState": 4,
+            "width": 1280,
+            "height": 720,
+            "error": null,
+            "decodedAudio": null,
+            "frames": 96
+          },
+          "final": {
+            "time": 112.894875,
+            "paused": false,
+            "volume": 0.45,
+            "muted": false,
+            "src": "blob:http://127.0.0.1:4186/dde43db7-eb34-47d8-9b75-84fcf7926b3f",
+            "readyState": 4,
+            "width": 1920,
+            "height": 1080,
+            "error": null,
+            "decodedAudio": null,
+            "frames": 169
+          },
+          "audit": {
+            "peak": 0.6741424798965454,
+            "events": [
+              {
+                "event": "waiting",
+                "time": 0,
+                "at": 2170
+              },
+              {
+                "event": "seeking",
+                "time": 0.166,
+                "at": 2170
+              },
+              {
+                "event": "seeked",
+                "time": 0.166,
+                "at": 2191
+              },
+              {
+                "event": "playing",
+                "time": 0.166,
+                "at": 2192
+              },
+              {
+                "event": "pause",
+                "time": 110.47999979999999,
+                "at": 5427
+              },
+              {
+                "event": "seeking",
+                "time": 110.47999979999999,
+                "at": 5430
+              },
+              {
+                "event": "seeked",
+                "time": 110.47999979999999,
+                "at": 5503
+              },
+              {
+                "event": "playing",
+                "time": 110.47999979999999,
+                "at": 6267
+              }
+            ],
+            "audioError": null,
+            "contextState": "running",
+            "contextTime": 6.980498866213152,
+            "analyserConnected": true
+          },
+          "requestCount": 64,
+          "seekInput": "HTMLMediaElement.currentTime; not a physical scrub gesture"
+        },
+        "final-state": {
+          "audit": {
+            "peak": 0.6741424798965454,
+            "events": [
+              {
+                "event": "waiting",
+                "time": 0,
+                "at": 2170
+              },
+              {
+                "event": "seeking",
+                "time": 0.166,
+                "at": 2170
+              },
+              {
+                "event": "seeked",
+                "time": 0.166,
+                "at": 2191
+              },
+              {
+                "event": "playing",
+                "time": 0.166,
+                "at": 2192
+              },
+              {
+                "event": "pause",
+                "time": 110.47999979999999,
+                "at": 5427
+              },
+              {
+                "event": "seeking",
+                "time": 110.47999979999999,
+                "at": 5430
+              },
+              {
+                "event": "seeked",
+                "time": 110.47999979999999,
+                "at": 5503
+              },
+              {
+                "event": "playing",
+                "time": 110.47999979999999,
+                "at": 6267
+              }
+            ],
+            "audioError": null,
+            "contextState": "running",
+            "contextTime": 8.695873015873016,
+            "analyserConnected": true
+          },
+          "video": {
+            "time": 0,
+            "paused": true,
+            "readyState": 0,
+            "mode": "hls",
+            "src": "",
+            "muted": false,
+            "volume": 0.45,
+            "width": 0,
+            "height": 0,
+            "decodedAudio": null,
+            "audioTracks": null,
+            "buffered": []
+          }
+        }
+      }
+    },
+    {
+      "title": "town: start, audio evidence, seek, pause, quality and release",
+      "file": "playback.spec.mjs",
+      "status": "expected",
+      "resultStatus": "passed",
+      "durationMs": 10833,
+      "annotations": [],
+      "evidence": {
+        "environment": {
+          "project": "firefox",
+          "mediaOrigin": "repository",
+          "ua": "Mozilla/5.0 (X11; Linux x86_64; rv:153.0) Gecko/20100101 Firefox/153.0",
+          "platform": "Linux x86_64",
+          "nativeHls": "",
+          "mp4": "probably",
+          "mse": true,
+          "touch": 0
+        },
+        "playback-evidence": {
+          "id": "town",
+          "browser": "153.0",
+          "flowToPlayingMs": 2038,
+          "audio": {
+            "method": "nonzero Web Audio PCM signal; not a speaker test"
+          },
+          "start": {
+            "time": 0.505591,
+            "paused": false,
+            "volume": 0.8,
+            "muted": false,
+            "src": "blob:http://127.0.0.1:4186/f7040d27-8d68-429a-9466-70cd4030733d",
+            "readyState": 4,
+            "width": 854,
+            "height": 480,
+            "error": null,
+            "decodedAudio": null,
+            "frames": 11
+          },
+          "continuous": {
+            "time": 3.51838,
+            "paused": false,
+            "volume": 0.8,
+            "muted": false,
+            "src": "blob:http://127.0.0.1:4186/f7040d27-8d68-429a-9466-70cd4030733d",
+            "readyState": 4,
+            "width": 1280,
+            "height": 720,
+            "error": null,
+            "decodedAudio": null,
+            "frames": 102
+          },
+          "final": {
+            "time": 40.751655,
+            "paused": false,
+            "volume": 0.45,
+            "muted": false,
+            "src": "blob:http://127.0.0.1:4186/f7040d27-8d68-429a-9466-70cd4030733d",
+            "readyState": 4,
+            "width": 1920,
+            "height": 1080,
+            "error": null,
+            "decodedAudio": null,
+            "frames": 175
+          },
+          "audit": {
+            "peak": 0.41194719076156616,
+            "events": [
+              {
+                "event": "waiting",
+                "time": 0,
+                "at": 1993
+              },
+              {
+                "event": "seeking",
+                "time": 0.166,
+                "at": 1994
+              },
+              {
+                "event": "seeked",
+                "time": 0.166,
+                "at": 2016
+              },
+              {
+                "event": "playing",
+                "time": 0.166,
+                "at": 2018
+              },
+              {
+                "event": "pause",
+                "time": 38.3599998,
+                "at": 5440
+              },
+              {
+                "event": "seeking",
+                "time": 38.3599998,
+                "at": 5440
+              },
+              {
+                "event": "seeked",
+                "time": 38.3599998,
+                "at": 5511
+              },
+              {
+                "event": "playing",
+                "time": 38.3599998,
+                "at": 6398
+              }
+            ],
+            "audioError": null,
+            "contextState": "running",
+            "contextTime": 7.456507936507936,
+            "analyserConnected": true
+          },
+          "requestCount": 53,
+          "seekInput": "HTMLMediaElement.currentTime; not a physical scrub gesture"
+        },
+        "final-state": {
+          "audit": {
+            "peak": 0.41194719076156616,
+            "events": [
+              {
+                "event": "waiting",
+                "time": 0,
+                "at": 1993
+              },
+              {
+                "event": "seeking",
+                "time": 0.166,
+                "at": 1994
+              },
+              {
+                "event": "seeked",
+                "time": 0.166,
+                "at": 2016
+              },
+              {
+                "event": "playing",
+                "time": 0.166,
+                "at": 2018
+              },
+              {
+                "event": "pause",
+                "time": 38.3599998,
+                "at": 5440
+              },
+              {
+                "event": "seeking",
+                "time": 38.3599998,
+                "at": 5440
+              },
+              {
+                "event": "seeked",
+                "time": 38.3599998,
+                "at": 5511
+              },
+              {
+                "event": "playing",
+                "time": 38.3599998,
+                "at": 6398
+              }
+            ],
+            "audioError": null,
+            "contextState": "running",
+            "contextTime": 9.07609977324263,
+            "analyserConnected": true
+          },
+          "video": {
+            "time": 0,
+            "paused": true,
+            "readyState": 0,
+            "mode": "hls",
+            "src": "",
+            "muted": false,
+            "volume": 0.45,
+            "width": 0,
+            "height": 0,
+            "decodedAudio": null,
+            "audioTracks": null,
+            "buffered": []
+          }
+        }
+      }
+    },
+    {
+      "title": "arc: start, audio evidence, seek, pause, quality and release",
+      "file": "playback.spec.mjs",
+      "status": "expected",
+      "resultStatus": "passed",
+      "durationMs": 10536,
+      "annotations": [],
+      "evidence": {
+        "environment": {
+          "project": "firefox",
+          "mediaOrigin": "repository",
+          "ua": "Mozilla/5.0 (X11; Linux x86_64; rv:153.0) Gecko/20100101 Firefox/153.0",
+          "platform": "Linux x86_64",
+          "nativeHls": "",
+          "mp4": "probably",
+          "mse": true,
+          "touch": 0
+        },
+        "playback-evidence": {
+          "id": "arc",
+          "browser": "153.0",
+          "flowToPlayingMs": 1941,
+          "audio": {
+            "method": "nonzero Web Audio PCM signal; not a speaker test"
+          },
+          "start": {
+            "time": 0.282099,
+            "paused": false,
+            "volume": 0.8,
+            "muted": false,
+            "src": "blob:http://127.0.0.1:4186/53111fc8-6e41-4513-9a2e-8aac1ab57143",
+            "readyState": 4,
+            "width": 854,
+            "height": 480,
+            "error": null,
+            "decodedAudio": null,
+            "frames": 4
+          },
+          "continuous": {
+            "time": 3.312303,
+            "paused": false,
+            "volume": 0.8,
+            "muted": false,
+            "src": "blob:http://127.0.0.1:4186/53111fc8-6e41-4513-9a2e-8aac1ab57143",
+            "readyState": 4,
+            "width": 1280,
+            "height": 720,
+            "error": null,
+            "decodedAudio": null,
+            "frames": 95
+          },
+          "final": {
+            "time": 14.528594,
+            "paused": false,
+            "volume": 0.45,
+            "muted": false,
+            "src": "blob:http://127.0.0.1:4186/53111fc8-6e41-4513-9a2e-8aac1ab57143",
+            "readyState": 4,
+            "width": 1920,
+            "height": 1080,
+            "error": null,
+            "decodedAudio": null,
+            "frames": 167
+          },
+          "audit": {
+            "peak": 0.618402361869812,
+            "events": [
+              {
+                "event": "waiting",
+                "time": 0,
+                "at": 2159
+              },
+              {
+                "event": "seeking",
+                "time": 0.166,
+                "at": 2161
+              },
+              {
+                "event": "seeked",
+                "time": 0.166,
+                "at": 2188
+              },
+              {
+                "event": "playing",
+                "time": 0.166,
+                "at": 2189
+              },
+              {
+                "event": "pause",
+                "time": 12.119523599999999,
+                "at": 5376
+              },
+              {
+                "event": "seeking",
+                "time": 12.119523599999999,
+                "at": 5376
+              },
+              {
+                "event": "seeked",
+                "time": 12.119523599999999,
+                "at": 5394
+              },
+              {
+                "event": "playing",
+                "time": 12.119523599999999,
+                "at": 6072
+              }
+            ],
+            "audioError": null,
+            "contextState": "running",
+            "contextTime": 6.7831292517006805,
+            "analyserConnected": true
+          },
+          "requestCount": 21,
+          "seekInput": "HTMLMediaElement.currentTime; not a physical scrub gesture"
+        },
+        "final-state": {
+          "audit": {
+            "peak": 0.618402361869812,
+            "events": [
+              {
+                "event": "waiting",
+                "time": 0,
+                "at": 2159
+              },
+              {
+                "event": "seeking",
+                "time": 0.166,
+                "at": 2161
+              },
+              {
+                "event": "seeked",
+                "time": 0.166,
+                "at": 2188
+              },
+              {
+                "event": "playing",
+                "time": 0.166,
+                "at": 2189
+              },
+              {
+                "event": "pause",
+                "time": 12.119523599999999,
+                "at": 5376
+              },
+              {
+                "event": "seeking",
+                "time": 12.119523599999999,
+                "at": 5376
+              },
+              {
+                "event": "seeked",
+                "time": 12.119523599999999,
+                "at": 5394
+              },
+              {
+                "event": "playing",
+                "time": 12.119523599999999,
+                "at": 6072
+              }
+            ],
+            "audioError": null,
+            "contextState": "running",
+            "contextTime": 8.440453514739229,
+            "analyserConnected": true
+          },
+          "video": {
+            "time": 0,
+            "paused": true,
+            "readyState": 0,
+            "mode": "hls",
+            "src": "",
+            "muted": false,
+            "volume": 0.45,
+            "width": 0,
+            "height": 0,
+            "decodedAudio": null,
+            "audioTracks": null,
+            "buffered": []
+          }
+        }
+      }
+    },
+    {
+      "title": "failed segments expose MP4 recovery and release it on close",
+      "file": "playback.spec.mjs",
+      "status": "expected",
+      "resultStatus": "passed",
+      "durationMs": 8374,
+      "annotations": [],
+      "evidence": {
+        "environment": {
+          "project": "firefox",
+          "mediaOrigin": "repository",
+          "ua": "Mozilla/5.0 (X11; Linux x86_64; rv:153.0) Gecko/20100101 Firefox/153.0",
+          "platform": "Linux x86_64",
+          "nativeHls": "",
+          "mp4": "probably",
+          "mse": true,
+          "touch": 0
+        },
+        "final-state": {
+          "audit": {
+            "peak": 0.14859366416931152,
+            "events": [
+              {
+                "event": "waiting",
+                "time": 0,
+                "at": 4122
+              },
+              {
+                "event": "playing",
+                "time": 0,
+                "at": 4191
+              }
+            ],
+            "audioError": null,
+            "contextState": "running",
+            "contextTime": 6.240362811791384,
+            "analyserConnected": true
+          },
+          "video": {
+            "time": 0,
+            "paused": true,
+            "readyState": 0,
+            "mode": "fallback",
+            "src": "http://127.0.0.1:4186/media/csol-demo-low.mp4",
+            "muted": false,
+            "volume": 0.8,
+            "width": 0,
+            "height": 0,
+            "decodedAudio": null,
+            "audioTracks": null,
+            "buffered": []
+          }
+        }
+      }
+    },
+    {
+      "title": "audio decoder or PCM evidence is available",
+      "file": "playback.spec.mjs",
+      "status": "expected",
+      "resultStatus": "passed",
+      "durationMs": 5020,
+      "annotations": [],
+      "evidence": {
+        "environment": {
+          "project": "firefox",
+          "mediaOrigin": "repository",
+          "ua": "Mozilla/5.0 (X11; Linux x86_64; rv:153.0) Gecko/20100101 Firefox/153.0",
+          "platform": "Linux x86_64",
+          "nativeHls": "",
+          "mp4": "probably",
+          "mse": true,
+          "touch": 0
+        },
+        "final-state": {
+          "audit": {
+            "peak": 0.09138645231723785,
+            "events": [
+              {
+                "event": "waiting",
+                "time": 0,
+                "at": 2235
+              },
+              {
+                "event": "seeking",
+                "time": 0.133,
+                "at": 2235
+              },
+              {
+                "event": "seeked",
+                "time": 0.133,
+                "at": 2287
+              },
+              {
+                "event": "playing",
+                "time": 0.133,
+                "at": 2288
+              }
+            ],
+            "audioError": null,
+            "contextState": "running",
+            "contextTime": 2.84734693877551,
+            "analyserConnected": true
+          },
+          "status": "正在播放 · 720p · 60帧",
+          "video": {
+            "time": 2.35631,
+            "paused": false,
+            "readyState": 4,
+            "mode": "hls",
+            "src": "blob:http://127.0.0.1:4186/2d891c91-0d0c-4176-a40f-0937c5f752ce",
+            "muted": false,
+            "volume": 0.8,
+            "width": 1280,
+            "height": 718,
+            "decodedAudio": null,
+            "audioTracks": null,
+            "buffered": [
+              [
+                0.033,
+                34.017
+              ]
+            ]
+          }
+        }
+      }
+    },
+    {
+      "title": "tower: no streaming capability selects MP4 and disables unavailable quality choices",
+      "file": "playback.spec.mjs",
+      "status": "expected",
+      "resultStatus": "passed",
+      "durationMs": 5956,
+      "annotations": [],
+      "evidence": {
+        "environment": {
+          "project": "firefox",
+          "mediaOrigin": "repository",
+          "ua": "Mozilla/5.0 (X11; Linux x86_64; rv:153.0) Gecko/20100101 Firefox/153.0",
+          "platform": "Linux x86_64",
+          "nativeHls": "",
+          "mp4": "probably",
+          "mse": false,
+          "touch": 0
+        },
+        "final-state": {
+          "audit": {
+            "peak": 0.3821501135826111,
+            "events": [
+              {
+                "event": "waiting",
+                "time": 0,
+                "at": 2440
+              },
+              {
+                "event": "playing",
+                "time": 0,
+                "at": 2510
+              },
+              {
+                "event": "pause",
+                "time": 0.493424,
+                "at": 3041
+              },
+              {
+                "event": "playing",
+                "time": 0.493424,
+                "at": 3487
+              }
+            ],
+            "audioError": null,
+            "contextState": "running",
+            "contextTime": 3.8341950113378687,
+            "analyserConnected": true
+          },
+          "video": {
+            "time": 0,
+            "paused": true,
+            "readyState": 0,
+            "mode": "fallback",
+            "src": "http://127.0.0.1:4186/media/tower-demo-audio.mp4",
+            "muted": false,
+            "volume": 0.8,
+            "width": 0,
+            "height": 0,
+            "decodedAudio": null,
+            "audioTracks": null,
+            "buffered": []
+          }
+        }
+      }
+    },
+    {
+      "title": "ash: no streaming capability selects MP4 and disables unavailable quality choices",
+      "file": "playback.spec.mjs",
+      "status": "expected",
+      "resultStatus": "passed",
+      "durationMs": 5695,
+      "annotations": [],
+      "evidence": {
+        "environment": {
+          "project": "firefox",
+          "mediaOrigin": "repository",
+          "ua": "Mozilla/5.0 (X11; Linux x86_64; rv:153.0) Gecko/20100101 Firefox/153.0",
+          "platform": "Linux x86_64",
+          "nativeHls": "",
+          "mp4": "probably",
+          "mse": false,
+          "touch": 0
+        },
+        "final-state": {
+          "audit": {
+            "peak": 0,
+            "events": [
+              {
+                "event": "waiting",
+                "time": 0,
+                "at": 2183
+              },
+              {
+                "event": "playing",
+                "time": 0,
+                "at": 2242
+              },
+              {
+                "event": "pause",
+                "time": 0.531156,
+                "at": 2837
+              },
+              {
+                "event": "playing",
+                "time": 0.531156,
+                "at": 3294
+              }
+            ],
+            "audioError": null,
+            "contextState": "running",
+            "contextTime": 3.584580498866213,
+            "analyserConnected": true
+          },
+          "video": {
+            "time": 0,
+            "paused": true,
+            "readyState": 0,
+            "mode": "fallback",
+            "src": "http://127.0.0.1:4186/media/ash-demo-low.mp4",
+            "muted": false,
+            "volume": 0.8,
+            "width": 0,
+            "height": 0,
+            "decodedAudio": null,
+            "audioTracks": null,
+            "buffered": []
+          }
+        }
+      }
+    },
+    {
+      "title": "csol: no streaming capability selects MP4 and disables unavailable quality choices",
+      "file": "playback.spec.mjs",
+      "status": "expected",
+      "resultStatus": "passed",
+      "durationMs": 5716,
+      "annotations": [],
+      "evidence": {
+        "environment": {
+          "project": "firefox",
+          "mediaOrigin": "repository",
+          "ua": "Mozilla/5.0 (X11; Linux x86_64; rv:153.0) Gecko/20100101 Firefox/153.0",
+          "platform": "Linux x86_64",
+          "nativeHls": "",
+          "mp4": "probably",
+          "mse": false,
+          "touch": 0
+        },
+        "final-state": {
+          "audit": {
+            "peak": 0,
+            "events": [
+              {
+                "event": "waiting",
+                "time": 0,
+                "at": 2138
+              },
+              {
+                "event": "playing",
+                "time": 0,
+                "at": 2194
+              },
+              {
+                "event": "pause",
+                "time": 0.493424,
+                "at": 2760
+              },
+              {
+                "event": "playing",
+                "time": 0.493424,
+                "at": 3209
+              }
+            ],
+            "audioError": null,
+            "contextState": "running",
+            "contextTime": 3.584580498866213,
+            "analyserConnected": true
+          },
+          "video": {
+            "time": 0,
+            "paused": true,
+            "readyState": 0,
+            "mode": "fallback",
+            "src": "http://127.0.0.1:4186/media/csol-demo-low.mp4",
+            "muted": false,
+            "volume": 0.8,
+            "width": 0,
+            "height": 0,
+            "decodedAudio": null,
+            "audioTracks": null,
+            "buffered": []
+          }
+        }
+      }
+    },
+    {
+      "title": "mines: no streaming capability selects MP4 and disables unavailable quality choices",
+      "file": "playback.spec.mjs",
+      "status": "expected",
+      "resultStatus": "passed",
+      "durationMs": 5601,
+      "annotations": [],
+      "evidence": {
+        "environment": {
+          "project": "firefox",
+          "mediaOrigin": "repository",
+          "ua": "Mozilla/5.0 (X11; Linux x86_64; rv:153.0) Gecko/20100101 Firefox/153.0",
+          "platform": "Linux x86_64",
+          "nativeHls": "",
+          "mp4": "probably",
+          "mse": false,
+          "touch": 0
+        },
+        "final-state": {
+          "audit": {
+            "peak": 0.043630268424749374,
+            "events": [
+              {
+                "event": "waiting",
+                "time": 0,
+                "at": 2150
+              },
+              {
+                "event": "playing",
+                "time": 0,
+                "at": 2235
+              },
+              {
+                "event": "pause",
+                "time": 0.415056,
+                "at": 2680
+              },
+              {
+                "event": "playing",
+                "time": 0.415056,
+                "at": 3119
+              }
+            ],
+            "audioError": null,
+            "contextState": "running",
+            "contextTime": 3.503310657596372,
+            "analyserConnected": true
+          },
+          "video": {
+            "time": 0,
+            "paused": true,
+            "readyState": 0,
+            "mode": "fallback",
+            "src": "http://127.0.0.1:4186/media/mines-demo-audio.mp4",
+            "muted": false,
+            "volume": 0.8,
+            "width": 0,
+            "height": 0,
+            "decodedAudio": null,
+            "audioTracks": null,
+            "buffered": []
+          }
+        }
+      }
+    },
+    {
+      "title": "murphy: no streaming capability selects MP4 and disables unavailable quality choices",
+      "file": "playback.spec.mjs",
+      "status": "expected",
+      "resultStatus": "passed",
+      "durationMs": 5371,
+      "annotations": [],
+      "evidence": {
+        "environment": {
+          "project": "firefox",
+          "mediaOrigin": "repository",
+          "ua": "Mozilla/5.0 (X11; Linux x86_64; rv:153.0) Gecko/20100101 Firefox/153.0",
+          "platform": "Linux x86_64",
+          "nativeHls": "",
+          "mp4": "probably",
+          "mse": false,
+          "touch": 0
+        },
+        "final-state": {
+          "audit": {
+            "peak": 0.3777798116207123,
+            "events": [
+              {
+                "event": "waiting",
+                "time": 0,
+                "at": 1904
+              },
+              {
+                "event": "playing",
+                "time": 0,
+                "at": 1965
+              },
+              {
+                "event": "pause",
+                "time": 0.476009,
+                "at": 2549
+              },
+              {
+                "event": "playing",
+                "time": 0.476009,
+                "at": 2995
+              }
+            ],
+            "audioError": null,
+            "contextState": "running",
+            "contextTime": 3.2856235827664397,
+            "analyserConnected": true
+          },
+          "video": {
+            "time": 0,
+            "paused": true,
+            "readyState": 0,
+            "mode": "fallback",
+            "src": "http://127.0.0.1:4186/media/murphy-720.mp4",
+            "muted": false,
+            "volume": 0.8,
+            "width": 0,
+            "height": 0,
+            "decodedAudio": null,
+            "audioTracks": null,
+            "buffered": []
+          }
+        }
+      }
+    },
+    {
+      "title": "hyrum: no streaming capability selects MP4 and disables unavailable quality choices",
+      "file": "playback.spec.mjs",
+      "status": "expected",
+      "resultStatus": "passed",
+      "durationMs": 6140,
+      "annotations": [],
+      "evidence": {
+        "environment": {
+          "project": "firefox",
+          "mediaOrigin": "repository",
+          "ua": "Mozilla/5.0 (X11; Linux x86_64; rv:153.0) Gecko/20100101 Firefox/153.0",
+          "platform": "Linux x86_64",
+          "nativeHls": "",
+          "mp4": "probably",
+          "mse": false,
+          "touch": 0
+        },
+        "final-state": {
+          "audit": {
+            "peak": 0.2909114360809326,
+            "events": [
+              {
+                "event": "waiting",
+                "time": 0,
+                "at": 2030
+              },
+              {
+                "event": "playing",
+                "time": 0,
+                "at": 2121
+              },
+              {
+                "event": "pause",
+                "time": 0.264126,
+                "at": 2476
+              },
+              {
+                "event": "playing",
+                "time": 0.264126,
+                "at": 2921
+              }
+            ],
+            "audioError": null,
+            "contextState": "running",
+            "contextTime": 3.451065759637188,
+            "analyserConnected": true
+          },
+          "video": {
+            "time": 0,
+            "paused": true,
+            "readyState": 0,
+            "mode": "fallback",
+            "src": "http://127.0.0.1:4186/media/hyrum-720.mp4",
+            "muted": false,
+            "volume": 0.8,
+            "width": 0,
+            "height": 0,
+            "decodedAudio": null,
+            "audioTracks": null,
+            "buffered": []
+          }
+        }
+      }
+    },
+    {
+      "title": "familiar: no streaming capability selects MP4 and disables unavailable quality choices",
+      "file": "playback.spec.mjs",
+      "status": "expected",
+      "resultStatus": "passed",
+      "durationMs": 7001,
+      "annotations": [],
+      "evidence": {
+        "environment": {
+          "project": "firefox",
+          "mediaOrigin": "repository",
+          "ua": "Mozilla/5.0 (X11; Linux x86_64; rv:153.0) Gecko/20100101 Firefox/153.0",
+          "platform": "Linux x86_64",
+          "nativeHls": "",
+          "mp4": "probably",
+          "mse": false,
+          "touch": 0
+        },
+        "final-state": {
+          "audit": {
+            "peak": 0.6056690812110901,
+            "events": [
+              {
+                "event": "waiting",
+                "time": 0,
+                "at": 2105
+              },
+              {
+                "event": "playing",
+                "time": 0,
+                "at": 2196
+              },
+              {
+                "event": "pause",
+                "time": 1.004263,
+                "at": 4193
+              },
+              {
+                "event": "playing",
+                "time": 1.004263,
+                "at": 4639
+              }
+            ],
+            "audioError": null,
+            "contextState": "running",
+            "contextTime": 3.4713832199546486,
+            "analyserConnected": true
+          },
+          "video": {
+            "time": 0,
+            "paused": true,
+            "readyState": 0,
+            "mode": "fallback",
+            "src": "http://127.0.0.1:4186/media/familiar-720.mp4",
+            "muted": false,
+            "volume": 0.8,
+            "width": 0,
+            "height": 0,
+            "decodedAudio": null,
+            "audioTracks": null,
+            "buffered": []
+          }
+        }
+      }
+    },
+    {
+      "title": "town: no streaming capability selects MP4 and disables unavailable quality choices",
+      "file": "playback.spec.mjs",
+      "status": "expected",
+      "resultStatus": "passed",
+      "durationMs": 5488,
+      "annotations": [],
+      "evidence": {
+        "environment": {
+          "project": "firefox",
+          "mediaOrigin": "repository",
+          "ua": "Mozilla/5.0 (X11; Linux x86_64; rv:153.0) Gecko/20100101 Firefox/153.0",
+          "platform": "Linux x86_64",
+          "nativeHls": "",
+          "mp4": "probably",
+          "mse": false,
+          "touch": 0
+        },
+        "final-state": {
+          "audit": {
+            "peak": 0.4082980155944824,
+            "events": [
+              {
+                "event": "waiting",
+                "time": 0,
+                "at": 2052
+              },
+              {
+                "event": "playing",
+                "time": 0,
+                "at": 2129
+              },
+              {
+                "event": "pause",
+                "time": 0.397641,
+                "at": 2554
+              },
+              {
+                "event": "playing",
+                "time": 0.397641,
+                "at": 3001
+              }
+            ],
+            "audioError": null,
+            "contextState": "running",
+            "contextTime": 3.3988208616780047,
+            "analyserConnected": true
+          },
+          "video": {
+            "time": 0,
+            "paused": true,
+            "readyState": 0,
+            "mode": "fallback",
+            "src": "http://127.0.0.1:4186/media/town-720.mp4",
+            "muted": false,
+            "volume": 0.8,
+            "width": 0,
+            "height": 0,
+            "decodedAudio": null,
+            "audioTracks": null,
+            "buffered": []
+          }
+        }
+      }
+    },
+    {
+      "title": "arc: no streaming capability selects MP4 and disables unavailable quality choices",
+      "file": "playback.spec.mjs",
+      "status": "expected",
+      "resultStatus": "passed",
+      "durationMs": 5494,
+      "annotations": [],
+      "evidence": {
+        "environment": {
+          "project": "firefox",
+          "mediaOrigin": "repository",
+          "ua": "Mozilla/5.0 (X11; Linux x86_64; rv:153.0) Gecko/20100101 Firefox/153.0",
+          "platform": "Linux x86_64",
+          "nativeHls": "",
+          "mp4": "probably",
+          "mse": false,
+          "touch": 0
+        },
+        "final-state": {
+          "audit": {
+            "peak": 0.5776667594909668,
+            "events": [
+              {
+                "event": "waiting",
+                "time": 0,
+                "at": 2027
+              },
+              {
+                "event": "playing",
+                "time": 0,
+                "at": 2101
+              },
+              {
+                "event": "pause",
+                "time": 0.496326,
+                "at": 2642
+              },
+              {
+                "event": "playing",
+                "time": 0.496326,
+                "at": 3094
+              }
+            ],
+            "audioError": null,
+            "contextState": "running",
+            "contextTime": 3.3988208616780047,
+            "analyserConnected": true
+          },
+          "video": {
+            "time": 0,
+            "paused": true,
+            "readyState": 0,
+            "mode": "fallback",
+            "src": "http://127.0.0.1:4186/media/arc-720.mp4",
+            "muted": false,
+            "volume": 0.8,
+            "width": 0,
+            "height": 0,
+            "decodedAudio": null,
+            "audioTracks": null,
+            "buffered": []
+          }
+        }
+      }
+    },
+    {
+      "title": "close during startup and return-to-list both release the current video",
+      "file": "playback.spec.mjs",
+      "status": "expected",
+      "resultStatus": "passed",
+      "durationMs": 5111,
+      "annotations": [],
+      "evidence": {
+        "environment": {
+          "project": "firefox",
+          "mediaOrigin": "repository",
+          "ua": "Mozilla/5.0 (X11; Linux x86_64; rv:153.0) Gecko/20100101 Firefox/153.0",
+          "platform": "Linux x86_64",
+          "nativeHls": "",
+          "mp4": "probably",
+          "mse": true,
+          "touch": 0
+        },
+        "final-state": {
+          "audit": {
+            "peak": 0,
+            "events": [
+              {
+                "event": "waiting",
+                "time": 0,
+                "at": 2179
+              },
+              {
+                "event": "seeking",
+                "time": 0.133,
+                "at": 2181
+              },
+              {
+                "event": "seeked",
+                "time": 0.133,
+                "at": 2208
+              },
+              {
+                "event": "playing",
+                "time": 0.133,
+                "at": 2208
+              },
+              {
+                "event": "waiting",
+                "time": 0,
+                "at": 4582
+              },
+              {
+                "event": "seeking",
+                "time": 0.133,
+                "at": 4583
+              },
+              {
+                "event": "seeked",
+                "time": 0.133,
+                "at": 4613
+              },
+              {
+                "event": "playing",
+                "time": 0.133,
+                "at": 4614
+              }
+            ],
+            "audioError": null,
+            "contextState": "running",
+            "contextTime": 2.919909297052154,
+            "analyserConnected": true
+          },
+          "video": {
+            "time": 0,
+            "paused": true,
+            "readyState": 0,
+            "mode": "hls",
+            "src": "",
+            "muted": false,
+            "volume": 0.8,
+            "width": 0,
+            "height": 0,
+            "decodedAudio": null,
+            "audioTracks": null,
+            "buffered": []
+          }
+        }
+      }
+    },
+    {
+      "title": "3D scene pauses behind the dialog and resumes after closing",
+      "file": "playback.spec.mjs",
+      "status": "expected",
+      "resultStatus": "passed",
+      "durationMs": 8030,
+      "annotations": [],
+      "evidence": {
+        "environment": {
+          "project": "firefox",
+          "mediaOrigin": "repository",
+          "ua": "Mozilla/5.0 (X11; Linux x86_64; rv:153.0) Gecko/20100101 Firefox/153.0",
+          "platform": "Linux x86_64",
+          "nativeHls": "",
+          "mp4": "probably",
+          "mse": true,
+          "touch": 0
+        },
+        "final-state": {
+          "audit": {
+            "peak": 0,
+            "events": [],
+            "audioError": null,
+            "contextState": "running",
+            "contextTime": 5.506031746031746,
+            "analyserConnected": false
+          },
+          "video": null
+        }
+      }
+    }
+  ]
+}

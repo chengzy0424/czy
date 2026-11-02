@@ -1,0 +1,116 @@
+{
+  "baseline": "5ae553a73e9354e7230bef8ccd82f1efc94b62b0",
+  "candidate": "292e4bd4496735df728f2dbc397df0f83447a538",
+  "pullRequestMerge": "7327f05f3d4de5c647c927805a62360189e3a8f8",
+  "tree": "952623309ea78c3f3d13d26f3698c95b70e78321",
+  "run": {
+    "id": 41451975414,
+    "url": "https://github.com/chengzy0424/czy/actions/runs/41451975414",
+    "status": "completed",
+    "conclusion": "success",
+    "created_at": "2026-11-02T13:19:24Z",
+    "updated_at": "2026-11-02T13:30:42Z"
+  },
+  "jobs": [
+    {
+      "id": 125299888762,
+      "name": "production (webkit-touch)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 125299888999,
+      "name": "production (chromium)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 125299889080,
+      "name": "production (firefox)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 125299889101,
+      "name": "native-controller",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 125299889104,
+      "name": "production (chromium-touch)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 125299889209,
+      "name": "production (webkit)",
+      "status": "completed",
+      "conclusion": "success"
+    }
+  ],
+  "artifacts": [
+    {
+      "id": 13146255757,
+      "name": "production-chromium-touch-7327f05f3d4de5c647c927805a62360189e3a8f8",
+      "size_in_bytes": 1569726,
+      "digest": "sha256:951b3f3131f8a55c1ecd08743f5d4d9f037d876d50d514d99810106070c68042",
+      "created_at": "2026-11-02T13:26:12Z",
+      "expires_at": "2026-11-16T13:26:11Z",
+      "url": "https://github.com/chengzy0424/czy/actions/runs/41451975414/artifacts/13146255757"
+    },
+    {
+      "id": 13145217716,
+      "name": "production-webkit-touch-7327f05f3d4de5c647c927805a62360189e3a8f8",
+      "size_in_bytes": 1405512,
+      "digest": "sha256:457c454c1e9bdb5bbc4956ff3bdf5b8a75f1d59d86c8b0fee91190897a0a0c92",
+      "created_at": "2026-11-02T13:26:00Z",
+      "expires_at": "2026-11-16T13:25:59Z",
+      "url": "https://github.com/chengzy0424/czy/actions/runs/41451975414/artifacts/13145217716"
+    },
+    {
+      "id": 13145109139,
+      "name": "production-chromium-7327f05f3d4de5c647c927805a62360189e3a8f8",
+      "size_in_bytes": 2843347,
+      "digest": "sha256:803284fd4fbe8c5ded94330ec437ea80d788a3b348b0dde24a267adab88d3179",
+      "created_at": "2026-11-02T13:30:37Z",
+      "expires_at": "2026-11-16T13:30:36Z",
+      "url": "https://github.com/chengzy0424/czy/actions/runs/41451975414/artifacts/13145109139"
+    },
+    {
+      "id": 13144868329,
+      "name": "production-webkit-7327f05f3d4de5c647c927805a62360189e3a8f8",
+      "size_in_bytes": 2247210,
+      "digest": "sha256:110a7b837cea4870205d680bd220dcf73295bee444857629dd1ed44af52250db",
+      "created_at": "2026-11-02T13:27:54Z",
+      "expires_at": "2026-11-16T13:27:53Z",
+      "url": "https://github.com/chengzy0424/czy/actions/runs/41451975414/artifacts/13144868329"
+    },
+    {
+      "id": 13144807420,
+      "name": "native-webkit-7327f05f3d4de5c647c927805a62360189e3a8f8",
+      "size_in_bytes": 416972,
+      "digest": "sha256:4c70155695175dd141645c34a46dc67d0b6d5f53a3739bc12423f18b589240ee",
+      "created_at": "2026-11-02T13:22:01Z",
+      "expires_at": "2026-11-16T13:21:59Z",
+      "url": "https://github.com/chengzy0424/czy/actions/runs/41451975414/artifacts/13144807420"
+    },
+    {
+      "id": 13144793174,
+      "name": "production-firefox-7327f05f3d4de5c647c927805a62360189e3a8f8",
+      "size_in_bytes": 2438479,
+      "digest": "sha256:06696a8fdae0c5dbe29a2ef6e6fd7f982646abacbba9bd0628269dad2b181428",
+      "created_at": "2026-11-02T13:26:17Z",
+      "expires_at": "2026-11-16T13:26:16Z",
+      "url": "https://github.com/chengzy0424/czy/actions/runs/41451975414/artifacts/13144793174"
+    }
+  ],
+  "sourceIntegrity": "source-integrity.json",
+  "unitTests": {
+    "passed": 32,
+    "skipped": 0,
+    "failed": 0
+  },
+  "reportFormat": "JSON evidence is decoded from Playwright results.json; images, traces, and verbose config are omitted from the persistent summaries. Full artifacts retained by GitHub for 14 days.",
+  "artifactDigestsVerified": true
+}

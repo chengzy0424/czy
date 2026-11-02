@@ -1,0 +1,468 @@
+[
+  {
+    "phase": "initial",
+    "head": "217e4f9eec544c4b5c1aac46797a4b3bd16d3e20",
+    "run": "https://github.com/chengzy0424/czy/actions/runs/41444302347",
+    "projects": [
+      {
+        "project": "chromium-touch",
+        "stats": {
+          "startTime": "2026-11-02T12:24:51.318Z",
+          "duration": 249027.59,
+          "expected": 24,
+          "skipped": 0,
+          "unexpected": 1,
+          "flaky": 0
+        },
+        "failures": [
+          {
+            "title": "seven rotating gallery boards open the right project and restore the scroll journey",
+            "error": "Error: expect(locator).toBeVisible() failed\n\nLocator: locator('[data-film=\"murphy\"]')\nExpected: visible\nError: strict mode violation: locator('[data-film=\"murphy\"]') resolved to 2 elements:\n    1) <button class=\"film-cover\" data-film=\"murphy\" aria-label=\"观看墨菲定律\">…</button> aka getByRole('region', { name: '从想法，到可体验。' }).getByLabel('观看墨菲定律')\n    2) <button class=\"film-cover\" data-film=\"murphy\" aria-label=\"观看墨菲定律\">…</button> aka getByRole('button', { name: '观看墨菲定律' })\n\nCall log:\n  - Expect \"toBeVisible\" with timeout 20000ms\n  - waiting for locator('[data-film=\"murphy\"]')\n"
+          }
+        ],
+        "skipped": []
+      },
+      {
+        "project": "chromium",
+        "stats": {
+          "startTime": "2026-11-02T12:24:45.757Z",
+          "duration": 429733.97900000005,
+          "expected": 24,
+          "skipped": 0,
+          "unexpected": 1,
+          "flaky": 0
+        },
+        "failures": [
+          {
+            "title": "seven rotating gallery boards open the right project and restore the scroll journey",
+            "error": "Error: Test timeout of 240000ms exceeded"
+          }
+        ],
+        "skipped": []
+      },
+      {
+        "project": "firefox",
+        "stats": {
+          "startTime": "2026-11-02T12:24:36.937Z",
+          "duration": 309679.917,
+          "expected": 11,
+          "skipped": 3,
+          "unexpected": 11,
+          "flaky": 0
+        },
+        "failures": [
+          {
+            "title": "tower: start, audio evidence, seek, pause, quality and release",
+            "error": "Error: expect(received).toBeGreaterThan(expected)\n\nExpected: > 0.00001\nReceived:   0\n\nCall Log:\n- Timeout 18000ms exceeded while waiting on the predicate"
+          },
+          {
+            "title": "ash: start, audio evidence, seek, pause, quality and release",
+            "error": "Error: expect(received).toBeGreaterThan(expected)\n\nExpected: > 0.00001\nReceived:   0\n\nCall Log:\n- Timeout 18000ms exceeded while waiting on the predicate"
+          },
+          {
+            "title": "csol: start, audio evidence, seek, pause, quality and release",
+            "error": "Error: expect(received).toBeGreaterThan(expected)\n\nExpected: > 0.00001\nReceived:   0\n\nCall Log:\n- Timeout 18000ms exceeded while waiting on the predicate"
+          },
+          {
+            "title": "mines: start, audio evidence, seek, pause, quality and release",
+            "error": "Error: expect(received).toBeGreaterThan(expected)\n\nExpected: > 0.00001\nReceived:   0\n\nCall Log:\n- Timeout 18000ms exceeded while waiting on the predicate"
+          },
+          {
+            "title": "murphy: start, audio evidence, seek, pause, quality and release",
+            "error": "Error: expect(received).toBeGreaterThan(expected)\n\nExpected: > 0.00001\nReceived:   0\n\nCall Log:\n- Timeout 18000ms exceeded while waiting on the predicate"
+          },
+          {
+            "title": "hyrum: start, audio evidence, seek, pause, quality and release",
+            "error": "Error: expect(received).toBeGreaterThan(expected)\n\nExpected: > 0.00001\nReceived:   0\n\nCall Log:\n- Timeout 18000ms exceeded while waiting on the predicate"
+          },
+          {
+            "title": "familiar: start, audio evidence, seek, pause, quality and release",
+            "error": "Error: expect(received).toBeGreaterThan(expected)\n\nExpected: > 0.00001\nReceived:   0\n\nCall Log:\n- Timeout 18000ms exceeded while waiting on the predicate"
+          },
+          {
+            "title": "town: start, audio evidence, seek, pause, quality and release",
+            "error": "Error: expect(received).toBeGreaterThan(expected)\n\nExpected: > 0.00001\nReceived:   0\n\nCall Log:\n- Timeout 18000ms exceeded while waiting on the predicate"
+          },
+          {
+            "title": "arc: start, audio evidence, seek, pause, quality and release",
+            "error": "Error: expect(received).toBeGreaterThan(expected)\n\nExpected: > 0.00001\nReceived:   0\n\nCall Log:\n- Timeout 18000ms exceeded while waiting on the predicate"
+          },
+          {
+            "title": "failed segments expose MP4 recovery and release it on close",
+            "error": "Error: expect(received).toBeGreaterThan(expected)\n\nExpected: > 0.00001\nReceived:   0\n\nCall Log:\n- Timeout 18000ms exceeded while waiting on the predicate"
+          },
+          {
+            "title": "audio decoder or PCM evidence is available",
+            "error": "Error: expect(received).toBeGreaterThan(expected)\n\nExpected: > 0.00001\nReceived:   0\n\nCall Log:\n- Timeout 18000ms exceeded while waiting on the predicate"
+          }
+        ],
+        "skipped": [
+          "Chromium native controls accept pause, scrub drag and resume",
+          "seven rotating gallery boards open the right project and restore the scroll journey",
+          "3D scene pauses behind the dialog and resumes after closing"
+        ]
+      },
+      {
+        "project": "webkit-touch",
+        "stats": {
+          "startTime": "2026-11-02T12:24:39.237Z",
+          "duration": 175301.847,
+          "expected": 23,
+          "skipped": 1,
+          "unexpected": 1,
+          "flaky": 0
+        },
+        "failures": [
+          {
+            "title": "seven rotating gallery boards open the right project and restore the scroll journey",
+            "error": "Error: mouse.wheel: Mouse wheel is not supported in mobile WebKit"
+          }
+        ],
+        "skipped": [
+          "Chromium native controls accept pause, scrub drag and resume"
+        ]
+      },
+      {
+        "project": "webkit",
+        "stats": {
+          "startTime": "2026-11-02T12:24:43.397Z",
+          "duration": 239679.01799999998,
+          "expected": 23,
+          "skipped": 1,
+          "unexpected": 1,
+          "flaky": 0
+        },
+        "failures": [
+          {
+            "title": "seven rotating gallery boards open the right project and restore the scroll journey",
+            "error": "Error: expect(locator).toBeVisible() failed\n\nLocator: locator('[data-film=\"murphy\"]')\nExpected: visible\nError: strict mode violation: locator('[data-film=\"murphy\"]') resolved to 2 elements:\n    1) <button class=\"film-cover\" data-film=\"murphy\" aria-label=\"观看墨菲定律\">…</button> aka getByRole('region', { name: '从想法，到可体验。' }).getByLabel('观看墨菲定律')\n    2) <button class=\"film-cover\" data-film=\"murphy\" aria-label=\"观看墨菲定律\">…</button> aka getByRole('button', { name: '观看墨菲定律' })\n\nCall log:\n  - Expect \"toBeVisible\" with timeout 20000ms\n  - waiting for locator('[data-film=\"murphy\"]')\n"
+          }
+        ],
+        "skipped": [
+          "Chromium native controls accept pause, scrub drag and resume"
+        ]
+      },
+      {
+        "project": "native-webkit",
+        "stats": {
+          "startTime": "2026-11-02T12:24:10.712Z",
+          "duration": 11435.053,
+          "expected": 1,
+          "skipped": 0,
+          "unexpected": 0,
+          "flaky": 0
+        },
+        "failures": [],
+        "skipped": []
+      }
+    ]
+  },
+  {
+    "phase": "intermediate",
+    "head": "b3154295ab80f29eca6ab6e74f5c4d8c51be6169",
+    "run": "https://github.com/chengzy0424/czy/actions/runs/41445993700",
+    "projects": [
+      {
+        "project": "chromium-touch",
+        "stats": {
+          "startTime": "2026-11-02T12:39:51.354Z",
+          "duration": 381434.40900000004,
+          "expected": 24,
+          "skipped": 0,
+          "unexpected": 1,
+          "flaky": 0
+        },
+        "failures": [
+          {
+            "title": "Chromium native controls accept pause, scrub drag and resume",
+            "error": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: true\nReceived: false\n\nCall Log:\n- Timeout 20000ms exceeded while waiting on the predicate"
+          }
+        ],
+        "skipped": []
+      },
+      {
+        "project": "chromium",
+        "stats": {
+          "startTime": "2026-11-02T12:38:42.551Z",
+          "duration": 353821.084,
+          "expected": 25,
+          "skipped": 0,
+          "unexpected": 0,
+          "flaky": 0
+        },
+        "failures": [],
+        "skipped": []
+      },
+      {
+        "project": "firefox",
+        "stats": {
+          "startTime": "2026-11-02T12:39:28.251Z",
+          "duration": 201151.86,
+          "expected": 23,
+          "skipped": 1,
+          "unexpected": 1,
+          "flaky": 0
+        },
+        "failures": [
+          {
+            "title": "seven rotating gallery boards open the right project and restore the scroll journey",
+            "error": "Error: expect(received).toBeCloseTo(expected, precision)\n\nExpected: 1648\nReceived: 496\n\nExpected precision:    0\nExpected difference: < 0.5\nReceived difference:   1152\n\nCall Log:\n- Timeout 20000ms exceeded while waiting on the predicate"
+          }
+        ],
+        "skipped": [
+          "Chromium native controls accept pause, scrub drag and resume"
+        ]
+      },
+      {
+        "project": "native-webkit",
+        "stats": {
+          "startTime": "2026-11-02T12:39:18.806Z",
+          "duration": 12377.796999999999,
+          "expected": 1,
+          "skipped": 0,
+          "unexpected": 0,
+          "flaky": 0
+        },
+        "failures": [],
+        "skipped": []
+      },
+      {
+        "project": "webkit-touch",
+        "stats": {
+          "startTime": "2026-11-02T12:38:52.306Z",
+          "duration": 291330.21499999997,
+          "expected": 22,
+          "skipped": 1,
+          "unexpected": 2,
+          "flaky": 0
+        },
+        "failures": [
+          {
+            "title": "first screen and browsing never fetch video; narrow touch layout and dialog return",
+            "error": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: true\nReceived: false"
+          },
+          {
+            "title": "audio decoder or PCM evidence is available",
+            "error": "Error: expect(received).toBeGreaterThan(expected)\n\nExpected: > 0.00001\nReceived:   0\n\nCall Log:\n- Timeout 18000ms exceeded while waiting on the predicate"
+          }
+        ],
+        "skipped": [
+          "Chromium native controls accept pause, scrub drag and resume"
+        ]
+      },
+      {
+        "project": "webkit",
+        "stats": {
+          "startTime": "2026-11-02T12:38:53.112Z",
+          "duration": 503803.104,
+          "expected": 24,
+          "skipped": 1,
+          "unexpected": 0,
+          "flaky": 0
+        },
+        "failures": [],
+        "skipped": [
+          "Chromium native controls accept pause, scrub drag and resume"
+        ]
+      }
+    ]
+  },
+  {
+    "phase": "metadata-audio-and-scroll-checkpoints",
+    "head": "28f8fdce22f63cd739f11bde301ff59ab6c67c33",
+    "run": "https://github.com/chengzy0424/czy/actions/runs/41447875927",
+    "projects": [
+      {
+        "project": "chromium",
+        "passed": 24,
+        "skipped": 0,
+        "failed": 1,
+        "note": "Headless software-rendered gallery exhausted its 360-second total test budget in the final chapter navigation; the later candidate uses Xvfb headed desktop Chromium."
+      },
+      {
+        "project": "chromium-touch",
+        "passed": 25,
+        "skipped": 0,
+        "failed": 0,
+        "note": ""
+      },
+      {
+        "project": "firefox",
+        "passed": 23,
+        "skipped": 1,
+        "failed": 1,
+        "note": "The exact wheel-delta-to-CSS-pixel assumption failed. Later candidate verifies a wheel response, then uses DOM scrollTo for board checkpoints."
+      },
+      {
+        "project": "webkit",
+        "passed": 24,
+        "skipped": 1,
+        "failed": 0,
+        "note": ""
+      },
+      {
+        "project": "webkit-touch",
+        "passed": 24,
+        "skipped": 1,
+        "failed": 0,
+        "note": ""
+      },
+      {
+        "project": "native-webkit",
+        "passed": 1,
+        "skipped": 0,
+        "failed": 0,
+        "note": ""
+      }
+    ]
+  },
+  {
+    "phase": "verified-before-main-advanced",
+    "head": "510d9555d01e4fa987c379ae73253884b0e02e98",
+    "baseline": "d8d10b1585c588759b207c0d32962b43e65f37f0",
+    "run": "https://github.com/chengzy0424/czy/actions/runs/41449801001",
+    "projects": [
+      {
+        "project": "chromium",
+        "stats": {
+          "startTime": "2026-11-02T13:05:46.972Z",
+          "duration": 461734.463,
+          "expected": 25,
+          "skipped": 0,
+          "unexpected": 0,
+          "flaky": 0
+        }
+      },
+      {
+        "project": "chromium-touch",
+        "stats": {
+          "startTime": "2026-11-02T13:05:46.883Z",
+          "duration": 286959.636,
+          "expected": 25,
+          "skipped": 0,
+          "unexpected": 0,
+          "flaky": 0
+        }
+      },
+      {
+        "project": "firefox",
+        "stats": {
+          "startTime": "2026-11-02T13:06:03.770Z",
+          "duration": 238500.636,
+          "expected": 24,
+          "skipped": 1,
+          "unexpected": 0,
+          "flaky": 0
+        }
+      },
+      {
+        "project": "webkit",
+        "stats": {
+          "startTime": "2026-11-02T13:05:47.421Z",
+          "duration": 250793.957,
+          "expected": 24,
+          "skipped": 1,
+          "unexpected": 0,
+          "flaky": 0
+        }
+      },
+      {
+        "project": "webkit-touch",
+        "stats": {
+          "startTime": "2026-11-02T13:05:56.327Z",
+          "duration": 200584.66999999998,
+          "expected": 24,
+          "skipped": 1,
+          "unexpected": 0,
+          "flaky": 0
+        }
+      },
+      {
+        "project": "native-webkit",
+        "stats": {
+          "startTime": "2026-11-02T13:05:18.150Z",
+          "duration": 10524.833999999999,
+          "expected": 1,
+          "skipped": 0,
+          "unexpected": 0,
+          "flaky": 0
+        }
+      }
+    ],
+    "note": "123 passed, 3 skipped, 0 failed. Main later added 17 commits; these results cannot certify the newer base."
+  },
+  {
+    "phase": "final-verified-latest-main",
+    "head": "292e4bd4496735df728f2dbc397df0f83447a538",
+    "baseline": "5ae553a73e9354e7230bef8ccd82f1efc94b62b0",
+    "run": "https://github.com/chengzy0424/czy/actions/runs/41451975414",
+    "projects": [
+      {
+        "project": "chromium",
+        "stats": {
+          "startTime": "2026-11-02T13:22:37.141Z",
+          "duration": 478653.436,
+          "expected": 25,
+          "skipped": 0,
+          "unexpected": 0,
+          "flaky": 0
+        }
+      },
+      {
+        "project": "chromium-touch",
+        "stats": {
+          "startTime": "2026-11-02T13:22:12.006Z",
+          "duration": 239680.308,
+          "expected": 25,
+          "skipped": 0,
+          "unexpected": 0,
+          "flaky": 0
+        }
+      },
+      {
+        "project": "firefox",
+        "stats": {
+          "startTime": "2026-11-02T13:22:13.713Z",
+          "duration": 242053.05699999997,
+          "expected": 24,
+          "skipped": 1,
+          "unexpected": 0,
+          "flaky": 0
+        }
+      },
+      {
+        "project": "webkit",
+        "stats": {
+          "startTime": "2026-11-02T13:23:26.075Z",
+          "duration": 266811.124,
+          "expected": 24,
+          "skipped": 1,
+          "unexpected": 0,
+          "flaky": 0
+        }
+      },
+      {
+        "project": "webkit-touch",
+        "stats": {
+          "startTime": "2026-11-02T13:22:14.557Z",
+          "duration": 224607.923,
+          "expected": 24,
+          "skipped": 1,
+          "unexpected": 0,
+          "flaky": 0
+        }
+      },
+      {
+        "project": "native-webkit",
+        "stats": {
+          "startTime": "2026-11-02T13:21:44.055Z",
+          "duration": 14020.402,
+          "expected": 1,
+          "skipped": 0,
+          "unexpected": 0,
+          "flaky": 0
+        }
+      }
+    ]
+  }
+]

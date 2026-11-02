@@ -1,7 +1,7 @@
 import * as T from 'three';
 import {CARD_SPECS} from './space-path.js';
 import {seededRandom} from './weave-math.js';
-import {vertebraeGeometry,createDrapedGrid,drapeHeight,membraneGeometry,flowingRibbonGeometry} from './space-forms.js';
+import {vertebraeGeometry,createDrapedGrid,drapePoint,membraneGeometry,flowingRibbonGeometry} from './space-forms.js';
 
 function tube(points,radius,material,segments=96,closed=false){
  const curve=new T.CatmullRomCurve3(points.map(p=>new T.Vector3(...p)),closed);
@@ -16,6 +16,14 @@ function mesh(geometry,material,parent,position=[0,0,0]){const m=new T.Mesh(geom
 function torus(parent,r,t,mat,pos=[0,0,0],horizontal=false){const m=mesh(new T.TorusGeometry(r,t,6,64),mat,parent,pos);if(horizontal)m.rotation.x=Math.PI/2;return m;}
 function roundedShape(w,h,r){const s=new T.Shape(),x=-w/2,y=-h/2;s.moveTo(x+r,y);s.lineTo(x+w-r,y);s.quadraticCurveTo(x+w,y,x+w,y+r);s.lineTo(x+w,y+h-r);s.quadraticCurveTo(x+w,y+h,x+w-r,y+h);s.lineTo(x+r,y+h);s.quadraticCurveTo(x,y+h,x,y+h-r);s.lineTo(x,y+r);s.quadraticCurveTo(x,y,x+r,y);return s;}
 function setUV(geo,w,h){const p=geo.attributes.position,uv=new Float32Array(p.count*2);for(let i=0;i<p.count;i++){uv[i*2]=p.getX(i)/w+.5;uv[i*2+1]=p.getY(i)/h+.5;}geo.setAttribute('uv',new T.BufferAttribute(uv,2));return geo;}
+function cardLines(spec){
+ if(Array.isArray(spec.lines)&&spec.lines.length)return spec.lines;
+ const title=spec.title||spec.id,words=title.split(/\s+/);
+ if(title.length<=13||words.length<2)return [title];
+ let split=1,balance=Infinity;
+ for(let i=1;i<words.length;i++){const difference=Math.abs(words.slice(0,i).join(' ').length-words.slice(i).join(' ').length);if(difference<balance){balance=difference;split=i;}}
+ return [words.slice(0,split).join(' '),words.slice(split).join(' ')];
+}
 
 export async function buildWorld({mobile=false,documentRef=document,onTexture=()=>{},yieldControl=()=>Promise.resolve()}={}){
  const world=new T.Group(),pickables=[],opaque=[],textures=[],cards=[];
@@ -24,13 +32,20 @@ export async function buildWorld({mobile=false,documentRef=document,onTexture=()
  const rose=new T.MeshPhysicalMaterial({color:0x531227,metalness:.9,roughness:.24,clearcoat:1,envMapIntensity:1.6});
  const silver=new T.MeshStandardMaterial({color:0xb3c5c3,metalness:.96,roughness:.24});
  const glow=new T.MeshBasicMaterial({color:0x842447,toneMapped:true});
- const glass=new T.MeshPhysicalMaterial({color:0x78979f,metalness:.62,roughness:.23,transmission:0,thickness:.3,ior:1.46,clearcoat:1,iridescence:1,iridescenceIOR:1.35,iridescenceThicknessRange:[180,460],envMapIntensity:1.8});
+ const glass=new T.MeshPhysicalMaterial({color:0x9eadaa,metalness:.61,roughness:.16,transmission:0,thickness:.3,ior:1.46,clearcoat:1,clearcoatRoughness:.1,iridescence:.85,iridescenceIOR:1.35,iridescenceThicknessRange:[180,460],envMapIntensity:1.65});
  const emblem=new T.Group();emblem.position.set(2,0,0);world.add(emblem);
  const lens=new T.Group();emblem.add(lens);
- // Elliptical tube cross section: changing normals create a narrow, angle-dependent highlight.
- const ringGeo=new T.TorusGeometry(1.12,.108,20,128);ringGeo.scale(1,1,1.5);
+ // A rounded rectangular section gives the ring a broad reflective face and a fine bevel.
+ // Reuse the existing vertex budget; the sheen does not require another transmission pass.
+ const ringGeo=new T.TorusGeometry(1.12,.108,20,128),ringPosition=ringGeo.attributes.position;
+ for(let i=0;i<ringPosition.count;i++){
+  const u=i%129/128*Math.PI*2,v=Math.floor(i/129)/20*Math.PI*2;
+  const radial=1.12+.118*Math.sign(Math.cos(v))*Math.abs(Math.cos(v))**.43;
+  ringPosition.setXYZ(i,Math.cos(u)*radial,Math.sin(u)*radial,.158*Math.sign(Math.sin(v))*Math.abs(Math.sin(v))**.43);
+ }
+ ringGeo.computeVertexNormals();
  const rim=mesh(ringGeo,glass,lens);opaque.push(rim);
- torus(lens,1.21,.012,silver,[0,0,.12]);torus(lens,1.045,.01,rose,[0,0,.13]);
+ torus(lens,1.225,.007,silver,[0,0,.125]);torus(lens,1.018,.006,rose,[0,0,.125]);
  // Original ZY monogram, not the reference studio's trademark.
  // Z follows one rounded, folding stroke. Varying depth reveals a continuous chrome surface.
  const zCurve=new T.CatmullRomCurve3([[-.49,.4,.03],[.04,.43,.12],[.47,.37,.04],[.25,.12,-.05],[-.3,-.28,.07],[-.43,-.4,.17],[.02,-.45,.2],[.49,-.36,.05]].map(p=>new T.Vector3(...p)),false,'centripetal');
@@ -62,8 +77,8 @@ export async function buildWorld({mobile=false,documentRef=document,onTexture=()
   const canvas=documentRef.createElement('canvas');canvas.width=width;canvas.height=height;const ctx=canvas.getContext('2d');draw(ctx,canvas);
   const texture=new T.CanvasTexture(canvas);texture.colorSpace=T.SRGBColorSpace;texture.anisotropy=4;textures.push(texture);return {canvas,ctx,texture};
  }
- const introTexture=canvasTexture(1536,1024,c=>{c.clearRect(0,0,1536,1024);c.fillStyle='#e2e9e5';c.font='200 188px "Segoe UI", sans-serif';['CODE','PLAY','CREATE'].forEach((s,i)=>c.fillText(s,26,235+i*216));});
- const intro=mesh(new T.PlaneGeometry(4.8,3.2),new T.MeshBasicMaterial({map:introTexture.texture,transparent:true,depthWrite:false,opacity:0}),world,[-.8,.5,-3]);
+ const introTexture=canvasTexture(1536,1024,c=>{c.clearRect(0,0,1536,1024);c.fillStyle='#e2e9e5';c.font='300 188px "Consolas", "Courier New", monospace';['CODE','PLAY','CREATE'].forEach((s,i)=>c.fillText(s,26,235+i*216));});
+ const intro=mesh(new T.PlaneGeometry(5.8,3.87),new T.MeshBasicMaterial({map:introTexture.texture,transparent:true,depthWrite:false,opacity:0}),world,[-.8,.5,-3]);
 
  const gallery=new T.Group();gallery.position.y=-13;world.add(gallery);
  const coverLoaders=[];let coversLoaded=false;
@@ -91,32 +106,34 @@ export async function buildWorld({mobile=false,documentRef=document,onTexture=()
   const m=torus(gallery,.65+.14*Math.sin(j*1.5),.018,chrome,[.12*Math.sin(j),j*.48-3.6,0],true);m.rotation.z=.4*Math.sin(j*2);
  }
  const cardDeck=new T.Group();gallery.add(cardDeck);
- for(const spec of CARD_SPECS){
+ const cardTints=[0x63536e,0x496767,0x6e5544,0x455665,0x586751,0x67546b,0x4b6265];
+ for(const [cardIndex,spec] of CARD_SPECS.entries()){
   const group=new T.Group();group.position.fromArray(spec.position);group.rotation.y=spec.rotation;group.scale.setScalar(mobile?1.05:1.22);cardDeck.add(group);
   if(mobile&&spec.id==='tower')group.position.set(0,.6,3.2);
-  const shape=roundedShape(3.5,2.3,.105),backMaterial=dark.clone();backMaterial.transparent=true;backMaterial.opacity=.58;backMaterial.depthWrite=false;
-  const base=mesh(extruded(shape,.055,.018,mobile?8:16),backMaterial,group,[0,0,-.04]);
-  const frameShape=roundedShape(3.55,2.35,.115);frameShape.holes.push(roundedShape(3.47,2.27,.08));
-  const edge=mesh(extruded(frameShape,.035,.012,mobile?8:16),chrome.clone(),group,[0,0,-.07]);
+  const shape=roundedShape(3.5,2.3,.115),backMaterial=new T.MeshPhysicalMaterial({color:cardTints[cardIndex%cardTints.length],metalness:.24,roughness:.36,clearcoat:.85,clearcoatRoughness:.22,iridescence:.18,transparent:true,opacity:.31,depthWrite:false,envMapIntensity:.7});
+  const base=mesh(extruded(shape,.055,.012,8),backMaterial,group,[0,0,-.04]);
+  const frameShape=roundedShape(3.526,2.326,.128);frameShape.holes.push(roundedShape(3.5,2.3,.115));
+  const edgeMaterial=chrome.clone();edgeMaterial.roughness=.34;edgeMaterial.metalness=.68;edgeMaterial.envMapIntensity=.85;
+  const edge=mesh(extruded(frameShape,.032,.005,8),edgeMaterial,group,[0,0,-.05]);
   let cover;
   const draw=c=>{
-   c.clearRect(0,0,1280,840);c.fillStyle='rgba(15,28,33,.54)';c.fillRect(0,0,1280,840);
-   if(cover){const scale=Math.max(1280/cover.width,840/cover.height);c.globalAlpha=.5;c.drawImage(cover,(1280-cover.width*scale)/2,(840-cover.height*scale)/2,cover.width*scale,cover.height*scale);c.globalAlpha=1;}
+   c.clearRect(0,0,1280,840);c.fillStyle='rgba(25,35,43,.23)';c.fillRect(0,0,1280,840);
+   if(cover){const scale=Math.max(1280/cover.width,840/cover.height);c.globalAlpha=.3;c.drawImage(cover,(1280-cover.width*scale)/2,(840-cover.height*scale)/2,cover.width*scale,cover.height*scale);c.globalAlpha=1;}
    // Non-public HMI and planned work use honest typographic covers, never fabricated UI.
    if(!spec.image){c.strokeStyle=spec.id==='boe'?'#447b79':'#6a587b';c.lineWidth=1;for(let i=0;i<7;i++){c.beginPath();c.ellipse(940,410,110+i*45,160+i*27,-.3,0,Math.PI*2);c.stroke();}}
-   const shade=c.createLinearGradient(0,0,0,840);shade.addColorStop(0,'rgba(4,10,14,.12)');shade.addColorStop(.5,'rgba(4,10,14,.42)');shade.addColorStop(1,'rgba(4,10,14,.45)');c.fillStyle=shade;c.fillRect(0,0,1280,840);
-   c.textAlign='center';c.fillStyle='#d1dfdb';c.font='27px "Segoe UI", sans-serif';c.fillText(spec.subtitle,640,240);
-   c.fillStyle='#eff3ed';c.font='300 100px "Segoe UI", sans-serif';
-   const lines=spec.id==='tower'?['TOWER','DEFENSE']:spec.id==='boe'?['HUMAN','MACHINE']:spec.id==='ae'?['MOTION','& FILM']:['THE LAB'];
-   lines.forEach((line,i)=>c.fillText(line,640,lines.length===1?455:390+i*115,1120));
-   c.fillStyle='#c3d5d1';c.font='28px "Microsoft YaHei", sans-serif';c.fillText(spec.note,640,650,1120);c.textAlign='left';
-   c.strokeStyle='#aac7c066';c.strokeRect(24,24,1232,792);
+   const shade=c.createLinearGradient(0,0,0,840);shade.addColorStop(0,'rgba(4,10,14,.08)');shade.addColorStop(.48,'rgba(4,10,14,.48)');shade.addColorStop(1,'rgba(4,10,14,.15)');c.fillStyle=shade;c.fillRect(0,0,1280,840);
+   c.textAlign='center';c.fillStyle='#c9d8d4';c.font='24px "Consolas", "Courier New", monospace';c.fillText(spec.subtitle||'',640,250,1100);
+   c.fillStyle='#eff3ed';c.font='300 92px "Consolas", "Courier New", monospace';
+   const lines=cardLines(spec),lineHeight=105,firstLine=445-(lines.length-1)*lineHeight/2;
+   c.shadowColor='rgba(4,10,14,.7)';c.shadowBlur=14;
+   lines.forEach((line,i)=>c.fillText(line,640,firstLine+i*lineHeight,1090));
+   c.shadowBlur=0;c.fillStyle='#c3d5d1';c.font='25px "Microsoft YaHei", sans-serif';c.fillText(spec.note||'',640,637,1080);c.textAlign='left';
   };
   const surface=canvasTexture(1280,840,draw);
-  const face=mesh(setUV(new T.ShapeGeometry(shape,8),3.5,2.3),new T.MeshBasicMaterial({map:surface.texture,side:T.FrontSide,transparent:true,opacity:.78,depthWrite:false}),group,[0,0,.044]);
+  const face=mesh(setUV(new T.ShapeGeometry(shape,8),3.5,2.3),new T.MeshBasicMaterial({map:surface.texture,side:T.FrontSide,transparent:true,opacity:.96,depthWrite:false}),group,[0,0,.044]);
   face.userData.detail=spec.id;pickables.push(face);opaque.push(base,edge);
   cards.push({group,face,edge,base,spec,hover:0,home:group.position.clone()});
-  if(spec.image)coverLoaders.push(()=>{const img=new Image();img.decoding='async';img.onload=()=>{cover=img;draw(surface.ctx);surface.texture.needsUpdate=true;onTexture();};img.onerror=()=>console.warn('Gallery cover unavailable:',spec.image);img.src=spec.image;});
+  if(spec.image)coverLoaders.push(()=>{const img=new Image();img.crossOrigin='anonymous';img.decoding='async';img.onload=()=>{cover=img;draw(surface.ctx);surface.texture.needsUpdate=true;onTexture();};img.onerror=()=>console.warn('Gallery cover unavailable:',spec.image);img.src=spec.image;});
   await yieldControl();
  }
 
@@ -134,9 +151,14 @@ export async function buildWorld({mobile=false,documentRef=document,onTexture=()
  for(let i=0;i<(mobile?12:20);i++){
   const a=i*.53,r=1.45+i%3*.25;
   const pts=[[Math.cos(a)*r,2.1,Math.sin(a)*r],[Math.cos(a+.3)*(r+.6),.8,Math.sin(a+.3)*(r+.6)],[Math.cos(a-.2)*r,-.8,Math.sin(a-.2)*r],[Math.cos(a)*1.55,-1.9,Math.sin(a)*1.55]];
-  machine.add(tube(pts,i%4===0?.027:.012,i%3?rose:silver,64));
+  machine.add(tube(pts,i%4===0?.027:.012,i%3?rose:silver,mobile?32:44));
  }
- const floor=mesh(membraneGeometry(),new T.MeshPhysicalMaterial({color:0x142023,metalness:.94,roughness:.27,clearcoat:1,iridescence:.45,envMapIntensity:.8,side:T.DoubleSide}),machine,[0,-2.8,0]);floor.rotation.x=-Math.PI/2;
+ // Loose cables sag away from the upper assembly at different lengths and heights.
+ for(let i=0;i<(mobile?5:8);i++){
+  const side=i<3?-1:1,reach=2.55+(i%3)*.35,anchorY=1.65-(i%4)*.22,z=-.25+(i%3)*.37;
+  machine.add(tube([[side*1.55,anchorY,z],[side*2.05,anchorY-.62,z+.18],[side*reach,anchorY-.75+(i%2)*.16,z-.14],[side*(reach+.35),anchorY-.12+(i%3)*.17,z-.35]],i%3===0?.017:.009,i%3?rose:silver,mobile?20:28));
+ }
+ const floor=mesh(membraneGeometry(),new T.MeshPhysicalMaterial({color:0x142023,metalness:.94,roughness:.27,clearcoat:1,iridescence:.45,envMapIntensity:.8,side:T.DoubleSide}),machine,[0,-2.8,0]);floor.rotation.x=-Math.PI/2;floor.name="machine-membrane";
  for(let i=0;i<5;i++){const r=2.65+i*.46;const pts=[];for(let j=0;j<=100;j++){const a=j/100*Math.PI*2;pts.push([Math.cos(a)*r,-2.25+.09*Math.sin(a*8+i),Math.sin(a)*r]);}machine.add(tube(pts,.016,i%2?rose:dark,100,true));}
 
  await yieldControl();
@@ -149,11 +171,11 @@ export async function buildWorld({mobile=false,documentRef=document,onTexture=()
  labMarker.position.set(0,-.05,grid.boundingBox.max.z+.25);lab.add(labMarker);
  torus(labMarker,.59,.025,silver);
  labMarker.add(tube([[0,-.39,.02],[0,.39,.02]],.035,silver,8));labMarker.add(tube([[-.39,0,.02],[.39,0,.02]],.035,silver,8));
- const backdropGeo=new T.PlaneGeometry(8.2,4.9,48,24),backPos=backdropGeo.attributes.position;for(let i=0;i<backPos.count;i++)backPos.setZ(i,drapeHeight(backPos.getX(i),backPos.getY(i))-.09);backdropGeo.computeVertexNormals();
+ const backdropGeo=new T.PlaneGeometry(8.2,4.9,48,24),backPos=backdropGeo.attributes.position,sample=new T.Vector3();for(let i=0;i<backPos.count;i++){drapePoint(backPos.getX(i),backPos.getY(i),sample);backPos.setXYZ(i,sample.x,sample.y,sample.z-.09);}backdropGeo.computeVertexNormals();
  const backdrop=mesh(backdropGeo,new T.MeshStandardMaterial({color:0x040a0d,metalness:.45,roughness:.5}),lab);
  lab.rotation.y=-.16;lab.rotation.z=.055;
  const ribbonUniforms={uTime:{value:0},uOpacity:{value:0}};
- const ribbonMaterial=new T.ShaderMaterial({uniforms:ribbonUniforms,transparent:true,depthWrite:false,side:T.DoubleSide,blending:T.AdditiveBlending,vertexShader:'uniform float uTime;varying vec2 vUv;void main(){vUv=uv;vec3 p=position;p.y+=sin(uv.x*18.-uTime*.7)*.12;gl_Position=projectionMatrix*modelViewMatrix*vec4(p,1.);}',fragmentShader:'uniform float uTime,uOpacity;varying vec2 vUv;void main(){float edge=pow(sin(vUv.y*3.14159),3.);float vein=pow(max(0.,1.-abs(vUv.y-.5-sin(vUv.x*25.-uTime*.4)*.15)*5.),5.);float fade=sin(vUv.x*3.14159);vec3 col=mix(vec3(.45,.006,.047),vec3(.85,.35,.24),vein*.6);gl_FragColor=vec4(col,edge*fade*uOpacity*(.4+vein*.5));\n#include <tonemapping_fragment>\n#include <colorspace_fragment>\n}'});
+ const ribbonMaterial=new T.ShaderMaterial({uniforms:ribbonUniforms,transparent:true,depthWrite:false,side:T.DoubleSide,blending:T.AdditiveBlending,vertexShader:'uniform float uTime;varying vec2 vUv;void main(){vUv=uv;vec3 p=position;p.y+=sin(uv.x*18.-uTime*.7)*.12;gl_Position=projectionMatrix*modelViewMatrix*vec4(p,1.);}',fragmentShader:'uniform float uTime,uOpacity;varying vec2 vUv;void main(){float edge=pow(sin(vUv.y*3.14159),3.);float vein=pow(max(0.,1.-abs(vUv.y-.5-sin(vUv.x*25.-uTime*.4)*.15)*5.),5.);float fade=sin(vUv.x*3.14159);float fibers=pow(.5+.5*sin(vUv.y*92.+sin(vUv.x*12.)*5.),14.);vec3 col=mix(vec3(.32,.008,.055),vec3(.95,.68,.61),max(vein*.85,fibers));gl_FragColor=vec4(col,edge*fade*uOpacity*(.52+vein*.35+fibers*.3));\n#include <tonemapping_fragment>\n#include <colorspace_fragment>\n}'});
  const ribbons=new T.Group();emblem.add(ribbons);for(let k=0;k<2;k++)ribbons.add(new T.Mesh(flowingRibbonGeometry(k*.8),ribbonMaterial));
  return {world,emblem,lens,arcs,jellyfish,streamers,flowUniforms,ribbons,ribbonUniforms,intro,gallery,spine,tendrils,cardDeck,cards,machine,rotor,lab,pickables,opaque,textures,loadCovers(){if(!coversLoaded){coversLoaded=true;coverLoaders.forEach(load=>load());}},materials:{chrome,dark,rose},dispose(){world.traverse(o=>{o.geometry?.dispose();if(o.material)for(const m of Array.isArray(o.material)?o.material:[o.material])m.dispose();});textures.forEach(t=>t.dispose());}};
 }
@@ -166,7 +188,16 @@ export function particleField(count,mobile=false){
   let x,y,z;
   if(region===0){const radius=.8+Math.pow(s,2)*1.3,branch=i%2?1:-1;x=(mobile?.4:2)+branch*Math.sin(t*5.7)*radius;y=-.75-t*4.9;z=Math.cos(t*5.7)*radius+.25;c.setHSL(.015+random()*.085,.75,.3+random()*.38);}
   else if(region===1){const cluster=Math.floor(t*7),v=(cluster+.5)/7+(random()+random()+random()-1.5)*.12;const radius=2.25+Math.sin(v*15)*.6+(s-.5)*1.3,theta=v*13+(i%3)*2.094+(a-3.14)*.19;x=Math.cos(theta)*radius;y=-13+(v-.5)*10;z=Math.sin(theta)*radius-1.15;c.setHSL(.47+random()*.42,.5,.25+random()*.4);}
-  else if(region===2){const cy=(t-.5)*2.65,radius=(.28+.48*Math.sin(t*Math.PI)**2+.24*Math.exp(-(((t-.22)*6)**2)))*Math.pow(s,.32),theta=a+t*7;x=Math.cos(theta)*radius+.16*Math.sin(t*5);y=-24+cy;z=Math.sin(theta)*radius;c.setHSL(.97+random()*.045,.92,.28+random()*.33);}
+  else if(region===2){
+   const lobe=t<.57?0:1,v=lobe?(t-.57)/.43:t/.57,latitude=v*Math.PI;
+   const centerX=lobe?.35:-.3,centerY=lobe?.25:-.16,theta=a+v*2.8;
+   const shape=1+.16*Math.sin(theta*3+v*8)+.09*Math.sin(theta*7-v*11);
+   const radius=Math.sin(latitude)*Math.pow(s,.32)*shape;
+   x=centerX+Math.cos(theta)*radius*(lobe?.63:.77);
+   y=-24+centerY+Math.cos(latitude)*(lobe?.88:.68)+.12*Math.sin(theta*2)*radius;
+   z=Math.sin(theta)*radius*(lobe?.63:.72)+.08*Math.sin(v*9);
+   c.setHSL(.87+random()*.115,.84,.27+random()*.31);
+  }
   else{const theta=t*Math.PI*2,radius=2.4+Math.sin(t*17)*.6+(s-.5)*1.1;x=(mobile?.4:2)+Math.cos(theta)*radius;y=-1+Math.sin(theta)*radius;z=-1+(random()-.5)*1.9;c.setHSL(.005+Math.pow(random(),2)*.09,.8,.24+random()*.32);}
   const scatter=region===1?.2:.09;x+=(random()-.5)*scatter;y+=(random()-.5)*scatter;z+=(random()-.5)*scatter;
   position.set([x,y,z],j);color.set([c.r,c.g,c.b],j);meta.set([random(),region,random()],j);

@@ -18,7 +18,7 @@ export function createLabFinish(){
   bump.set([height,height,height,255],k);polish.set([rough,rough,rough,255],k);
  }
  const textures=[bump,polish].map(data=>{const map=new T.DataTexture(data,size,size);map.wrapS=map.wrapT=T.RepeatWrapping;map.magFilter=T.LinearFilter;map.minFilter=T.LinearMipmapLinearFilter;map.generateMipmaps=true;map.needsUpdate=true;return map;});
- const material=new T.MeshPhysicalMaterial({color:0xb3b8b4,metalness:.88,roughness:.23,clearcoat:.32,clearcoatRoughness:.2,iridescence:0,envMapIntensity:.6,bumpMap:textures[0],bumpScale:.085,roughnessMap:textures[1],side:T.DoubleSide});
+ const material=new T.MeshPhysicalMaterial({color:0x9ba49f,metalness:.88,roughness:.36,clearcoat:.23,clearcoatRoughness:.32,iridescence:0,envMapIntensity:.5,bumpMap:textures[0],bumpScale:.065,roughnessMap:textures[1],side:T.DoubleSide});
  return {material,textures};
 }
 

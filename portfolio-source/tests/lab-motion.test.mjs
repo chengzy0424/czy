@@ -44,21 +44,44 @@ test('LAB circle and left sculptural arms remain clear through the whole wave an
   const targets=Array.from({length:16},(_,i)=>new T.Vector3(.51*Math.cos(i*Math.PI/8),.51*Math.sin(i*Math.PI/8),0));
   targets.push(...[[-.3,0,.02],[.3,0,.02],[0,-.3,.02],[0,.3,.02]].map(p=>new T.Vector3(...p)));
   const leftTargets=[];
-  for(const rod of left.children)for(const ring of [0,3,6,9,11]){
-   const center=new T.Vector3(),vertex=new T.Vector3();
-   for(let radial=0;radial<6;radial++)center.add(vertex.fromBufferAttribute(rod.geometry.attributes.position,ring*7+radial));
-   leftTargets.push(center.multiplyScalar(1/6));
+  // Aim at actual triangle centres at three places along every front blade.
+  // Other layers of the sculpture may overlap; the honeycomb must not hide it.
+  for(const mesh of left.getObjectByName('lab-left-blades').children.filter(o=>!o.isInstancedMesh)){
+   const {position}=mesh.geometry.attributes,index=mesh.geometry.index,vertex=new T.Vector3();
+   for(const fraction of [.25,.5,.75]){
+    const start=Math.floor(index.count/3*fraction)*3,point=new T.Vector3();
+    for(let k=0;k<3;k++)point.add(vertex.fromBufferAttribute(position,index.getX(start+k)));
+    leftTargets.push({mesh,point:point.multiplyScalar(1/3)});
+   }
   }
   const ray=new T.Raycaster(),direction=new T.Vector3();
   for(const time of [0,1,2,3,4,5,6,7])for(const chapter of [4.9,5,5.1])for(const turn of [-.035,.035]){
    updateLab(time);lab.rotation.y=-.16+turn;lab.updateMatrixWorld(true);
    const eye=new T.Vector3(...cameraPose(chapter,mobile,mobile?390/844:16/9).eye);
-   for(const [sculpture,points] of [[marker,targets],[left,leftTargets]])for(const target of points){
-    direction.copy(target);sculpture.localToWorld(direction);direction.sub(eye).normalize();ray.set(eye,direction);
+   for(const [sculpture,points] of [[marker,targets.map(point=>({point,mesh:marker}))],[left,leftTargets]])for(const {point,mesh} of points){
+    direction.copy(point);mesh.localToWorld(direction);direction.sub(eye).normalize();ray.set(eye,direction);
     const hit=ray.intersectObject(lab,true)[0];
-    assert.ok(hit&&sculpture.children.includes(hit.object),`${sculpture.name} hidden: mobile=${mobile} t=${time} chapter=${chapter} yaw=${turn}`);
+    let ancestor=hit?.object;while(ancestor&&ancestor!==sculpture)ancestor=ancestor.parent;
+    assert.equal(ancestor,sculpture,`${sculpture.name} hidden: mobile=${mobile} t=${time} chapter=${chapter} yaw=${turn}`);
    }
   }
+  dispose(lab);
+ }
+});
+
+test('LAB left assembly has open separated layers and reversible motion without stretching',()=>{
+ for(const mobile of [false,true]){
+  const {lab,updateLab}=buildLab({mobile}),assembly=lab.getObjectByName('lab-left-assembly');
+  assert.ok(assembly);assert.equal(lab.getObjectByName('lab-lip-backing'),undefined,'a solid inner wall fills the layered mouth');
+  const front=lab.getObjectByName('lab-left-blades'),rear=lab.getObjectByName('lab-left-echo');
+  assert.ok(front&&rear);assert.ok(front.position.z-rear.position.z>.25,'front and echo collapse into the same plane');
+  const meshes=[];assembly.traverse(o=>{if(o.geometry)meshes.push({mesh:o,positions:o.geometry.attributes.position.array.slice()});});
+  function transforms(){lab.updateMatrixWorld(true);return meshes.flatMap(({mesh})=>mesh.matrixWorld.elements.slice());}
+  const rest=transforms();updateLab(LAB_WAVE_PERIOD/4);const moving=transforms();
+  assert.ok(moving.some((n,i)=>Math.abs(n-rest[i])>.02),'layers have no relative motion');
+  updateLab(LAB_WAVE_PERIOD);closeArrays(transforms(),rest);
+  updateLab(1.7);updateLab(10,true);closeArrays(transforms(),rest);
+  meshes.forEach(({mesh,positions})=>assert.deepEqual(mesh.geometry.attributes.position.array,positions,'layer motion deforms its mesh'));
   dispose(lab);
  }
 });

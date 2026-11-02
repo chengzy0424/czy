@@ -1,0 +1,535 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\Tuanjie\\Tuanjie AI\\Tuanjie Cowork\\cli\\bin\\win32-x64\\node.exe",
+      "D:\\Codex code\\2026-10-31\\github-chengzy0424-czy-https-chengzy0424-github-2\\work\\czy-source\\portfolio-source\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "--grep",
+      "csol:|native retry",
+      "--project=edge",
+      "--project=edge-native-branch",
+      "--project=webkit"
+    ],
+    "configFile": "D:\\Codex code\\2026-10-31\\github-chengzy0424-czy-https-chengzy0424-github-2\\work\\czy-source\\portfolio-source\\playwright.config.mjs",
+    "rootDir": "D:/Codex code/2026-10-31/github-chengzy0424-czy-https-chengzy0424-github-2/work/czy-source/portfolio-source/tests/browser",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "D:/Codex code/2026-10-31/github-chengzy0424-czy-https-chengzy0424-github-2/work/czy-source/portfolio-source/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chrome",
+        "name": "chrome",
+        "testDir": "D:/Codex code/2026-10-31/github-chengzy0424-czy-https-chengzy0424-github-2/work/czy-source/portfolio-source/tests/browser",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.spec.mjs"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "D:/Codex code/2026-10-31/github-chengzy0424-czy-https-chengzy0424-github-2/work/czy-source/portfolio-source/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "edge",
+        "name": "edge",
+        "testDir": "D:/Codex code/2026-10-31/github-chengzy0424-czy-https-chengzy0424-github-2/work/czy-source/portfolio-source/tests/browser",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.spec.mjs"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "D:/Codex code/2026-10-31/github-chengzy0424-czy-https-chengzy0424-github-2/work/czy-source/portfolio-source/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "firefox",
+        "name": "firefox",
+        "testDir": "D:/Codex code/2026-10-31/github-chengzy0424-czy-https-chengzy0424-github-2/work/czy-source/portfolio-source/tests/browser",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.spec.mjs"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "D:/Codex code/2026-10-31/github-chengzy0424-czy-https-chengzy0424-github-2/work/czy-source/portfolio-source/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "webkit",
+        "name": "webkit",
+        "testDir": "D:/Codex code/2026-10-31/github-chengzy0424-czy-https-chengzy0424-github-2/work/czy-source/portfolio-source/tests/browser",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.spec.mjs"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "D:/Codex code/2026-10-31/github-chengzy0424-czy-https-chengzy0424-github-2/work/czy-source/portfolio-source/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "edge-native-branch",
+        "name": "edge-native-branch",
+        "testDir": "D:/Codex code/2026-10-31/github-chengzy0424-czy-https-chengzy0424-github-2/work/czy-source/portfolio-source/tests/browser",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.spec.mjs"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "D:/Codex code/2026-10-31/github-chengzy0424-czy-https-chengzy0424-github-2/work/czy-source/portfolio-source/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "edge-touch",
+        "name": "edge-touch",
+        "testDir": "D:/Codex code/2026-10-31/github-chengzy0424-czy-https-chengzy0424-github-2/work/czy-source/portfolio-source/tests/browser",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.spec.mjs"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "D:/Codex code/2026-10-31/github-chengzy0424-czy-https-chengzy0424-github-2/work/czy-source/portfolio-source/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "webkit-touch",
+        "name": "webkit-touch",
+        "testDir": "D:/Codex code/2026-10-31/github-chengzy0424-czy-https-chengzy0424-github-2/work/czy-source/portfolio-source/tests/browser",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.spec.mjs"
+        ],
+        "timeout": 90000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "../verification/oct31-browser-compatibility/local-csol.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.62.1",
+    "workers": 1,
+    "webServer": {
+      "command": "node tests/browser/server.mjs",
+      "url": "http://127.0.0.1:4186",
+      "reuseExistingServer": true,
+      "timeout": 60000
+    }
+  },
+  "suites": [
+    {
+      "title": "native.spec.mjs",
+      "file": "native.spec.mjs",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "native retry keeps the selected manifest; rapid paused changes, MP4 and destroy",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "description": "Native controller integration is covered in native-capable projects.",
+                  "location": {
+                    "file": "D:\\Codex code\\2026-10-31\\github-chengzy0424-czy-https-chengzy0424-github-2\\work\\czy-source\\portfolio-source\\tests\\browser\\native.spec.mjs",
+                    "line": 3,
+                    "column": 7
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "edge",
+              "projectName": "edge",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "skipped",
+                  "duration": 267,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-31T04:24:45.829Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "Native controller integration is covered in native-capable projects.",
+                      "location": {
+                        "file": "D:\\Codex code\\2026-10-31\\github-chengzy0424-czy-https-chengzy0424-github-2\\work\\czy-source\\portfolio-source\\tests\\browser\\native.spec.mjs",
+                        "line": 3,
+                        "column": 7
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "be0bbe6c09e2880a49e1-91bc95292b60a03022bb",
+          "file": "native.spec.mjs",
+          "line": 2,
+          "column": 1
+        },
+        {
+          "title": "native retry keeps the selected manifest; rapid paused changes, MP4 and destroy",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "description": "This engine/OS does not advertise native HLS.",
+                  "location": {
+                    "file": "D:\\Codex code\\2026-10-31\\github-chengzy0424-czy-https-chengzy0424-github-2\\work\\czy-source\\portfolio-source\\tests\\browser\\native.spec.mjs",
+                    "line": 7,
+                    "column": 7
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "skipped",
+                  "duration": 319,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-31T04:24:55.958Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "This engine/OS does not advertise native HLS.",
+                      "location": {
+                        "file": "D:\\Codex code\\2026-10-31\\github-chengzy0424-czy-https-chengzy0424-github-2\\work\\czy-source\\portfolio-source\\tests\\browser\\native.spec.mjs",
+                        "line": 7,
+                        "column": 7
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "be0bbe6c09e2880a49e1-583bf3b5d1acbf427a35",
+          "file": "native.spec.mjs",
+          "line": 2,
+          "column": 1
+        },
+        {
+          "title": "native retry keeps the selected manifest; rapid paused changes, MP4 and destroy",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "edge-native-branch",
+              "projectName": "edge-native-branch",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1977,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-31T04:25:19.872Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "be0bbe6c09e2880a49e1-13cde1de84854661a24a",
+          "file": "native.spec.mjs",
+          "line": 2,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "playback.spec.mjs",
+      "file": "playback.spec.mjs",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "csol: start, audio evidence, seek, pause, quality and release",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "edge",
+              "projectName": "edge",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 8905,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-31T04:24:46.326Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "environment",
+                      "contentType": "application/json",
+                      "body": "ewogICJwcm9qZWN0IjogImVkZ2UiLAogICJtZWRpYU9yaWdpbiI6ICJ2ZXJpZmllZCBsb2NhbCBtZWRpYSBjb3B5IiwKICAidWEiOiAiTW96aWxsYS81LjAgKFdpbmRvd3MgTlQgMTAuMDsgV2luNjQ7IHg2NCkgQXBwbGVXZWJLaXQvNTM3LjM2IChLSFRNTCwgbGlrZSBHZWNrbykgSGVhZGxlc3NDaHJvbWUvMTU2LjAuMC4wIFNhZmFyaS81MzcuMzYgRWRnLzE1Ni4wLjAuMCIsCiAgInBsYXRmb3JtIjogIldpbjMyIiwKICAibmF0aXZlSGxzIjogIm1heWJlIiwKICAibXA0IjogInByb2JhYmx5IiwKICAibXNlIjogdHJ1ZSwKICAidG91Y2giOiAwCn0="
+                    },
+                    {
+                      "name": "playback-evidence",
+                      "contentType": "application/json",
+                      "body": "ewogICJpZCI6ICJjc29sIiwKICAiYnJvd3NlciI6ICIxNTYuMC40MzE0LjUwIiwKICAiZmxvd1RvUGxheWluZ01zIjogMTc4MiwKICAiYXVkaW8iOiB7CiAgICAibWV0aG9kIjogImJyb3dzZXIgYXVkaW8gZGVjb2RlciBieXRlIGNvdW50ZXIiCiAgfSwKICAic3RhcnQiOiB7CiAgICAidGltZSI6IDAuNzMzNTgzLAogICAgInBhdXNlZCI6IGZhbHNlLAogICAgInZvbHVtZSI6IDAuOCwKICAgICJtdXRlZCI6IGZhbHNlLAogICAgInNyYyI6ICJibG9iOmh0dHA6Ly8xMjcuMC4wLjE6NDE4Ni9iNmU4NDE4ZC1hMzg0LTRjYmMtYjExOC04MTBkMDZkNTAzYmMiLAogICAgInJlYWR5U3RhdGUiOiA0LAogICAgIndpZHRoIjogODU0LAogICAgImhlaWdodCI6IDQ3OCwKICAgICJlcnJvciI6IG51bGwsCiAgICAiZGVjb2RlZEF1ZGlvIjogMTcwNjksCiAgICAiZnJhbWVzIjogNDcKICB9LAogICJjb250aW51b3VzIjogewogICAgInRpbWUiOiAzLjc1NzM1OCwKICAgICJwYXVzZWQiOiBmYWxzZSwKICAgICJ2b2x1bWUiOiAwLjgsCiAgICAibXV0ZWQiOiBmYWxzZSwKICAgICJzcmMiOiAiYmxvYjpodHRwOi8vMTI3LjAuMC4xOjQxODYvYjZlODQxOGQtYTM4NC00Y2JjLWIxMTgtODEwZDA2ZDUwM2JjIiwKICAgICJyZWFkeVN0YXRlIjogNCwKICAgICJ3aWR0aCI6IDEyODAsCiAgICAiaGVpZ2h0IjogNzE4LAogICAgImVycm9yIjogbnVsbCwKICAgICJkZWNvZGVkQXVkaW8iOiA2NjUzMiwKICAgICJmcmFtZXMiOiAyMjgKICB9LAogICJmaW5hbCI6IHsKICAgICJ0aW1lIjogMjYuNDk0MDcsCiAgICAicGF1c2VkIjogZmFsc2UsCiAgICAidm9sdW1lIjogMC40NSwKICAgICJtdXRlZCI6IGZhbHNlLAogICAgInNyYyI6ICJibG9iOmh0dHA6Ly8xMjcuMC4wLjE6NDE4Ni9iNmU4NDE4ZC1hMzg0LTRjYmMtYjExOC04MTBkMDZkNTAzYmMiLAogICAgInJlYWR5U3RhdGUiOiA0LAogICAgIndpZHRoIjogMTU0NCwKICAgICJoZWlnaHQiOiA4NjYsCiAgICAiZXJyb3IiOiBudWxsLAogICAgImRlY29kZWRBdWRpbyI6IDkzNDgyLAogICAgImZyYW1lcyI6IDMwNwogIH0sCiAgImF1ZGl0IjogewogICAgInBlYWsiOiAwLAogICAgImV2ZW50cyI6IFsKICAgICAgewogICAgICAgICJldmVudCI6ICJ3YWl0aW5nIiwKICAgICAgICAidGltZSI6IDAsCiAgICAgICAgImF0IjogMTA4My42OTk5OTk5OTk3MjA2CiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiZXZlbnQiOiAicGxheWluZyIsCiAgICAgICAgInRpbWUiOiAwLjAwMTE0LAogICAgICAgICJhdCI6IDExNDAuNQogICAgICB9LAogICAgICB7CiAgICAgICAgImV2ZW50IjogInBhdXNlIiwKICAgICAgICAidGltZSI6IDI1LjIsCiAgICAgICAgImF0IjogNDk3MgogICAgICB9LAogICAgICB7CiAgICAgICAgImV2ZW50IjogInNlZWtpbmciLAogICAgICAgICJ0aW1lIjogMjUuMiwKICAgICAgICAiYXQiOiA0OTcyCiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiZXZlbnQiOiAic2Vla2VkIiwKICAgICAgICAidGltZSI6IDI1LjIsCiAgICAgICAgImF0IjogNTAzNi41OTk5OTk5OTk2Mjc1CiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiZXZlbnQiOiAicGxheWluZyIsCiAgICAgICAgInRpbWUiOiAyNS4yLAogICAgICAgICJhdCI6IDU3NzYuMTk5OTk5OTk5NzIxCiAgICAgIH0KICAgIF0sCiAgICAiYXVkaW9FcnJvciI6IG51bGwKICB9LAogICJyZXF1ZXN0Q291bnQiOiAzOSwKICAic2Vla0lucHV0IjogIkhUTUxNZWRpYUVsZW1lbnQuY3VycmVudFRpbWU7IG5vdCBhIHBoeXNpY2FsIHNjcnViIGdlc3R1cmUiCn0="
+                    },
+                    {
+                      "name": "final-state",
+                      "contentType": "application/json",
+                      "body": "ewogICJhdWRpdCI6IHsKICAgICJwZWFrIjogMCwKICAgICJldmVudHMiOiBbCiAgICAgIHsKICAgICAgICAiZXZlbnQiOiAid2FpdGluZyIsCiAgICAgICAgInRpbWUiOiAwLAogICAgICAgICJhdCI6IDEwODMuNjk5OTk5OTk5NzIwNgogICAgICB9LAogICAgICB7CiAgICAgICAgImV2ZW50IjogInBsYXlpbmciLAogICAgICAgICJ0aW1lIjogMC4wMDExNCwKICAgICAgICAiYXQiOiAxMTQwLjUKICAgICAgfSwKICAgICAgewogICAgICAgICJldmVudCI6ICJwYXVzZSIsCiAgICAgICAgInRpbWUiOiAyNS4yLAogICAgICAgICJhdCI6IDQ5NzIKICAgICAgfSwKICAgICAgewogICAgICAgICJldmVudCI6ICJzZWVraW5nIiwKICAgICAgICAidGltZSI6IDI1LjIsCiAgICAgICAgImF0IjogNDk3MgogICAgICB9LAogICAgICB7CiAgICAgICAgImV2ZW50IjogInNlZWtlZCIsCiAgICAgICAgInRpbWUiOiAyNS4yLAogICAgICAgICJhdCI6IDUwMzYuNTk5OTk5OTk5NjI3NQogICAgICB9LAogICAgICB7CiAgICAgICAgImV2ZW50IjogInBsYXlpbmciLAogICAgICAgICJ0aW1lIjogMjUuMiwKICAgICAgICAiYXQiOiA1Nzc2LjE5OTk5OTk5OTcyMQogICAgICB9CiAgICBdLAogICAgImF1ZGlvRXJyb3IiOiBudWxsCiAgfSwKICAidmlkZW8iOiB7CiAgICAidGltZSI6IDAsCiAgICAicGF1c2VkIjogdHJ1ZSwKICAgICJyZWFkeVN0YXRlIjogMCwKICAgICJtb2RlIjogImhscyIsCiAgICAic3JjIjogImJsb2I6aHR0cDovLzEyNy4wLjAuMTo0MTg2L2I2ZTg0MThkLWEzODQtNGNiYy1iMTE4LTgxMGQwNmQ1MDNiYyIsCiAgICAibXV0ZWQiOiBmYWxzZSwKICAgICJ2b2x1bWUiOiAwLjQ1LAogICAgIndpZHRoIjogMCwKICAgICJoZWlnaHQiOiAwLAogICAgImRlY29kZWRBdWRpbyI6IDAsCiAgICAiYXVkaW9UcmFja3MiOiBudWxsLAogICAgImJ1ZmZlcmVkIjogW10KICB9Cn0="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "392ce7657d10ee24873f-14b300e30a19d7d12dd3",
+          "file": "playback.spec.mjs",
+          "line": 105,
+          "column": 21
+        },
+        {
+          "title": "csol: start, audio evidence, seek, pause, quality and release",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 22751,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: > \u001b[32m0\u001b[39m\nReceived:   \u001b[31m0\u001b[39m\n\nCall Log:\n- Timeout 20000ms exceeded while waiting on the predicate",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: > \u001b[32m0\u001b[39m\nReceived:   \u001b[31m0\u001b[39m\n\nCall Log:\n- Timeout 20000ms exceeded while waiting on the predicate\n    at checkAudio (D:\\Codex code\\2026-10-31\\github-chengzy0424-czy-https-chengzy0424-github-2\\work\\czy-source\\portfolio-source\\tests\\browser\\playback.spec.mjs:80:86)\n    at D:\\Codex code\\2026-10-31\\github-chengzy0424-czy-https-chengzy0424-github-2\\work\\czy-source\\portfolio-source\\tests\\browser\\playback.spec.mjs:111:14",
+                    "location": {
+                      "file": "D:\\Codex code\\2026-10-31\\github-chengzy0424-czy-https-chengzy0424-github-2\\work\\czy-source\\portfolio-source\\tests\\browser\\playback.spec.mjs",
+                      "column": 86,
+                      "line": 80
+                    },
+                    "snippet": "  78 |  }\n  79 |  const counter=await video.evaluate(v=>typeof v.webkitAudioDecodedByteCount==='number');\n> 80 |  if(counter){await expect.poll(()=>video.evaluate(v=>v.webkitAudioDecodedByteCount)).toBeGreaterThan(0);return {method:'browser audio decoder byte counter'};}\n     |                                                                                      ^\n  81 |  await expect.poll(()=>page.evaluate(()=>window.__mediaAudit.peak),{timeout:18000}).toBeGreaterThan(.00001);\n  82 |  return {method:'nonzero Web Audio PCM signal; not a speaker test'};\n  83 | }"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\Codex code\\2026-10-31\\github-chengzy0424-czy-https-chengzy0424-github-2\\work\\czy-source\\portfolio-source\\tests\\browser\\playback.spec.mjs",
+                        "column": 86,
+                        "line": 80
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: > \u001b[32m0\u001b[39m\nReceived:   \u001b[31m0\u001b[39m\n\nCall Log:\n- Timeout 20000ms exceeded while waiting on the predicate\n\n  78 |  }\n  79 |  const counter=await video.evaluate(v=>typeof v.webkitAudioDecodedByteCount==='number');\n> 80 |  if(counter){await expect.poll(()=>video.evaluate(v=>v.webkitAudioDecodedByteCount)).toBeGreaterThan(0);return {method:'browser audio decoder byte counter'};}\n     |                                                                                      ^\n  81 |  await expect.poll(()=>page.evaluate(()=>window.__mediaAudit.peak),{timeout:18000}).toBeGreaterThan(.00001);\n  82 |  return {method:'nonzero Web Audio PCM signal; not a speaker test'};\n  83 | }\n    at checkAudio (D:\\Codex code\\2026-10-31\\github-chengzy0424-czy-https-chengzy0424-github-2\\work\\czy-source\\portfolio-source\\tests\\browser\\playback.spec.mjs:80:86)\n    at D:\\Codex code\\2026-10-31\\github-chengzy0424-czy-https-chengzy0424-github-2\\work\\czy-source\\portfolio-source\\tests\\browser\\playback.spec.mjs:111:14"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-31T04:24:56.374Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "environment",
+                      "contentType": "application/json",
+                      "body": "ewogICJwcm9qZWN0IjogIndlYmtpdCIsCiAgIm1lZGlhT3JpZ2luIjogInZlcmlmaWVkIGxvY2FsIG1lZGlhIGNvcHkiLAogICJ1YSI6ICJNb3ppbGxhLzUuMCAoTWFjaW50b3NoOyBJbnRlbCBNYWMgT1MgWCAxMF8xNV83KSBBcHBsZVdlYktpdC82MDUuMS4xNSAoS0hUTUwsIGxpa2UgR2Vja28pIFZlcnNpb24vMjYuNSBTYWZhcmkvNjA1LjEuMTUiLAogICJwbGF0Zm9ybSI6ICJXaW4zMiIsCiAgIm5hdGl2ZUhscyI6ICIiLAogICJtcDQiOiAicHJvYmFibHkiLAogICJtc2UiOiBmYWxzZSwKICAidG91Y2giOiAwCn0="
+                    },
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\Codex code\\2026-10-31\\github-chengzy0424-czy-https-chengzy0424-github-2\\work\\czy-source\\portfolio-source\\test-results\\playback-csol-start-audio--23002-k-pause-quality-and-release-webkit\\test-failed-1.png"
+                    },
+                    {
+                      "name": "final-state",
+                      "contentType": "application/json",
+                      "body": "ewogICJhdWRpdCI6IHsKICAgICJwZWFrIjogMCwKICAgICJldmVudHMiOiBbCiAgICAgIHsKICAgICAgICAiZXZlbnQiOiAid2FpdGluZyIsCiAgICAgICAgInRpbWUiOiAwLAogICAgICAgICJhdCI6IDE0NTAKICAgICAgfSwKICAgICAgewogICAgICAgICJldmVudCI6ICJwbGF5aW5nIiwKICAgICAgICAidGltZSI6IDAsCiAgICAgICAgImF0IjogMTc2NwogICAgICB9CiAgICBdLAogICAgImF1ZGlvRXJyb3IiOiAiQ2FuJ3QgZmluZCB2YXJpYWJsZTogQXVkaW9Db250ZXh0IgogIH0sCiAgInN0YXR1cyI6ICLmraPlnKjmkq3mlL4gwrcg5YW85a655pKt5pS+IiwKICAidmlkZW8iOiB7CiAgICAidGltZSI6IDIwLjI2MTgyOTMsCiAgICAicGF1c2VkIjogZmFsc2UsCiAgICAicmVhZHlTdGF0ZSI6IDQsCiAgICAibW9kZSI6ICJmYWxsYmFjayIsCiAgICAic3JjIjogImh0dHA6Ly8xMjcuMC4wLjE6NDE4Ni9tZWRpYS9jc29sLWRlbW8tbG93Lm1wNCIsCiAgICAibXV0ZWQiOiBmYWxzZSwKICAgICJ2b2x1bWUiOiAwLjgsCiAgICAid2lkdGgiOiA5MTQsCiAgICAiaGVpZ2h0IjogNTEzLAogICAgImRlY29kZWRBdWRpbyI6IDAsCiAgICAiYXVkaW9UcmFja3MiOiAwLAogICAgImJ1ZmZlcmVkIjogW10KICB9Cn0="
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\Codex code\\2026-10-31\\github-chengzy0424-czy-https-chengzy0424-github-2\\work\\czy-source\\portfolio-source\\test-results\\playback-csol-start-audio--23002-k-pause-quality-and-release-webkit\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\Codex code\\2026-10-31\\github-chengzy0424-czy-https-chengzy0424-github-2\\work\\czy-source\\portfolio-source\\test-results\\playback-csol-start-audio--23002-k-pause-quality-and-release-webkit\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\Codex code\\2026-10-31\\github-chengzy0424-czy-https-chengzy0424-github-2\\work\\czy-source\\portfolio-source\\tests\\browser\\playback.spec.mjs",
+                    "column": 86,
+                    "line": 80
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "392ce7657d10ee24873f-c98cb96a87c39c4ea81d",
+          "file": "playback.spec.mjs",
+          "line": 105,
+          "column": 21
+        },
+        {
+          "title": "csol: start, audio evidence, seek, pause, quality and release",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [
+                {
+                  "type": "audio-boundary",
+                  "description": "Native HLS audio is not routed into Web Audio. Decoder counter is recorded when exposed; physical audibility is unverified."
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "edge-native-branch",
+              "projectName": "edge-native-branch",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 7645,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-31T04:25:22.048Z",
+                  "annotations": [
+                    {
+                      "type": "audio-boundary",
+                      "description": "Native HLS audio is not routed into Web Audio. Decoder counter is recorded when exposed; physical audibility is unverified."
+                    }
+                  ],
+                  "attachments": [
+                    {
+                      "name": "environment",
+                      "contentType": "application/json",
+                      "body": "ewogICJwcm9qZWN0IjogImVkZ2UtbmF0aXZlLWJyYW5jaCIsCiAgIm1lZGlhT3JpZ2luIjogInZlcmlmaWVkIGxvY2FsIG1lZGlhIGNvcHkiLAogICJ1YSI6ICJNb3ppbGxhLzUuMCAoV2luZG93cyBOVCAxMC4wOyBXaW42NDsgeDY0KSBBcHBsZVdlYktpdC81MzcuMzYgKEtIVE1MLCBsaWtlIEdlY2tvKSBIZWFkbGVzc0Nocm9tZS8xNTYuMC4wLjAgU2FmYXJpLzUzNy4zNiBFZGcvMTU2LjAuMC4wIiwKICAicGxhdGZvcm0iOiAiV2luMzIiLAogICJuYXRpdmVIbHMiOiAibWF5YmUiLAogICJtcDQiOiAicHJvYmFibHkiLAogICJtc2UiOiBmYWxzZSwKICAidG91Y2giOiAwCn0="
+                    },
+                    {
+                      "name": "playback-evidence",
+                      "contentType": "application/json",
+                      "body": "ewogICJpZCI6ICJjc29sIiwKICAiYnJvd3NlciI6ICIxNTYuMC40MzE0LjUwIiwKICAiZmxvd1RvUGxheWluZ01zIjogMTIwOCwKICAiYXVkaW8iOiB7CiAgICAibWV0aG9kIjogIm5hdGl2ZS1jb3VudGVyLW9ubHk7IHBoeXNpY2FsIGF1ZGliaWxpdHkgdW52ZXJpZmllZCIsCiAgICAiZGVjb2RlZEJ5dGVzIjogMTAxMDIKICB9LAogICJzdGFydCI6IHsKICAgICJ0aW1lIjogMC4yOTcxNSwKICAgICJwYXVzZWQiOiBmYWxzZSwKICAgICJ2b2x1bWUiOiAwLjgsCiAgICAibXV0ZWQiOiBmYWxzZSwKICAgICJzcmMiOiAiaHR0cDovLzEyNy4wLjAuMTo0MTg2L21lZGlhL3N0cmVhbS12MS9jc29sL21hc3Rlci5tM3U4IiwKICAgICJyZWFkeVN0YXRlIjogNCwKICAgICJ3aWR0aCI6IDg1NCwKICAgICJoZWlnaHQiOiA0NzgsCiAgICAiZXJyb3IiOiBudWxsLAogICAgImRlY29kZWRBdWRpbyI6IDEwMTAyLAogICAgImZyYW1lcyI6IDIxCiAgfSwKICAiY29udGludW91cyI6IHsKICAgICJ0aW1lIjogMy4zMTA0ODcsCiAgICAicGF1c2VkIjogZmFsc2UsCiAgICAidm9sdW1lIjogMC44LAogICAgIm11dGVkIjogZmFsc2UsCiAgICAic3JjIjogImh0dHA6Ly8xMjcuMC4wLjE6NDE4Ni9tZWRpYS9zdHJlYW0tdjEvY3NvbC9tYXN0ZXIubTN1OCIsCiAgICAicmVhZHlTdGF0ZSI6IDQsCiAgICAid2lkdGgiOiAxNTQ0LAogICAgImhlaWdodCI6IDg2NiwKICAgICJlcnJvciI6IG51bGwsCiAgICAiZGVjb2RlZEF1ZGlvIjogNTkxOTksCiAgICAiZnJhbWVzIjogMjAyCiAgfSwKICAiZmluYWwiOiB7CiAgICAidGltZSI6IDI1LjU1NDU4MiwKICAgICJwYXVzZWQiOiBmYWxzZSwKICAgICJ2b2x1bWUiOiAwLjQ1LAogICAgIm11dGVkIjogZmFsc2UsCiAgICAic3JjIjogImh0dHA6Ly8xMjcuMC4wLjE6NDE4Ni9tZWRpYS9zdHJlYW0tdjEvY3NvbC9tYXN0ZXIubTN1OCIsCiAgICAicmVhZHlTdGF0ZSI6IDQsCiAgICAid2lkdGgiOiAxNTQ0LAogICAgImhlaWdodCI6IDg2NiwKICAgICJlcnJvciI6IG51bGwsCiAgICAiZGVjb2RlZEF1ZGlvIjogNTA4OCwKICAgICJmcmFtZXMiOiA1CiAgfSwKICAiYXVkaXQiOiB7CiAgICAicGVhayI6IDAsCiAgICAiZXZlbnRzIjogWwogICAgICB7CiAgICAgICAgImV2ZW50IjogIndhaXRpbmciLAogICAgICAgICJ0aW1lIjogMCwKICAgICAgICAiYXQiOiA4OTIuNzAwMDAwMDAwMTg2MwogICAgICB9LAogICAgICB7CiAgICAgICAgImV2ZW50IjogInBsYXlpbmciLAogICAgICAgICJ0aW1lIjogMCwKICAgICAgICAiYXQiOiA5MDguNzAwMDAwMDAwMTg2MwogICAgICB9LAogICAgICB7CiAgICAgICAgImV2ZW50IjogInBhdXNlIiwKICAgICAgICAidGltZSI6IDI1LjIsCiAgICAgICAgImF0IjogNDM2Mi40MDAwMDAwMDAzNzI1CiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiZXZlbnQiOiAic2Vla2luZyIsCiAgICAgICAgInRpbWUiOiAyNS4yLAogICAgICAgICJhdCI6IDQzNjIuNjAwMDAwMDAwMDkzCiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiZXZlbnQiOiAic2Vla2VkIiwKICAgICAgICAidGltZSI6IDI1LjIsCiAgICAgICAgImF0IjogNDQ2NS4xMDAwMDAwMDAwOTMKICAgICAgfSwKICAgICAgewogICAgICAgICJldmVudCI6ICJzZWVraW5nIiwKICAgICAgICAidGltZSI6IDI1LjIsCiAgICAgICAgImF0IjogNDU1Ni44MDAwMDAwMDAyNzkKICAgICAgfSwKICAgICAgewogICAgICAgICJldmVudCI6ICJzZWVraW5nIiwKICAgICAgICAidGltZSI6IDI1LjIsCiAgICAgICAgImF0IjogNDU3OC40MDAwMDAwMDAzNzI1CiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiZXZlbnQiOiAic2Vla2VkIiwKICAgICAgICAidGltZSI6IDI1LjIsCiAgICAgICAgImF0IjogNDY4MC42MDAwMDAwMDAwOTMKICAgICAgfSwKICAgICAgewogICAgICAgICJldmVudCI6ICJwbGF5aW5nIiwKICAgICAgICAidGltZSI6IDI1LjIsCiAgICAgICAgImF0IjogNTI0OS43MDAwMDAwMDAxODYKICAgICAgfSwKICAgICAgewogICAgICAgICJldmVudCI6ICJ3YWl0aW5nIiwKICAgICAgICAidGltZSI6IDAsCiAgICAgICAgImF0IjogNTY2OS4yMDAwMDAwMDAxODYKICAgICAgfSwKICAgICAgewogICAgICAgICJldmVudCI6ICJwbGF5aW5nIiwKICAgICAgICAidGltZSI6IDI1LjU0MywKICAgICAgICAiYXQiOiA1Njg0LjIwMDAwMDAwMDE4NgogICAgICB9LAogICAgICB7CiAgICAgICAgImV2ZW50IjogInNlZWtpbmciLAogICAgICAgICJ0aW1lIjogMjUuNTQzLAogICAgICAgICJhdCI6IDU2ODQuMzAwMDAwMDAwMjc5CiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiZXZlbnQiOiAid2FpdGluZyIsCiAgICAgICAgInRpbWUiOiAyNS41NDMsCiAgICAgICAgImF0IjogNTY4NC4zMDAwMDAwMDAyNzkKICAgICAgfSwKICAgICAgewogICAgICAgICJldmVudCI6ICJzZWVrZWQiLAogICAgICAgICJ0aW1lIjogMjUuNTQ3OTM3LAogICAgICAgICJhdCI6IDU4MjguNzAwMDAwMDAwMTg2CiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiZXZlbnQiOiAicGxheWluZyIsCiAgICAgICAgInRpbWUiOiAyNS41NDgsCiAgICAgICAgImF0IjogNTgyOC44MDAwMDAwMDAyNzkKICAgICAgfQogICAgXSwKICAgICJhdWRpb0Vycm9yIjogbnVsbAogIH0sCiAgInJlcXVlc3RDb3VudCI6IDUwLAogICJzZWVrSW5wdXQiOiAiSFRNTE1lZGlhRWxlbWVudC5jdXJyZW50VGltZTsgbm90IGEgcGh5c2ljYWwgc2NydWIgZ2VzdHVyZSIKfQ=="
+                    },
+                    {
+                      "name": "final-state",
+                      "contentType": "application/json",
+                      "body": "ewogICJhdWRpdCI6IHsKICAgICJwZWFrIjogMCwKICAgICJldmVudHMiOiBbCiAgICAgIHsKICAgICAgICAiZXZlbnQiOiAid2FpdGluZyIsCiAgICAgICAgInRpbWUiOiAwLAogICAgICAgICJhdCI6IDg5Mi43MDAwMDAwMDAxODYzCiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiZXZlbnQiOiAicGxheWluZyIsCiAgICAgICAgInRpbWUiOiAwLAogICAgICAgICJhdCI6IDkwOC43MDAwMDAwMDAxODYzCiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiZXZlbnQiOiAicGF1c2UiLAogICAgICAgICJ0aW1lIjogMjUuMiwKICAgICAgICAiYXQiOiA0MzYyLjQwMDAwMDAwMDM3MjUKICAgICAgfSwKICAgICAgewogICAgICAgICJldmVudCI6ICJzZWVraW5nIiwKICAgICAgICAidGltZSI6IDI1LjIsCiAgICAgICAgImF0IjogNDM2Mi42MDAwMDAwMDAwOTMKICAgICAgfSwKICAgICAgewogICAgICAgICJldmVudCI6ICJzZWVrZWQiLAogICAgICAgICJ0aW1lIjogMjUuMiwKICAgICAgICAiYXQiOiA0NDY1LjEwMDAwMDAwMDA5MwogICAgICB9LAogICAgICB7CiAgICAgICAgImV2ZW50IjogInNlZWtpbmciLAogICAgICAgICJ0aW1lIjogMjUuMiwKICAgICAgICAiYXQiOiA0NTU2LjgwMDAwMDAwMDI3OQogICAgICB9LAogICAgICB7CiAgICAgICAgImV2ZW50IjogInNlZWtpbmciLAogICAgICAgICJ0aW1lIjogMjUuMiwKICAgICAgICAiYXQiOiA0NTc4LjQwMDAwMDAwMDM3MjUKICAgICAgfSwKICAgICAgewogICAgICAgICJldmVudCI6ICJzZWVrZWQiLAogICAgICAgICJ0aW1lIjogMjUuMiwKICAgICAgICAiYXQiOiA0NjgwLjYwMDAwMDAwMDA5MwogICAgICB9LAogICAgICB7CiAgICAgICAgImV2ZW50IjogInBsYXlpbmciLAogICAgICAgICJ0aW1lIjogMjUuMiwKICAgICAgICAiYXQiOiA1MjQ5LjcwMDAwMDAwMDE4NgogICAgICB9LAogICAgICB7CiAgICAgICAgImV2ZW50IjogIndhaXRpbmciLAogICAgICAgICJ0aW1lIjogMCwKICAgICAgICAiYXQiOiA1NjY5LjIwMDAwMDAwMDE4NgogICAgICB9LAogICAgICB7CiAgICAgICAgImV2ZW50IjogInBsYXlpbmciLAogICAgICAgICJ0aW1lIjogMjUuNTQzLAogICAgICAgICJhdCI6IDU2ODQuMjAwMDAwMDAwMTg2CiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiZXZlbnQiOiAic2Vla2luZyIsCiAgICAgICAgInRpbWUiOiAyNS41NDMsCiAgICAgICAgImF0IjogNTY4NC4zMDAwMDAwMDAyNzkKICAgICAgfSwKICAgICAgewogICAgICAgICJldmVudCI6ICJ3YWl0aW5nIiwKICAgICAgICAidGltZSI6IDI1LjU0MywKICAgICAgICAiYXQiOiA1Njg0LjMwMDAwMDAwMDI3OQogICAgICB9LAogICAgICB7CiAgICAgICAgImV2ZW50IjogInNlZWtlZCIsCiAgICAgICAgInRpbWUiOiAyNS41NDc5MzcsCiAgICAgICAgImF0IjogNTgyOC43MDAwMDAwMDAxODYKICAgICAgfSwKICAgICAgewogICAgICAgICJldmVudCI6ICJwbGF5aW5nIiwKICAgICAgICAidGltZSI6IDI1LjU0OCwKICAgICAgICAiYXQiOiA1ODI4LjgwMDAwMDAwMDI3OQogICAgICB9CiAgICBdLAogICAgImF1ZGlvRXJyb3IiOiBudWxsCiAgfSwKICAidmlkZW8iOiB7CiAgICAidGltZSI6IDAsCiAgICAicGF1c2VkIjogdHJ1ZSwKICAgICJyZWFkeVN0YXRlIjogMCwKICAgICJtb2RlIjogIm5hdGl2ZSIsCiAgICAic3JjIjogImh0dHA6Ly8xMjcuMC4wLjE6NDE4Ni9tZWRpYS9zdHJlYW0tdjEvY3NvbC9tYXN0ZXIubTN1OCIsCiAgICAibXV0ZWQiOiBmYWxzZSwKICAgICJ2b2x1bWUiOiAwLjQ1LAogICAgIndpZHRoIjogMCwKICAgICJoZWlnaHQiOiAwLAogICAgImRlY29kZWRBdWRpbyI6IDAsCiAgICAiYXVkaW9UcmFja3MiOiBudWxsLAogICAgImJ1ZmZlcmVkIjogW10KICB9Cn0="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "392ce7657d10ee24873f-2e07a8baaad8abe589b3",
+          "file": "playback.spec.mjs",
+          "line": 105,
+          "column": 21
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-31T04:24:44.953Z",
+    "duration": 45283.218,
+    "expected": 3,
+    "skipped": 2,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}

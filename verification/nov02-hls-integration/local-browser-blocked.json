@@ -1,0 +1,275 @@
+{
+  "config": {
+    "argv": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node",
+      "/workspace/scratch/fc0303513b7d/czy/portfolio-source/node_modules/@playwright/test/cli.js",
+      "test",
+      "playback.spec.mjs",
+      "--project=firefox",
+      "--grep",
+      "tower:",
+      "--max-failures=1"
+    ],
+    "configFile": "/workspace/scratch/fc0303513b7d/czy/portfolio-source/playwright.config.mjs",
+    "rootDir": "/workspace/scratch/fc0303513b7d/czy/portfolio-source/tests/browser",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 1,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/workspace/scratch/fc0303513b7d/czy/portfolio-source/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chrome",
+        "name": "chrome",
+        "testDir": "/workspace/scratch/fc0303513b7d/czy/portfolio-source/tests/browser",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.spec.mjs"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "/workspace/scratch/fc0303513b7d/czy/portfolio-source/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "edge",
+        "name": "edge",
+        "testDir": "/workspace/scratch/fc0303513b7d/czy/portfolio-source/tests/browser",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.spec.mjs"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "/workspace/scratch/fc0303513b7d/czy/portfolio-source/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "firefox",
+        "name": "firefox",
+        "testDir": "/workspace/scratch/fc0303513b7d/czy/portfolio-source/tests/browser",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.spec.mjs"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "/workspace/scratch/fc0303513b7d/czy/portfolio-source/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "webkit",
+        "name": "webkit",
+        "testDir": "/workspace/scratch/fc0303513b7d/czy/portfolio-source/tests/browser",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.spec.mjs"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "/workspace/scratch/fc0303513b7d/czy/portfolio-source/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "edge-native-branch",
+        "name": "edge-native-branch",
+        "testDir": "/workspace/scratch/fc0303513b7d/czy/portfolio-source/tests/browser",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.spec.mjs"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "/workspace/scratch/fc0303513b7d/czy/portfolio-source/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "edge-touch",
+        "name": "edge-touch",
+        "testDir": "/workspace/scratch/fc0303513b7d/czy/portfolio-source/tests/browser",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.spec.mjs"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "/workspace/scratch/fc0303513b7d/czy/portfolio-source/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "webkit-touch",
+        "name": "webkit-touch",
+        "testDir": "/workspace/scratch/fc0303513b7d/czy/portfolio-source/tests/browser",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.spec.mjs"
+        ],
+        "timeout": 90000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "test-results/results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.62.1",
+    "workers": 1,
+    "webServer": {
+      "command": "node tests/browser/server.mjs",
+      "url": "http://127.0.0.1:4186",
+      "reuseExistingServer": true,
+      "timeout": 60000
+    }
+  },
+  "suites": [
+    {
+      "title": "playback.spec.mjs",
+      "file": "playback.spec.mjs",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "tower: start, audio evidence, seek, pause, quality and release",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "timedOut",
+                  "duration": 90038,
+                  "error": {
+                    "message": "\u001b[31mTest timeout of 90000ms exceeded while running \"beforeEach\" hook.\u001b[39m",
+                    "stack": "\u001b[31mTest timeout of 90000ms exceeded while running \"beforeEach\" hook.\u001b[39m\n    at /workspace/scratch/fc0303513b7d/czy/portfolio-source/tests/browser/playback.spec.mjs:8:6",
+                    "location": {
+                      "file": "/workspace/scratch/fc0303513b7d/czy/portfolio-source/tests/browser/playback.spec.mjs",
+                      "column": 6,
+                      "line": 8
+                    },
+                    "snippet": "   6 | const tap=async(page,locator)=>(await page.evaluate(()=>navigator.maxTouchPoints>0))?locator.tap():locator.click();\n   7 |\n>  8 | test.beforeEach(async({page},info)=>{\n     |      ^\n   9 |  if(info.project.name==='edge-native-branch'){\n  10 |   // Exercise the existing native decoder, not a spoofed Safari UA or codec.\n  11 |   await page.addInitScript(()=>{Object.defineProperty(window,'MediaSource',{value:undefined});});"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/workspace/scratch/fc0303513b7d/czy/portfolio-source/tests/browser/playback.spec.mjs",
+                        "column": 6,
+                        "line": 8
+                      },
+                      "message": "\u001b[31mTest timeout of 90000ms exceeded while running \"beforeEach\" hook.\u001b[39m\n\n   6 | const tap=async(page,locator)=>(await page.evaluate(()=>navigator.maxTouchPoints>0))?locator.tap():locator.click();\n   7 |\n>  8 | test.beforeEach(async({page},info)=>{\n     |      ^\n   9 |  if(info.project.name==='edge-native-branch'){\n  10 |   // Exercise the existing native decoder, not a spoofed Safari UA or codec.\n  11 |   await page.addInitScript(()=>{Object.defineProperty(window,'MediaSource',{value:undefined});});\n    at /workspace/scratch/fc0303513b7d/czy/portfolio-source/tests/browser/playback.spec.mjs:8:6"
+                    },
+                    {
+                      "location": {
+                        "file": "/workspace/scratch/fc0303513b7d/czy/portfolio-source/tests/browser/playback.spec.mjs",
+                        "column": 10,
+                        "line": 40
+                      },
+                      "message": "TypeError: Cannot read properties of null (reading 'isClosed')\n\n  38 |\n  39 | test.afterEach(async({page},info)=>{\n> 40 |  if(page.isClosed())return;\n     |          ^\n  41 |  const state=await page.evaluate(()=>{\n  42 |   const v=window.__lastVideo;return {audit:window.__mediaAudit,status:document.querySelector('.player-status')?.textContent,\n  43 |    video:v?{time:v.currentTime,paused:v.paused,readyState:v.readyState,mode:v.dataset.playbackMode,src:v.currentSrc,\n    at /workspace/scratch/fc0303513b7d/czy/portfolio-source/tests/browser/playback.spec.mjs:40:10"
+                    },
+                    {
+                      "message": "Error: browserContext.newPage: Test timeout of 90000ms exceeded.\nBrowser logs:\n\n<launching> /root/.cache/ms-playwright/firefox-1538/firefox/firefox -no-remote -headless -profile /tmp/playwright_firefoxdev_profile-3UnWji -juggler-pipe -silent\n<launched> pid=54\n[pid=54][err] *** You are running in headless mode.\n[pid=54][err] JavaScript warning: resource://services-settings/Utils.sys.mjs, line 119: unreachable code after return statement\n[pid=54][out] \n[pid=54][out] Juggler listening to the pipe\n[pid=54][err] [143] Sandbox: writing /proc/self/uid_map: EPERM\n[pid=54][err] [146] Sandbox: writing /proc/self/uid_map: EPERM\n[pid=54][err] [151] Sandbox: writing /proc/self/uid_map: EPERM\n[pid=54][err] [Parent 54, IPC I/O Parent] WARNING: process 146 exited on signal 11: file ipc/chromium/src/chrome/common/process_watcher_posix_sigchld.cc:161\n[pid=54][err] [152] Sandbox: writing /proc/self/uid_map: EPERM\n[pid=54][err] [Parent 54, IPC I/O Parent] WARNING: process 152 exited on signal 11: file ipc/chromium/src/chrome/common/process_watcher_posix_sigchld.cc:161\n[pid=54][err] [155] Sandbox: writing /proc/self/uid_map: EPERM\n[pid=54][err] [Parent 54, IPC I/O Parent] WARNING: process 155 exited on signal 11: file ipc/chromium/src/chrome/common/process_watcher_posix_sigchld.cc:161\n[pid=54][err] [158] Sandbox: writing /proc/self/uid_map: EPERM\n[pid=54][err] [161] Sandbox: writing /proc/self/uid_map: EPERM\n[pid=54][out] \n[pid=54][out]         ERROR: ERROR: cannot find session with id \"e4d6770f-bf6c-4aa5-b1aa-35a680bd3ef4\" _dispatch@chrome://juggler/content/protocol/Dispatcher.js:54:15\n[pid=54][out] receiveMessage@chrome://juggler/content/components/Juggler.js:121:20\n[pid=54][out] \n[pid=54][err] [Parent 54, IPC I/O Parent] WARNING: process 158 exited on signal 11: file ipc/chromium/src/chrome/common/process_watcher_posix_sigchld.cc:161\n[pid=54][err] [Parent 54, IPC I/O Parent] WARNING: process 161 exited on signal 11: file ipc/chromium/src/chrome/common/process_watcher_posix_sigchld.cc:161\n[pid=54][err] [168] Sandbox: writing /proc/self/uid_map: EPERM\n[pid=54][out]       console.error: (new TypeError(\"can't access property \\\"maybeCancelContentJSExecution\\\", this._browser.frameLoader.remoteTab is null\", \"resource://gre/modules/RemoteWebNavigation.sys.mjs\", 41))\n[pid=54][err] [Parent 54, IPC I/O Parent] WARNING: process 168 exited on signal 11: file ipc/chromium/src/chrome/common/process_watcher_posix_sigchld.cc:161\n[pid=54][err] [174] Sandbox: writing /proc/self/uid_map: EPERM\n[pid=54][err] [Parent 54, IPC I/O Parent] WARNING: process 174 exited on signal 11: file ipc/chromium/src/chrome/common/process_watcher_posix_sigchld.cc:161\n[pid=54][out] console.error: \"Error fetching remote settings base url from CDN. Falling back to https://firefox-settings-attachments.cdn.mozilla.net/\" (new SyntaxError(\"XMLHttpRequest.open: '/' is not a valid URL.\", (void 0), 126))\n[pid=54][out] console.error: services.settings: \n[pid=54][out]   Message: EmptyDatabaseError: \"main/nimbus-desktop-experiments\" has not been synced yet\n[pid=54][out]   Stack:\n[pid=54][out]     EmptyDatabaseError@resource://services-settings/Database.sys.mjs:19:5\n[pid=54][out] list@resource://services-settings/Database.sys.mjs:96:13\n[pid=54][out] \n[pid=54][err] [184] Sandbox: writing /proc/self/uid_map: EPERM\n[pid=54][out] console.warn: BackupService: \"There was an error while trying to get the Document's directory\" [Exception... \"Component returned failure code: 0x80004005 (NS_ERROR_FAILURE) [nsIProperties.get]\"  nsresult: \"0x80004005 (NS_ERROR_FAILURE)\"  location: \"JS frame :: resource:///modules/backup/BackupService.sys.mjs :: get docsDirFolderPath :: line 1299\"  data: no]\n[pid=54][err] JavaScript error: resource:///modules/backup/BackupService.sys.mjs, line 4380: NotAllowedError: PathUtils.join: PathUtils does not support empty paths\n[pid=54][err] JavaScript warning: resource://gre/modules/UpdateService.sys.mjs, line 4029: unreachable code after return statement\n[pid=54][out] 1793621709465\taddons.xpi\tERROR\tSystem addon update list error Error: Failed downloading XML, status: 0, channelStatus: 2153390067, errorCode: 2, reason: error\n[pid=54] <gracefully close start>"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T12:14:35.346Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/workspace/scratch/fc0303513b7d/czy/portfolio-source/test-results/playback-tower-start-audio-a7984-k-pause-quality-and-release-firefox/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/workspace/scratch/fc0303513b7d/czy/portfolio-source/test-results/playback-tower-start-audio-a7984-k-pause-quality-and-release-firefox/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/workspace/scratch/fc0303513b7d/czy/portfolio-source/tests/browser/playback.spec.mjs",
+                    "column": 6,
+                    "line": 8
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "392ce7657d10ee24873f-8590a7e2ac45e570e974",
+          "file": "playback.spec.mjs",
+          "line": 109,
+          "column": 21
+        }
+      ]
+    }
+  ],
+  "errors": [
+    {
+      "message": "\u001b[31mTesting stopped early after 1 maximum allowed failures.\u001b[39m"
+    }
+  ],
+  "stats": {
+    "startTime": "2026-11-02T12:14:34.348Z",
+    "duration": 91774.776,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}

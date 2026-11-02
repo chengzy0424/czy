@@ -1,0 +1,223 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\Tuanjie\\Tuanjie AI\\Tuanjie Cowork\\cli\\bin\\win32-x64\\node.exe",
+      "D:\\Codex code\\2026-10-31\\github-chengzy0424-czy-https-chengzy0424-github-2\\work\\czy-source\\portfolio-source\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "native.spec.mjs",
+      "--project=edge-native-branch",
+      "--output=test-results-native"
+    ],
+    "configFile": "D:\\Codex code\\2026-10-31\\github-chengzy0424-czy-https-chengzy0424-github-2\\work\\czy-source\\portfolio-source\\playwright.config.mjs",
+    "rootDir": "D:/Codex code/2026-10-31/github-chengzy0424-czy-https-chengzy0424-github-2/work/czy-source/portfolio-source/tests/browser",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "D:/Codex code/2026-10-31/github-chengzy0424-czy-https-chengzy0424-github-2/work/czy-source/portfolio-source/test-results-native",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chrome",
+        "name": "chrome",
+        "testDir": "D:/Codex code/2026-10-31/github-chengzy0424-czy-https-chengzy0424-github-2/work/czy-source/portfolio-source/tests/browser",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.spec.mjs"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "D:/Codex code/2026-10-31/github-chengzy0424-czy-https-chengzy0424-github-2/work/czy-source/portfolio-source/test-results-native",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "edge",
+        "name": "edge",
+        "testDir": "D:/Codex code/2026-10-31/github-chengzy0424-czy-https-chengzy0424-github-2/work/czy-source/portfolio-source/tests/browser",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.spec.mjs"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "D:/Codex code/2026-10-31/github-chengzy0424-czy-https-chengzy0424-github-2/work/czy-source/portfolio-source/test-results-native",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "firefox",
+        "name": "firefox",
+        "testDir": "D:/Codex code/2026-10-31/github-chengzy0424-czy-https-chengzy0424-github-2/work/czy-source/portfolio-source/tests/browser",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.spec.mjs"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "D:/Codex code/2026-10-31/github-chengzy0424-czy-https-chengzy0424-github-2/work/czy-source/portfolio-source/test-results-native",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "webkit",
+        "name": "webkit",
+        "testDir": "D:/Codex code/2026-10-31/github-chengzy0424-czy-https-chengzy0424-github-2/work/czy-source/portfolio-source/tests/browser",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.spec.mjs"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "D:/Codex code/2026-10-31/github-chengzy0424-czy-https-chengzy0424-github-2/work/czy-source/portfolio-source/test-results-native",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "edge-native-branch",
+        "name": "edge-native-branch",
+        "testDir": "D:/Codex code/2026-10-31/github-chengzy0424-czy-https-chengzy0424-github-2/work/czy-source/portfolio-source/tests/browser",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.spec.mjs"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "D:/Codex code/2026-10-31/github-chengzy0424-czy-https-chengzy0424-github-2/work/czy-source/portfolio-source/test-results-native",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "edge-touch",
+        "name": "edge-touch",
+        "testDir": "D:/Codex code/2026-10-31/github-chengzy0424-czy-https-chengzy0424-github-2/work/czy-source/portfolio-source/tests/browser",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.spec.mjs"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "D:/Codex code/2026-10-31/github-chengzy0424-czy-https-chengzy0424-github-2/work/czy-source/portfolio-source/test-results-native",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "webkit-touch",
+        "name": "webkit-touch",
+        "testDir": "D:/Codex code/2026-10-31/github-chengzy0424-czy-https-chengzy0424-github-2/work/czy-source/portfolio-source/tests/browser",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.spec.mjs"
+        ],
+        "timeout": 90000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "../verification/oct31-browser-compatibility/final-native.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.62.1",
+    "workers": 1,
+    "webServer": {
+      "command": "node tests/browser/server.mjs",
+      "url": "http://127.0.0.1:4186",
+      "reuseExistingServer": true,
+      "timeout": 60000
+    }
+  },
+  "suites": [
+    {
+      "title": "native.spec.mjs",
+      "file": "native.spec.mjs",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "native retry keeps the selected manifest; rapid paused changes, MP4 and destroy",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "edge-native-branch",
+              "projectName": "edge-native-branch",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4678,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-31T04:44:30.579Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "be0bbe6c09e2880a49e1-13cde1de84854661a24a",
+          "file": "native.spec.mjs",
+          "line": 2,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-31T04:44:27.339Z",
+    "duration": 8566.483,
+    "expected": 1,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

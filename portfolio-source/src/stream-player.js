@@ -23,20 +23,25 @@ const loadPolicy=(firstByte,total)=>({default:{
 }});
 
 /** One controller per visible video. Destroy cancels segment loads and event handlers. */
-export function createStreamPlayer({video,path,levels,fallback,onStatus,onQuality,onFailure}){
+export function createStreamPlayer({video,path,levels,fallback,onStatus,onQuality,onFailure,onMode=()=>{}}){
  let hls,disposed=false,mode='loading',generation=0,selected=-1,recovery=0,wantsPlay=true,seekTo=0,startTimer=0,playbackAllowed=false;
  const events=new AbortController(),listen=(name,fn)=>video.addEventListener(name,fn,{signal:events.signal});
- let pendingPlay;
+ const setMode=value=>{mode=value;onMode(value);};
+ const nativeSource=()=>selected<0?path:new URL(levels[selected].key+'/index.m3u8',new URL(path,location.href)).href;
+ // While a new source has no metadata, currentTime/paused are reset by load().
+ // Keep the last visitor intent until the replacement is ready.
+ function remember(){if(video.readyState){seekTo=video.currentTime;wantsPlay=!video.paused;}}
  function play(){
   if(disposed||!wantsPlay||(mode==='hls'&&!playbackAllowed))return;
-  pendingPlay=video.play();pendingPlay?.catch(e=>{
-   if(!disposed&&e.name==='NotAllowedError')onStatus('点击播放按钮开始观看');
+  const token=generation;
+  video.play()?.catch(e=>{
+   if(!disposed&&token===generation&&e.name==='NotAllowedError')onStatus('点击播放按钮开始观看');
   });
  }
  const playingLabel=()=>onStatus('正在播放 · '+(mode==='fallback'?'兼容播放':mode==='native'?(levels[selected]?.label||'自动画质'):levels[hls?.currentLevel]?.label||'自动画质'));
  listen('playing',playingLabel);
  listen('waiting',()=>onStatus(video.currentTime>.1?'正在补充缓冲…':'正在加载首段…'));
- listen('pause',()=>{if(video.readyState>0&&!video.ended&&!video.error){wantsPlay=false;onStatus('已暂停');}});
+ listen('pause',()=>{if(video.paused&&video.readyState>0&&!video.ended&&!video.error){wantsPlay=false;onStatus('已暂停');}});
  listen('play',()=>{wantsPlay=true;playbackAllowed=true;clearTimeout(startTimer);});
  listen('ended',()=>onStatus('播放结束，可再次观看'));
  listen('loadedmetadata',()=>{
@@ -46,25 +51,26 @@ export function createStreamPlayer({video,path,levels,fallback,onStatus,onQualit
  listen('error',()=>{if(!disposed&&mode!=='hls')onFailure('连接未能完成，请重试或切换兼容播放。');});
 
  function compatibility(){
-  if(disposed)return;generation++;clearTimeout(startTimer);seekTo=video.currentTime||seekTo;wantsPlay=!video.paused||video.readyState===0;
-  hls?.destroy();hls=undefined;mode='fallback';
+  if(disposed)return;generation++;clearTimeout(startTimer);remember();
+  hls?.destroy();hls=undefined;setMode('fallback');
   video.src=fallback;video.load();play();onStatus('正在连接兼容视频…');
  }
  async function start(at=0){
+  if(disposed)return;
   const token=++generation;seekTo=at;wantsPlay=true;recovery=0;playbackAllowed=at>0;clearTimeout(startTimer);startTimer=0;
-  hls?.destroy();hls=undefined;mode='loading';onStatus('正在加载首段…');
+  hls?.destroy();hls=undefined;setMode('loading');onStatus('正在加载首段…');
   // Native HLS (notably Safari) starts synchronously in the visitor's click.
   if(video.canPlayType('application/vnd.apple.mpegurl')&&(!window.MediaSource||navigator.vendor==='Apple Computer, Inc.')){
-   mode='native';video.src=path;video.load();play();return;
+   setMode('native');video.src=nativeSource();video.load();play();return;
   }
   try{
    const {default:Hls,bootstrap}=await prepareVideoPlayer();if(disposed||token!==generation)return;
    if(!Hls.isSupported()){
-    if(video.canPlayType('application/vnd.apple.mpegurl')){mode='native';video.src=path;video.load();play();}
+    if(video.canPlayType('application/vnd.apple.mpegurl')){setMode('native');video.src=nativeSource();video.load();play();}
     else compatibility();
     return;
    }
-   mode='hls';let useBackup=preferredBackup;
+   setMode('hls');let useBackup=preferredBackup;
    const primary=new URL(path,location.href);
    // Both routes serve the user's own public repository; no third-party account/CDN.
    const canBackup=primary.hostname==='chengzy0424.github.io'&&primary.pathname.startsWith('/czy/media/stream-v1/');
@@ -139,15 +145,19 @@ export function createStreamPlayer({video,path,levels,fallback,onStatus,onQualit
  }
  return {
   start,
-  quality(index){selected=index;if(hls){
+  quality(index){if(disposed||!Number.isInteger(index)||index< -1||index>=levels.length)return;selected=index;if(hls){
    // Replace only future fragments, preserving the current frame, sound and position.
    hls.nextLevel=index;onStatus(index<0?'自动调整画质':'将在下一片段切换为 '+levels[index].label);
   }else if(mode==='native'){
-   if(video.readyState){seekTo=video.currentTime;wantsPlay=!video.paused;}
-   video.src=index<0?path:new URL(levels[index].key+'/index.m3u8',new URL(path,location.href)).href;video.load();play();
+   remember();generation++;video.src=nativeSource();video.load();play();
+   onStatus(wantsPlay?'正在切换画质…':'已暂停');
   }},
   compatibility,
   retry(){start(video.currentTime||seekTo);},
-  destroy(){disposed=true;generation++;clearTimeout(startTimer);events.abort();hls?.destroy();hls=undefined;}
+  destroy(){
+   if(disposed)return;disposed=true;generation++;clearTimeout(startTimer);events.abort();hls?.destroy();hls=undefined;
+   // Release native HLS/MP4 as well as MSE, even when called outside the dialog.
+   video.pause();video.removeAttribute('src');video.load();
+  }
  };
 }

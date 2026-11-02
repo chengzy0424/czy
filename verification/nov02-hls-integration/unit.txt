@@ -1,0 +1,45 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> cheng-ziyue-portfolio@1.0.0 test
+> node --test tests/weave.test.mjs tests/space.test.mjs tests/media-route.test.mjs tests/lab-motion.test.mjs tests/space-machine.test.mjs tests/stream-player.test.mjs
+
+✔ LAB tiles carry a coherent traveling wave with a stable eight-second period (82.88004ms)
+✔ LAB circle and left sculptural arms remain clear through the whole wave and viewing passage (1159.980745ms)
+✔ LAB backing stays on each curved patch without triangles spanning the open mouth (18.97166ms)
+✔ a relative HLS manifest resolves on published Pages before a route retry (1.085068ms)
+✔ a fragment requested from the repository fallback can return to Pages (0.184899ms)
+✔ local previews and unrelated assets never route to the public repository (0.176777ms)
+✔ layered machine has solid depth, reflective granular volume and bounded batched geometry (98.144939ms)
+✔ machine particle field keeps its irregular volume at the shared world anchor (12.853473ms)
+✔ desktop and backed-off phone cameras cross inside the water rather than beyond its front edge (16.070892ms)
+{"mobile":false,"meshes":107,"triangles":217784,"honeycombCells":1377}
+{"mobile":true,"meshes":93,"triangles":136512,"honeycombCells":703}
+✔ all six passages share a finite continuous and reversible camera path (87.004588ms)
+✔ lab ring and cross remain visible in front of the honeycomb through the viewing motion (464.678387ms)
+✔ solid emblem, segmented spine, mechanical chamber and honeycomb have finite 3D geometry (150.390888ms)
+✔ gallery boards have varying depth, actual thickness and project metadata (84.334843ms)
+✔ gallery begins with a long rigid skeleton and keeps every joint spacing while the view descends (140.878349ms)
+✔ long skeleton stays visible until it leaves desktop and tall mobile viewports (316.358484ms)
+✔ each gallery project reaches a readable unobstructed front position along a reversible helix (182.095534ms)
+✔ gallery descent carries the camera and project reading positions together without reversing or jumping (6.920298ms)
+✔ emblem and machine core remain in the viewport at target desktop and phone sizes (0.786096ms)
+✔ particles stay clustered at the reference objects, with stable counts and spring recovery (53.767008ms)
+✔ projects retain their heights and angular attachment to the spine as the camera passes successive levels (0.983424ms)
+✔ native start calls play synchronously in the user action (3.150597ms)
+✔ native retry retains the explicitly selected rendition (0.863464ms)
+✔ paused rapid quality changes and MP4 recovery retain position and intent (0.810473ms)
+✔ source-replacement pause events do not override a newer play request (0.782472ms)
+✔ destroy cancels native media and makes late actions inert (0.776042ms)
+✔ late autoplay rejection cannot overwrite a new source status (1.896744ms)
+✔ native and fallback modes notify the quality control (0.633276ms)
+✔ rapid category changes leave one accessible panel; keyboard selection matches content (44.221081ms)
+✔ details load on demand and return restores opener and scroll (15.069755ms)
+✔ reduced motion and direct-work bypass retain usable content (12.941001ms)
+ℹ tests 30
+ℹ suites 0
+ℹ pass 30
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1666.177986

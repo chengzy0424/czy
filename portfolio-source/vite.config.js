@@ -2,7 +2,9 @@ import { defineConfig } from 'vite';
 import fs from 'node:fs';
 import {games,films,gameMedia} from './src/portfolio.js';
 import catalog from './src/stream-catalog.json' with {type:'json'};
-const publicRoot=new URL('./public/',import.meta.url);
+// A clean repository checkout already carries the unchanged public media at root.
+const localPublic=new URL('./public/',import.meta.url);
+const publicRoot=fs.existsSync(new URL('media/stream-v1/',localPublic))?localPublic:new URL('../',import.meta.url);
 const files=['mark.svg',...Object.values(gameMedia).flatMap(m=>m.levels.map(l=>'media/'+l[2])),...Object.keys(films).flatMap(id=>['media/'+id+'-720.mp4','media/'+id+'-1080.mp4']),...[...Object.keys(games),...Object.keys(films)].flatMap(id=>[480,960,1440].map(width=>'art/'+id+'-'+width+'.webp'))];
 files.push('licenses/hlsjs-LICENSE.txt');
 for(const stream of Object.values(catalog)){

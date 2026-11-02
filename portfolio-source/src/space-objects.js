@@ -1,7 +1,7 @@
 import * as T from 'three';
 import {CARD_SPECS,SCENE_Y} from './space-path.js';
 import {seededRandom} from './weave-math.js';
-import {vertebraeGeometry,createDrapedGrid,drapePoint,membraneGeometry,flowingRibbonGeometry} from './space-forms.js';
+import {vertebraeGeometry,GALLERY_SPINE_BOUNDS,createDrapedGrid,drapePoint,membraneGeometry,flowingRibbonGeometry} from './space-forms.js';
 
 function tube(points,radius,material,segments=96,closed=false){
  const curve=new T.CatmullRomCurve3(points.map(p=>new T.Vector3(...p)),closed);
@@ -81,30 +81,31 @@ export async function buildWorld({mobile=false,documentRef=document,onTexture=()
  const intro=mesh(new T.PlaneGeometry(5.8,3.87),new T.MeshBasicMaterial({map:introTexture.texture,transparent:true,depthWrite:false,opacity:0}),world,[-.8,.5,-3]);
 
  const gallery=new T.Group();gallery.position.y=SCENE_Y.gallery;world.add(gallery);
- const galleryStructure=new T.Group();galleryStructure.name='extending-gallery-structure';gallery.add(galleryStructure);
+ const galleryStructure=new T.Group();galleryStructure.name='fixed-long-gallery-structure';gallery.add(galleryStructure);
+ const spineBottom=GALLERY_SPINE_BOUNDS.bottom,spineSpan=GALLERY_SPINE_BOUNDS.top-spineBottom;
  const coverLoaders=[];let coversLoaded=false;
  const coreMaterial=chrome.clone();coreMaterial.metalness=.87;coreMaterial.roughness=.23;coreMaterial.envMapIntensity=1.8;coreMaterial.color.set(0x829aa3);
  const spine=mesh(vertebraeGeometry(mobile),coreMaterial,galleryStructure);opaque.push(spine);
  // Irregular crystal fragments cling to the structure, rather than a uniform star background.
- const fragmentCount=mobile?260:780,fragments=new T.InstancedMesh(new T.IcosahedronGeometry(1,0),chrome,fragmentCount),fragmentDummy=new T.Object3D(),rand=seededRandom(9087),tint=new T.Color();
+ const fragmentCount=mobile?340:1000,fragments=new T.InstancedMesh(new T.IcosahedronGeometry(1,0),chrome,fragmentCount),fragmentDummy=new T.Object3D(),rand=seededRandom(9087),tint=new T.Color();
  for(let i=0;i<fragmentCount;i++){
-  const y=rand()*8-4,a=y*1.7+rand()*.8+(i%3)*2.094,r=.8+rand()*.35;
+  const y=spineBottom+rand()*spineSpan,a=y*1.7+rand()*.8+(i%3)*2.094,r=.8+rand()*.35;
   fragmentDummy.position.set(Math.cos(a)*r+.22*Math.sin(y),y,Math.sin(a)*r);
   fragmentDummy.rotation.set(rand()*3,rand()*3,rand()*3);const s=.013+Math.pow(rand(),3)*.085;fragmentDummy.scale.set(s,s*(1+rand()),s);fragmentDummy.updateMatrix();fragments.setMatrixAt(i,fragmentDummy.matrix);
   tint.setHSL(.49+rand()*.36,.45,.25+rand()*.2);fragments.setColorAt(i,tint);
  }galleryStructure.add(fragments);
- const chainCount=mobile?64:112,chain=new T.InstancedMesh(new T.TorusGeometry(.105,.022,5,12),chrome,chainCount);
+ const chainCount=mobile?100:176,chain=new T.InstancedMesh(new T.TorusGeometry(.105,.022,4,10),chrome,chainCount);
  for(let i=0;i<chainCount;i++){
-  const y=(i/(chainCount-1)-.5)*9,a=y*.72;
+  const y=spineBottom+i/(chainCount-1)*spineSpan,a=y*.72;
   fragmentDummy.position.set(Math.cos(a)*1.05,y,Math.sin(a)*1.05);fragmentDummy.rotation.set(.2,a+(i%2)*Math.PI/2,.15);fragmentDummy.scale.set(1,1.5,1);fragmentDummy.updateMatrix();chain.setMatrixAt(i,fragmentDummy.matrix);
  }galleryStructure.add(chain);
  const tendrils=new T.Group();galleryStructure.add(tendrils);
  for(let k=0;k<3;k++){
-  const pts=[];for(let j=0;j<=100;j++){const y=j/100*8-4,a=y*(.85+k*.07)+k*.9,r=.75+.22*Math.sin(y*2+k);pts.push([Math.cos(a)*r,y,Math.sin(a)*r]);}
-  tendrils.add(tube(pts,k%2?.013:.028,k%3?dark:chrome,mobile?80:120));
+  const pts=[];for(let j=0;j<=160;j++){const y=spineBottom+j/160*spineSpan,a=y*(.85+k*.07)+k*.9,r=.75+.22*Math.sin(y*2+k);pts.push([Math.cos(a)*r,y,Math.sin(a)*r]);}
+  tendrils.add(tube(pts,k%2?.013:.028,k%3?dark:chrome,mobile?112:176));
  }
  for(let j=0;j<6;j++){
-  const m=torus(galleryStructure,.65+.14*Math.sin(j*1.5),.018,chrome,[.12*Math.sin(j),j*.48-3.6,0],true);m.rotation.z=.4*Math.sin(j*2);
+  const m=torus(galleryStructure,.65+.14*Math.sin(j*1.5),.018,chrome,[.12*Math.sin(j),spineBottom+1+j/5*(spineSpan-2),0],true);m.rotation.z=.4*Math.sin(j*2);
  }
  const cardDeck=new T.Group();gallery.add(cardDeck);
  const cardTints=[0x63536e,0x496767,0x6e5544,0x455665,0x586751,0x67546b,0x4b6265];
@@ -178,15 +179,7 @@ export async function buildWorld({mobile=false,documentRef=document,onTexture=()
  const ribbonUniforms={uTime:{value:0},uOpacity:{value:0}};
  const ribbonMaterial=new T.ShaderMaterial({uniforms:ribbonUniforms,transparent:true,depthWrite:false,side:T.DoubleSide,blending:T.AdditiveBlending,vertexShader:'uniform float uTime;varying vec2 vUv;void main(){vUv=uv;vec3 p=position;p.y+=sin(uv.x*18.-uTime*.7)*.12;gl_Position=projectionMatrix*modelViewMatrix*vec4(p,1.);}',fragmentShader:'uniform float uTime,uOpacity;varying vec2 vUv;void main(){float edge=pow(sin(vUv.y*3.14159),3.);float vein=pow(max(0.,1.-abs(vUv.y-.5-sin(vUv.x*25.-uTime*.4)*.15)*5.),5.);float fade=sin(vUv.x*3.14159);float fibers=pow(.5+.5*sin(vUv.y*6.2831+sin(vUv.x*6.)*.6),3.);vec3 col=mix(vec3(.32,.008,.055),vec3(.95,.68,.61),max(vein*.9,fibers*.78));gl_FragColor=vec4(col,edge*fade*uOpacity*(.4+vein*.5+fibers*.12));\n#include <tonemapping_fragment>\n#include <colorspace_fragment>\n}'});
  const ribbons=new T.Group();emblem.add(ribbons);for(let k=0;k<2;k++)ribbons.add(new T.Mesh(flowingRibbonGeometry(k*.8),ribbonMaterial));
- let extension=1;
- function extendGallery(next){
-  if(Math.abs(next-extension)<.00001)return;
-  extension=next;galleryStructure.scale.y=next;galleryStructure.position.y=4.5*(1-next);spine.scale.y=1/next;
-  const position=spine.geometry.attributes.position,{joints,restY}=spine.geometry.userData;
-  for(const joint of joints){const offset=joint.y*(next-1);for(let i=joint.start;i<joint.start+joint.count;i++)position.setY(i,restY[i]+offset);}
-  position.needsUpdate=true;spine.geometry.computeBoundingSphere();
- }
- return {world,emblem,lens,arcs,jellyfish,streamers,flowUniforms,ribbons,ribbonUniforms,intro,gallery,galleryStructure,extendGallery,spine,tendrils,cardDeck,cards,machine,rotor,lab,pickables,opaque,textures,loadCovers(){if(!coversLoaded){coversLoaded=true;coverLoaders.forEach(load=>load());}},materials:{chrome,dark,rose},dispose(){world.traverse(o=>{o.geometry?.dispose();if(o.material)for(const m of Array.isArray(o.material)?o.material:[o.material])m.dispose();});textures.forEach(t=>t.dispose());}};
+ return {world,emblem,lens,arcs,jellyfish,streamers,flowUniforms,ribbons,ribbonUniforms,intro,gallery,galleryStructure,spine,tendrils,cardDeck,cards,machine,rotor,lab,pickables,opaque,textures,loadCovers(){if(!coversLoaded){coversLoaded=true;coverLoaders.forEach(load=>load());}},materials:{chrome,dark,rose},dispose(){world.traverse(o=>{o.geometry?.dispose();if(o.material)for(const m of Array.isArray(o.material)?o.material:[o.material])m.dispose();});textures.forEach(t=>t.dispose());}};
 }
 
 export function particleField(count,mobile=false){
@@ -196,7 +189,7 @@ export function particleField(count,mobile=false){
   const region=i%4,t=random(),a=random()*Math.PI*2,s=random(),j=i*3;
   let x,y,z;
   if(region===0){const radius=.8+Math.pow(s,2)*1.3,branch=i%2?1:-1;x=(mobile?.4:2)+branch*Math.sin(t*5.7)*radius;y=-.75-t*4.9;z=Math.cos(t*5.7)*radius+.25;c.setHSL(.015+random()*.085,.75,.3+random()*.38);}
-  else if(region===1){const cluster=Math.floor(t*7),v=(cluster+.5)/7+(random()+random()+random()-1.5)*.12;const radius=2.25+Math.sin(v*15)*.6+(s-.5)*1.3,theta=v*13+(i%3)*2.094+(a-3.14)*.19;x=Math.cos(theta)*radius;y=-13+(v-.5)*10;z=Math.sin(theta)*radius-1.15;c.setHSL(.47+random()*.42,.5,.25+random()*.4);}
+  else if(region===1){const cluster=Math.floor(t*10),v=Math.max(0,Math.min(1,(cluster+.5)/10+(random()+random()+random()-1.5)*.08));const radius=2.25+Math.sin(v*21)*.6+(s-.5)*1.3,theta=v*19+(i%3)*2.094+(a-3.14)*.19;x=Math.cos(theta)*radius;y=SCENE_Y.gallery+GALLERY_SPINE_BOUNDS.bottom+v*(GALLERY_SPINE_BOUNDS.top-GALLERY_SPINE_BOUNDS.bottom);z=Math.sin(theta)*radius-1.15;c.setHSL(.47+random()*.42,.5,.25+random()*.4);}
   else if(region===2){
    const lobe=t<.57?0:1,v=lobe?(t-.57)/.43:t/.57,latitude=v*Math.PI;
    const centerX=lobe?.35:-.3,centerY=lobe?.25:-.16,theta=a+v*2.8;

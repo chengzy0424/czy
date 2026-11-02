@@ -2,6 +2,7 @@ import * as T from 'three';
 import {createDrapedGrid,updateDrapedGrid,createDrapeSampler,LAB_LIP_SEAM,LAB_WAVE_PERIOD} from './space-forms.js';
 import {SCENE_Y} from './space-path.js';
 import {createLabFinish} from './space-lab-surface.js';
+import {createLabSculpture} from './space-lab-sculpture.js';
 
 function curvedRod(points,radius,material,segments=12,closed=false,tapered=false){
  const curve=new T.CatmullRomCurve3(points.map(p=>new T.Vector3(...p)),closed);
@@ -44,7 +45,9 @@ export function buildLab({mobile=false,materials={},opaque=[]}={}){
  const grid=createDrapedGrid(tileMaterial,mobile);lab.add(grid);opaque.push(grid);
  const backingMaterial=new T.MeshStandardMaterial({color:0x060909,metalness:.46,roughness:.52,side:T.DoubleSide});
  // Independent parametric patches prevent triangles from filling the open lip.
- const backings=[makeBacking(-4.03,LAB_LIP_SEAM-.001,mobile?6:8,mobile?18:24,backingMaterial),makeBacking(LAB_LIP_SEAM,4.03,mobile?24:30,mobile?16:18,backingMaterial)];
+ // The rolled lip is open between its tiles and layered ribs. A continuous
+ // inner wall made that opening read as a heavy black pipe.
+ const backings=[makeBacking(LAB_LIP_SEAM,4.03,mobile?24:30,mobile?16:18,backingMaterial)];
  backings.forEach(({mesh})=>{lab.add(mesh);opaque.push(mesh);});
  const sourceSilver=materials.silver||materials.chrome,silver=sourceSilver?sourceSilver.clone():new T.MeshStandardMaterial();
  silver.color.set(0xbac8c5);silver.metalness=.91;silver.roughness=.23;silver.envMapIntensity=.85;silver.emissive.set(0x758079);silver.emissiveIntensity=.15;
@@ -58,13 +61,7 @@ export function buildLab({mobile=false,materials={},opaque=[]}={}){
  marker.add(curvedRod([[0,-.33,.02],[0,.33,.02]],.035,markerSilver,8));
  marker.add(curvedRod([[-.33,0,.02],[.33,0,.02]],.035,markerSilver,8));
 
- const armSilver=tileMaterial.clone();armSilver.color.set(0xb7bdab);armSilver.envMapIntensity=1.5;armSilver.bumpScale=.045;
- const arm=new T.Group();arm.name='lab-left-sculpture';arm.position.set(-3.39,0,markerPlane+.035);lab.add(arm);
- // Four swept, tapered arms continue the rolled mouth's asymmetry.
- arm.add(curvedRod([[0,0,.075],[-.09,.55,.07],[-.2,1.2,.015]],.09,armSilver,12,false,true));
- arm.add(curvedRod([[0,0,.075],[.11,-.58,.06],[.22,-1.2,.015]],.09,armSilver,12,false,true));
- arm.add(curvedRod([[0,0,.075],[-.36,.045,.06],[-.7,.15,.02]],.08,armSilver,12,false,true));
- arm.add(curvedRod([[0,0,.075],[.4,-.025,.06],[.76,-.11,.02]],.08,armSilver,12,false,true));
+ const sculpture=createLabSculpture({material:tileMaterial,markerPlane,mobile});lab.add(sculpture.root);
  const mintGlint=new T.PointLight(0x73bd9b,5.2,4.5,2);mintGlint.position.set(.25,1.25,1.8);lab.add(mintGlint);
  const roseGlint=new T.PointLight(0x9b687e,2.2,4.2,2);roseGlint.position.set(2.7,.6,1.7);lab.add(roseGlint);
  marker.userData.radius=.51;lab.userData.wavePeriod=LAB_WAVE_PERIOD;lab.userData.markerClearance=.28;
@@ -72,7 +69,7 @@ export function buildLab({mobile=false,materials={},opaque=[]}={}){
  function updateLab(time,reduced=false){
   const next=reduced?0:Number.isFinite(time)?time:0;
   if(Math.abs(next-lastTime)<1e-7)return false;
-  updateDrapedGrid(grid,next);for(const backing of backings)backing.update(next);
+  updateDrapedGrid(grid,next);for(const backing of backings)backing.update(next);sculpture.update(next);
   lastTime=next;return true;
  }
  return {lab,updateLab};

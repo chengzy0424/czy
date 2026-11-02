@@ -1,12 +1,12 @@
 import * as T from 'three';
-import {cameraPose,passageStrength,galleryCardPose,galleryDescent,GALLERY_DESCENT,SCENE_Y} from './space-path.js';
+import {cameraPose,passageStrength,galleryCardPose,galleryTurn,GALLERY_DESCENT,SCENE_Y} from './space-path.js';
 import {buildWorld,particleField} from './space-objects.js';
 import {createWater} from './space-water.js';
 import {damp,clamp,smooth,springStep} from './weave-math.js';
 
 const vertex=`
  attribute vec3 aMeta; attribute vec3 aTint;
- uniform float uTime,uDpr,uForce,uChapter,uMobile,uPassage,uGalleryStretch,uAfterShift; uniform vec3 uPointer,uTrail,uGuideStart,uGuideEnd;
+ uniform float uTime,uDpr,uForce,uChapter,uMobile,uPassage,uGalleryTurn,uAfterShift; uniform vec3 uPointer,uTrail,uGuideStart,uGuideEnd;
  varying vec3 vTint; varying float vAlpha,vStreak,vAngle,vBead;
  void main(){
   vec3 p=position;float seed=aMeta.x,region=aMeta.y;
@@ -20,10 +20,9 @@ const vertex=`
    p.y=-.75-travel*4.9;p.z=cos(travel*5.7)*radius+.25;p.x+=sin(phase*1.7+travel*17.)*.16;
    float flare=max(sin(clamp(uChapter,0.,1.)*3.14159),smoothstep(4.,5.,uChapter));p.x+=sin(travel*3.14159)*flare*1.7*branch;
   }
-  else if(region<1.5){float a=uTime*.075;float x=p.x;p.x=x*cos(a)-p.z*sin(a);p.z=x*sin(a)+p.z*cos(a);p.x+=sin(p.y*3.+phase)*.13;p.y+=sin(phase+p.y*.7)*.12;}
+  else if(region<1.5){float a=uGalleryTurn;float x=p.x;p.x=x*cos(a)+p.z*sin(a);p.z=-x*sin(a)+p.z*cos(a);p.x+=sin(p.y*3.+phase)*.13;p.y+=sin(phase+p.y*.7)*.12;}
   else if(region<2.5){float a=uTime*.16+sin(p.y*2.+phase)*.12;float x=p.x;p.x=x*cos(a)-p.z*sin(a);p.z=x*sin(a)+p.z*cos(a);p.y+=sin(phase)*.055;}
   else {float x=p.x-mix(2.,.4,uMobile);float a=uTime*.06;p.x=mix(2.,.4,uMobile)+x*cos(a)-p.y*sin(a);p.y=x*sin(a)+p.y*cos(a);p.z+=sin(phase+p.y)*.24;}
-  if(region>.5&&region<1.5)p.y=-8.5+(p.y+8.5)*uGalleryStretch;
   if((region<.5||region>2.5)&&uChapter>4.){p.x-=mix(2.,.4,uMobile);p.x*=1.3;p.y-=(region<.5?41.9:43.8)+uAfterShift;}
   // Reuse a small subset of existing particles as the chapter's directed current.
   float guide=step(.97,aMeta.z)*uPassage;
@@ -49,7 +48,7 @@ const fragment=`varying vec3 vTint;varying float vAlpha,vStreak,vAngle,vBead;voi
 #include <colorspace_fragment>
 }`;
 
-// Use the current transformed bounds: the extended skeleton can remain visible
+// Use the current transformed bounds: the long skeleton can remain visible
 // well after its original group origin has left a narrow portrait viewport.
 export function galleryIntersectsView(camera,meshes,frustum=new T.Frustum(),viewProjection=new T.Matrix4()){
  frustum.setFromProjectionMatrix(viewProjection.multiplyMatrices(camera.projectionMatrix,camera.matrixWorldInverse));
@@ -105,7 +104,7 @@ export async function createSpace({container,state,onFailure=()=>{},onSelect=()=
  const redLight=new T.PointLight(0xe61458,29,7,2);redLight.position.set(.4,SCENE_Y.machine+1,1);scene.add(redLight);
  const count=mobile?11000:44000,points=particleField(count,mobile),geo=new T.BufferGeometry();
  geo.setAttribute('position',new T.BufferAttribute(points.position,3));geo.setAttribute('aTint',new T.BufferAttribute(points.color,3));geo.setAttribute('aMeta',new T.BufferAttribute(points.meta,3));
- const uniforms={uTime:{value:0},uDpr:{value:1},uForce:{value:0},uChapter:{value:0},uMobile:{value:mobile?1:0},uPassage:{value:0},uGalleryStretch:{value:1},uAfterShift:{value:GALLERY_DESCENT},uGuideStart:{value:new T.Vector3()},uGuideEnd:{value:new T.Vector3()},uPointer:{value:new T.Vector3(100,100,0)},uTrail:{value:new T.Vector3(100,100,0)}};
+ const uniforms={uTime:{value:0},uDpr:{value:1},uForce:{value:0},uChapter:{value:0},uMobile:{value:mobile?1:0},uPassage:{value:0},uGalleryTurn:{value:0},uAfterShift:{value:GALLERY_DESCENT},uGuideStart:{value:new T.Vector3()},uGuideEnd:{value:new T.Vector3()},uPointer:{value:new T.Vector3(100,100,0)},uTrail:{value:new T.Vector3(100,100,0)}};
  const guideAnchors=[[2,-.4,0],[1.6,-3.5,0],[-2,SCENE_Y.gallery+1.4,3],[2.7,SCENE_Y.gallery-GALLERY_DESCENT-.7,2],[.8,SCENE_Y.machine,1],[-.4,SCENE_Y.lab,1],[0,SCENE_Y.confluence,0]];
  let travelEnergy=0;
  const pointMaterial=new T.ShaderMaterial({uniforms,vertexShader:vertex,fragmentShader:fragment,transparent:true,depthWrite:false,depthTest:true,blending:T.NormalBlending});
@@ -158,9 +157,8 @@ export async function createSpace({container,state,onFailure=()=>{},onSelect=()=
   world.intro.visible=!mobile;
   world.intro.material.opacity=smooth(clamp((progress-.25)/.45))*(1-smooth(clamp((progress-1.15)/.45)));
   world.gallery.rotation.y=0;
-  const stretch=1+galleryDescent(progress)/9;world.extendGallery(stretch);uniforms.uGalleryStretch.value=stretch;
+  const turn=galleryTurn(progress);world.galleryStructure.rotation.y=turn;uniforms.uGalleryTurn.value=turn;
   if(progress>.75)world.loadCovers();
-  world.tendrils.rotation.y=reduced?0:time*.025;
   world.rotor.rotation.y=(reduced?0:time*.1)+smooth(clamp(progress-3))*2.1;
   world.machine.rotation.y=.08+Math.sin(reduced?0:time*.1)*.06;
   water.visible=progress>=3.5&&progress<4.5&&quality>.75;
@@ -174,7 +172,6 @@ export async function createSpace({container,state,onFailure=()=>{},onSelect=()=
    const pose=galleryCardPose(index,progress,mobile);
    card.group.position.fromArray(pose.position);card.group.position.z+=card.hover*.17;
    card.group.visible=pose.visible;
-   card.group.position.y+=(reduced?0:Math.sin(time*.24+card.home.x)*.045);
    const exit=smooth(clamp((progress-3)/.75));
    card.group.position.y+=exit*(.5+index*.13);
    card.group.rotation.fromArray(pose.rotation);

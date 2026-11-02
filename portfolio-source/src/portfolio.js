@@ -1,6 +1,9 @@
 import catalog from './stream-catalog.json' with {type:'json'};
-import {createStreamPlayer,prepareVideoPlayer} from './stream-player.js';
-export {prepareVideoPlayer};
+import {createStreamPlayer,prepareVideoPlayer as loadVideoPlayer,prepareFirstSegment} from './stream-player.js';
+export function prepareVideoPlayer(id){
+ const stream=catalog[id];if(stream)prepareFirstSegment('./'+stream.path,stream.levels[0].level);
+ return loadVideoPlayer();
+}
 // Real project recordings and personal films; no game engine is shipped with this site.
 export const games={
  tower:{title:'Tower Defense',subtitle:'烽誓 · 守望',genre:'策略塔防',imageNote:'原创概念封面',summary:'把战术，放进每一次选择。',description:'沿道路与地形部署防线，在敌人波次之间调整布局，让英雄与援军共同守住战线。',focus:'防御塔部署 · 敌人波次 · 英雄支援',demo:'建造防御塔、推进波次与战场支援。'},
@@ -72,3 +75,4 @@ export function startMedia(kind,id,slot){
  controller.start();offerRecovery();document.querySelector('dialog').scrollTop=0;
 }
 export function releaseMedia(root){root.querySelectorAll('video').forEach(v=>{v._release?.();v.pause();v.removeAttribute('src');v.load();});}
+

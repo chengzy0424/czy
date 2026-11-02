@@ -1,7 +1,9 @@
 import * as T from 'three';
 import {CARD_SPECS,SCENE_Y} from './space-path.js';
+import {buildMachine,machineParticle} from './space-machine.js';
+import {buildLab} from './space-lab.js';
 import {seededRandom} from './weave-math.js';
-import {vertebraeGeometry,GALLERY_SPINE_BOUNDS,createDrapedGrid,drapePoint,membraneGeometry,flowingRibbonGeometry} from './space-forms.js';
+import {vertebraeGeometry,GALLERY_SPINE_BOUNDS,flowingRibbonGeometry} from './space-forms.js';
 
 function tube(points,radius,material,segments=96,closed=false){
  const curve=new T.CatmullRomCurve3(points.map(p=>new T.Vector3(...p)),closed);
@@ -140,46 +142,13 @@ export async function buildWorld({mobile=false,documentRef=document,onTexture=()
  }
 
  await yieldControl();
- const machine=new T.Group();machine.position.set(0,SCENE_Y.machine,0);world.add(machine);
- const rotor=new T.Group();machine.add(rotor);
- for(const y of [-2.15,-1.93,1.8,2.08]){
-  const plate=mesh(extruded(ringShape(y>0?2.22:1.98,y>0?1.84:1.62),.09,.015,48),y>0?rose:dark,rotor,[0,y,0]);plate.rotation.x=-Math.PI/2;opaque.push(plate);
-  torus(rotor,y>0?2.22:1.98,.035,chrome,[0,y,0],true);torus(rotor,y>0?1.95:1.72,.018,glow,[0,y+.07,0],true);
- }
- for(let i=0;i<12;i++){
-  const a=i*Math.PI/6,r=i%2?1.76:1.9;
-  const support=mesh(new T.BoxGeometry(i%3?.036:.065,3.7,.055),i%6?rose:dark,machine,[Math.cos(a)*r,-.05,Math.sin(a)*r]);support.rotation.y=-a;opaque.push(support);
- }
- for(let i=0;i<(mobile?12:20);i++){
-  const a=i*.53,r=1.45+i%3*.25;
-  const pts=[[Math.cos(a)*r,2.1,Math.sin(a)*r],[Math.cos(a+.3)*(r+.6),.8,Math.sin(a+.3)*(r+.6)],[Math.cos(a-.2)*r,-.8,Math.sin(a-.2)*r],[Math.cos(a)*1.55,-1.9,Math.sin(a)*1.55]];
-  machine.add(tube(pts,i%4===0?.027:.012,i%3?rose:silver,mobile?32:44));
- }
- // Loose cables sag away from the upper assembly at different lengths and heights.
- for(let i=0;i<(mobile?5:8);i++){
-  const side=i<3?-1:1,reach=2.55+(i%3)*.35,anchorY=1.65-(i%4)*.22,z=-.25+(i%3)*.37;
-  machine.add(tube([[side*1.55,anchorY,z],[side*2.05,anchorY-.62,z+.18],[side*reach,anchorY-.75+(i%2)*.16,z-.14],[side*(reach+.35),anchorY-.12+(i%3)*.17,z-.35]],i%3===0?.017:.009,i%3?rose:silver,mobile?20:28));
- }
- const floor=mesh(membraneGeometry(),new T.MeshPhysicalMaterial({color:0x142023,metalness:.94,roughness:.27,clearcoat:1,iridescence:.45,envMapIntensity:.8,side:T.DoubleSide}),machine,[0,-2.8,0]);floor.rotation.x=-Math.PI/2;floor.name="machine-membrane";
- for(let i=0;i<5;i++){const r=2.65+i*.46;const pts=[];for(let j=0;j<=100;j++){const a=j/100*Math.PI*2;pts.push([Math.cos(a)*r,-2.25+.09*Math.sin(a*8+i),Math.sin(a)*r]);}machine.add(tube(pts,.016,i%2?rose:dark,100,true));}
-
+ const {machine,rotor,core:machineCore}=buildMachine({mobile,materials:{chrome,dark,rose,silver,glow},opaque});world.add(machine);
  await yieldControl();
- const lab=new T.Group();lab.position.set(0,SCENE_Y.lab,0);world.add(lab);
- const gridMaterial=new T.MeshPhysicalMaterial({color:0xd2dbd5,metalness:.87,roughness:.38,clearcoat:1,iridescence:.3,iridescenceThicknessRange:[240,410],envMapIntensity:.65});
- const grid=createDrapedGrid(gridMaterial,mobile);lab.add(grid);opaque.push(grid);
- // Keep the complete marker in front of the relief, including the bevels.
- grid.computeBoundingBox();
- const labMarker=new T.Group();labMarker.name='lab-marker';
- labMarker.position.set(0,-.05,grid.boundingBox.max.z+.25);lab.add(labMarker);
- torus(labMarker,.59,.025,silver);
- labMarker.add(tube([[0,-.39,.02],[0,.39,.02]],.035,silver,8));labMarker.add(tube([[-.39,0,.02],[.39,0,.02]],.035,silver,8));
- const backdropGeo=new T.PlaneGeometry(8.2,4.9,48,24),backPos=backdropGeo.attributes.position,sample=new T.Vector3();for(let i=0;i<backPos.count;i++){drapePoint(backPos.getX(i),backPos.getY(i),sample);backPos.setXYZ(i,sample.x,sample.y,sample.z-.09);}backdropGeo.computeVertexNormals();
- const backdrop=mesh(backdropGeo,new T.MeshStandardMaterial({color:0x040a0d,metalness:.45,roughness:.5}),lab);
- lab.rotation.y=-.16;lab.rotation.z=.055;
+ const {lab,updateLab}=buildLab({mobile,materials:{chrome,dark,rose,silver},opaque});world.add(lab);
  const ribbonUniforms={uTime:{value:0},uOpacity:{value:0}};
  const ribbonMaterial=new T.ShaderMaterial({uniforms:ribbonUniforms,transparent:true,depthWrite:false,side:T.DoubleSide,blending:T.AdditiveBlending,vertexShader:'uniform float uTime;varying vec2 vUv;void main(){vUv=uv;vec3 p=position;p.y+=sin(uv.x*18.-uTime*.7)*.12;gl_Position=projectionMatrix*modelViewMatrix*vec4(p,1.);}',fragmentShader:'uniform float uTime,uOpacity;varying vec2 vUv;void main(){float edge=pow(sin(vUv.y*3.14159),3.);float vein=pow(max(0.,1.-abs(vUv.y-.5-sin(vUv.x*25.-uTime*.4)*.15)*5.),5.);float fade=sin(vUv.x*3.14159);float fibers=pow(.5+.5*sin(vUv.y*6.2831+sin(vUv.x*6.)*.6),3.);vec3 col=mix(vec3(.32,.008,.055),vec3(.95,.68,.61),max(vein*.9,fibers*.78));gl_FragColor=vec4(col,edge*fade*uOpacity*(.4+vein*.5+fibers*.12));\n#include <tonemapping_fragment>\n#include <colorspace_fragment>\n}'});
  const ribbons=new T.Group();emblem.add(ribbons);for(let k=0;k<2;k++)ribbons.add(new T.Mesh(flowingRibbonGeometry(k*.8),ribbonMaterial));
- return {world,emblem,lens,arcs,jellyfish,streamers,flowUniforms,ribbons,ribbonUniforms,intro,gallery,galleryStructure,spine,tendrils,cardDeck,cards,machine,rotor,lab,pickables,opaque,textures,loadCovers(){if(!coversLoaded){coversLoaded=true;coverLoaders.forEach(load=>load());}},materials:{chrome,dark,rose},dispose(){world.traverse(o=>{o.geometry?.dispose();if(o.material)for(const m of Array.isArray(o.material)?o.material:[o.material])m.dispose();});textures.forEach(t=>t.dispose());}};
+ return {world,emblem,lens,arcs,jellyfish,streamers,flowUniforms,ribbons,ribbonUniforms,intro,gallery,galleryStructure,spine,tendrils,cardDeck,cards,machine,rotor,machineCore,lab,updateLab,pickables,opaque,textures,loadCovers(){if(!coversLoaded){coversLoaded=true;coverLoaders.forEach(load=>load());}},materials:{chrome,dark,rose},dispose(){world.traverse(o=>{o.geometry?.dispose();if(o.material)for(const m of Array.isArray(o.material)?o.material:[o.material])m.dispose();});textures.forEach(t=>t.dispose());}};
 }
 
 export function particleField(count,mobile=false){
@@ -190,16 +159,7 @@ export function particleField(count,mobile=false){
   let x,y,z;
   if(region===0){const radius=.8+Math.pow(s,2)*1.3,branch=i%2?1:-1;x=(mobile?.4:2)+branch*Math.sin(t*5.7)*radius;y=-.75-t*4.9;z=Math.cos(t*5.7)*radius+.25;c.setHSL(.015+random()*.085,.75,.3+random()*.38);}
   else if(region===1){const cluster=Math.floor(t*10),v=Math.max(0,Math.min(1,(cluster+.5)/10+(random()+random()+random()-1.5)*.08));const radius=2.25+Math.sin(v*21)*.6+(s-.5)*1.3,theta=v*19+(i%3)*2.094+(a-3.14)*.19;x=Math.cos(theta)*radius;y=SCENE_Y.gallery+GALLERY_SPINE_BOUNDS.bottom+v*(GALLERY_SPINE_BOUNDS.top-GALLERY_SPINE_BOUNDS.bottom);z=Math.sin(theta)*radius-1.15;c.setHSL(.47+random()*.42,.5,.25+random()*.4);}
-  else if(region===2){
-   const lobe=t<.57?0:1,v=lobe?(t-.57)/.43:t/.57,latitude=v*Math.PI;
-   const centerX=lobe?.35:-.3,centerY=lobe?.25:-.16,theta=a+v*2.8;
-   const shape=1+.16*Math.sin(theta*3+v*8)+.09*Math.sin(theta*7-v*11);
-   const radius=Math.sin(latitude)*Math.pow(s,.32)*shape;
-   x=centerX+Math.cos(theta)*radius*(lobe?.63:.77);
-   y=SCENE_Y.machine+centerY+Math.cos(latitude)*(lobe?.88:.68)+.12*Math.sin(theta*2)*radius;
-   z=Math.sin(theta)*radius*(lobe?.63:.72)+.08*Math.sin(v*9);
-   c.setHSL(.87+random()*.115,.84,.27+random()*.31);
-  }
+  else if(region===2){const sample=machineParticle(t,a,s,random);x=sample.x;y=sample.y;z=sample.z;c.fromArray(sample.color);}
   else{const theta=t*Math.PI*2,radius=2.4+Math.sin(t*17)*.6+(s-.5)*1.1;x=(mobile?.4:2)+Math.cos(theta)*radius;y=-1+Math.sin(theta)*radius;z=-1+(random()-.5)*1.9;c.setHSL(.005+Math.pow(random(),2)*.09,.8,.24+random()*.32);}
   const scatter=region===1?.2:.09;x+=(random()-.5)*scatter;y+=(random()-.5)*scatter;z+=(random()-.5)*scatter;
   position.set([x,y,z],j);color.set([c.r,c.g,c.b],j);meta.set([random(),region,random()],j);

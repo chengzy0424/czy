@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import * as T from 'three';
 import {cameraPose,scrollToChapter,galleryCardPose,galleryDescent,GALLERY_DESCENT,SCENE_Y,CARD_SPECS} from '../src/space-path.js';
 import {buildWorld,particleField} from '../src/space-objects.js';
+import {galleryIntersectsView} from '../src/space.js';
 import {springStep} from '../src/weave-math.js';
 
 test('all six passages share a finite continuous and reversible camera path',()=>{
@@ -106,6 +107,37 @@ test('gallery skeleton extends downward by separating rigid joints and retracts 
     for(let i=0;i<position.count;i++)assert.equal(position.getY(i),restY[i],'return scroll fails to restore original joints');
     next.forEach((joint,index)=>assert.ok(Math.abs(joint.center-rest[index].center)<1e-10));
    }
+  }
+  w.dispose();
+ }
+});
+
+test('extended skeleton stays visible until it leaves desktop and tall mobile viewports',async()=>{
+ for(const mobile of [false,true]){
+  const w=await geometryWorld(mobile),meshes=[],point=new T.Vector3(),projection=new T.Matrix4(),frustum=new T.Frustum();
+  w.gallery.traverse(object=>{if(object.geometry)meshes.push(object);});
+  const viewports=mobile?[[390,844],[320,1000],[390,1200]]:[[1660,940],[768,1024]];
+  for(const [width,height] of viewports){
+   const camera=new T.PerspectiveCamera(mobile?43:40,width/height,.1,100);let oldCutoffFailures=0,culled=0;
+   for(let step=0;step<=150;step++){
+    const progress=3+step/100,pose=cameraPose(progress,mobile,width/height);
+    camera.position.fromArray(pose.eye);camera.lookAt(...pose.look);camera.rotateZ(pose.roll);camera.updateMatrixWorld();
+    w.extendGallery(1+galleryDescent(progress)/9);
+    w.cards.forEach((card,index)=>{const cardPose=galleryCardPose(index,progress,mobile);card.group.position.fromArray(cardPose.position);card.group.rotation.set(...cardPose.rotation);});
+    w.world.updateMatrixWorld(true);
+    const visible=galleryIntersectsView(camera,meshes,frustum,projection),position=w.spine.geometry.attributes.position;
+    let boneInViewport=false;
+    for(let i=0;i<position.count;i++){
+     point.fromBufferAttribute(position,i).applyMatrix4(w.spine.matrixWorld).project(camera);
+     if(Math.abs(point.x)<=1&&Math.abs(point.y)<=1&&Math.abs(point.z)<=1){boneInViewport=true;break;}
+    }
+    if(boneInViewport){assert.ok(visible,`visible bone culled at ${width}x${height}, chapter ${progress}`);if(Math.abs(SCENE_Y.gallery-pose.look[1])>=14)oldCutoffFailures++;}
+    if(!visible)culled++;
+    // A previously hidden parent must become visible again on reverse scrolling.
+    w.gallery.visible=false;assert.equal(galleryIntersectsView(camera,meshes,frustum,projection),visible);w.gallery.visible=true;
+   }
+   assert.ok(oldCutoffFailures>0,'regression did not reach the former premature cutoff');
+   assert.ok(culled>0,'gallery should still be culled once all geometry leaves the viewport');
   }
   w.dispose();
  }

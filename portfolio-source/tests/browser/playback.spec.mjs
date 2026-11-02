@@ -30,6 +30,7 @@ test.beforeEach(async({page},info)=>{
    }catch(e){window.__mediaAudit.audioError=e.message;}
   }).observe(document,{childList:true,subtree:true});
   setInterval(()=>{
+   window.__mediaAudit.contextState=audioContext?.state;window.__mediaAudit.contextTime=audioContext?.currentTime;window.__mediaAudit.analyserConnected=!!analyser;
    if(!analyser)return;const samples=new Float32Array(analyser.fftSize);analyser.getFloatTimeDomainData(samples);
    for(const value of samples)window.__mediaAudit.peak=Math.max(window.__mediaAudit.peak,Math.abs(value));
   },40);

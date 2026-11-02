@@ -8,7 +8,7 @@ on:
 permissions:
   contents: read
 concurrency:
-  group: portfolio-regression-${{ github.ref }}
+  group: portfolio-regression-${{ github.event.pull_request.head.ref || github.ref_name }}
   cancel-in-progress: true
 jobs:
   production:
@@ -32,8 +32,15 @@ jobs:
       - run: pnpm build
       - run: node tools/sync-production.mjs --check
       - run: pnpm exec playwright install --with-deps chromium firefox webkit
+      - name: Provide a virtual audio output for Firefox Web Audio evidence
+        run: |
+          sudo apt-get install -y pulseaudio
+          pulseaudio --start --exit-idle-time=-1
+          pactl load-module module-null-sink sink_name=ci_audio
+          pactl set-default-sink ci_audio
+          pactl info
       - name: Test rebuilt production including all nine films and the gallery
-        run: pnpm exec playwright test --project=${{ matrix.project }}
+        run: xvfb-run -a pnpm exec playwright test --headed --project=${{ matrix.project }}
         env:
           CI: '1'
           PLAYWRIGHT_TEST_PRODUCTION: '1'

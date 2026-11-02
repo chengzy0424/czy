@@ -58,6 +58,8 @@ pnpm test:browser
 
 生产回归：先 `npm run build`，再 `PLAYWRIGHT_TEST_PRODUCTION=1 npm run test:browser -- --project=chromium`。测试服务直接预览 `release-oct30`；原生独立控制器页面仅用于源码测试，因此生产模式明确排除 `native.spec.mjs`。
 
-九部影片分别检查自动 MP4 降级、画质菜单禁用、暂停恢复和关闭释放。`gallery.spec.mjs` 用滚轮遍历七块真实三维展板，鼠标/模拟触摸点击投影中心，检查正确项目、返回位置、视频弹窗内渲染暂停/关闭恢复，以及反向滚动和机械、蜂巢、水下章节。WebGL 不可用会明确跳过，不得计为三维通过。
+九部影片分别检查自动 MP4 降级、画质菜单禁用、暂停恢复和关闭释放。`gallery.spec.mjs` 桌面用滚轮、移动模拟用 scrollTo 遍历七块真实三维展板，鼠标/模拟触摸点击投影中心，检查正确项目、返回位置、视频弹窗内渲染暂停/关闭恢复，以及反向滚动和机械、蜂巢、水下章节。WebGL 不可用会明确跳过，不得计为三维通过。
 
 `.github/workflows/portfolio-regression.yml` 在 Linux 上检查五种桌面/模拟触摸项目的新生产构建，macOS 上单独跑 Playwright WebKit 的原生控制器测试。**macOS WebKit 仍不是 Safari 应用或 iPhone 实机测试**。工作流只验证并上传测试证据，没有部署步骤。
+
+Linux CI 使用 Xvfb 显示环境和 PulseAudio 空输出设备，音频断言仍要求非零 PCM/解码证据；这不是扬声器实听。移动 WebKit 不支持滚轮自动化，因此其画廊滚动使用 DOM scrollTo，点选使用触摸模拟；不声称覆盖实体手指滑动。

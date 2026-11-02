@@ -2,24 +2,31 @@ import {test,expect} from '@playwright/test';
 import {PerspectiveCamera,Vector3} from 'three';
 import {cameraPose,galleryCardPose,SCENE_Y,CARD_SPECS} from '../../src/space-path.js';
 
-// Use actual wheel/touch input and the rendered board's projected centre.
+// Use wheel input on desktop and scrollTo on mobile, plus real mouse/emulated
+// touch input on the rendered board's projected centre.
 // No onSelect calls, synthetic DOM clicks, or replacement scene are used.
 test('seven rotating gallery boards open the right project and restore the scroll journey',async({page},info)=>{
- test.setTimeout(240000);
+ test.setTimeout(360000);
+ if(!info.project.use.hasTouch)await page.setViewportSize({width:960,height:640});
  const errors=[];page.on('pageerror',e=>errors.push(e.message));
  await page.goto('/?inspect=1');
  await expect.poll(()=>page.evaluate(()=>document.body.classList.contains('webgl-ready')||document.body.classList.contains('webgl-failed')),{timeout:45000}).toBe(true);
  test.skip(await page.evaluate(()=>document.body.classList.contains('webgl-failed')),'WebGL unavailable: this run cannot verify rotating gallery hit-testing.');
  const metrics=page.locator('#prototype-metrics');await expect(metrics).toContainText('frames');
  const touch=!!info.project.use.hasTouch,viewport=page.viewportSize(),mobile=viewport.width<=760;
+ const scroll=async top=>{
+  if(touch)await page.evaluate(y=>window.scrollTo({top:y,behavior:'instant'}),top);
+  else await page.mouse.wheel(0,top-await page.evaluate(()=>scrollY));
+ };
+ info.annotations.push({type:'scroll-input',description:touch?'DOM scrollTo plus emulated taps; physical swipe is unverified':'mouse wheel plus mouse clicks'});
  const samples=[];
  for(const [index,spec] of CARD_SPECS.entries()){
   const progress=2+index/(CARD_SPECS.length-1);
   const target=await page.locator('#spatial-gallery').evaluate((el,p)=>Math.round(el.offsetTop+(el.offsetHeight-innerHeight)*(p-2)),progress);
-  // Wheel input exercises the site's scroll handler; touch projects additionally
-  // tap the boards with Playwright's touch input (not a physical iPhone).
+  // Both paths exercise the site's scroll handler. Mobile WebKit does not
+  // support wheel input; its scrollTo and taps are explicitly labelled emulation.
   await page.mouse.move(viewport.width-15,viewport.height*.55);
-  await page.mouse.wheel(0,target-await page.evaluate(()=>scrollY));
+  await scroll(target);
   await expect.poll(()=>page.evaluate(()=>scrollY)).toBeCloseTo(target,0);
   await expect.poll(async()=>Math.abs(JSON.parse(await metrics.textContent()).chapter-progress),{timeout:30000}).toBeLessThan(.025);
   const pose=cameraPose(progress,mobile,viewport.width/viewport.height);
@@ -32,7 +39,7 @@ test('seven rotating gallery boards open the right project and restore the scrol
   await expect(page.locator('dialog')).toBeVisible();
   if(['tower','ash','csol','mines'].includes(spec.id))await expect(page.locator(`[data-play="${spec.id}"]`)).toBeVisible();
   else if(spec.id==='boe')await expect(page.locator('#detail-content')).toContainText('BOE');
-  else await expect(page.locator(`[data-film="${spec.id==='ae'?'murphy':'town'}"]`)).toBeVisible();
+  else await expect(page.locator(`#detail-content [data-film="${spec.id==='ae'?'murphy':'town'}"]`)).toBeVisible();
   // Inspect the real draw counter while a video is visible over the gallery.
   if(index===0){
    await page.locator('[data-play="tower"]').click();
@@ -52,11 +59,11 @@ test('seven rotating gallery boards open the right project and restore the scrol
  }
  // Reverse through the same scroll path, then continue to the newer scenes.
  const start=await page.locator('#spatial-gallery').evaluate(el=>el.offsetTop);
- await page.mouse.wheel(0,start-await page.evaluate(()=>scrollY));
+ await scroll(start);
  await expect.poll(async()=>Math.abs(JSON.parse(await metrics.textContent()).chapter-2)).toBeLessThan(.025);
  for(const [selector,chapter] of [['#machine',4],['#lab',5],['#confluence',6]]){
   const top=await page.locator(selector).evaluate(el=>el.offsetTop);
-  await page.mouse.wheel(0,top-await page.evaluate(()=>scrollY));
+  await scroll(top);
   await expect.poll(async()=>Math.abs(JSON.parse(await metrics.textContent()).chapter-chapter),{timeout:30000}).toBeLessThan(.025);
  }
  expect(errors).toEqual([]);

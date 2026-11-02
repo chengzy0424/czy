@@ -1,5 +1,6 @@
 import * as T from 'three';
 import {Reflector} from 'three/addons/objects/Reflector.js';
+import {SCENE_Y} from './space-path.js';
 
 // A small, local planar reflection. Only the machine chapter pays for the extra pass.
 export function createWater(){
@@ -24,7 +25,7 @@ export function createWater(){
    }`
  };
  const water=new Reflector(new T.PlaneGeometry(14,20),{textureWidth:512,textureHeight:512,multisample:0,clipBias:.004,shader:rippleShader});
- water.name='machine-water';water.rotation.x=-Math.PI/2;water.position.set(0,-26.5,0);
+ water.name='machine-water';water.rotation.x=-Math.PI/2;water.position.set(0,SCENE_Y.machine-2.5,0);
  water.material.transparent=true;water.material.depthWrite=false;water.material.side=T.DoubleSide;
  return water;
 }

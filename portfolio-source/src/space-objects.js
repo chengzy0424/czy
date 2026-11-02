@@ -1,5 +1,5 @@
 import * as T from 'three';
-import {CARD_SPECS} from './space-path.js';
+import {CARD_SPECS,SCENE_Y} from './space-path.js';
 import {seededRandom} from './weave-math.js';
 import {vertebraeGeometry,createDrapedGrid,drapePoint,membraneGeometry,flowingRibbonGeometry} from './space-forms.js';
 
@@ -80,10 +80,11 @@ export async function buildWorld({mobile=false,documentRef=document,onTexture=()
  const introTexture=canvasTexture(1536,1024,c=>{c.clearRect(0,0,1536,1024);c.fillStyle='#e2e9e5';c.font='300 188px "Consolas", "Courier New", monospace';['CODE','PLAY','CREATE'].forEach((s,i)=>c.fillText(s,26,235+i*216));});
  const intro=mesh(new T.PlaneGeometry(5.8,3.87),new T.MeshBasicMaterial({map:introTexture.texture,transparent:true,depthWrite:false,opacity:0}),world,[-.8,.5,-3]);
 
- const gallery=new T.Group();gallery.position.y=-13;world.add(gallery);
+ const gallery=new T.Group();gallery.position.y=SCENE_Y.gallery;world.add(gallery);
+ const galleryStructure=new T.Group();galleryStructure.name='extending-gallery-structure';gallery.add(galleryStructure);
  const coverLoaders=[];let coversLoaded=false;
  const coreMaterial=chrome.clone();coreMaterial.metalness=.87;coreMaterial.roughness=.23;coreMaterial.envMapIntensity=1.8;coreMaterial.color.set(0x829aa3);
- const spine=mesh(vertebraeGeometry(mobile),coreMaterial,gallery);opaque.push(spine);
+ const spine=mesh(vertebraeGeometry(mobile),coreMaterial,galleryStructure);opaque.push(spine);
  // Irregular crystal fragments cling to the structure, rather than a uniform star background.
  const fragmentCount=mobile?260:780,fragments=new T.InstancedMesh(new T.IcosahedronGeometry(1,0),chrome,fragmentCount),fragmentDummy=new T.Object3D(),rand=seededRandom(9087),tint=new T.Color();
  for(let i=0;i<fragmentCount;i++){
@@ -91,19 +92,19 @@ export async function buildWorld({mobile=false,documentRef=document,onTexture=()
   fragmentDummy.position.set(Math.cos(a)*r+.22*Math.sin(y),y,Math.sin(a)*r);
   fragmentDummy.rotation.set(rand()*3,rand()*3,rand()*3);const s=.013+Math.pow(rand(),3)*.085;fragmentDummy.scale.set(s,s*(1+rand()),s);fragmentDummy.updateMatrix();fragments.setMatrixAt(i,fragmentDummy.matrix);
   tint.setHSL(.49+rand()*.36,.45,.25+rand()*.2);fragments.setColorAt(i,tint);
- }gallery.add(fragments);
+ }galleryStructure.add(fragments);
  const chainCount=mobile?64:112,chain=new T.InstancedMesh(new T.TorusGeometry(.105,.022,5,12),chrome,chainCount);
  for(let i=0;i<chainCount;i++){
   const y=(i/(chainCount-1)-.5)*9,a=y*.72;
   fragmentDummy.position.set(Math.cos(a)*1.05,y,Math.sin(a)*1.05);fragmentDummy.rotation.set(.2,a+(i%2)*Math.PI/2,.15);fragmentDummy.scale.set(1,1.5,1);fragmentDummy.updateMatrix();chain.setMatrixAt(i,fragmentDummy.matrix);
- }gallery.add(chain);
- const tendrils=new T.Group();gallery.add(tendrils);
+ }galleryStructure.add(chain);
+ const tendrils=new T.Group();galleryStructure.add(tendrils);
  for(let k=0;k<3;k++){
   const pts=[];for(let j=0;j<=100;j++){const y=j/100*8-4,a=y*(.85+k*.07)+k*.9,r=.75+.22*Math.sin(y*2+k);pts.push([Math.cos(a)*r,y,Math.sin(a)*r]);}
   tendrils.add(tube(pts,k%2?.013:.028,k%3?dark:chrome,mobile?80:120));
  }
  for(let j=0;j<6;j++){
-  const m=torus(gallery,.65+.14*Math.sin(j*1.5),.018,chrome,[.12*Math.sin(j),j*.48-3.6,0],true);m.rotation.z=.4*Math.sin(j*2);
+  const m=torus(galleryStructure,.65+.14*Math.sin(j*1.5),.018,chrome,[.12*Math.sin(j),j*.48-3.6,0],true);m.rotation.z=.4*Math.sin(j*2);
  }
  const cardDeck=new T.Group();gallery.add(cardDeck);
  const cardTints=[0x63536e,0x496767,0x6e5544,0x455665,0x586751,0x67546b,0x4b6265];
@@ -138,7 +139,7 @@ export async function buildWorld({mobile=false,documentRef=document,onTexture=()
  }
 
  await yieldControl();
- const machine=new T.Group();machine.position.set(0,-24,0);world.add(machine);
+ const machine=new T.Group();machine.position.set(0,SCENE_Y.machine,0);world.add(machine);
  const rotor=new T.Group();machine.add(rotor);
  for(const y of [-2.15,-1.93,1.8,2.08]){
   const plate=mesh(extruded(ringShape(y>0?2.22:1.98,y>0?1.84:1.62),.09,.015,48),y>0?rose:dark,rotor,[0,y,0]);plate.rotation.x=-Math.PI/2;opaque.push(plate);
@@ -162,7 +163,7 @@ export async function buildWorld({mobile=false,documentRef=document,onTexture=()
  for(let i=0;i<5;i++){const r=2.65+i*.46;const pts=[];for(let j=0;j<=100;j++){const a=j/100*Math.PI*2;pts.push([Math.cos(a)*r,-2.25+.09*Math.sin(a*8+i),Math.sin(a)*r]);}machine.add(tube(pts,.016,i%2?rose:dark,100,true));}
 
  await yieldControl();
- const lab=new T.Group();lab.position.set(0,-34,0);world.add(lab);
+ const lab=new T.Group();lab.position.set(0,SCENE_Y.lab,0);world.add(lab);
  const gridMaterial=new T.MeshPhysicalMaterial({color:0xd2dbd5,metalness:.87,roughness:.38,clearcoat:1,iridescence:.3,iridescenceThicknessRange:[240,410],envMapIntensity:.65});
  const grid=createDrapedGrid(gridMaterial,mobile);lab.add(grid);opaque.push(grid);
  // Keep the complete marker in front of the relief, including the bevels.
@@ -177,7 +178,15 @@ export async function buildWorld({mobile=false,documentRef=document,onTexture=()
  const ribbonUniforms={uTime:{value:0},uOpacity:{value:0}};
  const ribbonMaterial=new T.ShaderMaterial({uniforms:ribbonUniforms,transparent:true,depthWrite:false,side:T.DoubleSide,blending:T.AdditiveBlending,vertexShader:'uniform float uTime;varying vec2 vUv;void main(){vUv=uv;vec3 p=position;p.y+=sin(uv.x*18.-uTime*.7)*.12;gl_Position=projectionMatrix*modelViewMatrix*vec4(p,1.);}',fragmentShader:'uniform float uTime,uOpacity;varying vec2 vUv;void main(){float edge=pow(sin(vUv.y*3.14159),3.);float vein=pow(max(0.,1.-abs(vUv.y-.5-sin(vUv.x*25.-uTime*.4)*.15)*5.),5.);float fade=sin(vUv.x*3.14159);float fibers=pow(.5+.5*sin(vUv.y*6.2831+sin(vUv.x*6.)*.6),3.);vec3 col=mix(vec3(.32,.008,.055),vec3(.95,.68,.61),max(vein*.9,fibers*.78));gl_FragColor=vec4(col,edge*fade*uOpacity*(.4+vein*.5+fibers*.12));\n#include <tonemapping_fragment>\n#include <colorspace_fragment>\n}'});
  const ribbons=new T.Group();emblem.add(ribbons);for(let k=0;k<2;k++)ribbons.add(new T.Mesh(flowingRibbonGeometry(k*.8),ribbonMaterial));
- return {world,emblem,lens,arcs,jellyfish,streamers,flowUniforms,ribbons,ribbonUniforms,intro,gallery,spine,tendrils,cardDeck,cards,machine,rotor,lab,pickables,opaque,textures,loadCovers(){if(!coversLoaded){coversLoaded=true;coverLoaders.forEach(load=>load());}},materials:{chrome,dark,rose},dispose(){world.traverse(o=>{o.geometry?.dispose();if(o.material)for(const m of Array.isArray(o.material)?o.material:[o.material])m.dispose();});textures.forEach(t=>t.dispose());}};
+ let extension=1;
+ function extendGallery(next){
+  if(Math.abs(next-extension)<.00001)return;
+  extension=next;galleryStructure.scale.y=next;galleryStructure.position.y=4.5*(1-next);spine.scale.y=1/next;
+  const position=spine.geometry.attributes.position,{joints,restY}=spine.geometry.userData;
+  for(const joint of joints){const offset=joint.y*(next-1);for(let i=joint.start;i<joint.start+joint.count;i++)position.setY(i,restY[i]+offset);}
+  position.needsUpdate=true;spine.geometry.computeBoundingSphere();
+ }
+ return {world,emblem,lens,arcs,jellyfish,streamers,flowUniforms,ribbons,ribbonUniforms,intro,gallery,galleryStructure,extendGallery,spine,tendrils,cardDeck,cards,machine,rotor,lab,pickables,opaque,textures,loadCovers(){if(!coversLoaded){coversLoaded=true;coverLoaders.forEach(load=>load());}},materials:{chrome,dark,rose},dispose(){world.traverse(o=>{o.geometry?.dispose();if(o.material)for(const m of Array.isArray(o.material)?o.material:[o.material])m.dispose();});textures.forEach(t=>t.dispose());}};
 }
 
 export function particleField(count,mobile=false){
@@ -194,7 +203,7 @@ export function particleField(count,mobile=false){
    const shape=1+.16*Math.sin(theta*3+v*8)+.09*Math.sin(theta*7-v*11);
    const radius=Math.sin(latitude)*Math.pow(s,.32)*shape;
    x=centerX+Math.cos(theta)*radius*(lobe?.63:.77);
-   y=-24+centerY+Math.cos(latitude)*(lobe?.88:.68)+.12*Math.sin(theta*2)*radius;
+   y=SCENE_Y.machine+centerY+Math.cos(latitude)*(lobe?.88:.68)+.12*Math.sin(theta*2)*radius;
    z=Math.sin(theta)*radius*(lobe?.63:.72)+.08*Math.sin(v*9);
    c.setHSL(.87+random()*.115,.84,.27+random()*.31);
   }

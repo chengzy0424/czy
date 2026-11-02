@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import * as T from 'three';
-import {cameraPose,scrollToChapter,CARD_SPECS} from '../src/space-path.js';
+import {cameraPose,scrollToChapter,galleryCardPose,CARD_SPECS} from '../src/space-path.js';
 import {buildWorld,particleField} from '../src/space-objects.js';
 import {springStep} from '../src/weave-math.js';
 
@@ -66,10 +66,38 @@ test('solid emblem, segmented spine, mechanical chamber and honeycomb have finit
  }
 });
 test('gallery boards have varying depth, actual thickness and project metadata',async()=>{
- const w=await geometryWorld();assert.equal(w.cards.length,4);const z=w.cards.map(c=>c.home.z);assert.ok(Math.max(...z)-Math.min(...z)>5);
+ const w=await geometryWorld();assert.deepEqual(w.cards.map(c=>c.spec.id),['tower','ash','csol','mines','boe','ae','lab']);const z=w.cards.map(c=>c.home.z);assert.ok(Math.max(...z)-Math.min(...z)>5);
  w.cards.forEach(c=>{c.base.geometry.computeBoundingBox();assert.ok(c.base.geometry.boundingBox.getSize(new T.Vector3()).z>.05);assert.ok(c.face.userData.detail);assert.equal(c.face.material.depthTest,true);});
  assert.equal(CARD_SPECS.find(c=>c.id==='boe').image,undefined,'no fabricated BOE screenshot');
  assert.match(CARD_SPECS.find(c=>c.id==='lab').note,/空格里的小镇/);w.dispose();
+});
+
+test('each gallery project reaches a readable unobstructed front position along a reversible helix',async()=>{
+ for(const mobile of [false,true]){
+  const w=await geometryWorld(mobile);
+  for(let selected=0;selected<CARD_SPECS.length;selected++){
+   const progress=2+selected/(CARD_SPECS.length-1),camera=cameraPose(progress,mobile,mobile?390/844:16/9);
+   w.cards.forEach((card,index)=>{const pose=galleryCardPose(index,progress,mobile);card.group.position.fromArray(pose.position);card.group.rotation.set(...pose.rotation);});
+   w.world.updateMatrixWorld(true);
+   const front=galleryCardPose(selected,progress,mobile),target=w.cards[selected].face.getWorldPosition(new T.Vector3()),eye=new T.Vector3(...camera.eye);
+   assert.ok(front.visible&&front.focus>.99,'project never receives a reading position');
+   assert.ok(Math.abs(front.position[1])<.00001&&Math.abs(front.rotation[1])<.00001,'front project is tilted or displaced vertically');
+   const hit=new T.Raycaster(eye,target.clone().sub(eye).normalize()).intersectObjects([...w.pickables,...w.opaque],false)[0];
+   assert.equal(hit?.object,w.cards[selected].face,'another object blocks project '+CARD_SPECS[selected].id);
+  }
+  for(let index=0;index<CARD_SPECS.length;index++){
+   let previous=galleryCardPose(index,2,mobile);
+   for(let n=0;n<=1200;n++){
+    const progress=2+n/1200,pose=galleryCardPose(index,progress,mobile);
+    assert.deepEqual(pose,galleryCardPose(index,progress,mobile),'gallery position depends on scroll history');
+    assert.ok([...pose.position,...pose.rotation,pose.focus].every(Number.isFinite));
+    assert.ok(Math.abs(pose.position[1])<4,'gallery exceeds its vertical viewing region');
+    for(const field of ['position','rotation'])for(let axis=0;axis<3;axis++)assert.ok(Math.abs(pose[field][axis]-previous[field][axis])<.05,'gallery jumps between cards');
+    previous=pose;
+   }
+  }
+  w.dispose();
+ }
 });
 test('emblem and machine core remain in the viewport at target desktop and phone sizes',()=>{
  for(const [width,height,mobile] of [[1920,1080,false],[1440,900,false],[1024,768,false],[768,1024,false],[390,844,true],[320,720,true]]){

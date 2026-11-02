@@ -125,7 +125,7 @@ async function loadEngine(){
  if(initRequested)return;initRequested=true;
  try{
   const {createSpace}=await import('./space.js');
-  engine=await createSpace({container:$('#visual'),state,onFailure:()=>{document.body.classList.add('webgl-failed');syncProgress();},onSelect:id=>openDetail(id==='tower'?'games':id,document.querySelector('.spatial-menu [data-detail="'+(id==='tower'?'games':id)+'"]'))});
+  engine=await createSpace({container:$('#visual'),state,onFailure:()=>{document.body.classList.add('webgl-failed');syncProgress();},onSelect:id=>openDetail(id,document.querySelector('[data-detail="'+id+'"]'))});
   if(new URLSearchParams(location.search).has('inspect')){
    const output=document.createElement('output');output.id='prototype-metrics';output.style.cssText='position:fixed;bottom:8px;left:8px;z-index:70;max-width:90vw;background:#102522;color:#e8f0eb;font:11px monospace;padding:8px;pointer-events:none';
    document.body.append(output);setInterval(()=>{const m=engine.metrics(),s=m.frameTimesMs.sort((a,b)=>a-b);output.textContent=JSON.stringify({...m,frameTimesMs:undefined,frameP50:s.length?s[Math.floor(s.length*.5)].toFixed(1):null,frameP95:s.length?s[Math.floor(s.length*.95)].toFixed(1):null});},1000);
@@ -147,3 +147,4 @@ else if(location.hash)requestAnimationFrame(()=>requestAnimationFrame(()=>{
  const target=document.getElementById(decodeURIComponent(location.hash.slice(1)));
  if(target){const inset=parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--nav-h'))||88;window.scrollTo({top:Math.max(0,target.offsetTop-inset-22),behavior:'instant'});syncProgress();}
 }));
+

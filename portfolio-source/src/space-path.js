@@ -4,14 +4,18 @@ export const CHAPTERS=[0,1,2,3,4,5,6];
 // Hold each composition briefly at both ends; the middle carries the passage.
 export function chapterBlend(t){return smooth(clamp((t-.09)/.82));}
 export function passageStrength(p){return Math.sin(Math.PI*chapterBlend(p-Math.floor(p)))**2;}
+export const GALLERY_DESCENT=5.2;
+export const SCENE_Y={gallery:-13,machine:-24-GALLERY_DESCENT,lab:-34-GALLERY_DESCENT,confluence:-45.5-GALLERY_DESCENT};
+// The camera and boards share one descent while the skeleton extends behind them.
+export function galleryDescent(progress){return chapterBlend(clamp(progress-2))*GALLERY_DESCENT;}
 const KEYS=[
  {p:0, eye:[0,0,10.5], look:[0,0,0]},
  {p:1, eye:[2.1,.15,4.6], look:[1.65,-.1,0]},
- {p:2, eye:[0,-12.6,11.7], look:[0,-13,0]},
- {p:3, eye:[0,-12.6,11.7], look:[0,-13,0]},
- {p:4, eye:[.8,-24.5,12], look:[0,-24.6,0]},
- {p:5, eye:[-.4,-34,10.5], look:[0,-34,0]},
- {p:6, eye:[0,-45.5,12], look:[0,-45.5,0]}
+ {p:2, eye:[0,SCENE_Y.gallery+.4,11.7], look:[0,SCENE_Y.gallery,0]},
+ {p:3, eye:[0,SCENE_Y.gallery+.4-GALLERY_DESCENT,11.7], look:[0,SCENE_Y.gallery-GALLERY_DESCENT,0]},
+ {p:4, eye:[.8,SCENE_Y.machine-.5,12], look:[0,SCENE_Y.machine-.6,0]},
+ {p:5, eye:[-.4,SCENE_Y.lab,10.5], look:[0,SCENE_Y.lab,0]},
+ {p:6, eye:[0,SCENE_Y.confluence,12], look:[0,SCENE_Y.confluence,0]}
 ];
 export function cameraPose(progress,mobile=false,aspect=16/9){
  const p=clamp(progress,0,6),i=Math.min(5,Math.floor(p)),t=chapterBlend(p-i);
@@ -21,6 +25,7 @@ export function cameraPose(progress,mobile=false,aspect=16/9){
  const passage=Math.sin(Math.PI*t)**2;
  if(i===0){eye[2]-=passage*.7;look[0]+=passage*.22;}
  if(i===1){eye[0]+=passage*1.6;eye[2]-=passage*1.8;look[0]-=passage*1.6;look[1]-=passage*3.2;}
+ if(i===2){eye[1]=KEYS[2].eye[1]-galleryDescent(p);look[1]=KEYS[2].look[1]-galleryDescent(p);}
  if(i===3){eye[0]-=passage*1.2;eye[2]+=passage*2;look[0]-=passage*.4;look[1]-=passage*1.2;}
  if(i===4){eye[0]+=passage*1.4;eye[2]+=passage*1.8;look[0]+=passage*.3;look[1]-=passage*1.4;}
  if(i===5){eye[0]-=passage*.8;eye[2]+=passage*1.5;look[1]-=passage;}
@@ -46,7 +51,7 @@ export function galleryCardPose(index,progress,mobile=false){
  const centerIndex=step+chapterBlend(advance-step),relative=index-centerIndex;
  const phase=relative*Math.PI*2/GALLERY_CARD_COUNT;
  return {
-  position:[(mobile?0:.65)+Math.sin(phase)*(mobile?3.3:3.8),3.8*Math.tanh(relative*.32),Math.cos(phase)*3],
+  position:[(mobile?0:.65)+Math.sin(phase)*(mobile?3.3:3.8),3.8*Math.tanh(relative*.32)-galleryDescent(progress),Math.cos(phase)*3],
   rotation:[.035*Math.sin(phase),phase,.025*Math.sin(phase)],
   visible:true,
   focus:1-smooth(clamp(Math.abs(relative)/1.15))

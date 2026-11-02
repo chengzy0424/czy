@@ -3,6 +3,7 @@ import {cameraPose,passageStrength,galleryCardPose,galleryTurn,GALLERY_DESCENT,S
 import {buildWorld,particleField} from './space-objects.js';
 import {createWater} from './space-water.js';
 import {createPlumes} from './space-plumes.js';
+import {createLabEnvironment,loadLabEnvironment} from './space-lab-surface.js';
 import {damp,clamp,smooth,springStep} from './weave-math.js';
 
 const vertex=`
@@ -79,6 +80,16 @@ export async function createSpace({container,state,onFailure=()=>{},onSelect=()=
   lost=true;pause();document.body.classList.remove('webgl-ready');onFailure();
  };
  const world=await buildWorld({mobile,yieldControl,onTexture:()=>wake()});scene.add(world.world);
+ let labEnvironment=createLabEnvironment(renderer),labEnvironmentLoading,sceneInitialized=false;
+ const applyLabEnvironment=()=>world.lab.traverse(object=>{if(object.material&&object.material.metalness>.8){object.material.envMap=labEnvironment.texture;object.material.envMapRotation.y=.85;object.material.needsUpdate=true;}});
+ applyLabEnvironment();
+ function ensureLabEnvironment(){
+  if(!labEnvironmentLoading)labEnvironmentLoading=loadLabEnvironment(renderer).then(target=>{
+   if(disposed){target.dispose();return;}labEnvironment.dispose();labEnvironment=target;applyLabEnvironment();container.dataset.labEnvironment='hdr';if(sceneInitialized)wake();
+  }).catch(()=>{container.dataset.labEnvironment='fallback';});
+  return labEnvironmentLoading;
+ }
+ if(progress>=3.1)await ensureLabEnvironment();
  const galleryMeshes=[],galleryFrustum=new T.Frustum(),galleryViewProjection=new T.Matrix4();
  world.gallery.traverse(object=>{if(object.geometry)galleryMeshes.push(object);});
  const water=createWater({mobile});scene.add(water);
@@ -103,6 +114,7 @@ export async function createSpace({container,state,onFailure=()=>{},onSelect=()=
   card.base.material.customProgramCacheKey=()=> 'project-glass-v1';
  }
  const key=new T.PointLight(0xb2ebf0,62,26,2),rim=new T.PointLight(0xde329a,55,22,2),fill=new T.PointLight(0x6db5b5,18,22,2);scene.add(key,rim,fill);
+ const labAir=new T.Color(0x0c1718),baseAir=new T.Color(0x04090c),air=new T.Color();
  const lightColors={key:new T.Color(0xb2ebf0),rim:new T.Color(0xde329a),fill:new T.Color(0x6db5b5),machineKey:new T.Color(0xbdb9b7),machineRim:new T.Color(0xd8224a),labKey:new T.Color(0xd2caba),labRim:new T.Color(0x6b817d),labFill:new T.Color(0x88917e)};
  const redLight=new T.PointLight(0xe61458,29,7,2);redLight.position.set(.4,SCENE_Y.machine+1,1);scene.add(redLight);
  const count=mobile?11000:44000,points=particleField(count,mobile),geo=new T.BufferGeometry();
@@ -144,7 +156,8 @@ export async function createSpace({container,state,onFailure=()=>{},onSelect=()=
   camera.lookAt(...pose.look);camera.rotateZ(reduced?0:pose.roll);camera.updateMatrixWorld();
   key.position.set(camera.position.x-3,pose.look[1]+4,6);rim.position.set(3,pose.look[1]+.7,-1);fill.position.set(-4,pose.look[1]-3,2);
   const labLight=smooth(clamp((progress-4.5)*2))*(1-smooth(clamp((progress-5.1)*2))),machineLight=smooth(clamp((progress-3.6)*2.5))*(1-smooth(clamp((progress-4.35)*3)));
-  key.intensity=62-labLight*20-machineLight*18;rim.intensity=55-labLight*40-machineLight*20;fill.intensity=18-labLight*8-machineLight*8;
+  air.copy(baseAir).lerp(labAir,labLight);renderer.setClearColor(air);scene.fog.color.copy(air);
+  key.intensity=62-labLight*48-machineLight*18;rim.intensity=55-labLight*49-machineLight*20;fill.intensity=18-labLight*14-machineLight*8;
   key.color.copy(lightColors.key).lerp(lightColors.machineKey,machineLight).lerp(lightColors.labKey,labLight);
   rim.color.copy(lightColors.rim).lerp(lightColors.machineRim,machineLight).lerp(lightColors.labRim,labLight);
   fill.color.copy(lightColors.fill).lerp(lightColors.labFill,labLight);
@@ -173,9 +186,10 @@ export async function createSpace({container,state,onFailure=()=>{},onSelect=()=
   water.visible=progress>=3.5&&progress<4.85&&quality>.75;
   water.material.uniforms.uTime.value=reduced?0:time;
   water.material.uniforms.uOpacity.value=(1-smooth(clamp((progress-4.55)/.3)))*.92;
-  world.lab.rotation.y=-.16+(reduced?0:Math.sin(time*.13)*.035)+(1-smooth(clamp(progress-4)))*1.15;
-  const labDive=smooth(clamp((progress-5.05)/.75));world.lab.rotation.x=labDive*.88;world.lab.rotation.z=.055-labDive*.08;
+  world.lab.rotation.y=-.04+(reduced?0:Math.sin(time*.13)*.035)+(1-smooth(clamp(progress-4)))*1.15;
+  const labDive=smooth(clamp((progress-5.05)/.75));world.lab.rotation.x=labDive*.88;world.lab.rotation.z=.008-labDive*.08;
   if(progress>3.8&&progress<6.1)world.updateLab(time,reduced);
+  if(progress>3.1)ensureLabEnvironment();
   // Far chapters remain in world coordinates; culling only removes unseen draw calls.
   for(const group of [world.emblem,world.machine,world.lab])group.visible=Math.abs(group.position.y-pose.look[1])<14;
   for(const [index,card] of world.cards.entries()){
@@ -224,7 +238,7 @@ export async function createSpace({container,state,onFailure=()=>{},onSelect=()=
  await yieldControl();await renderer.compileAsync(scene,camera);
  window.addEventListener('pointermove',onMove,{passive:true});window.addEventListener('pointerdown',onDown,{passive:true});window.addEventListener('pointerup',onUp,{passive:true});
  document.addEventListener('pointerleave',onLeave);document.addEventListener('visibilitychange',visibility);window.addEventListener('blur',onLeave);window.addEventListener('resize',resize);
- renderer.domElement.addEventListener('webglcontextlost',contextLost);renderer.domElement.addEventListener('webglcontextrestored',contextRestored);resize();
- return {wake,pause,metrics:()=>({frames,points:geo.drawRange.count===Infinity?count:geo.drawRange.count,dpr:renderer.getPixelRatio(),drawCalls:renderer.info.render.calls,triangles:renderer.info.render.triangles,lastDrawSubmissionMs:drawMs,frameTimesMs:[...frameTimes],quality,reduced:state.reduced,chapter:progress}),dispose(){disposed=true;pause();window.removeEventListener('pointermove',onMove);window.removeEventListener('pointerdown',onDown);window.removeEventListener('pointerup',onUp);document.removeEventListener('pointerleave',onLeave);document.removeEventListener('visibilitychange',visibility);window.removeEventListener('blur',onLeave);window.removeEventListener('resize',resize);renderer.domElement.removeEventListener('webglcontextlost',contextLost);renderer.domElement.removeEventListener('webglcontextrestored',contextRestored);world.dispose();plumes.dispose();glassTarget.dispose();water.geometry.dispose();water.dispose();geo.dispose();pointMaterial.dispose();env.dispose();renderer.dispose();renderer.domElement.remove();}};
+ renderer.domElement.addEventListener('webglcontextlost',contextLost);renderer.domElement.addEventListener('webglcontextrestored',contextRestored);sceneInitialized=true;resize();
+ return {wake,pause,metrics:()=>({frames,points:geo.drawRange.count===Infinity?count:geo.drawRange.count,dpr:renderer.getPixelRatio(),drawCalls:renderer.info.render.calls,triangles:renderer.info.render.triangles,lastDrawSubmissionMs:drawMs,frameTimesMs:[...frameTimes],quality,reduced:state.reduced,chapter:progress}),dispose(){disposed=true;pause();window.removeEventListener('pointermove',onMove);window.removeEventListener('pointerdown',onDown);window.removeEventListener('pointerup',onUp);document.removeEventListener('pointerleave',onLeave);document.removeEventListener('visibilitychange',visibility);window.removeEventListener('blur',onLeave);window.removeEventListener('resize',resize);renderer.domElement.removeEventListener('webglcontextlost',contextLost);renderer.domElement.removeEventListener('webglcontextrestored',contextRestored);world.dispose();plumes.dispose();glassTarget.dispose();water.geometry.dispose();water.dispose();geo.dispose();pointMaterial.dispose();env.dispose();labEnvironment.dispose();renderer.dispose();renderer.domElement.remove();}};
 }
 

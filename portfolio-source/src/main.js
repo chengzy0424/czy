@@ -8,7 +8,7 @@ const tabs=[...document.querySelectorAll('[role=tab]')], panels=[...document.que
 const motionButton=$('#motion-toggle'),dialog=$('#project-dialog'),works=$('#works');
 const journeyLinks=[...document.querySelectorAll('[data-journey]')];
 let engine,scrollFrame=0,lastOpener,savedScroll=0,animations=[],exploreAnimation=0;
-let initRequested=false;
+let initRequested=false,engineMayLoad=false;
 function syncProgress(){
  scrollFrame=0;
  const gallery=$('#spatial-gallery');
@@ -20,6 +20,7 @@ function syncProgress(){
  const currentChapter=state.chapter<.65?0:state.chapter<1.6?1:state.chapter<3.55?2:state.chapter<4.6?4:state.chapter<5.6?5:6;
  for(const link of journeyLinks){if(Number(link.dataset.journey)===currentChapter)link.setAttribute('aria-current','location');else link.removeAttribute('aria-current');link.tabIndex=state.offscreen?-1:0;}
  engine?.wake();
+ if(engineMayLoad&&!initRequested&&!state.offscreen&&!state.modal)loadEngine();
 }
 function onScroll(){if(!scrollFrame)scrollFrame=requestAnimationFrame(syncProgress);}
 window.addEventListener('scroll',onScroll,{passive:true});
@@ -82,8 +83,16 @@ const mediaWarmObserver=new IntersectionObserver(entries=>{
  }
 },{rootMargin:'100% 0px'});
 mediaWarmObserver.observe(works);
+let mediaIntentTimer=0;
 for(const eventName of ['pointerover','focusin','pointerdown'])document.addEventListener(eventName,event=>{
- if(event.target.closest('a[href="#works"],[role="tab"],[data-detail],[data-play],[data-film]'))prepareVideoPlayer().catch(()=>{});
+ const target=event.target.closest('a[href="#works"],[role="tab"],[data-detail],[data-play],[data-film]');
+ if(!target||target.dataset.detail==='boe')return;prepareVideoPlayer().catch(()=>{});
+ const id=target.dataset.film||target.dataset.play;
+ if(id&&eventName!=='pointerdown'){
+  clearTimeout(mediaIntentTimer);mediaIntentTimer=setTimeout(()=>{
+   if(target.isConnected&&!document.querySelector('video')&&(target.matches(':hover')||document.activeElement===target))prepareVideoPlayer(id).catch(()=>{});
+  },160);
+ }
 },{passive:true});
 function openDetail(id,opener){
  const html=id==='games'?gameList():games[id]?gameDetail(id):id==='ae'?filmList('ae'):id==='lab'?filmList('aigc'):details[id];
@@ -122,9 +131,10 @@ document.querySelectorAll('a[href^="#"]').forEach(link=>link.addEventListener('c
  exploreAnimation=requestAnimationFrame(step);
 }));
 async function loadEngine(){
- if(initRequested)return;initRequested=true;
+ if(initRequested||state.offscreen||state.modal)return;initRequested=true;
  try{
   const {createSpace}=await import('./space.js');
+  if(state.offscreen||state.modal){initRequested=false;return;}
   engine=await createSpace({container:$('#visual'),state,onFailure:()=>{document.body.classList.add('webgl-failed');syncProgress();},onSelect:id=>openDetail(id,document.querySelector('[data-detail="'+id+'"]'))});
   if(new URLSearchParams(location.search).has('inspect')){
    const output=document.createElement('output');output.id='prototype-metrics';output.style.cssText='position:fixed;bottom:8px;left:8px;z-index:70;max-width:90vw;background:#102522;color:#e8f0eb;font:11px monospace;padding:8px;pointer-events:none';
@@ -132,7 +142,7 @@ async function loadEngine(){
   }
  }catch(error){document.body.classList.add('webgl-failed');$('#interaction-hint').textContent='静态构图 · 作品可正常浏览';console.error('Particle scene unavailable; static portfolio retained.',error);}
 }
-requestAnimationFrame(()=>{if('requestIdleCallback' in window)requestIdleCallback(loadEngine,{timeout:1200});else setTimeout(loadEngine,180);});
+requestAnimationFrame(()=>{const ready=()=>{engineMayLoad=true;loadEngine();};if('requestIdleCallback' in window)requestIdleCallback(ready,{timeout:1200});else setTimeout(ready,180);});
 window.addEventListener('pagehide',event=>{if(!event.persisted)engine?.dispose();else engine?.pause();});
 window.addEventListener('pageshow',()=>engine?.wake());
 

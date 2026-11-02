@@ -4,8 +4,9 @@ import {mergeGeometries} from 'three/addons/utils/BufferGeometryUtils.js';
 // Unequal joints and swept processes keep the column organic at close range.
 // Reuse the same segment budget and merge it into one draw call.
 export function vertebraeGeometry(mobile=false){
- const parts=[],layers=19,around=mobile?32:48,section=8;
+ const parts=[],joints=[],layers=19,around=mobile?32:48,section=8;let vertexCursor=0;
  for(let layer=0;layer<layers;layer++){
+  const jointStart=vertexCursor;
   const g=new T.TorusGeometry(1,.16,section,around),p=g.attributes.position;
   const y=(layer-9)*.49+.045*Math.sin(layer*1.91),twist=layer*.31+.22*Math.sin(layer*.83);
   const sway=.23*Math.sin(y*.81),swayZ=.13*Math.cos(y*.67);
@@ -19,7 +20,7 @@ export function vertebraeGeometry(mobile=false){
    const a=u+twist;
    p.setXYZ(i,Math.cos(a)*r+sway,y+Math.sin(v)*(.115+lobe*.12)+.105*Math.sin(u*3+layer*.51)+.045*Math.cos(u+layer),Math.sin(a)*r*(.9+.09*Math.sin(layer*.8))+swayZ);
   }
-  g.computeVertexNormals();parts.push(g);
+  g.computeVertexNormals();parts.push(g);vertexCursor+=p.count;
   // Offset roots, unequal lengths and taper prevent the repeated fan silhouette.
   for(let side=0;side<3;side++){
    const a=side*Math.PI*2/3+twist+.13*Math.sin(layer+side),points=[];
@@ -31,10 +32,17 @@ export function vertebraeGeometry(mobile=false){
     const t=Math.floor(k/7)/12,center=curve.getPointAt(t),taper=.14+.86*Math.pow(1-t,.7);
     bp.setXYZ(k,center.x+(bp.getX(k)-center.x)*taper,center.y+(bp.getY(k)-center.y)*taper*.6,center.z+(bp.getZ(k)-center.z)*taper);
    }
-   b.computeVertexNormals();parts.push(b);
+   b.computeVertexNormals();parts.push(b);vertexCursor+=bp.count;
   }
+  joints.push({start:jointStart,count:vertexCursor-jointStart,y});
  }
- const geometry=mergeGeometries(parts);parts.forEach(g=>g.dispose());geometry.computeBoundingSphere();return geometry;
+ const geometry=mergeGeometries(parts);parts.forEach(g=>g.dispose());
+ // Runtime may translate whole joints apart without stretching their thickness.
+ // Contiguous ranges also keep CPU raycasting aligned with the rendered spine.
+ const restY=new Float32Array(geometry.attributes.position.count);
+ for(let i=0;i<restY.length;i++)restY[i]=geometry.attributes.position.getY(i);
+ geometry.userData.joints=joints;geometry.userData.restY=restY;
+ geometry.computeBoundingSphere();return geometry;
 }
 
 // The pocket and rolled hem share one parameterized surface. This also lets a

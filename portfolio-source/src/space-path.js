@@ -34,8 +34,8 @@ export function cameraPose(progress,mobile=false,aspect=16/9){
  if(i===1){eye[0]+=passage*1.6;eye[2]-=passage*1.8;look[0]-=passage*1.6;look[1]-=passage*3.2;}
  if(i===2){eye[1]=KEYS[2].eye[1]-galleryDescent(p);look[1]=KEYS[2].look[1]-galleryDescent(p);}
  if(i===3){eye[0]-=passage*1.2;eye[2]+=passage*2;look[0]-=passage*.4;look[1]-=passage*1.2;}
- if(i===4){eye[0]+=passage*1.4;eye[2]+=passage*1.8;look[0]+=passage*.3;look[1]-=passage*1.4;}
- if(i===5){eye[0]-=passage*.8;eye[2]+=passage*1.5;look[1]-=passage;}
+ if(i===4){eye[0]+=passage*.8;eye[2]-=passage*1.8;look[0]+=passage*.3;look[1]-=passage*.55;}
+ if(i===5){eye[0]-=passage*.8;eye[2]-=passage*2.8;look[1]-=passage*.5;}
  if(mobile){
   eye[0]*=.35;look[0]*=.35;
   const introLift=1-smooth(clamp(p));

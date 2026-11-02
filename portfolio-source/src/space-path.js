@@ -40,9 +40,13 @@ export function cameraPose(progress,mobile=false,aspect=16/9){
   eye[0]*=.35;look[0]*=.35;
   const introLift=1-smooth(clamp(p));
   eye[2]+=7+introLift+7*smooth(clamp(p-4));
+  eye[2]+=2*smooth(Math.max(0,1-Math.abs(p-5)));
   const readingInset=aspect<.45?1.1:0;
   eye[1]+=(2+readingInset)*introLift;look[1]+=(2+readingInset)*introLift;
- }else eye[2]+=Math.max(0,1.24-aspect)*12;
+ }else{
+  eye[2]+=Math.max(0,1.24-aspect)*12;
+  eye[2]+=Math.max(0,1.1-aspect)*6*smooth(Math.max(0,1-Math.abs(p-5)));
+ }
  const roll=mobile?0:(i===3?.09:i===4?-.065:0)*passage;
  return {eye,look,roll};
 }

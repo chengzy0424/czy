@@ -48,6 +48,6 @@ GitHub Pages 使用相对资源路径。仓库根目录是发布产物，portfol
 
 ## 11 月 2 日主分支整合
 
-本轮以 `d8d10b1585c588759b207c0d32962b43e65f37f0` 为主分支基线，保留旋转长骨架、蜂巢、水下场景及交互，整合 PR #2 的播放器修复。最新验证状态见 `verification/nov02-hls-integration/review.md`；10 月 31 日的数据仅是历史记录。
+本轮以 `5ae553a73e9354e7230bef8ccd82f1efc94b62b0` 为主分支基线，保留旋转长骨架、蜂巢、水下场景及交互，整合 PR #2 的播放器修复。最新验证状态见 `verification/nov02-hls-integration/review.md`；10 月 31 日的数据仅是历史记录。
 
 在 `portfolio-source` 中执行 `npm run build` 后，运行 `node tools/sync-production.mjs` 同步根目录生产入口与资源；`node tools/sync-production.mjs --check` 核对发布文件与新构建及媒体字节一致性。干净检出可直接读取仓库根目录媒体。

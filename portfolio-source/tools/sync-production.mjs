@@ -4,7 +4,7 @@ import {createHash} from 'node:crypto';
 
 const source=path.resolve(import.meta.dirname,'..'),repo=path.resolve(source,'..'),built=path.join(source,'release-oct30');
 const check=process.argv.includes('--check');
-const files=['index.html',...fs.readdirSync(path.join(built,'assets')).map(name=>'assets/'+name)];
+const files=['index.html',...fs.readdirSync(path.join(built,'assets'),{withFileTypes:true}).filter(entry=>entry.isFile()&&!entry.name.startsWith('.')).map(entry=>'assets/'+entry.name)];
 for(const file of files){
  const from=path.join(built,file),to=path.join(repo,file);
  if(check){

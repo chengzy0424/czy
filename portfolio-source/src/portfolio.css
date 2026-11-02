@@ -146,7 +146,7 @@
 @media(min-width:1101px){
  .lab-copy{left:32%;top:40%;width:46%;max-width:none;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:12vw;background:none;align-items:start}
  .lab-copy .section-label{grid-column:1;grid-row:1;font-size:11px;white-space:nowrap;margin-bottom:15px}
- .lab-copy h2{grid-column:1;grid-row:2/4;font-family:Consolas,"Courier New",monospace;font-size:clamp(45px,3.5vw,58px);line-height:1.03;letter-spacing:-.065em}
+ .lab-copy h2{grid-column:1;grid-row:2/4;font-family:Consolas,"Courier New",monospace;font-size:clamp(38px,2.8vw,46px);line-height:1.03;letter-spacing:-.065em}
  .lab-copy>p:not(.section-label){grid-column:2;grid-row:2;margin-top:0;font-size:14px;line-height:1.9}
  .lab-copy>.text-action{grid-column:2;grid-row:3;margin-top:20px;font-size:13px}
  .intro-copy{left:auto;right:5%;top:57%;width:16vw;max-width:290px;background:none}.intro-copy h2{font-size:28px}
@@ -158,3 +158,13 @@
  .spatial-menu{background:#04090ce8}.lab-copy{max-width:290px}
 }
 
+
+/* Tablet: keep the complete rolled sculpture visible and read below it. */
+@media(min-width:761px) and (max-width:1100px){
+ .lab-copy{left:var(--gutter);right:var(--gutter);top:73%;bottom:auto;width:auto;max-width:none;display:grid;grid-template-columns:1fr 1.25fr;column-gap:32px;background:none;text-shadow:none}
+ .lab-copy .section-label{grid-column:1;grid-row:1;margin-bottom:10px;font-size:11px}
+ .lab-copy h2{grid-column:1;grid-row:2/4;font-size:40px;line-height:1.03}
+ .lab-copy h2 br{display:none}
+ .lab-copy>p:not(.section-label){grid-column:2;grid-row:2;margin:0;font-size:14px}
+ .lab-copy>.text-action{grid-column:2;grid-row:3;margin-top:8px;font-size:13px}
+}

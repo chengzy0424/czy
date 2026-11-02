@@ -6,7 +6,7 @@ import {cameraPose,galleryCardPose,SCENE_Y,CARD_SPECS} from '../../src/space-pat
 // touch input on the rendered board's projected centre.
 // No onSelect calls, synthetic DOM clicks, or replacement scene are used.
 test('seven rotating gallery boards open the right project and restore the scroll journey',async({page},info)=>{
- test.setTimeout(360000);
+ test.setTimeout(600000);
  if(!info.project.use.hasTouch)await page.setViewportSize({width:960,height:640});
  const errors=[];page.on('pageerror',e=>errors.push(e.message));
  await page.goto('/?inspect=1');

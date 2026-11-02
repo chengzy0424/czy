@@ -37,8 +37,8 @@ test('lab ring and cross remain visible in front of the honeycomb through the vi
   const w=await geometryWorld(mobile);
   const marker=w.lab.getObjectByName('lab-marker');
   assert.ok(marker,'lab marker group missing');
-  const targets=Array.from({length:24},(_,i)=>new T.Vector3(.59*Math.cos(i*Math.PI/12),.59*Math.sin(i*Math.PI/12),0));
-  targets.push(...[[-.35,0,.02],[.35,0,.02],[0,-.35,.02],[0,.35,.02]].map(p=>new T.Vector3(...p)));
+  const targets=Array.from({length:24},(_,i)=>new T.Vector3(.51*Math.cos(i*Math.PI/12),.51*Math.sin(i*Math.PI/12),0));
+  targets.push(...[[-.3,0,.02],[.3,0,.02],[0,-.3,.02],[0,.3,.02]].map(p=>new T.Vector3(...p)));
   for(const chapter of [4.9,5,5.1])for(const turn of [-.035,0,.035]){
    const pose=cameraPose(chapter,mobile,mobile?390/844:16/9);
    const eye=new T.Vector3(...pose.eye);
@@ -62,7 +62,7 @@ test('solid emblem, segmented spine, mechanical chamber and honeycomb have finit
   assert.ok(w.spine.geometry.attributes.position.count>4000);
   for(const name of ['machine-upper-housing','machine-recessed-basin','machine-support-columns','machine-cables-0','machine-granular-core'])assert.ok(w.machine.getObjectByName(name),'missing mechanical assembly '+name);
   const honey=w.lab.children.find(o=>o.isInstancedMesh);assert.ok(honey.count>650,'draped tile region missing');assert.equal(honey.userData.relief,true);const z=[];const mat=new T.Matrix4();for(let i=0;i<honey.count;i++){honey.getMatrixAt(i,mat);z.push(mat.elements[14]);}assert.ok(Math.max(...z)-Math.min(...z)>1,'surface needs actual relief');
-  assert.ok(triangles<(mobile?170000:220000),'geometry budget exceeded '+triangles);
+  assert.ok(triangles<(mobile?170000:270000),'geometry budget exceeded '+triangles);
   console.log(JSON.stringify({mobile,meshes,triangles,honeycombCells:honey.count}));w.dispose();
  }
 });

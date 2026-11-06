@@ -66,10 +66,10 @@ export function galleryCardPose(index,progress,mobile=false){
  };
 }
 export const CARD_SPECS=[
- {id:'tower',title:'TOWER DEFENSE',lines:['TOWER','DEFENSE'],subtitle:'UNITY / C#',note:'烽誓 · 守望 · 策略塔防',image:'./art/tower-960.webp'},
- {id:'ash',title:'ASH EXODUS',lines:['ASH','EXODUS'],subtitle:'UNITY / FPS',note:'far cry · 原声玩法演示',image:'./art/ash-960.webp'},
+ {id:'tower',title:'TOWER DEFENSE',lines:['TOWER','DEFENSE'],titleZh:'烽誓 · 守望',subtitle:'UNITY / C#',note:'策略塔防 · 防线部署',image:'./art/tower-960.webp'},
+ {id:'ash',title:'ASH EXODUS',lines:['ASH','EXODUS'],titleZh:'清理者行动',subtitle:'UNITY / FPS',note:'第一人称射击 · 场景探索',image:'./art/ash-960.webp'},
  {id:'csol',title:'WASTELAND: LETHAL REMAINS',lines:['WASTELAND:','LETHAL REMAINS'],titleZh:'荒域：致命余骸',subtitle:'UNITY / FPS',note:'第一人称射击 · 武器操作',image:'./art/csol-960.webp'},
- {id:'mines',title:'MINESWEEPER',lines:['MINESWEEPER'],subtitle:'UNITY / PUZZLE',note:'扫雷 · 推理与触屏操作',image:'./art/mines-960.webp'},
+ {id:'mines',title:'MINESWEEPER',lines:['MINESWEEPER'],titleZh:'扫雷',subtitle:'UNITY / PUZZLE',note:'经典益智 · 推理与标记',image:'./art/mines-960.webp'},
  {id:'boe',title:'HUMAN MACHINE',lines:['HUMAN','MACHINE'],subtitle:'ANDROID / KOTLIN',note:'BOE 实习 · 经历与职责'},
  {id:'ae',title:'MOTION FILM',lines:['MOTION','FILM'],subtitle:'AE / PERSONAL FILMS',note:'三部个人影像作品',image:'./art/familiar-960.webp'},
  {id:'lab',title:'THE LAB',lines:['THE LAB'],subtitle:'AIGC / EXPLORATION',note:'空格里的小镇 · 一弧之间',image:'./art/town-960.webp'}

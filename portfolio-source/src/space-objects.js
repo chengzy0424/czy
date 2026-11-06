@@ -127,10 +127,11 @@ export async function buildWorld({mobile=false,documentRef=document,onTexture=()
    if(!spec.image){c.strokeStyle=spec.id==='boe'?'#447b79':'#6a587b';c.lineWidth=1;for(let i=0;i<7;i++){c.beginPath();c.ellipse(940,410,110+i*45,160+i*27,-.3,0,Math.PI*2);c.stroke();}}
    const shade=c.createLinearGradient(0,0,0,840);shade.addColorStop(0,'rgba(4,10,14,.08)');shade.addColorStop(.48,'rgba(4,10,14,.48)');shade.addColorStop(1,'rgba(4,10,14,.15)');c.fillStyle=shade;c.fillRect(0,0,1280,840);
    c.textAlign='center';c.fillStyle='#c9d8d4';c.font='24px "Consolas", "Courier New", monospace';c.fillText(spec.subtitle||'',640,250,1100);
-   c.fillStyle='#eff3ed';c.font='300 92px "Consolas", "Courier New", monospace';
-   const lines=cardLines(spec),lineHeight=105,firstLine=445-(lines.length-1)*lineHeight/2;
+   c.fillStyle='#eff3ed';c.font=`300 ${spec.titleZh?80:92}px "Consolas", "Courier New", monospace`;
+   const lines=cardLines(spec),lineHeight=spec.titleZh?96:105,firstLine=(spec.titleZh?418:445)-(lines.length-1)*lineHeight/2;
    c.shadowColor='rgba(4,10,14,.7)';c.shadowBlur=14;
    lines.forEach((line,i)=>c.fillText(line,640,firstLine+i*lineHeight,1090));
+   if(spec.titleZh){c.font='400 38px "Microsoft YaHei", sans-serif';c.fillStyle='#e3ece6';c.fillText(spec.titleZh,640,548,1080);}
    c.shadowBlur=0;c.fillStyle='#c3d5d1';c.font='25px "Microsoft YaHei", sans-serif';c.fillText(spec.note||'',640,637,1080);c.textAlign='left';
   };
   const surface=canvasTexture(1280,840,draw);

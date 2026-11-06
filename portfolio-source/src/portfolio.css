@@ -168,3 +168,9 @@
  .lab-copy>p:not(.section-label){grid-column:2;grid-row:2;margin:0;font-size:14px}
  .lab-copy>.text-action{grid-column:2;grid-row:3;margin-top:8px;font-size:13px}
 }
+
+/* Keep bilingual game names together at every reading size. */
+.game-work .project-copy,.game-picker button>span{min-width:0}
+.game-work .project-copy h3,.detail-heading,.player-title,.game-picker button>span{overflow-wrap:anywhere;text-wrap:balance}
+.player-title small{display:block;margin-top:10px;font-size:16px;line-height:1.6;font-weight:400;letter-spacing:0;color:var(--muted)}
+.game-picker .game-picker-subtitle{font-size:15px;line-height:1.6;color:var(--ink);margin-top:10px}

@@ -1,6 +1,8 @@
 import {createSegmentWarmup} from './stream-warmup.js';
+import {playbackPolicy,currentConnection,nativeHls} from './stream-policy.js';
 const firstSegment=createSegmentWarmup();
 export const prepareFirstSegment=(path,level)=>firstSegment.warm(path,level);
+export const clearFirstSegment=()=>firstSegment.clear();
 // HLS is loaded on intent, never alongside the first-screen WebGL bundle.
 let library,preferredBackup=false;
 export function prepareVideoPlayer(){
@@ -28,6 +30,17 @@ const loadPolicy=(firstByte,total)=>({default:{
 /** One controller per visible video. Destroy cancels segment loads and event handlers. */
 export function createStreamPlayer({video,path,levels,fallback,onStatus,onQuality,onFailure}){
  let hls,disposed=false,mode='loading',generation=0,selected=-1,recovery=0,wantsPlay=true,seekTo=0,startTimer=0,playbackAllowed=false;
+ const policy=playbackPolicy(levels,currentConnection());
+ let holdUntil=0,guardLevel=policy.start,hasPlayed=false,nativeRetries=0,nativeTimer=0,stallTimer=0;
+ const nativeMaster=levels.some(l=>l.key==='mobile')&&currentConnection().mobile?path.replace(/master\.m3u8$/,'mobile.m3u8'):path;
+ function retryNative(){
+  if(disposed||mode!=='native'||nativeRetries>=1)return false;
+  const backup=repositoryMediaURL(video.src,location.href,true);if(backup===video.src)return false;
+  nativeRetries++;seekTo=video.currentTime||seekTo;video.src=backup;video.load();play();onStatus('正在重新连接影片…');
+  return true;
+ }
+ const ahead=()=>{for(let i=0;i<video.buffered.length;i++)if(video.buffered.start(i)<=video.currentTime+.15&&video.buffered.end(i)>video.currentTime)return video.buffered.end(i)-video.currentTime;return 0;};
+ function updateCap(){if(hls)hls.autoLevelCapping=selected>=0?-1:performance.now()<holdUntil||ahead()<8?guardLevel:policy.autoMax;}
  const events=new AbortController(),listen=(name,fn)=>video.addEventListener(name,fn,{signal:events.signal});
  let pendingPlay;
  function play(){
@@ -37,33 +50,42 @@ export function createStreamPlayer({video,path,levels,fallback,onStatus,onQualit
   });
  }
  const playingLabel=()=>onStatus('正在播放 · '+(mode==='fallback'?'兼容播放':mode==='native'?(levels[selected]?.label||'自动画质'):levels[hls?.currentLevel]?.label||'自动画质'));
- listen('playing',playingLabel);
- listen('waiting',()=>onStatus(video.currentTime>.1?'正在补充缓冲…':'正在加载首段…'));
- listen('pause',()=>{if(video.readyState>0&&!video.ended&&!video.error){wantsPlay=false;onStatus('已暂停');}});
+ listen('playing',()=>{clearTimeout(nativeTimer);clearTimeout(stallTimer);hasPlayed=true;playingLabel();});
+ listen('waiting',()=>{
+  onStatus(video.currentTime>.1?'正在补充缓冲…':'正在加载首段…');
+  if(hasPlayed&&selected<0&&hls){clearTimeout(stallTimer);stallTimer=setTimeout(()=>{
+   // Decoder/quality transitions can emit a one-frame waiting event. Only a
+   // sustained empty buffer is evidence that the connection needs a downgrade.
+   if(!disposed&&hls&&selected<0&&!video.paused&&ahead()<.5){guardLevel=0;holdUntil=performance.now()+12000;updateCap();hls.nextAutoLevel=0;}
+  },350);}
+  if(mode==='native'){clearTimeout(nativeTimer);nativeTimer=setTimeout(retryNative,6000);}
+ });
+ listen('pause',()=>{clearTimeout(stallTimer);clearTimeout(nativeTimer);if(video.readyState>0&&!video.ended&&!video.error){wantsPlay=false;onStatus('已暂停');}});
  listen('play',()=>{wantsPlay=true;playbackAllowed=true;clearTimeout(startTimer);});
  listen('ended',()=>onStatus('播放结束，可再次观看'));
  listen('loadedmetadata',()=>{
   if(seekTo>0){video.currentTime=Math.min(seekTo,Math.max(0,video.duration-.05));seekTo=0;}
   play();
  });
- listen('error',()=>{if(!disposed&&mode!=='hls')onFailure('连接未能完成，请重试或切换兼容播放。');});
+ listen('error',()=>{if(!disposed&&mode!=='hls'&&!(mode==='native'&&retryNative()))onFailure('连接未能完成，请重试或切换兼容播放。');});
 
  function compatibility(){
-  if(disposed)return;generation++;clearTimeout(startTimer);seekTo=video.currentTime||seekTo;wantsPlay=!video.paused||video.readyState===0;
+  if(disposed)return;generation++;clearTimeout(startTimer);clearTimeout(nativeTimer);seekTo=video.currentTime||seekTo;wantsPlay=!video.paused||video.readyState===0;
   hls?.destroy();hls=undefined;mode='fallback';
   video.src=fallback;video.load();play();onStatus('正在连接兼容视频…');
  }
  async function start(at=0){
   const token=++generation;seekTo=at;wantsPlay=true;recovery=0;playbackAllowed=at>0;clearTimeout(startTimer);startTimer=0;
+  holdUntil=performance.now()+2000;guardLevel=policy.start;hasPlayed=false;nativeRetries=0;clearTimeout(nativeTimer);clearTimeout(stallTimer);
   hls?.destroy();hls=undefined;mode='loading';onStatus('正在加载首段…');
   // Native HLS (notably Safari) starts synchronously in the visitor's click.
-  if(video.canPlayType('application/vnd.apple.mpegurl')&&(!window.MediaSource||navigator.vendor==='Apple Computer, Inc.')){
-   mode='native';video.src=path;video.load();play();return;
+  if(nativeHls(video)){
+   mode='native';video.src=nativeMaster;video.load();play();nativeTimer=setTimeout(retryNative,6000);return;
   }
   try{
    const {default:Hls,bootstrap}=await prepareVideoPlayer();if(disposed||token!==generation)return;
    if(!Hls.isSupported()){
-    if(video.canPlayType('application/vnd.apple.mpegurl')){mode='native';video.src=path;video.load();play();}
+    if(video.canPlayType('application/vnd.apple.mpegurl')){mode='native';video.src=nativeMaster;video.load();play();}
     else compatibility();
     return;
    }
@@ -116,27 +138,28 @@ export function createStreamPlayer({video,path,levels,fallback,onStatus,onQualit
     }
    }
    hls=new Hls({
-    enableWorker:true,lowLatencyMode:false,startPosition:at,startLevel:selected<0?0:selected,
-    capLevelToPlayerSize:true,maxDevicePixelRatio:1.5,
-    maxBufferLength:30,maxMaxBufferLength:45,backBufferLength:8,maxBufferSize:24*1024*1024,
+    enableWorker:true,lowLatencyMode:false,startPosition:at,startLevel:selected<0?policy.start:selected,
+    capLevelToPlayerSize:false,
+    maxBufferLength:24,maxMaxBufferLength:32,backBufferLength:6,maxBufferSize:16*1024*1024,
     capLevelOnFPSDrop:true,fpsDroppedMonitoringPeriod:4000,fpsDroppedMonitoringThreshold:.12,
     abrMaxWithRealBitrate:true,
-    abrEwmaDefaultEstimate:700000,abrBandWidthFactor:.8,abrBandWidthUpFactor:.6,
-    maxStarvationDelay:2,maxLoadingDelay:2,preserveManualLevelOnError:false,
+    abrEwmaDefaultEstimate:policy.estimate,abrBandWidthFactor:.8,abrBandWidthUpFactor:.7,
+    maxStarvationDelay:1,maxLoadingDelay:1,preserveManualLevelOnError:false,
     manifestLoadPolicy:loadPolicy(3500,8000),playlistLoadPolicy:loadPolicy(3500,8000),
     fragLoadPolicy:loadPolicy(4000,14000),loader:RepositoryLoader
    });
-   hls.on(Hls.Events.MANIFEST_PARSED,()=>{if(selected>=0)hls.loadLevel=selected;play();});
+   hls.on(Hls.Events.MANIFEST_PARSED,()=>{updateCap();if(selected>=0)hls.loadLevel=selected;play();});
    let firstDownloadMs=0;
    const releaseStart=()=>{if(disposed||token!==generation)return;playbackAllowed=true;clearTimeout(startTimer);play();};
    hls.on(Hls.Events.FRAG_LOADED,(_,data)=>{
     if(data.frag.sn===0)firstDownloadMs=data.stats.loading.end-data.stats.loading.start;
    });
    hls.on(Hls.Events.FRAG_BUFFERED,()=>{
+    updateCap();
     if(playbackAllowed)return;
-    const ahead=video.buffered.length?video.buffered.end(video.buffered.length-1)-video.currentTime:0;
-    if(ahead<=0)return;
-    if(firstDownloadMs<=1200||ahead>=3.5)releaseStart();
+    const buffer=ahead();
+    if(buffer<=0)return;
+    if(firstDownloadMs<=1200||buffer>=3.5)releaseStart();
     else if(!startTimer){onStatus('正在准备播放…');startTimer=setTimeout(releaseStart,900);}
    });
    hls.on(Hls.Events.LEVEL_SWITCHED,(_,data)=>{onQuality(data.level);if(!video.paused&&video.readyState>=3)playingLabel();});
@@ -152,14 +175,15 @@ export function createStreamPlayer({video,path,levels,fallback,onStatus,onQualit
   start,
   quality(index){selected=index;if(hls){
    // Replace only future fragments, preserving the current frame, sound and position.
-   hls.nextLevel=index;onStatus(index<0?'自动调整画质':'将在下一片段切换为 '+levels[index].label);
+   if(index<0){guardLevel=policy.start;holdUntil=performance.now()+8000;}
+   updateCap();hls.nextLevel=index;onStatus(index<0?'自动调整画质':'将在下一片段切换为 '+levels[index].label);
   }else if(mode==='native'){
    if(video.readyState){seekTo=video.currentTime;wantsPlay=!video.paused;}
-   video.src=index<0?path:new URL(levels[index].key+'/index.m3u8',new URL(path,location.href)).href;video.load();play();
+   video.src=index<0?nativeMaster:new URL(levels[index].playlist||levels[index].key+'/index.m3u8',new URL(path,location.href)).href;video.load();play();
   }},
   compatibility,
   retry(){start(video.currentTime||seekTo);},
-  destroy(){disposed=true;generation++;clearTimeout(startTimer);events.abort();hls?.destroy();hls=undefined;}
+  destroy(){disposed=true;generation++;clearTimeout(startTimer);clearTimeout(nativeTimer);clearTimeout(stallTimer);events.abort();firstSegment.clear();hls?.destroy();hls=undefined;}
  };
 }
 

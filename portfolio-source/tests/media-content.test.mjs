@@ -21,19 +21,22 @@ test('all portfolio entry points include six games and the replaced film collect
 });
 
 test('every new film and game has matching playable manifests, duration and init metadata',()=>{
- for(const id of [...Object.keys(films),'goose','echo','ash']){
+ for(const id of [...Object.keys(films),...Object.keys(games)]){
   const item=catalog[id];assert.ok(item?.fallback,id+' missing compatibility video');
-  assert.match(item.path,/stream-v2-20261106/);
+  assert.match(item.path,/stream-v3-20261106/);
   const master=startup[item.path]?.data;assert.ok(master?.includes('#EXTM3U'));
   const declared=(films[id]||gameMedia[id]).duration.split(':').map(Number);
   for(const level of item.levels){
    assert.ok(Math.abs(level.seconds-declared[0]*60-declared[1])<1,id+' wrong duration');
-   assert.ok(master.includes(level.level+'/index.m3u8'));
-   const prefix=item.path.replace('master.m3u8',level.level+'/');
+   assert.ok(master.includes(level.playlist||level.level+'/index.m3u8'));
+   const prefix=new URL(level.playlist||level.level+'/index.m3u8',new URL(item.path,'https://media.test/')).pathname.slice(1).replace('index.m3u8','');
    const playlist=startup[prefix+'index.m3u8']?.data;
    assert.ok(playlist?.includes('#EXT-X-ENDLIST'),id+' incomplete playlist');
    assert.equal((playlist.match(/#EXTINF/g)||[]).length,level.parts);
    assert.ok(startup[prefix+'init.mp4']?.binary);
   }
+  assert.ok(item.levels.some(l=>l.level==='saving'&&l.peak<260000),id+' missing weak-network rendition');
+  assert.ok(item.levels.some(l=>l.level==='mobile'&&l.peak<520000),id+' mobile peak exceeds connection budget');
+  assert.ok(item.levels.every((l,i)=>i===0||l.peak>=item.levels[i-1].peak),id+' UI indexes must match HLS bitrate order');
  }
 });

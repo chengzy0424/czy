@@ -1,7 +1,9 @@
 import catalog from './stream-catalog.json' with {type:'json'};
-import {createStreamPlayer,prepareVideoPlayer as loadVideoPlayer,prepareFirstSegment} from './stream-player.js';
+import {createStreamPlayer,prepareVideoPlayer as loadVideoPlayer,prepareFirstSegment,clearFirstSegment} from './stream-player.js';
+import {playbackPolicy,currentConnection,nativeHls} from './stream-policy.js';
 export function prepareVideoPlayer(id){
- const stream=catalog[id];if(stream)prepareFirstSegment('./'+stream.path,stream.levels[0].level);
+ if(globalThis.document&&nativeHls(document.createElement('video')))return Promise.resolve();
+ const stream=catalog[id];if(stream)prepareFirstSegment('./'+stream.path,stream.levels[playbackPolicy(stream.levels,currentConnection()).start].level);
  return loadVideoPlayer();
 }
 // Real project recordings and personal films; no game engine is shipped with this site.
@@ -16,12 +18,8 @@ export const games={
 
 // Keep delivery and the player on one explicit media manifest.
 export const gameMedia={
- tower:{duration:'00:29',levels:[['720','720p · 原声','tower-demo-audio.mp4']]},
- ash:{duration:'03:03',levels:[['low','流畅 · 原声','stream-v2-20261106/ash/low/fallback.mp4']]},
- csol:{duration:'00:42',levels:[['low','流畅 · 30帧','csol-demo-low.mp4'],['720','720p · 60帧','csol-demo-audio.mp4'],['hd','高清 · 60帧','csol-demo-hd.mp4']]},
- mines:{duration:'00:22',levels:[['720','720p · 原声','mines-demo-audio.mp4']]},
- goose:{duration:'01:44',levels:[['low','流畅 · 原声','stream-v2-20261106/goose/low/fallback.mp4']]},
- echo:{duration:'01:40',levels:[['low','流畅 · 原声','stream-v2-20261106/echo/low/fallback.mp4']]}
+ tower:{duration:'00:29'},ash:{duration:'03:03'},csol:{duration:'00:42'},
+ mines:{duration:'00:22'},goose:{duration:'01:44'},echo:{duration:'01:40'}
 };
 const implementation={
  tower:['防线部署与波次推进','围绕道路布置防御塔，结合英雄移动与技能支援组织战斗。','建造 → 开波 → 支援战线'],
@@ -54,14 +52,14 @@ export function gameList(){return `<p class="project-type">UNITY / SELECTED PROJ
 // Attach sources only after a play action. Closing aborts all segment requests.
 export function startMedia(kind,id,slot){
  const item=kind==='game'?games[id]:films[id],stream=catalog[id];if(!slot||!item||!stream)return;
- releaseMedia(slot);slot.replaceChildren();const content=slot.closest('#detail-content');content?.classList.add('is-playing');
+ releaseMedia(slot,true);slot.replaceChildren();const content=slot.closest('#detail-content');content?.classList.add('is-playing');
  const back=document.createElement('button');back.className='playback-back';back.type='button';back.textContent=kind==='game'?'← 返回项目介绍':'← 返回影片列表';
  back.addEventListener('click',()=>{releaseMedia(slot);slot.replaceChildren();content?.classList.remove('is-playing');document.querySelector('dialog').scrollTop=0;content?.querySelector(kind==='game'?'[data-play]':'[data-film="'+id+'"]')?.focus({preventScroll:true});});slot.append(back);
  const heading=document.createElement('h3');heading.className='player-title';heading.textContent=item.title;
  if(kind==='game'){const subtitle=document.createElement('small');subtitle.textContent=item.subtitle+' · 玩法演示';heading.append(subtitle);}slot.append(heading);
  const bar=document.createElement('div');bar.className='player-toolbar';const status=document.createElement('p');status.className='player-status';status.setAttribute('role','status');status.textContent='正在准备影片…';bar.append(status);
  const video=document.createElement('video');video.controls=true;video.playsInline=true;video.preload='auto';video.muted=false;video.volume=.8;video.poster=(item.imageBase||'./art/'+id)+'-960.webp';video.className='film-player';video.setAttribute('aria-label',heading.textContent);
- const levels=stream.levels.map(l=>({key:l.level,label:(l.level.startsWith('low')?'流畅 · '+l.height+'p':l.level==='hd'?(l.height===1080?'1080p · 高清':'高清 · '+l.width+'×'+l.height):l.height+'p')+(l.fps===60?' · 60帧':'')}));
+ const levels=stream.levels.map(l=>({...l,key:l.level,label:({saving:'省流 · ',mobile:'流畅 · ',balanced:'清晰 · '}[l.level]||'')+(l.level==='hd'?'高清 · ':'')+l.height+'p'+(l.fps===60?' · 60帧':'')}));
  const select=document.createElement('select');select.setAttribute('aria-label','影片画质');
  const label=document.createElement('label');label.textContent='画质 ';
  for(const [value,text] of [['-1','自动 · 优先流畅'],...levels.map((l,i)=>[String(i),l.label])]){const option=document.createElement('option');option.value=value;option.textContent=text;select.append(option);}label.append(select);bar.append(label);
@@ -72,7 +70,7 @@ export function startMedia(kind,id,slot){
  const clearWait=()=>{clearTimeout(timer);timer=0;};
  const offerRecovery=()=>{if(!timer)timer=setTimeout(()=>{timer=0;if(!disposed&&video.readyState<3){recovery.hidden=false;status.textContent='当前连接较慢，可重新连接或切换兼容播放。';}},12000);};
  const controller=createStreamPlayer({video,path:'./'+stream.path,levels,
-  fallback:stream.fallback?'./'+stream.fallback:'./media/'+(kind==='game'?gameMedia[id].levels[0][2]:id+'-720.mp4'),
+  fallback:'./'+stream.fallback,
   onStatus:text=>{status.textContent=text;},onQuality:index=>{video.dataset.quality=levels[index]?.key||'auto';},
   onFailure:text=>{clearWait();status.textContent=text;recovery.hidden=false;}
  });
@@ -85,5 +83,5 @@ export function startMedia(kind,id,slot){
  video._release=()=>{disposed=true;clearWait();controller.destroy();};
  controller.start();offerRecovery();document.querySelector('dialog').scrollTop=0;
 }
-export function releaseMedia(root){root.querySelectorAll('video').forEach(v=>{v._release?.();v.pause();v.removeAttribute('src');v.load();});}
+export function releaseMedia(root,preserveWarmup=false){if(!preserveWarmup)clearFirstSegment();root.querySelectorAll('video').forEach(v=>{v._release?.();v.pause();v.removeAttribute('src');v.load();});}
 

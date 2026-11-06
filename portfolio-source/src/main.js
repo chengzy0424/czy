@@ -82,7 +82,7 @@ const mediaWarmObserver=new IntersectionObserver(entries=>{
   prepareVideoPlayer().catch(()=>{});mediaWarmObserver.disconnect();
  }
 },{rootMargin:'100% 0px'});
-mediaWarmObserver.observe(works);
+for(const section of [works,$('#spatial-gallery'),$('#machine'),$('#lab')])mediaWarmObserver.observe(section);
 let mediaIntentTimer=0;
 for(const eventName of ['pointerover','focusin','pointerdown'])document.addEventListener(eventName,event=>{
  const target=event.target.closest('a[href="#works"],[role="tab"],[data-detail],[data-play],[data-film]');
@@ -100,6 +100,7 @@ function openDetail(id,opener){
  dialog.classList.toggle('game-selection',id==='games');
  if(!dialog.open){lastOpener=opener;savedScroll=scrollY;}state.modal=true;engine?.pause();
  releaseMedia($('#detail-content'));$('#detail-content').classList.remove('is-playing');$('#detail-content').innerHTML=html;
+ prepareVideoPlayer(games[id]?id:undefined).catch(()=>{});
  document.documentElement.classList.add('dialog-open');document.body.classList.add('dialog-open');
  if(!dialog.open)dialog.showModal();dialog.scrollTop=0;$('.dialog-close').focus({preventScroll:true});
  if(!state.reduced)dialog.animate([{opacity:0,transform:'translateY(12px) scale(.985)'},{opacity:1,transform:'none'}],{duration:280,easing:'cubic-bezier(.2,.8,.2,1)'});

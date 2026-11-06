@@ -67,7 +67,7 @@ test('solid emblem, segmented spine, mechanical chamber and honeycomb have finit
  }
 });
 test('gallery boards have varying depth, actual thickness and project metadata',async()=>{
- const w=await geometryWorld();assert.deepEqual(w.cards.map(c=>c.spec.id),['tower','ash','csol','mines','boe','ae','lab']);const z=w.cards.map(c=>c.home.z);assert.ok(Math.max(...z)-Math.min(...z)>5);
+ const w=await geometryWorld();assert.deepEqual(w.cards.map(c=>c.spec.id),['tower','ash','csol','mines','goose','echo','boe','ae','lab']);const z=w.cards.map(c=>c.home.z);assert.ok(Math.max(...z)-Math.min(...z)>5);
  w.cards.forEach(c=>{c.base.geometry.computeBoundingBox();assert.ok(c.base.geometry.boundingBox.getSize(new T.Vector3()).z>.05);assert.ok(c.face.userData.detail);assert.equal(c.face.material.depthTest,true);});
  assert.equal(CARD_SPECS.find(c=>c.id==='boe').image,undefined,'no fabricated BOE screenshot');
  assert.match(CARD_SPECS.find(c=>c.id==='lab').note,/空格里的小镇/);w.dispose();

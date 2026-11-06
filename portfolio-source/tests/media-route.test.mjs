@@ -12,3 +12,12 @@ test('local previews and unrelated assets never route to the public repository',
  assert.equal(repositoryMediaURL('./media/stream-v1/arc/master.m3u8','http://127.0.0.1:4181/',true),'http://127.0.0.1:4181/media/stream-v1/arc/master.m3u8');
  assert.equal(repositoryMediaURL('./art/town-960.webp',page,true),'https://chengzy0424.github.io/czy/art/town-960.webp');
 });
+
+test('versioned replacement media can retry both known repository origins',()=>{
+ const suffix='/media/stream-v2-20261106/echo/hd/part-015.m4s';
+ const backup='https://raw.githubusercontent.com/chengzy0424/czy/main'+suffix;
+ assert.equal(repositoryMediaURL('.'+suffix,page,true),backup);
+ assert.equal(repositoryMediaURL(backup,page),'https://chengzy0424.github.io/czy'+suffix);
+ assert.equal(repositoryMediaURL('https://example.com/czy'+suffix,page,true),'https://example.com/czy'+suffix);
+});
+

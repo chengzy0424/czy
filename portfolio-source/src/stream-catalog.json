@@ -1,51 +1,37 @@
 {
   "ash": {
-    "path": "media/stream-v1/ash/master.m3u8",
+    "path": "media/stream-v2-20261106/ash/master.m3u8",
+    "fallback": "media/stream-v2-20261106/ash/low/fallback.mp4",
     "levels": [
       {
         "id": "ash",
-        "level": "low60",
+        "level": "low",
         "width": 854,
-        "height": 480,
-        "fps": 60,
+        "height": 436,
+        "fps": 30,
         "codec": "avc1.64001f",
-        "seconds": 61.6,
-        "average": 727881,
-        "peak": 1074489,
-        "bytes": 5606051,
-        "firstBytes": 140357,
-        "parts": 31,
-        "audio": "copied AAC"
-      },
-      {
-        "id": "ash",
-        "level": "720",
-        "width": 1280,
-        "height": 720,
-        "fps": 60,
-        "codec": "avc1.640020",
-        "seconds": 61.6,
-        "average": 1949027,
-        "peak": 2842783,
-        "bytes": 15008875,
-        "firstBytes": 311931,
-        "parts": 31,
-        "audio": "copied AAC"
+        "seconds": 183.233333,
+        "average": 878068,
+        "peak": 1156512,
+        "bytes": 20111427,
+        "firstBytes": 133235,
+        "parts": 92,
+        "audio": "AAC stereo"
       },
       {
         "id": "ash",
         "level": "hd",
-        "width": 1544,
-        "height": 868,
+        "width": 1920,
+        "height": 980,
         "fps": 60,
         "codec": "avc1.64002a",
-        "seconds": 61.6,
-        "average": 3184708,
-        "peak": 5320423,
-        "bytes": 24523627,
-        "firstBytes": 451951,
-        "parts": 31,
-        "audio": "copied AAC"
+        "seconds": 183.25,
+        "average": 3219706,
+        "peak": 4143180,
+        "bytes": 73751397,
+        "firstBytes": 611205,
+        "parts": 92,
+        "audio": "AAC stereo"
       }
     ]
   },
@@ -170,7 +156,8 @@
     ]
   },
   "murphy": {
-    "path": "media/stream-v1/murphy/master.m3u8",
+    "path": "media/stream-v2-20261106/murphy/master.m3u8",
+    "fallback": "media/stream-v2-20261106/murphy/low/fallback.mp4",
     "levels": [
       {
         "id": "murphy",
@@ -179,28 +166,13 @@
         "height": 480,
         "fps": 30,
         "codec": "avc1.64001f",
-        "seconds": 123.966667,
-        "average": 234027,
-        "peak": 387055,
-        "bytes": 3627844,
-        "firstBytes": 63505,
-        "parts": 62,
-        "audio": "copied AAC"
-      },
-      {
-        "id": "murphy",
-        "level": "720",
-        "width": 1280,
-        "height": 720,
-        "fps": 30,
-        "codec": "avc1.64001f",
-        "seconds": 123.966667,
-        "average": 509169,
-        "peak": 1053734,
-        "bytes": 7891389,
-        "firstBytes": 160641,
-        "parts": 62,
-        "audio": "copied AAC"
+        "seconds": 153.033333,
+        "average": 699646,
+        "peak": 1158132,
+        "bytes": 13383654,
+        "firstBytes": 182535,
+        "parts": 77,
+        "audio": "AAC stereo"
       },
       {
         "id": "murphy",
@@ -209,18 +181,19 @@
         "height": 1080,
         "fps": 30,
         "codec": "avc1.640028",
-        "seconds": 123.966667,
-        "average": 992586,
-        "peak": 2174814,
-        "bytes": 15382342,
-        "firstBytes": 365499,
-        "parts": 62,
-        "audio": "copied AAC"
+        "seconds": 153.033333,
+        "average": 3738490,
+        "peak": 5913864,
+        "bytes": 71514206,
+        "firstBytes": 966068,
+        "parts": 77,
+        "audio": "AAC stereo"
       }
     ]
   },
   "hyrum": {
-    "path": "media/stream-v1/hyrum/master.m3u8",
+    "path": "media/stream-v2-20261106/hyrum/master.m3u8",
+    "fallback": "media/stream-v2-20261106/hyrum/low/fallback.mp4",
     "levels": [
       {
         "id": "hyrum",
@@ -229,28 +202,13 @@
         "height": 480,
         "fps": 30,
         "codec": "avc1.64001f",
-        "seconds": 149.933333,
-        "average": 223795,
-        "peak": 406569,
-        "bytes": 4196138,
-        "firstBytes": 67813,
-        "parts": 75,
-        "audio": "copied AAC"
-      },
-      {
-        "id": "hyrum",
-        "level": "720",
-        "width": 1280,
-        "height": 720,
-        "fps": 30,
-        "codec": "avc1.64001f",
-        "seconds": 149.933333,
-        "average": 452322,
-        "peak": 907645,
-        "bytes": 8479117,
-        "firstBytes": 149493,
-        "parts": 75,
-        "audio": "copied AAC"
+        "seconds": 151.966667,
+        "average": 606361,
+        "peak": 1183436,
+        "bytes": 11518329,
+        "firstBytes": 189645,
+        "parts": 76,
+        "audio": "AAC stereo"
       },
       {
         "id": "hyrum",
@@ -259,18 +217,19 @@
         "height": 1080,
         "fps": 30,
         "codec": "avc1.640028",
-        "seconds": 149.933333,
-        "average": 884058,
-        "peak": 1911004,
-        "bytes": 16570568,
-        "firstBytes": 322973,
-        "parts": 75,
-        "audio": "copied AAC"
+        "seconds": 151.966667,
+        "average": 3224250,
+        "peak": 6276380,
+        "bytes": 61247308,
+        "firstBytes": 937099,
+        "parts": 76,
+        "audio": "AAC stereo"
       }
     ]
   },
   "familiar": {
-    "path": "media/stream-v1/familiar/master.m3u8",
+    "path": "media/stream-v2-20261106/familiar/master.m3u8",
+    "fallback": "media/stream-v2-20261106/familiar/low/fallback.mp4",
     "levels": [
       {
         "id": "familiar",
@@ -279,48 +238,34 @@
         "height": 480,
         "fps": 30,
         "codec": "avc1.64001f",
-        "seconds": 184.133333,
-        "average": 185658,
-        "peak": 278568,
-        "bytes": 4275074,
-        "firstBytes": 49796,
+        "seconds": 184.2,
+        "average": 444610,
+        "peak": 846632,
+        "bytes": 10237152,
+        "firstBytes": 130743,
         "parts": 93,
-        "audio": "copied AAC"
-      },
-      {
-        "id": "familiar",
-        "level": "720",
-        "width": 1280,
-        "height": 720,
-        "fps": 30,
-        "codec": "avc1.64001f",
-        "seconds": 184.133333,
-        "average": 405663,
-        "peak": 664545,
-        "bytes": 9338860,
-        "firstBytes": 112026,
-        "parts": 93,
-        "audio": "copied AAC"
+        "audio": "AAC stereo"
       },
       {
         "id": "familiar",
         "level": "hd",
         "width": 1920,
         "height": 1080,
-        "fps": 30,
-        "codec": "avc1.640028",
-        "seconds": 184.133333,
-        "average": 947154,
-        "peak": 1527852,
-        "bytes": 21802163,
-        "firstBytes": 232167,
+        "fps": 60,
+        "codec": "avc1.64002a",
+        "seconds": 184.183333,
+        "average": 2851492,
+        "peak": 6092612,
+        "bytes": 65649672,
+        "firstBytes": 678104,
         "parts": 93,
-        "audio": "copied AAC"
+        "audio": "AAC stereo"
       }
     ]
   },
   "town": {
-    "path": "media/stream-v1/town/master.m3u8",
+    "path": "media/stream-v2-20261106/town/master.m3u8",
+    "fallback": "media/stream-v2-20261106/town/low/fallback.mp4",
     "levels": [
       {
         "id": "town",
@@ -329,48 +274,34 @@
         "height": 480,
         "fps": 30,
         "codec": "avc1.64001f",
-        "seconds": 63.933333,
-        "average": 597294,
-        "peak": 917792,
-        "bytes": 4775222,
-        "firstBytes": 38409,
+        "seconds": 64.0,
+        "average": 894493,
+        "peak": 1401244,
+        "bytes": 7155945,
+        "firstBytes": 143820,
         "parts": 32,
-        "audio": "copied AAC"
-      },
-      {
-        "id": "town",
-        "level": "720",
-        "width": 1280,
-        "height": 720,
-        "fps": 30,
-        "codec": "avc1.64001f",
-        "seconds": 63.933333,
-        "average": 1016242,
-        "peak": 1411832,
-        "bytes": 8123310,
-        "firstBytes": 49546,
-        "parts": 32,
-        "audio": "copied AAC"
+        "audio": "AAC stereo"
       },
       {
         "id": "town",
         "level": "hd",
         "width": 1920,
         "height": 1080,
-        "fps": 30,
-        "codec": "avc1.640028",
-        "seconds": 63.933333,
-        "average": 2262997,
-        "peak": 3276561,
-        "bytes": 18086966,
-        "firstBytes": 62305,
+        "fps": 60,
+        "codec": "avc1.64002a",
+        "seconds": 63.983333,
+        "average": 4868085,
+        "peak": 6026916,
+        "bytes": 38934537,
+        "firstBytes": 1120708,
         "parts": 32,
-        "audio": "copied AAC"
+        "audio": "AAC stereo"
       }
     ]
   },
   "arc": {
-    "path": "media/stream-v1/arc/master.m3u8",
+    "path": "media/stream-v2-20261106/arc/master.m3u8",
+    "fallback": "media/stream-v2-20261106/arc/low/fallback.mp4",
     "levels": [
       {
         "id": "arc",
@@ -379,43 +310,244 @@
         "height": 480,
         "fps": 30,
         "codec": "avc1.64001f",
-        "seconds": 20.066667,
-        "average": 625426,
-        "peak": 962685,
-        "bytes": 1570154,
-        "firstBytes": 116706,
+        "seconds": 20.1,
+        "average": 1006575,
+        "peak": 2593600,
+        "bytes": 2529019,
+        "firstBytes": 213518,
         "parts": 11,
-        "audio": "copied AAC"
-      },
-      {
-        "id": "arc",
-        "level": "720",
-        "width": 1280,
-        "height": 720,
-        "fps": 30,
-        "codec": "avc1.64001f",
-        "seconds": 20.066667,
-        "average": 1053139,
-        "peak": 1400608,
-        "bytes": 2643000,
-        "firstBytes": 270688,
-        "parts": 11,
-        "audio": "copied AAC"
+        "audio": "AAC stereo"
       },
       {
         "id": "arc",
         "level": "hd",
         "width": 1920,
         "height": 1080,
+        "fps": 60,
+        "codec": "avc1.64002a",
+        "seconds": 20.083333,
+        "average": 5038118,
+        "peak": 14627483,
+        "bytes": 12647774,
+        "firstBytes": 867368,
+        "parts": 11,
+        "audio": "AAC stereo"
+      }
+    ]
+  },
+  "ai-history": {
+    "path": "media/stream-v2-20261106/ai-history/master.m3u8",
+    "fallback": "media/stream-v2-20261106/ai-history/low/fallback.mp4",
+    "levels": [
+      {
+        "id": "ai-history",
+        "level": "low",
+        "width": 854,
+        "height": 480,
+        "fps": 30,
+        "codec": "avc1.64001f",
+        "seconds": 140.0,
+        "average": 512681,
+        "peak": 1292968,
+        "bytes": 8971926,
+        "firstBytes": 114750,
+        "parts": 70,
+        "audio": "AAC stereo"
+      },
+      {
+        "id": "ai-history",
+        "level": "hd",
+        "width": 1920,
+        "height": 1080,
+        "fps": 60,
+        "codec": "avc1.64002a",
+        "seconds": 139.983333,
+        "average": 2445065,
+        "peak": 5528216,
+        "bytes": 42783543,
+        "firstBytes": 593553,
+        "parts": 70,
+        "audio": "AAC stereo"
+      }
+    ]
+  },
+  "shift": {
+    "path": "media/stream-v2-20261106/shift/master.m3u8",
+    "fallback": "media/stream-v2-20261106/shift/low/fallback.mp4",
+    "levels": [
+      {
+        "id": "shift",
+        "level": "low",
+        "width": 854,
+        "height": 480,
+        "fps": 30,
+        "codec": "avc1.64001f",
+        "seconds": 30.0,
+        "average": 857190,
+        "peak": 1542380,
+        "bytes": 3214461,
+        "firstBytes": 115878,
+        "parts": 15,
+        "audio": "AAC stereo"
+      },
+      {
+        "id": "shift",
+        "level": "hd",
+        "width": 1920,
+        "height": 1080,
+        "fps": 60,
+        "codec": "avc1.64002a",
+        "seconds": 29.983333000000002,
+        "average": 4330074,
+        "peak": 7724604,
+        "bytes": 16228756,
+        "firstBytes": 485560,
+        "parts": 15,
+        "audio": "AAC stereo"
+      }
+    ]
+  },
+  "red-bean": {
+    "path": "media/stream-v2-20261106/red-bean/master.m3u8",
+    "fallback": "media/stream-v2-20261106/red-bean/low/fallback.mp4",
+    "levels": [
+      {
+        "id": "red-bean",
+        "level": "low",
+        "width": 854,
+        "height": 480,
+        "fps": 30,
+        "codec": "avc1.64001f",
+        "seconds": 236.066667,
+        "average": 700760,
+        "peak": 3103184,
+        "bytes": 20678271,
+        "firstBytes": 72807,
+        "parts": 119,
+        "audio": "AAC stereo"
+      },
+      {
+        "id": "red-bean",
+        "level": "hd",
+        "width": 1920,
+        "height": 1080,
         "fps": 30,
         "codec": "avc1.640028",
-        "seconds": 20.066667,
-        "average": 2348362,
-        "peak": 3104851,
-        "bytes": 5891852,
-        "firstBytes": 541171,
-        "parts": 11,
-        "audio": "copied AAC"
+        "seconds": 236.066667,
+        "average": 4024182,
+        "peak": 16899396,
+        "bytes": 118746900,
+        "firstBytes": 341374,
+        "parts": 119,
+        "audio": "AAC stereo"
+      }
+    ]
+  },
+  "sword-dance": {
+    "path": "media/stream-v2-20261106/sword-dance/master.m3u8",
+    "fallback": "media/stream-v2-20261106/sword-dance/low/fallback.mp4",
+    "levels": [
+      {
+        "id": "sword-dance",
+        "level": "low",
+        "width": 854,
+        "height": 480,
+        "fps": 30,
+        "codec": "avc1.64001f",
+        "seconds": 30.033333,
+        "average": 1001029,
+        "peak": 1419614,
+        "bytes": 3758031,
+        "firstBytes": 302396,
+        "parts": 16,
+        "audio": "AAC stereo"
+      },
+      {
+        "id": "sword-dance",
+        "level": "hd",
+        "width": 1920,
+        "height": 1080,
+        "fps": 60,
+        "codec": "avc1.64002a",
+        "seconds": 30.033333,
+        "average": 5123191,
+        "peak": 5773108,
+        "bytes": 19233314,
+        "firstBytes": 1182427,
+        "parts": 16,
+        "audio": "AAC stereo"
+      }
+    ]
+  },
+  "echo": {
+    "path": "media/stream-v2-20261106/echo/master.m3u8",
+    "fallback": "media/stream-v2-20261106/echo/low/fallback.mp4",
+    "levels": [
+      {
+        "id": "echo",
+        "level": "low",
+        "width": 854,
+        "height": 432,
+        "fps": 30,
+        "codec": "avc1.64001f",
+        "seconds": 99.766667,
+        "average": 896466,
+        "peak": 1544032,
+        "bytes": 11179673,
+        "firstBytes": 57629,
+        "parts": 50,
+        "audio": "AAC stereo"
+      },
+      {
+        "id": "echo",
+        "level": "hd",
+        "width": 1920,
+        "height": 972,
+        "fps": 60,
+        "codec": "avc1.64002a",
+        "seconds": 99.783333,
+        "average": 4776471,
+        "peak": 6716740,
+        "bytes": 59576528,
+        "firstBytes": 282516,
+        "parts": 50,
+        "audio": "AAC stereo"
+      }
+    ]
+  },
+  "goose": {
+    "path": "media/stream-v2-20261106/goose/master.m3u8",
+    "fallback": "media/stream-v2-20261106/goose/low/fallback.mp4",
+    "levels": [
+      {
+        "id": "goose",
+        "level": "low",
+        "width": 854,
+        "height": 432,
+        "fps": 30,
+        "codec": "avc1.64001f",
+        "seconds": 103.9,
+        "average": 449857,
+        "peak": 963252,
+        "bytes": 5842515,
+        "firstBytes": 43714,
+        "parts": 52,
+        "audio": "AAC stereo"
+      },
+      {
+        "id": "goose",
+        "level": "hd",
+        "width": 1920,
+        "height": 972,
+        "fps": 60,
+        "codec": "avc1.64002a",
+        "seconds": 103.9,
+        "average": 2303327,
+        "peak": 4797828,
+        "bytes": 29914458,
+        "firstBytes": 204695,
+        "parts": 52,
+        "audio": "AAC stereo"
       }
     ]
   }

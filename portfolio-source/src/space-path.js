@@ -6,7 +6,7 @@ export function chapterBlend(t){return smooth(clamp((t-.09)/.82));}
 export function passageStrength(p){return Math.sin(Math.PI*chapterBlend(p-Math.floor(p)))**2;}
 export const GALLERY_DESCENT=5.2;
 export const SCENE_Y={gallery:-13,machine:-24-GALLERY_DESCENT,lab:-34-GALLERY_DESCENT,confluence:-45.5-GALLERY_DESCENT};
-const GALLERY_CARD_COUNT=7;
+const GALLERY_CARD_COUNT=9;
 // Fixed-height boards on a long spine. One scroll phase drives the viewing
 // height and the whole column's turn, including each short reading hold.
 export function galleryAdvance(progress){
@@ -70,8 +70,10 @@ export const CARD_SPECS=[
  {id:'ash',title:'ASH EXODUS',lines:['ASH','EXODUS'],titleZh:'清理者行动',subtitle:'UNITY / FPS',note:'第一人称射击 · 场景探索',image:'./art/ash-960.webp'},
  {id:'csol',title:'WASTELAND: LETHAL REMAINS',lines:['WASTELAND:','LETHAL REMAINS'],titleZh:'荒域：致命余骸',subtitle:'UNITY / FPS',note:'第一人称射击 · 武器操作',image:'./art/csol-960.webp'},
  {id:'mines',title:'MINESWEEPER',lines:['MINESWEEPER'],titleZh:'扫雷',subtitle:'UNITY / PUZZLE',note:'经典益智 · 推理与标记',image:'./art/mines-960.webp'},
+ {id:'goose',title:'GOOSE GAME',lines:['GOOSE GAME'],titleZh:'抓大鹅',subtitle:'UNITY / MATCH 3',note:'三消收集 · 关卡与道具',image:'./art/goose-960.webp'},
+ {id:'echo',title:'ECHO OF RUIN',lines:['ECHO OF','RUIN'],titleZh:'残响墟境',subtitle:'UNITY / ARPG',note:'动作角色扮演 · 近战与技能',image:'./art/echo-960.webp'},
  {id:'boe',title:'HUMAN MACHINE',lines:['HUMAN','MACHINE'],subtitle:'ANDROID / KOTLIN',note:'BOE 实习 · 经历与职责'},
- {id:'ae',title:'MOTION FILM',lines:['MOTION','FILM'],subtitle:'AE / PERSONAL FILMS',note:'三部个人影像作品',image:'./art/familiar-960.webp'},
- {id:'lab',title:'THE LAB',lines:['THE LAB'],subtitle:'AIGC / EXPLORATION',note:'空格里的小镇 · 一弧之间',image:'./art/town-960.webp'}
+ {id:'ae',title:'MOTION FILM',lines:['MOTION','FILM'],subtitle:'AE / VIBE CODING',note:'六部个人影像作品',image:'./art/20261106/familiar-960.webp'},
+ {id:'lab',title:'THE LAB',lines:['THE LAB'],subtitle:'AIGC / EXPLORATION',note:'空格里的小镇 · 一弧之间 · 女侠剑舞',image:'./art/20261106/town-960.webp'}
 ].map((spec,index)=>{const pose=galleryCardPose(index,2);return {...spec,position:pose.position,rotation:pose.rotation[1]};});
 

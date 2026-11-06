@@ -56,7 +56,7 @@ function selectCategory(id,focus=false){
    animations.push(panel.querySelector('.project-copy').animate([{opacity:0,transform:'translateX(-20px)'},{opacity:1,transform:'translateX(0)'}],{duration:480,delay:90,fill:'backwards',easing:'ease-out'}));
   }else {panel.querySelectorAll('article,.planned-work').forEach((item,i)=>animations.push(item.animate([{opacity:.2,clipPath:'inset(0 100% 0 0)'},{opacity:1,clipPath:'inset(0)'}],{duration:520,delay:i*70,fill:'backwards',easing:'ease-out'})));}
  }
- $('#panel-announcement').textContent='已切换到'+({unity:'Unity 游戏：四款项目实机演示',software:'软件开发：BOE 实习经历',films:'AE 影像：三部个人影片',lab:'AIGC：两部视觉短片'}[id])+'。';
+ $('#panel-announcement').textContent='已切换到'+({unity:'Unity 游戏：六款项目实机演示',software:'软件开发：BOE 实习经历',films:'AE 影像：六部个人影片',lab:'AIGC：三部视觉短片'}[id])+'。';
  syncProgress();
 }
 tabs.forEach((tab,i)=>{
@@ -97,6 +97,7 @@ for(const eventName of ['pointerover','focusin','pointerdown'])document.addEvent
 function openDetail(id,opener){
  const html=id==='games'?gameList():games[id]?gameDetail(id):id==='ae'?filmList('ae'):id==='lab'?filmList('aigc'):details[id];
  if(!html)return;
+ dialog.classList.toggle('game-selection',id==='games');
  if(!dialog.open){lastOpener=opener;savedScroll=scrollY;}state.modal=true;engine?.pause();
  releaseMedia($('#detail-content'));$('#detail-content').classList.remove('is-playing');$('#detail-content').innerHTML=html;
  document.documentElement.classList.add('dialog-open');document.body.classList.add('dialog-open');

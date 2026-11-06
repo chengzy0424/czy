@@ -10,8 +10,8 @@ export function prepareVideoPlayer(){
 export function repositoryMediaURL(input,pageURL,backup=false){
  const url=new URL(input,pageURL);
  let file;
- if(url.hostname==='chengzy0424.github.io'&&url.pathname.startsWith('/czy/media/stream-v1/'))file=url.pathname.slice(4);
- else if(url.hostname==='raw.githubusercontent.com'&&url.pathname.startsWith('/chengzy0424/czy/main/media/stream-v1/'))file=url.pathname.slice('/chengzy0424/czy/main'.length);
+ if(url.hostname==='chengzy0424.github.io'&&/^\/czy\/media\/stream-v[\w-]+\//.test(url.pathname))file=url.pathname.slice(4);
+ else if(url.hostname==='raw.githubusercontent.com'&&/^\/chengzy0424\/czy\/main\/media\/stream-v[\w-]+\//.test(url.pathname))file=url.pathname.slice('/chengzy0424/czy/main'.length);
  return file?(backup?'https://raw.githubusercontent.com/chengzy0424/czy/main':'https://chengzy0424.github.io/czy')+file:url.href;
 }
 
@@ -70,7 +70,7 @@ export function createStreamPlayer({video,path,levels,fallback,onStatus,onQualit
    mode='hls';let useBackup=preferredBackup;
    const primary=new URL(path,location.href);
    // Both routes serve the user's own public repository; no third-party account/CDN.
-   const canBackup=primary.hostname==='chengzy0424.github.io'&&primary.pathname.startsWith('/czy/media/stream-v1/');
+   const canBackup=primary.hostname==='chengzy0424.github.io'&&/^\/czy\/media\/stream-v[\w-]+\//.test(primary.pathname);
    const BaseLoader=Hls.DefaultConfig.loader;
    class RepositoryLoader extends BaseLoader{
     abort(){this.cancelled=true;super.abort();}
@@ -92,7 +92,7 @@ export function createStreamPlayer({video,path,levels,fallback,onStatus,onQualit
       stats.loading.start=end-warm.elapsed;stats.loading.first=stats.loading.start+Math.min(warm.first,warm.elapsed);stats.loading.end=end;stats.loaded=stats.total=warm.data.byteLength;
       queueMicrotask(()=>{if(!this.cancelled&&this.context)callbacks.onSuccess({url:resolved.href,data:warm.data.slice(0),code:200},stats,context,null);});return;
      }
-     const key=resolved.pathname.match(/(?:^|\/)(media\/stream-v1\/.*)$/)?.[1];
+     const key=resolved.pathname.match(/(?:^|\/)(media\/stream-v[\w-]+\/.*)$/)?.[1];
      const cached=bootstrap[key];
      if(cached){
       // Tiny immutable manifests and init headers share one compressed chunk.

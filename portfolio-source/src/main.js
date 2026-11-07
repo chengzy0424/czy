@@ -150,6 +150,8 @@ window.addEventListener('pageshow',()=>engine?.wake());
 
 // Review links select a real scroll position; they do not substitute a rendered mock-up.
 const previewParams=new URLSearchParams(location.search),previewScene=previewParams.get('scene');
+const requestedCollection=previewParams.get('collection');
+if(['unity','software','films','lab'].includes(requestedCollection))selectCategory(requestedCollection);
 const reviewTargets={emblem:'home',intro:'intro',gallery:'spatial-gallery',machine:'machine',lab:'lab'};
 if(reviewTargets[previewScene])requestAnimationFrame(()=>{
  if(previewParams.get('still')==='1')setReduced(true);

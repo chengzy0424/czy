@@ -7,16 +7,20 @@ import catalog from '../src/stream-catalog.json' with {type:'json'};
 import startup from '../src/stream-startup.json' with {type:'json'};
 
 test('all portfolio entry points include six games and the replaced film collections',()=>{
- const html=fs.readFileSync(new URL('../index.html',import.meta.url),'utf8');
+ const html=fs.readFileSync(new URL('../exhibition.html',import.meta.url),'utf8');
+ const home=fs.readFileSync(new URL('../index.html',import.meta.url),'utf8');
  assert.equal(Object.keys(games).length,6);
  assert.equal(Object.values(films).filter(f=>f.group==='ae').length,6);
  assert.equal(Object.values(films).filter(f=>f.group==='aigc').length,3);
  for(const [id,g] of Object.entries(games)){
   assert.ok(html.includes(`data-detail="${id}"`),id+' missing static entry');
   assert.ok(html.includes(g.title)&&html.includes(g.subtitle));
+  assert.ok(home.includes(`data-play="${id}"`),id+' missing recruitment-page playback');
   assert.equal(CARD_SPECS.find(c=>c.id===id)?.titleZh,g.subtitle);
  }
  for(const id of Object.keys(films))assert.ok(html.includes(`data-film="${id}"`));
+ assert.match(home,/\.\/exhibition\.html\?collection=films#works/);
+ assert.match(home,/\.\/exhibition\.html\?collection=lab#works/);
  assert.doesNotMatch(html,/ARPG 处于计划阶段|尚未开始/);
 });
 

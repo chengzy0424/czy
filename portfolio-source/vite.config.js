@@ -1,48 +1,30 @@
-import { defineConfig } from 'vite';
+import {defineConfig} from 'vite';
+import {fileURLToPath} from 'node:url';
 import fs from 'node:fs';
-import {games,films,gameMedia} from './src/portfolio.js';
-import catalog from './src/stream-catalog.json' with {type:'json'};
-const publicRoot=new URL('./public/',import.meta.url);
-const files=['mark.svg',...Object.values(gameMedia).flatMap(m=>m.levels.map(l=>'media/'+l[2])),...Object.keys(films).flatMap(id=>['media/'+id+'-720.mp4','media/'+id+'-1080.mp4']),...[...Object.keys(games),...Object.keys(films)].flatMap(id=>[480,960,1440].map(width=>'art/'+id+'-'+width+'.webp'))];
-files.push('licenses/hlsjs-LICENSE.txt');
-for(const stream of Object.values(catalog)){
- files.push(stream.path);
- for(const level of stream.levels){
-  const prefix=stream.path.replace('master.m3u8',level.level+'/');
-  const playlist=fs.readFileSync(new URL(prefix+'index.m3u8',publicRoot),'utf8');
-  files.push(prefix+'index.m3u8',prefix+'init.mp4',...playlist.split('\n').filter(line=>line&&!line.startsWith('#')).map(line=>prefix+line.trim()));
- }
-}
-const allowed=new Set(files);
+import path from 'node:path';
+
+const root=fileURLToPath(new URL('.',import.meta.url));
 export default defineConfig({
- base:'./',publicDir:false,
- plugins:[{
-  name:'portfolio-public-allowlist',
-  configureServer(server){
-   server.middlewares.use((req,res,next)=>{
-    let file;try{file=decodeURIComponent(new URL(req.url,'http://localhost').pathname).slice(1);}catch{return next();}
-    if(!allowed.has(file)||!['GET','HEAD'].includes(req.method))return next();
-    const source=new URL(file,publicRoot);if(!fs.existsSync(source))return next();
-    const {size}=fs.statSync(source);let start=0,end=size-1;
-    res.setHeader('Content-Type',file.endsWith('.m3u8')?'application/vnd.apple.mpegurl':file.endsWith('.m4s')||file.endsWith('.mp4')?'video/mp4':file.endsWith('.webp')?'image/webp':'image/svg+xml');
-    res.setHeader('Accept-Ranges','bytes');
-    if(req.headers.range){
-     const match=/^bytes=(\d*)-(\d*)$/.exec(req.headers.range);
-     if(!match||(!match[1]&&!match[2])){res.writeHead(416,{'Content-Range':`bytes */${size}`});return res.end();}
-     if(match[1]){start=Number(match[1]);if(match[2])end=Math.min(Number(match[2]),end);}
-     else start=Math.max(0,size-Number(match[2]));
-     if(start>end||start>=size){res.writeHead(416,{'Content-Range':`bytes */${size}`});return res.end();}
-     res.statusCode=206;res.setHeader('Content-Range',`bytes ${start}-${end}/${size}`);
+  base:'./',
+  publicDir:'public-recruit',
+  plugins:[{
+    name:'portfolio-shared-media-preview',
+    configureServer(server){
+      server.middlewares.use((req,res,next)=>{
+        let pathname;
+        try{pathname=decodeURIComponent(new URL(req.url,'http://localhost').pathname);}catch{return next();}
+        if(!/^\/(art|media|licenses)\//.test(pathname)&&pathname!=='/mark.svg')return next();
+        const local=path.resolve(root,'public-recruit','.'+pathname);
+        if(fs.existsSync(local))return next();
+        res.writeHead(302,{Location:'https://chengzy0424.github.io/czy'+pathname});res.end();
+      });
     }
-    res.setHeader('Content-Length',end-start+1);
-    if(req.method==='HEAD')return res.end();
-    const stream=fs.createReadStream(source,{start,end});stream.on('error',()=>res.destroy());res.on('close',()=>stream.destroy());stream.pipe(res);
-   });
-  },
-  closeBundle(){
-   const outRoot=new URL('./release-oct30/',import.meta.url);
-   for(const file of files){const from=new URL(file,publicRoot),to=new URL(file,outRoot);fs.mkdirSync(new URL('.',to),{recursive:true});fs.copyFileSync(from,to);}
+  }],
+  build:{
+    outDir:'release-lab',target:'es2022',
+    rollupOptions:{
+      input:{main:path.join(root,'index.html'),exhibition:path.join(root,'exhibition.html')},
+      output:{manualChunks:{three:['three']}}
+    }
   }
- }],
- build:{outDir:'release-oct30',target:'es2022',rollupOptions:{output:{manualChunks:{three:['three']}}}}
 });

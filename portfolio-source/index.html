@@ -1,103 +1,152 @@
 <!doctype html>
 <html lang="zh-CN">
 <head>
-<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
-<meta name="theme-color" content="#081214"/><meta name="description" content="程子悦的个人作品集。数字媒体技术专业，Unity 游戏开发、软件开发、视频剪辑与 AI 影像创作。"/>
-<title>程子悦 · 代码，构成体验</title><link rel="icon" href="./mark.svg" type="image/svg+xml"/><link rel="stylesheet" href="./src/style.css"/><link rel="stylesheet" href="./src/space.css"/>
-<link rel="stylesheet" href="./src/portfolio.css"/><link rel="stylesheet" href="./src/toolkit.css"/></head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
+  <meta name="theme-color" content="#04090c"/>
+  <meta name="description" content="程子悦的 Unity 游戏客户端开发作品集。2027 届数字媒体技术本科，独立开发 Ash Exodus《清理者行动》与 Echo of Ruin《残响墟境》，展示实机演示、战斗系统实现与开发经历。"/>
+  <title>程子悦 · Unity 游戏客户端开发作品集</title>
+  <link rel="icon" href="./mark.svg" type="image/svg+xml"/>
+  <link rel="stylesheet" href="./src/recruit.css"/>
+</head>
 <body>
-<a class="skip-link" href="#works">跳过探索，查看作品</a>
-<div id="visual" aria-hidden="true"><svg class="static-emblem" viewBox="0 0 1600 1000" fill="none" aria-hidden="true"><defs><linearGradient id="rim-light" x1="870" y1="250" x2="1190" y2="660" gradientUnits="userSpaceOnUse"><stop stop-color="#243337"/><stop offset=".37" stop-color="#9daab0"/><stop offset=".6" stop-color="#284047"/><stop offset=".83" stop-color="#74c8c0"/><stop offset="1" stop-color="#8a3d70"/></linearGradient></defs><ellipse cx="1050" cy="465" rx="130" ry="147" stroke="url(#rim-light)" stroke-width="15"/><ellipse cx="1050" cy="465" rx="137" ry="154" stroke="#53676a" stroke-width="1"/><path d="M1003 419H1093L1007 506H1095" stroke="url(#rim-light)" stroke-width="15" stroke-linejoin="bevel"/><path d="M973 579C900 805 1250 914 1090 1080M1120 574C1210 790 905 920 1000 1100" stroke="url(#rim-light)" stroke-width="2"/></svg></div><div class="reading-shade" aria-hidden="true"></div>
-<header class="site-header">
-<a class="identity" href="#home" aria-label="程子悦，返回首屏"><svg viewBox="0 0 42 36" aria-hidden="true"><path d="M7 5H33L8 30H34M20 5L33 18M8 18L20 30"/></svg><span>CHENG ZIYUE</span></a>
-<nav aria-label="主导航"><a href="#works">作品</a><a href="#contact">联系 <span aria-hidden="true">↗</span></a></nav>
-<button id="motion-toggle" class="motion-control" type="button" aria-pressed="false"><span class="motion-icon" aria-hidden="true">Ⅱ</span><span class="motion-label">减少动态</span></button>
+<a class="skip-link" href="#works">跳到代表项目</a>
+<header class="site-nav wrap">
+  <a class="identity" href="#home" aria-label="程子悦，返回首页"><svg viewBox="0 0 42 36" aria-hidden="true"><path d="M7 5H33L8 30H34M20 5L33 18M8 18L20 30"/></svg><span>程子悦</span></a>
+  <nav aria-label="主导航"><a href="#works">项目</a><a href="#technical">开发实践</a><a href="#experience">经历</a><a href="./exhibition.html">创意展厅 <span aria-hidden="true">↗</span></a></nav>
+  <a class="nav-resume" href="./resume/cheng-ziyue-unity.pdf" download="程子悦_Unity游戏开发简历.pdf">简历 PDF <span aria-hidden="true">↓</span></a>
 </header>
-<nav class="journey-nav" aria-label="探索章节">
-<a href="#home" data-journey="0" aria-current="location"><span>01 / 序章</span></a>
-<a href="#intro" data-journey="1"><span>02 / 关于我</span></a>
-<a href="#spatial-gallery" data-journey="2"><span>03 / 作品画廊</span></a>
-<a href="#machine" data-journey="4"><span>04 / 影像</span></a>
-<a href="#lab" data-journey="5"><span>05 / AIGC</span></a>
-<a href="#confluence" data-journey="6"><span>06 / 流光</span></a>
-</nav><main>
-<section id="home" class="hero hero-with-tools" aria-labelledby="hero-title">
-<div class="hero-copy"><p class="hero-kicker">数字媒体技术 <span aria-hidden="true">/</span> CREATIVE DEVELOPER</p><h1 id="hero-title">程子悦<span class="name-period" aria-hidden="true">.</span></h1>
-<p class="hero-role">Unity 游戏开发 <span aria-hidden="true">/</span> 软件开发</p>
-<p class="hero-secondary">视频制作与剪辑 <span aria-hidden="true">/</span> AI 影像创作</p>
-<p class="hero-intro">用代码构建体验，<br/>用影像表达想法。</p>
-<section class="hero-toolkit" aria-labelledby="tools-title">
- <h2 id="tools-title">开发与创作工具</h2>
- <ul class="tool-list" role="list">
-  <li><span class="tool-icon tool-icon--unity"><img src="./src/icons/unity.png" alt="" width="89" height="100" decoding="async"/></span><span class="tool-name">Unity</span></li>
-  <li><span class="tool-icon"><img src="./src/icons/android-studio.svg" alt="" width="60" height="60" decoding="async"/></span><span class="tool-name">Android Studio</span></li>
-  <li><span class="tool-icon"><img src="./src/icons/after-effects.svg" alt="" width="256" height="250" decoding="async"/></span><span class="tool-name">After Effects <span class="sr-only">（AE）</span></span></li>
-  <li><span class="tool-icon"><img src="./src/icons/photoshop.svg" alt="" width="128" height="128" decoding="async"/></span><span class="tool-name">Photoshop <span class="sr-only">（PS）</span></span></li>
-  <li><span class="tool-icon"><img src="./src/icons/visual-studio.svg" alt="" width="128" height="128" decoding="async"/></span><span class="tool-name">Visual Studio</span></li>
-  <li><span class="tool-icon"><img src="./src/icons/vscode.svg" alt="" width="128" height="128" decoding="async"/></span><span class="tool-name">VS Code</span></li>
-  <li><span class="tool-icon"><img src="./src/icons/blender.svg" alt="" width="256" height="208" decoding="async"/></span><span class="tool-name">Blender</span></li>
-  <li><span class="tool-icon"><img src="./src/icons/premiere-pro.svg" alt="" width="256" height="250" decoding="async"/></span><span class="tool-name">Premiere Pro <span class="sr-only">（PR）</span></span></li>
-  <li><span class="tool-icon"><img src="./src/icons/illustrator.svg" alt="" width="128" height="128" decoding="async"/></span><span class="tool-name">Illustrator</span></li>
-  <li><span class="tool-icon"><img src="./src/icons/figma.svg" alt="" width="256" height="384" decoding="async"/></span><span class="tool-name">Figma</span></li>
-  <li><span class="tool-icon"><img src="./src/icons/jianying.svg" alt="" width="24" height="19" decoding="async"/></span><span class="tool-name">剪映</span></li>
- </ul>
-</section>
-<div class="hero-actions"><a class="primary-link" href="#works">直接查看作品 <span aria-hidden="true">↗</span></a><a class="explore-link" href="#intro" data-explore>进入空间 <span aria-hidden="true">↓</span></a></div></div>
-<div class="sculpture-note"><span class="fine-line" aria-hidden="true"></span><span>形态与粒子<br/><small id="interaction-hint">移动鼠标，轻拨形态</small></span></div>
-<div class="hero-bottom"><p>游戏逻辑 · 界面交互 · 动态影像</p><a href="#intro" data-explore class="scroll-cue"><span aria-hidden="true">↓</span> 向下，进入空间</a></div>
-</section>
+<main>
+  <section class="hero wrap" id="home" aria-labelledby="hero-title">
+    <div class="hero-copy">
+      <h1 id="hero-title"><span>程子悦</span><span class="hero-role">Unity 游戏客户端开发</span></h1>
+      <p class="education-line">数字媒体技术 · 本科 · 2027 届</p>
+      <p class="hero-description">独立完成两款代表游戏，<br/>把玩法逻辑与战斗交互，做成可操作的体验。</p>
+      <p class="core-tools"><img src="./src/icons/unity.png" alt="" width="89" height="100"/>Unity <span aria-hidden="true">/</span> C# <span aria-hidden="true">/</span> 玩法与交互实现</p>
+      <div class="hero-actions"><a class="button" href="#works">查看代表项目 <span aria-hidden="true">↗</span></a><a class="text-link" href="./resume/cheng-ziyue-unity.pdf" download="程子悦_Unity游戏开发简历.pdf">下载简历 <span aria-hidden="true">↓</span></a></div>
+      <a class="hero-contact" href="mailto:434902760@qq.com">434902760@qq.com</a>
+    </div>
+    <div class="hero-preview">
+      <div class="preview-tabs" role="tablist" aria-label="切换代表项目实机画面">
+        <button id="preview-ash" type="button" role="tab" aria-selected="true" aria-controls="preview-panel-ash" data-preview="ash">Ash Exodus<span>清理者行动</span></button>
+        <button id="preview-echo" type="button" role="tab" aria-selected="false" aria-controls="preview-panel-echo" tabindex="-1" data-preview="echo">Echo of Ruin<span>残响墟境</span></button>
+      </div>
+      <div id="preview-panel-ash" role="tabpanel" aria-labelledby="preview-ash">
+        <button class="preview-image" data-play="ash" type="button" aria-label="播放 Ash Exodus 清理者行动实机演示">
+          <img src="./art/recruit/ash-960.webp" srcset="./art/recruit/ash-480.webp 480w, ./art/recruit/ash-960.webp 960w, ./art/recruit/ash-1280.webp 1280w" sizes="(max-width:820px) 90vw, 54vw" alt="清理者行动实机：第一人称武器操作与区域首领战斗" width="1280" height="718" fetchpriority="high" decoding="async"/>
+          <span class="image-play" aria-hidden="true">▷</span>
+        </button>
+        <p class="preview-caption"><span>第一人称射击 · 个人独立开发</span><button type="button" class="text-link" data-play="ash">播放演示 <span aria-hidden="true">▷</span></button></p>
+      </div>
+      <div id="preview-panel-echo" role="tabpanel" aria-labelledby="preview-echo" hidden>
+        <button class="preview-image" data-play="echo" type="button" aria-label="播放 Echo of Ruin 残响墟境实机演示">
+          <img src="./art/recruit/echo-960.webp" srcset="./art/recruit/echo-480.webp 480w, ./art/recruit/echo-960.webp 960w, ./art/recruit/echo-1280.webp 1280w" sizes="(max-width:820px) 90vw, 54vw" alt="残响墟境实机：角色近战、敌人交战与技能界面" width="1280" height="708" loading="lazy" decoding="async"/>
+          <span class="image-play" aria-hidden="true">▷</span>
+        </button>
+        <p class="preview-caption"><span>第三人称 ARPG · 个人独立开发</span><button type="button" class="text-link" data-play="echo">播放演示 <span aria-hidden="true">▷</span></button></p>
+      </div>
+    </div>
+  </section>
 
-<section id="intro" class="space-stage intro-stage" aria-labelledby="intro-title">
- <div class="stage-sticky">
-  <div class="stage-copy intro-copy"><p class="section-label">从学习，到实践</p><h2 id="intro-title"><span>连接逻辑，</span><br/><span>交互与想象。</span></h2><p>从 Unity 游戏，到 Android 设备界面。<br/>把一个想法，变成有回应的体验。</p><span class="sr-only">CODE · PLAY · CREATE</span></div>
+  <section class="featured wrap section" id="works" aria-labelledby="works-title">
+    <h2 id="works-title">代表项目</h2>
+    <p class="section-intro">从实机表现，看到我负责的开发工作。</p>
+    <div class="featured-grid">
+      <article class="featured-project" id="ash-project">
+        <button class="project-image" data-play="ash" type="button" aria-label="观看清理者行动完整实机演示">
+          <img src="./art/recruit/ash-960.webp" srcset="./art/recruit/ash-480.webp 480w, ./art/recruit/ash-960.webp 960w, ./art/recruit/ash-1280.webp 1280w" sizes="(max-width:700px) 90vw, 46vw" alt="Ash Exodus 清理者行动的真实第一人称射击画面" width="1280" height="718" loading="lazy" decoding="async"/>
+          <span class="image-play" aria-hidden="true">▷</span>
+        </button>
+        <h3>Ash Exodus</h3><p class="project-cn">清理者行动</p>
+        <div class="project-meta"><span>Unity / C# · 第一人称射击</span><span>03:03 · 游戏原声</span></div>
+        <p class="project-description">围绕城市探索与射击战斗，完成玩家操作、武器交互、敌人行为及界面反馈的整合。</p>
+        <p class="ownership">个人独立开发 · 玩法程序、交互界面与资源整合</p>
+        <ul class="project-points"><li>有限速度弹道与跨帧命中检测</li><li>穿玻璃衰减与命中反馈</li><li>敌人翻越障碍与导航衔接</li></ul>
+        <div class="project-actions"><button type="button" class="button" data-play="ash">观看实机 <span aria-hidden="true">▷</span></button><a class="text-link" href="#ash-case" data-open-case="ash-case">查看实现拆解 <span aria-hidden="true">↓</span></a></div>
+      </article>
+      <article class="featured-project" id="echo-project">
+        <button class="project-image" data-play="echo" type="button" aria-label="观看残响墟境完整实机演示">
+          <img src="./art/recruit/echo-960.webp" srcset="./art/recruit/echo-480.webp 480w, ./art/recruit/echo-960.webp 960w, ./art/recruit/echo-1280.webp 1280w" sizes="(max-width:700px) 90vw, 46vw" alt="Echo of Ruin 残响墟境的真实近战与闪避画面" width="1280" height="708" loading="lazy" decoding="async"/>
+          <span class="image-play" aria-hidden="true">▷</span>
+        </button>
+        <h3>Echo of Ruin</h3><p class="project-cn">残响墟境</p>
+        <div class="project-meta"><span>Unity / C# · 第三人称 ARPG</span><span>01:40 · 游戏原声</span></div>
+        <p class="project-description">围绕角色选择与动作战斗，完成近战连招、技能释放、闪避和敌人交战的可操作原型。</p>
+        <p class="ownership">个人独立开发 · 战斗逻辑、交互流程与资源整合</p>
+        <ul class="project-points"><li>连招输入缓冲与动作状态衔接</li><li>攻击有效帧与刀刃扫掠判定</li><li>技能取消窗口与命中目标去重</li></ul>
+        <div class="project-actions"><button type="button" class="button" data-play="echo">观看实机 <span aria-hidden="true">▷</span></button><a class="text-link" href="#echo-case" data-open-case="echo-case">查看实现拆解 <span aria-hidden="true">↓</span></a></div>
+      </article>
+    </div>
+    <p class="asset-note">两款项目由个人独立完成，使用部分第三方场景与美术资源；部分场景资产来自爱给网。以上画面均取自项目实机录制。</p>
+  </section>
 
- </div>
-</section>
-<section id="spatial-gallery" class="space-stage gallery-stage" aria-labelledby="spatial-title">
- <div class="stage-sticky">
-  <div class="gallery-caption"><p class="section-label">四个创作方向</p><h2 id="spatial-title">作品，向你展开。</h2><p>滚动改变视角<br/>点击展板，查看作品。</p></div>
-  <nav class="spatial-menu" aria-label="空间画廊作品入口">
-   <span>选择一个方向</span>
-   <button type="button" data-detail="games">Unity 游戏 <span aria-hidden="true">↗</span></button>
-   <button type="button" data-detail="boe">软件开发 <span aria-hidden="true">↗</span></button>
-   <button type="button" data-detail="ae">AE 影像 <span aria-hidden="true">↗</span></button>
-   <button type="button" data-detail="lab">AIGC 影像 <span aria-hidden="true">↗</span></button>
-  </nav>
- </div>
-</section>
-<section id="machine" class="space-stage machine-stage" aria-labelledby="machine-title">
- <div class="stage-sticky">
-  <div class="stage-copy machine-copy"><p class="section-label">MOTION & FILM</p><h2 id="machine-title">让想法，<br/>有自己的节奏。</h2><p class="film-credits"><span>《墨菲定律》</span><span>《海勒姆定律》</span><span>《熟悉的陷阱》</span><span>《AI 发展史》</span><span>《SHIFT / FLOW》</span><span>《红豆》</span><small>六部个人影像作品</small></p><button type="button" class="text-action" data-detail="ae">了解影像作品 <span aria-hidden="true">↗</span></button></div>
+  <section class="practice section" id="technical" aria-labelledby="technical-title"><div class="wrap">
+    <h2 id="technical-title">开发实践</h2>
+    <p class="section-intro">把一个交互效果，拆成可以解释的实现过程。</p>
+    <details class="case-study" id="ash-case" open>
+      <summary><span>Ash Exodus<span class="case-subtitle">弹道、命中与反馈</span></span><span class="disclosure-icon" aria-hidden="true">＋</span></summary>
+      <div class="case-body">
+        <div class="case-copy">
+          <h3>让高速弹丸有完整的命中过程</h3>
+          <p>子弹在相邻帧之间移动时，单点检测可能漏过较薄的碰撞体。实现中以有限速度推进弹丸，对每一段位移进行射线扫掠，把飞行、遮挡、伤害与反馈接成同一条链路。</p>
+          <dl class="case-facts"><div><dt>弹道步进</dt><dd>按时间子步推进位置和重力，对实际经过的距离做检测，并在达到射程后回收。</dd></div><div><dt>穿透与结算</dt><dd>玻璃破坏后继续飞行并衰减单颗弹丸伤害；命中敌人后区分命中部位，汇总伤害与击杀结果。</dd></div><div><dt>对象复用</dt><dd>通过列表管理在途射击记录，用栈复用记录对象；暂停和背包状态下停止弹道推进。</dd></div></dl>
+          <ol class="implementation-flow" aria-label="Ash 弹道实现流程"><li>开火输入</li><li>弹道步进</li><li>位移扫掠</li><li>伤害结算</li><li>命中反馈</li></ol>
+          <p class="source-note">工程对应：CPBallistics、CPPlayer。敌人障碍处理另由 CPEnemy.ObstacleTraversal 衔接翻越、破坏和导航恢复。</p>
+        </div>
+        <figure class="case-figure"><img src="./art/recruit/ash-range-960.webp" srcset="./art/recruit/ash-range-480.webp 480w, ./art/recruit/ash-range-960.webp 960w, ./art/recruit/ash-range-1280.webp 1280w" sizes="(max-width:900px) 90vw, 43vw" alt="清理者行动的训练场实机，展示武器操作与目标交互" width="1280" height="718" loading="lazy" decoding="async"/><figcaption>训练场实机 · 武器操作与目标交互</figcaption></figure>
+      </div>
+    </details>
+    <details class="case-study" id="echo-case">
+      <summary><span>Echo of Ruin<span class="case-subtitle">连招输入与近战命中</span></span><span class="disclosure-icon" aria-hidden="true">＋</span></summary>
+      <div class="case-body">
+        <div class="case-copy">
+          <h3>让输入、动作与判定对齐</h3>
+          <p>动作战斗需要区分按键发生的时刻、允许衔接的窗口和真正产生伤害的区间。实现中用动作状态组织攻击、闪避与技能，并把有效帧和武器轨迹用于命中判定。</p>
+          <dl class="case-facts"><div><dt>输入缓冲</dt><dd>保存短时间内的后续攻击与动作意图，在允许的衔接或取消窗口内消费输入，处理连招和闪避、技能的切换。</dd></div><div><dt>有效帧与扫掠</dt><dd>同时检查本帧与上一帧跨过的攻击时间区间；采样刀根和刀尖，以旋转插值补足相邻帧之间的刀刃路径。</dd></div><div><dt>命中去重</dt><dd>每段动作维护已命中的目标集合，避免同一次挥击逐帧重复结算，再衔接伤害、击退与声画反馈。</dd></div></dl>
+          <ol class="implementation-flow" aria-label="Echo 战斗实现流程"><li>输入缓冲</li><li>动作状态</li><li>攻击有效帧</li><li>刀刃扫掠</li><li>命中去重</li></ol>
+          <p class="source-note">工程对应：EchoActor、EchoFeiyuanTiming、EchoWeaponClearance。</p>
+        </div>
+        <figure class="case-figure"><img src="./art/recruit/echo-select-960.webp" srcset="./art/recruit/echo-select-480.webp 480w, ./art/recruit/echo-select-960.webp 960w, ./art/recruit/echo-select-1280.webp 1280w" sizes="(max-width:900px) 90vw, 43vw" alt="残响墟境角色选择与玩法说明的真实界面" width="1280" height="708" loading="lazy" decoding="async"/><figcaption>角色选择实机 · 角色与技能入口</figcaption></figure>
+      </div>
+    </details>
+  </div></section>
 
- </div>
-</section>
-<section id="lab" class="space-stage lab-stage" aria-labelledby="lab-title">
- <div class="stage-sticky">
-  <div class="stage-copy lab-copy"><p class="section-label">GENERATIVE VISUALS</p><h2 id="lab-title">THE<br/> LAB <span aria-hidden="true">↗</span></h2><p>三部 AIGC 视觉短片。<br/>微缩世界、曲线视界与月下剑舞。</p><button class="text-action" type="button" data-detail="lab">观看 AIGC 短片 <span aria-hidden="true">▷</span></button></div>
+  <section class="archive section wrap" id="more-games" aria-labelledby="archive-title">
+    <h2 id="archive-title">其他 Unity 项目</h2><p class="section-intro">用不同的玩法，练习规则、状态与操作反馈。</p>
+    <div class="archive-grid">
+      <article><button type="button" class="project-image" data-play="tower" aria-label="观看 Tower Defense 烽誓守望"><img src="./art/tower-480.webp" srcset="./art/tower-480.webp 480w, ./art/tower-960.webp 960w" sizes="(max-width:620px) 90vw, (max-width:1000px) 44vw, 23vw" alt="烽誓守望项目封面" width="1600" height="900" loading="lazy" decoding="async"/><span class="image-play" aria-hidden="true">▷</span></button><h3>Tower Defense</h3><p class="project-cn">烽誓 · 守望</p><p>防御塔部署、敌人波次与英雄支援。</p><button type="button" class="text-link" data-play="tower">观看实机 · 00:29 <span aria-hidden="true">↗</span></button></article>
+      <article><button type="button" class="project-image" data-play="csol" aria-label="观看 Wasteland Lethal Remains 荒域致命余骸"><img src="./art/csol-480.webp" srcset="./art/csol-480.webp 480w, ./art/csol-960.webp 960w" sizes="(max-width:620px) 90vw, (max-width:1000px) 44vw, 23vw" alt="荒域致命余骸概念封面" width="1600" height="900" loading="lazy" decoding="async"/><span class="image-play" aria-hidden="true">▷</span></button><h3>Wasteland:<br/>Lethal Remains</h3><p class="project-cn">荒域：致命余骸</p><p>第一人称移动、武器射击与换弹反馈。</p><button type="button" class="text-link" data-play="csol">观看实机 · 00:42 <span aria-hidden="true">↗</span></button></article>
+      <article><button type="button" class="project-image" data-play="goose" aria-label="观看 Goose Game 抓大鹅"><img src="./art/goose-480.webp" srcset="./art/goose-480.webp 480w, ./art/goose-960.webp 960w" sizes="(max-width:620px) 90vw, (max-width:1000px) 44vw, 23vw" alt="抓大鹅概念封面" width="1600" height="900" loading="lazy" decoding="async"/><span class="image-play" aria-hidden="true">▷</span></button><h3>Goose Game</h3><p class="project-cn">抓大鹅</p><p>三消收集、暂存格管理与关卡道具。</p><button type="button" class="text-link" data-play="goose">观看实机 · 01:44 <span aria-hidden="true">↗</span></button></article>
+      <article><button type="button" class="project-image" data-play="mines" aria-label="观看 Minesweeper 扫雷"><img src="./art/mines-480.webp" srcset="./art/mines-480.webp 480w, ./art/mines-960.webp 960w" sizes="(max-width:620px) 90vw, (max-width:1000px) 44vw, 23vw" alt="扫雷概念封面" width="1600" height="900" loading="lazy" decoding="async"/><span class="image-play" aria-hidden="true">▷</span></button><h3>Minesweeper</h3><p class="project-cn">扫雷</p><p>邻格线索、翻格、标记与空白展开。</p><button type="button" class="text-link" data-play="mines">观看实机 · 00:22 <span aria-hidden="true">↗</span></button></article>
+    </div><p class="asset-note">部分项目使用概念封面；玩法内容以点击后展示的实机录制为准。</p>
+  </section>
 
- </div>
-</section>
-<section id="confluence" class="space-stage confluence-stage" aria-label="流光汇聚"><div class="stage-sticky"><a class="confluence-link" href="#works">查看全部项目与影片 <span aria-hidden="true">↓</span></a></div></section>
-<section id="works" class="works" aria-labelledby="works-title">
-<div class="works-heading"><div><p class="section-label">项目与经历</p><h2 id="works-title">从想法，到可体验。</h2></div><p class="works-aside">在游戏与界面之间，<br/>把每一次输入变成清晰的回应。</p></div>
-<div class="category-tabs" role="tablist" aria-label="作品方向">
-<button id="tab-unity" type="button" role="tab" aria-selected="true" aria-controls="panel-unity" data-category="unity"><span>Unity 游戏</span><small>PLAY & INTERACTION</small><span class="tab-arrow" aria-hidden="true">↗</span></button>
-<button id="tab-software" type="button" role="tab" aria-selected="false" aria-controls="panel-software" tabindex="-1" data-category="software"><span>软件开发</span><small>INTERFACE & SYSTEM</small><span class="tab-arrow" aria-hidden="true">↗</span></button>
-<button id="tab-films" type="button" role="tab" aria-selected="false" aria-controls="panel-films" tabindex="-1" data-category="films"><span>AE 影像</span><small>PERSONAL FILMS</small><span class="tab-arrow" aria-hidden="true">↗</span></button><button id="tab-lab" type="button" role="tab" aria-selected="false" aria-controls="panel-lab" tabindex="-1" data-category="lab"><span>AIGC</span><small>GENERATIVE FILMS</small><span class="tab-arrow" aria-hidden="true">↗</span></button></div><div class="panels">
-<div class="work-panel unity-panel game-collection" id="panel-unity" role="tabpanel" aria-labelledby="tab-unity" tabindex="0"><article class="game-work"><button class="cover-button" type="button" data-detail="tower" aria-label="查看 Tower Defense 与玩法演示"><img src="./art/tower-960.webp" srcset="./art/tower-480.webp 480w, ./art/tower-960.webp 960w, ./art/tower-1440.webp 1440w" sizes="(max-width:760px) 92vw, (max-width:1600px) 46vw, 720px" alt="烽誓 · 守望 · 原创概念封面" width="1600" height="900" decoding="async" loading="lazy"/><span class="cover-vignette"></span><span class="cover-caption">原创概念封面</span><span class="cover-open" aria-hidden="true">▷</span></button><div class="project-copy"><p class="project-type">UNITY · 策略塔防</p><h3>Tower Defense<span class="project-cn">烽誓 · 守望</span></h3><p class="project-summary">把战术，放进每一次选择。</p><p class="project-description">沿道路与地形部署防线，在敌人波次之间调整布局，让英雄与援军共同守住战线。</p><button class="text-action" type="button" data-detail="tower">查看项目与演示 <span aria-hidden="true">↗</span></button><p class="load-note">00:29 · 原声玩法演示</p></div></article>
-<article class="game-work"><button class="cover-button" type="button" data-detail="ash" aria-label="查看 Ash Exodus 与玩法演示"><img src="./art/ash-960.webp" srcset="./art/ash-480.webp 480w, ./art/ash-960.webp 960w, ./art/ash-1440.webp 1440w" sizes="(max-width:760px) 92vw, (max-width:1600px) 46vw, 720px" alt="清理者行动 · 项目封面" width="1600" height="900" decoding="async" loading="lazy"/><span class="cover-vignette"></span><span class="cover-caption">项目封面</span><span class="cover-open" aria-hidden="true">▷</span></button><div class="project-copy"><p class="project-type">UNITY · 第一人称射击</p><h3>Ash Exodus<span class="project-cn">清理者行动</span></h3><p class="project-summary">从探索，到交火。</p><p class="project-description">第一人称射击方向的 Unity 项目，围绕场景探索、移动与射击反馈构建操作体验。</p><button class="text-action" type="button" data-detail="ash">查看项目与演示 <span aria-hidden="true">↗</span></button><p class="load-note">03:03 · 原声玩法演示</p></div></article>
-<article class="game-work"><button class="cover-button" type="button" data-detail="csol" aria-label="查看 Wasteland: Lethal Remains 与玩法演示"><img src="./art/csol-960.webp" srcset="./art/csol-480.webp 480w, ./art/csol-960.webp 960w, ./art/csol-1440.webp 1440w" sizes="(max-width:760px) 92vw, (max-width:1600px) 46vw, 720px" alt="荒域：致命余骸 · 原创概念封面" width="1600" height="900" decoding="async" loading="lazy"/><span class="cover-vignette"></span><span class="cover-caption">原创概念封面</span><span class="cover-open" aria-hidden="true">▷</span></button><div class="project-copy"><p class="project-type">UNITY · 第一人称射击</p><h3>Wasteland: Lethal Remains<span class="project-cn">荒域：致命余骸</span></h3><p class="project-summary">让每次瞄准，都有明确的回应。</p><p class="project-description">Unity 射击项目，围绕第一人称视角、武器操作和战斗交互构建游戏流程。</p><button class="text-action" type="button" data-detail="csol">查看项目与演示 <span aria-hidden="true">↗</span></button><p class="load-note">00:42 · 原声玩法演示</p></div></article>
-<article class="game-work"><button class="cover-button" type="button" data-detail="mines" aria-label="查看 Minesweeper 与玩法演示"><img src="./art/mines-960.webp" srcset="./art/mines-480.webp 480w, ./art/mines-960.webp 960w, ./art/mines-1440.webp 1440w" sizes="(max-width:760px) 92vw, (max-width:1600px) 46vw, 720px" alt="扫雷 · 原创概念封面" width="1600" height="900" decoding="async" loading="lazy"/><span class="cover-vignette"></span><span class="cover-caption">原创概念封面</span><span class="cover-open" aria-hidden="true">▷</span></button><div class="project-copy"><p class="project-type">UNITY · 经典益智</p><h3>Minesweeper<span class="project-cn">扫雷</span></h3><p class="project-summary">在有限线索中，找到下一步。</p><p class="project-description">保留经典扫雷的推理规则，提供清晰的棋盘状态、翻格与标记反馈，以及适合触屏的操作方式。</p><button class="text-action" type="button" data-detail="mines">查看项目与演示 <span aria-hidden="true">↗</span></button><p class="load-note">00:22 · 原声玩法演示</p></div></article>
-<article class="game-work"><button class="cover-button" type="button" data-detail="goose" aria-label="查看 Goose Game 与玩法演示"><img src="./art/goose-960.webp" srcset="./art/goose-480.webp 480w, ./art/goose-960.webp 960w, ./art/goose-1440.webp 1440w" sizes="(max-width:760px) 92vw, (max-width:1600px) 46vw, 720px" alt="抓大鹅 · 原创概念封面" width="1600" height="900" decoding="async" loading="lazy"/><span class="cover-vignette"></span><span class="cover-caption">原创概念封面</span><span class="cover-open" aria-hidden="true">▷</span></button><div class="project-copy"><p class="project-type">UNITY · 休闲三消</p><h3>Goose Game<span class="project-cn">抓大鹅</span></h3><p class="project-summary">从满盘物件里，找到同一组。</p><p class="project-description">在层叠的物品中寻找三个相同目标，利用有限的暂存格完成消除、收集大鹅。演示展示关卡挑战、道具使用与悠闲模式。</p><button class="text-action" type="button" data-detail="goose">查看项目与演示 <span aria-hidden="true">↗</span></button><p class="load-note">01:44 · 原声玩法演示</p></div></article>
-<article class="game-work"><button class="cover-button" type="button" data-detail="echo" aria-label="查看 Echo of Ruin 与玩法演示"><img src="./art/echo-960.webp" srcset="./art/echo-480.webp 480w, ./art/echo-960.webp 960w, ./art/echo-1440.webp 1440w" sizes="(max-width:760px) 92vw, (max-width:1600px) 46vw, 720px" alt="残响墟境 · 原创概念封面" width="1600" height="900" decoding="async" loading="lazy"/><span class="cover-vignette"></span><span class="cover-caption">原创概念封面</span><span class="cover-open" aria-hidden="true">▷</span></button><div class="project-copy"><p class="project-type">UNITY · 动作角色扮演</p><h3>Echo of Ruin<span class="project-cn">残响墟境</span></h3><p class="project-summary">让每一次出招，都衔接下一步。</p><p class="project-description">第三人称 ARPG 战斗原型，在竞技场中操控不同角色，衔接近战攻击与技能，观察敌人动作并应对多轮交战。</p><button class="text-action" type="button" data-detail="echo">查看项目与演示 <span aria-hidden="true">↗</span></button><p class="load-note">01:40 · 原声玩法演示</p></div></article></div>
-<div class="work-panel software-panel" id="panel-software" role="tabpanel" aria-labelledby="tab-software" tabindex="0" hidden>
-<div class="software-intro"><p class="project-type">ANDROID / KOTLIN / HMI</p><h3>让复杂操作，<br/>清楚发生。</h3><p class="company">BOE 精电显示技术有限公司</p><p class="position">PSV 开发部产品开发科<br/>电子设计岗 · 实习</p><p class="project-description">从设备的操作流程出发，完成界面设计与交互实现，让需求成为可操作、可验证的 Android Demo。</p><button class="text-action" type="button" data-detail="boe">了解开发经历 <span aria-hidden="true">↗</span></button></div>
-<div class="software-practice"><div class="device-list" aria-label="参与开发的设备"><span>咖啡机</span><span>工业 CNC</span><span>3D 打印机</span><span>洗衣机</span></div><ol class="process-list"><li><span class="process-name">梳理流程</span><p>需求、操作步骤与页面结构</p></li><li><span class="process-name">搭建界面</span><p>XML · ConstraintLayout · Material Design</p></li><li><span class="process-name">实现交互</span><p>Kotlin 页面跳转、参数设置、状态切换与动画</p></li><li><span class="process-name">验证迭代</span><p>模拟数据验证、项目评审与反馈迭代</p></li></ol><p class="disclosure">四款可操作 Demo，用于内部验证与演示。<br/>界面与视频待确认公开范围后补充。</p></div></div>
-<div class="work-panel films-panel" id="panel-films" role="tabpanel" aria-labelledby="tab-films" tabindex="0" hidden><article><button class="film-cover" data-film="murphy" aria-label="观看墨菲定律"><img src="./art/20261106/murphy-960.webp" srcset="./art/20261106/murphy-480.webp 480w, ./art/20261106/murphy-960.webp 960w, ./art/20261106/murphy-1440.webp 1440w" sizes="(max-width:760px) 92vw, (max-width:1600px) 46vw, 720px" alt="墨菲定律的实际影片画面" width="1600" height="900" decoding="async" loading="lazy"/><span class="film-play">观看影片 <span aria-hidden="true">▷</span></span></button><p class="film-meta">AE / VIBE CODING<span>02:33</span></p><h3>墨菲定律</h3><p>用生活场景与动态图像，呈现风险、概率与预留退路的思考。</p></article><article><button class="film-cover" data-film="hyrum" aria-label="观看海勒姆定律"><img src="./art/20261106/hyrum-960.webp" srcset="./art/20261106/hyrum-480.webp 480w, ./art/20261106/hyrum-960.webp 960w, ./art/20261106/hyrum-1440.webp 1440w" sizes="(max-width:760px) 92vw, (max-width:1600px) 46vw, 720px" alt="海勒姆定律的实际影片画面" width="1600" height="900" decoding="async" loading="lazy"/><span class="film-play">观看影片 <span aria-hidden="true">▷</span></span></button><p class="film-meta">AE / VIBE CODING<span>02:32</span></p><h3>海勒姆定律</h3><p>从界面到生产线，把“看不见的约定”转化为可见的依赖。</p></article><article><button class="film-cover" data-film="familiar" aria-label="观看熟悉的陷阱"><img src="./art/20261106/familiar-960.webp" srcset="./art/20261106/familiar-480.webp 480w, ./art/20261106/familiar-960.webp 960w, ./art/20261106/familiar-1440.webp 1440w" sizes="(max-width:760px) 92vw, (max-width:1600px) 46vw, 720px" alt="熟悉的陷阱的实际影片画面" width="1600" height="900" decoding="async" loading="lazy"/><span class="film-play">观看影片 <span aria-hidden="true">▷</span></span></button><p class="film-meta">AE / VIBE CODING<span>03:04</span></p><h3>熟悉的陷阱</h3><p>围绕学习与记忆，呈现熟悉感、主动回忆和实际理解之间的差别。</p></article><article><button class="film-cover" data-film="ai-history" aria-label="观看AI 发展史：从规则到生成"><img src="./art/20261106/ai-history-960.webp" srcset="./art/20261106/ai-history-480.webp 480w, ./art/20261106/ai-history-960.webp 960w, ./art/20261106/ai-history-1440.webp 1440w" sizes="(max-width:760px) 92vw, (max-width:1600px) 46vw, 720px" alt="AI 发展史：从规则到生成的实际影片画面" width="1600" height="900" decoding="async" loading="lazy"/><span class="film-play">观看影片 <span aria-hidden="true">▷</span></span></button><p class="film-meta">AE / VIBE CODING<span>02:20</span></p><h3>AI 发展史：从规则到生成</h3><p>以时间线、几何图形和动态排版，串联人工智能的发展片段。</p></article><article><button class="film-cover" data-film="shift" aria-label="观看SHIFT / FLOW"><img src="./art/20261106/shift-960.webp" srcset="./art/20261106/shift-480.webp 480w, ./art/20261106/shift-960.webp 960w, ./art/20261106/shift-1440.webp 1440w" sizes="(max-width:760px) 92vw, (max-width:1600px) 46vw, 720px" alt="SHIFT / FLOW的实际影片画面" width="1600" height="900" decoding="async" loading="lazy"/><span class="film-play">观看影片 <span aria-hidden="true">▷</span></span></button><p class="film-meta">AE / VIBE CODING<span>00:30</span></p><h3>SHIFT / FLOW</h3><p>在字体、环形结构与流动材质之间切换，构建一段节奏鲜明的动态练习。</p></article><article><button class="film-cover" data-film="red-bean" aria-label="观看红豆"><img src="./art/20261106/red-bean-960.webp" srcset="./art/20261106/red-bean-480.webp 480w, ./art/20261106/red-bean-960.webp 960w, ./art/20261106/red-bean-1440.webp 1440w" sizes="(max-width:760px) 92vw, (max-width:1600px) 46vw, 720px" alt="红豆的实际影片画面" width="1600" height="900" decoding="async" loading="lazy"/><span class="film-play">观看影片 <span aria-hidden="true">▷</span></span></button><p class="film-meta">AE / VIBE CODING<span>03:56</span></p><h3>红豆</h3><p>以角色动画、四季场景和镜头移动，编排温暖的音乐视觉叙事。</p></article><p class="collection-note">让文字、画面与节奏，共同表达一个想法。</p></div><div class="work-panel films-panel aigc-panel" id="panel-lab" role="tabpanel" aria-labelledby="tab-lab" tabindex="0" hidden><article><button class="film-cover" data-film="town" aria-label="观看空格里的小镇"><img src="./art/20261106/town-960.webp" srcset="./art/20261106/town-480.webp 480w, ./art/20261106/town-960.webp 960w, ./art/20261106/town-1440.webp 1440w" sizes="(max-width:760px) 92vw, (max-width:1600px) 46vw, 720px" alt="空格里的小镇的实际影片画面" width="1600" height="900" decoding="async" loading="lazy"/><span class="film-play">观看影片 <span aria-hidden="true">▷</span></span></button><p class="film-meta">AIGC / 视觉创作<span>01:04</span></p><h3>空格里的小镇</h3><p>一座藏在键盘空格里的微缩小镇，在夜晚点亮属于自己的灯光。</p></article><article><button class="film-cover" data-film="arc" aria-label="观看一弧之间"><img src="./art/20261106/arc-960.webp" srcset="./art/20261106/arc-480.webp 480w, ./art/20261106/arc-960.webp 960w, ./art/20261106/arc-1440.webp 1440w" sizes="(max-width:760px) 92vw, (max-width:1600px) 46vw, 720px" alt="一弧之间的实际影片画面" width="1600" height="900" decoding="async" loading="lazy"/><span class="film-play">观看影片 <span aria-hidden="true">▷</span></span></button><p class="film-meta">AIGC / 视觉创作<span>00:20</span></p><h3>一弧之间</h3><p>让同一道弧线穿越星球、纹理与微观切片，连接不同尺度的世界。</p></article><article><button class="film-cover" data-film="sword-dance" aria-label="观看女侠剑舞"><img src="./art/20261106/sword-dance-960.webp" srcset="./art/20261106/sword-dance-480.webp 480w, ./art/20261106/sword-dance-960.webp 960w, ./art/20261106/sword-dance-1440.webp 1440w" sizes="(max-width:760px) 92vw, (max-width:1600px) 46vw, 720px" alt="女侠剑舞的实际影片画面" width="1600" height="900" decoding="async" loading="lazy"/><span class="film-play">观看影片 <span aria-hidden="true">▷</span></span></button><p class="film-meta">AIGC / 视觉创作<span>00:30</span></p><h3>女侠剑舞</h3><p>月下庭院中的剑舞，以水面、衣袂与光焰衔接动作和运镜。</p></article><p class="collection-note">从场景想象到视觉短篇，记录 AI 影像的创作探索。</p></div></div><p class="sr-only" id="panel-announcement" aria-live="polite"></p>
-</section></main>
-<footer id="contact"><div><p>有想法，欢迎一起聊聊。</p><a href="mailto:434902760@qq.com">434902760@qq.com <span aria-hidden="true">↗</span></a><a class="phone-link" href="tel:+8613318994968">电话：13318994968</a></div><div class="footer-name">程子悦<span>数字媒体技术 · 游戏 / 软件 / 影像</span></div></footer>
-<dialog id="project-dialog" aria-labelledby="detail-title"><button class="dialog-close" type="button" aria-label="关闭项目详情">关闭 <span aria-hidden="true">×</span></button><div id="detail-content"></div><button class="detail-return" type="button">返回作品 <span aria-hidden="true">↗</span></button></dialog>
-<noscript><style>.space-stage{height:auto}.stage-sticky{position:relative;height:auto;min-height:360px;overflow:visible}.stage-copy,.gallery-caption,.spatial-menu{position:static;width:auto;max-width:600px}.lab-copy{display:block}.stage-index{display:none}.category-tabs{display:none}.work-panel[hidden]{display:grid!important}#visual{opacity:.65}.cover-button{pointer-events:none}.text-action{display:none}</style><p class="noscript-note">动态探索需要 JavaScript；作品介绍和联系方式仍可直接浏览。</p></noscript>
-<script type="module" src="./src/main.js"></script>
-</body></html>
+  <section class="experience section" id="experience" aria-labelledby="experience-title"><div class="wrap experience-grid">
+    <div><h2 id="experience-title">从学习，到开发实践</h2><div class="education-detail"><h3>数字媒体技术 · 本科</h3><p>2023.09 — 2027.06</p><p>课程涵盖 Unity 开发、C/C++、Python 与 Java 编程、人机交互、三维建模及网页设计。</p><p>大学英语四级 · 普通话二级乙等</p></div></div>
+    <div class="internship"><h3>京东方（BOE）精电</h3><p class="intern-role">PSV 开发部产品开发科 · 电子设计岗实习</p><p class="experience-date">2026.07.17 — 2026.10.16</p><p>参与咖啡机、工业 CNC、3D 打印机、洗衣机四款设备 HMI Demo，围绕需求梳理操作流程、界面与状态。</p><ul><li>用 Android Studio、XML、ConstraintLayout 与 Kotlin 实现页面、参数设置和状态切换。</li><li>以模拟数据验证流程，参与评审，并根据反馈迭代，交付四款可操作 Demo。</li></ul><p class="asset-note">企业项目目前展示职责与经历；界面和视频待确认公开范围后补充。</p></div>
+  </div></section>
 
+  <section class="other-work section wrap" id="other-work" aria-labelledby="other-work-title">
+    <div class="other-heading"><h2 id="other-work-title">更多创作</h2><p>开发之外，也用动态影像表达想法。六部 AE 影像与三部 AIGC 短片，在展厅中继续浏览。</p><a class="text-link" href="./exhibition.html#works">浏览影像与完整作品 <span aria-hidden="true">↗</span></a></div>
+    <div class="film-pair"><a href="./exhibition.html?collection=films#works"><img src="./art/20261106/murphy-480.webp" srcset="./art/20261106/murphy-480.webp 480w, ./art/20261106/murphy-960.webp 960w" sizes="(max-width:620px) 90vw, 43vw" alt="墨菲定律影片的实际画面" width="1600" height="900" loading="lazy" decoding="async"/><span>AE 影像 · 墨菲定律 <span aria-hidden="true">↗</span></span></a><a href="./exhibition.html?collection=lab#works"><img src="./art/20261106/town-480.webp" srcset="./art/20261106/town-480.webp 480w, ./art/20261106/town-960.webp 960w" sizes="(max-width:620px) 90vw, 43vw" alt="空格里的小镇影片的实际画面" width="1600" height="900" loading="lazy" decoding="async"/><span>AIGC 视觉 · 空格里的小镇 <span aria-hidden="true">↗</span></span></a></div>
+    <details class="toolkit"><summary>开发与创作工具 <span aria-hidden="true">＋</span></summary><ul class="tool-list" role="list">
+      <li><span class="tool-icon unity-icon"><img src="./src/icons/unity.png" alt="" width="89" height="100" loading="lazy"/></span><span>Unity</span></li>
+      <li><span class="tool-icon"><img src="./src/icons/android-studio.svg" alt="" width="60" height="60" loading="lazy"/></span><span>Android Studio</span></li>
+      <li><span class="tool-icon"><img src="./src/icons/after-effects.svg" alt="" width="256" height="250" loading="lazy"/></span><span>After Effects</span></li>
+      <li><span class="tool-icon"><img src="./src/icons/photoshop.svg" alt="" width="128" height="128" loading="lazy"/></span><span>Photoshop</span></li>
+      <li><span class="tool-icon"><img src="./src/icons/visual-studio.svg" alt="" width="128" height="128" loading="lazy"/></span><span>Visual Studio</span></li>
+      <li><span class="tool-icon"><img src="./src/icons/vscode.svg" alt="" width="128" height="128" loading="lazy"/></span><span>VS Code</span></li>
+      <li><span class="tool-icon"><img src="./src/icons/blender.svg" alt="" width="256" height="208" loading="lazy"/></span><span>Blender</span></li>
+      <li><span class="tool-icon"><img src="./src/icons/premiere-pro.svg" alt="" width="256" height="250" loading="lazy"/></span><span>Premiere Pro</span></li>
+      <li><span class="tool-icon"><img src="./src/icons/illustrator.svg" alt="" width="128" height="128" loading="lazy"/></span><span>Illustrator</span></li>
+      <li><span class="tool-icon"><img src="./src/icons/figma.svg" alt="" width="256" height="384" loading="lazy"/></span><span>Figma</span></li>
+      <li><span class="tool-icon"><img src="./src/icons/jianying.svg" alt="" width="24" height="19" loading="lazy"/></span><span>剪映</span></li>
+    </ul></details>
+  </section>
+</main>
+<footer id="contact" class="contact section"><div class="wrap contact-grid"><div><h2>一起把想法，做成游戏。</h2><p>求职方向：Unity 游戏客户端开发</p><a class="button" href="./resume/cheng-ziyue-unity.pdf" download="程子悦_Unity游戏开发简历.pdf">下载游戏方向简历 <span aria-hidden="true">↓</span></a></div><address><a href="mailto:434902760@qq.com">434902760@qq.com</a><a href="tel:+8613318994968">133 1899 4968</a><a class="text-link" href="./exhibition.html">进入创意展厅 <span aria-hidden="true">↗</span></a></address></div><p class="wrap footer-note">程子悦 · 数字媒体技术 · Unity / C#</p></footer>
+<dialog id="video-dialog" aria-labelledby="video-dialog-title"><header class="dialog-header"><h2 id="video-dialog-title">实机演示</h2><button class="dialog-close" type="button" aria-label="关闭视频">关闭 <span aria-hidden="true">×</span></button></header><div id="detail-content"><div id="player-slot"></div></div></dialog>
+<noscript><p class="noscript-note wrap">项目介绍与简历可直接浏览。播放视频需要开启 JavaScript。</p></noscript>
+<script type="module" src="./src/recruit.js"></script>
+</body>
+</html>

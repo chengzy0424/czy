@@ -7,7 +7,7 @@ import * as math from '../src/weave-math.js';
 import {scrollToChapter} from '../src/space-path.js';
 import * as portfolio from '../src/portfolio.js';
 function setup(reduced=false){
- const {window:dom,document}=parseHTML(readFileSync(new URL('../index.html',import.meta.url),'utf8'));
+ const {window:dom,document}=parseHTML(readFileSync(new URL('../exhibition.html',import.meta.url),'utf8'));
  const listeners={},queries=[],frames=new Map();let id=0,focus=null;
  for(const [id,top,height] of [['intro',900,1300],['spatial-gallery',2200,2000],['machine',4200,1300],['lab',5500,1100]]){const e=document.querySelector('#'+id);Object.defineProperty(e,'offsetTop',{value:top});Object.defineProperty(e,'offsetHeight',{value:height});}
  const body=document.body,dialog=document.querySelector('dialog');

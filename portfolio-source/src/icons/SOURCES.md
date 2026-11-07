@@ -7,4 +7,14 @@ Used solely to identify the software in Cheng Ziyue's stated toolkit. Marks belo
 - After Effects: Adobe mark, mirrored in https://github.com/gilbarbara/logos/blob/main/logos/adobe-after-effects.svg (blob df15f04b609d0fa28ccda09a0fea893902277755). Reference: https://www.adobe.com/products/aftereffects.html . Direct Adobe asset delivery returned HTTP 403.
 - Photoshop: Adobe mark, mirrored in https://github.com/devicons/devicon/blob/master/icons/photoshop/photoshop-original.svg (blob cbbb2e05dcd47273736d7575e2e85e787b4639fb). Reference: https://www.adobe.com/products/photoshop.html . Direct Adobe asset delivery returned HTTP 403.
 
+- Visual Studio: Microsoft mark, mirrored in https://github.com/devicons/devicon/blob/master/icons/visualstudio/visualstudio-original.svg
+- VS Code: Microsoft mark, mirrored in https://github.com/devicons/devicon/blob/master/icons/vscode/vscode-original.svg ; reference https://code.visualstudio.com/brand
+- Blender: Blender mark, mirrored in https://github.com/gilbarbara/logos/blob/main/logos/blender.svg ; reference https://www.blender.org/about/logo/
+- Premiere Pro: Adobe mark, mirrored in https://github.com/gilbarbara/logos/blob/main/logos/adobe-premiere.svg
+- Illustrator: Adobe mark, mirrored in https://github.com/devicons/devicon/blob/master/icons/illustrator/illustrator-original.svg
+- Figma: Figma mark, mirrored in https://github.com/gilbarbara/logos/blob/main/logos/figma.svg
+- Jianying: original header SVG from https://www.capcut.cn/ ; viewBox frames the symbol and omits the adjacent wordmark, without changing its path or color.
+
+Devicon assets are covered by the accompanying DEVICON-LICENSE.txt; brand marks remain the property of their respective owners.
+
 All images are bundled locally. This UI has no external image requests, icon font, image-generation dependency, or animation loop.

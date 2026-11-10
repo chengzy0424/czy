@@ -1,0 +1,102 @@
+{
+  "date": "2026-11-10",
+  "base_commit": "d4a3c3087b284a697306c8bce3bab2b2b54d4ea5",
+  "scope": "Portfolio project spacing and depth occlusion",
+  "changes": {
+    "gallery_level_spacing": {
+      "before": 0.65,
+      "after": 3.6
+    },
+    "gallery_radius_desktop": {
+      "before": 3.8,
+      "after": 5.9
+    },
+    "gallery_radius_mobile": {
+      "before": 3.3,
+      "after": 5.3
+    },
+    "opaque_cover_depth": true,
+    "full_scene_refraction_pass_removed": true,
+    "other_projects_columns_desktop": 2
+  },
+  "verification": {
+    "automated_tests": {
+      "passed": 32,
+      "failed": 0
+    },
+    "gallery_projects_checked": 9,
+    "browser_viewports": [
+      [
+        1465,
+        880
+      ],
+      [
+        320,
+        640
+      ],
+      [
+        375,
+        812
+      ],
+      [
+        414,
+        896
+      ],
+      [
+        768,
+        1024
+      ]
+    ],
+    "geometry_viewports": [
+      [
+        1920,
+        1080
+      ],
+      [
+        1465,
+        880
+      ],
+      [
+        1024,
+        768
+      ],
+      [
+        768,
+        1024
+      ],
+      [
+        414,
+        896
+      ],
+      [
+        375,
+        812
+      ],
+      [
+        320,
+        640
+      ]
+    ],
+    "full_cover_ray_checks": true,
+    "physical_gap_during_rotation": true,
+    "continuous_reversible_camera": true,
+    "desktop_project_open_close": true,
+    "mobile_video": {
+      "readyState": 4,
+      "paused": false,
+      "width": 640,
+      "height": 326
+    },
+    "horizontal_overflow": false,
+    "browser_errors": [],
+    "finesse": {
+      "p0": 0,
+      "existing_p2": "Opaque color literals outside CSS tokens"
+    },
+    "build": "Vite 7.1.12 production build passed"
+  },
+  "limits": [
+    "Browser checks use desktop Chromium viewport emulation, not physical iOS or Android devices.",
+    "No universal frame-rate claim."
+  ]
+}

@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import * as T from 'three';
-import {cameraPose,scrollToChapter,galleryCardPose,galleryDescent,galleryTurn,GALLERY_DESCENT,SCENE_Y,CARD_SPECS} from '../src/space-path.js';
+import {cameraPose,scrollToChapter,galleryCardPose,galleryDescent,galleryTurn,GALLERY_DESCENT,GALLERY_RADIUS,SCENE_Y,CARD_SPECS} from '../src/space-path.js';
 import {buildWorld,particleField} from '../src/space-objects.js';
 import {galleryIntersectsView} from '../src/space.js';
 import {springStep} from '../src/weave-math.js';
@@ -9,8 +9,8 @@ import {springStep} from '../src/weave-math.js';
 test('all six passages share a finite continuous and reversible camera path',()=>{
  for(const mobile of [false,true]){
   let previous=cameraPose(0,mobile);
-  for(let i=0;i<=12000;i++){
-   const p=i/2000,next=cameraPose(p,mobile);assert.deepEqual(next,cameraPose(p,mobile));
+  for(let i=0;i<=48000;i++){
+   const p=i/8000,next=cameraPose(p,mobile);assert.deepEqual(next,cameraPose(p,mobile));
    for(const key of ['eye','look'])for(let axis=0;axis<3;axis++){assert.ok(Number.isFinite(next[key][axis]));assert.ok(Math.abs(next[key][axis]-previous[key][axis])<.02);}
    previous=next;
   }
@@ -78,12 +78,12 @@ test('gallery begins with a long rigid skeleton and keeps every joint spacing wh
   const w=await geometryWorld(mobile),position=w.spine.geometry.attributes.position;
   assert.ok(w.galleryStructure&&w.spine.parent===w.galleryStructure);
   assert.equal(w.extendGallery,undefined,'scroll-time geometry extension must not exist');
-  const {joints}=w.spine.geometry.userData;assert.equal(joints.length,30);
+  const {joints}=w.spine.geometry.userData;assert.ok(joints[0].y<-GALLERY_DESCENT-4&&joints.at(-1).y>4,'joints must span the expanded gallery');
   assert.equal(joints.reduce((n,joint)=>n+joint.count,0),position.count);
-  for(let i=1;i<joints.length;i++)assert.ok(joints[i].y-joints[i-1].y>.4&&joints[i].y-joints[i-1].y<.58,'joints have been stretched apart');
+  for(let i=1;i<joints.length;i++)assert.ok(joints[i].y-joints[i-1].y>.48&&joints[i].y-joints[i-1].y<.64,'joints have been stretched apart');
   const original=position.array.slice();w.world.updateMatrixWorld(true);
   const originalBox=new T.Box3().setFromObject(w.spine),height=originalBox.max.y-originalBox.min.y;
-  assert.ok(height>14&&height<15.2,'spine must be built long enough before any scrolling');
+  assert.ok(height>GALLERY_DESCENT+8.5&&height<GALLERY_DESCENT+9.5,'spine must be built long enough before any scrolling');
   const machineBox=new T.Box3().setFromObject(w.machine);
   assert.ok(originalBox.min.y-machineBox.max.y>2,'long skeleton intersects the following machine scene');
   for(const progress of [2,2.2,2.5,2.8,3,2.8,2.5,2.2,2]){
@@ -147,8 +147,8 @@ test('each gallery project reaches a readable unobstructed front position along 
   }
   for(let index=0;index<CARD_SPECS.length;index++){
    let previous=galleryCardPose(index,2,mobile);
-   for(let n=0;n<=1200;n++){
-    const progress=2+n/1200,pose=galleryCardPose(index,progress,mobile);
+   for(let n=0;n<=2400;n++){
+    const progress=2+n/2400,pose=galleryCardPose(index,progress,mobile);
     assert.deepEqual(pose,galleryCardPose(index,progress,mobile),'gallery position depends on scroll history');
     assert.ok([...pose.position,...pose.rotation,pose.focus].every(Number.isFinite));
     assert.equal(pose.position[1],galleryCardPose(index,2,mobile).position[1],'project changes its fixed height on the spine');
@@ -163,8 +163,8 @@ test('gallery descent carries the camera and project reading positions together 
  assert.equal(galleryDescent(-1),0);assert.equal(galleryDescent(2),0);
  assert.equal(galleryDescent(3),GALLERY_DESCENT);assert.equal(galleryDescent(6),GALLERY_DESCENT);
  let previous=0;
- for(let n=0;n<=2000;n++){
-  const progress=2+n/2000,descent=galleryDescent(progress);
+ for(let n=0;n<=12000;n++){
+  const progress=2+n/12000,descent=galleryDescent(progress);
   assert.ok(Number.isFinite(descent)&&descent>=previous&&descent-previous<.005,'descent reverses or jumps');
   assert.equal(descent,galleryDescent(progress),'descent depends on scroll history');
   for(const mobile of [false,true]){
@@ -206,8 +206,52 @@ test('projects retain their heights and angular attachment to the spine as the c
    assert.equal(card.position[1],initial.position[1],'a project slides vertically along its bone');
    assert.ok(Math.abs(card.rotation[1]-turn-index*Math.PI*2/CARD_SPECS.length)<1e-10,'project and spine turn out of sync');
    const radius=Math.hypot(card.position[0]-(mobile?0:.65),card.position[2]);
-   assert.ok(Math.abs(radius-(mobile?3.3:3.8))<1e-10,'orbit stretches during the turn');
+   assert.ok(Math.abs(radius-(mobile?GALLERY_RADIUS.mobile:GALLERY_RADIUS.desktop))<1e-10,'orbit stretches during the turn');
    if(index<CARD_SPECS.length-1)assert.ok(galleryCardPose(index+1,progress,mobile).position[1]<card.position[1],'next project must be below the current project');
   }
+ }
+});
+
+test('boards keep a physical gap throughout the helix, including tilt and hover',async()=>{
+ for(const mobile of [false,true]){
+  const w=await geometryWorld(mobile);
+  for(let step=0;step<=160;step++){
+   const progress=2+step/160;
+   w.cards.forEach((card,index)=>{
+    const pose=galleryCardPose(index,progress,mobile);
+    card.group.position.fromArray(pose.position);card.group.rotation.set(...pose.rotation);
+    // Worst-case hover must not use up the reserved gap.
+    card.group.position.z+=.17;card.group.rotation.y-=.025;
+   });
+   w.world.updateMatrixWorld(true);
+   const boxes=w.cards.map(card=>new T.Box3().setFromObject(card.group));
+   for(let i=0;i<boxes.length-1;i++)assert.ok(boxes[i].min.y-boxes[i+1].max.y>.5,'adjacent boards collide at '+progress);
+  }
+  w.dispose();
+ }
+});
+
+test('entire focused covers fit the viewport and occlude background objects',async()=>{
+ for(const [width,height,mobile] of [[1920,1080,false],[1465,880,false],[1024,768,false],[768,1024,false],[414,896,true],[375,812,true],[320,640,true]]){
+  const w=await geometryWorld(mobile),camera=new T.PerspectiveCamera(mobile?43:40,width/height,.1,100);
+  for(let selected=0;selected<CARD_SPECS.length;selected++){
+   const progress=2+selected/(CARD_SPECS.length-1),pose=cameraPose(progress,mobile,width/height);
+   camera.position.fromArray(pose.eye);camera.lookAt(...pose.look);camera.updateMatrixWorld();
+   w.galleryStructure.rotation.y=galleryTurn(progress);
+   w.cards.forEach((card,index)=>{const p=galleryCardPose(index,progress,mobile);card.group.position.fromArray(p.position);card.group.rotation.set(...p.rotation);});
+   w.world.updateMatrixWorld(true);
+   const face=w.cards[selected].face;
+   assert.equal(face.material.transparent,false,'transparent covers reveal the spine');
+   assert.equal(face.material.depthWrite,true,'particles must be depth-occluded by the cover');
+   // Check the reading rectangle, not just its centre: the original bug left
+   // the centre clickable while another project crossed the right-hand side.
+   for(const x of [-1.6,0,1.6])for(const y of [-1,0,1]){
+    const target=face.localToWorld(new T.Vector3(x,y,0)),screen=target.clone().project(camera);
+    assert.ok(Math.abs(screen.x)<.94&&Math.abs(screen.y)<.9,`cover clipped at ${width}x${height}, project ${selected}`);
+    const hit=new T.Raycaster(camera.position,target.clone().sub(camera.position).normalize()).intersectObjects([...w.pickables,...w.opaque],false)[0];
+    assert.equal(hit?.object,face,`cover edge occluded at ${width}x${height}, project ${selected}`);
+   }
+  }
+  w.dispose();
  }
 });

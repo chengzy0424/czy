@@ -25,6 +25,13 @@ dialog{width:min(1120px,calc(100% - 32px));max-width:none;max-height:calc(100svh
 
 .case-study:not([open])>.case-body,.toolkit:not([open])>.tool-list{display:none}
 .source-note{overflow-wrap:anywhere;max-width:60ch}.experience-date{margin-top:14px}
+
+/* Give both featured and additional projects an independent reading area. */
+.featured-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:64px clamp(36px,5vw,80px)}
+.archive-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:64px clamp(32px,5vw,80px)}
+.archive-grid article{min-width:0}
+@media(max-width:700px){.featured-grid{grid-template-columns:minmax(0,1fr);gap:76px}}
+@media(max-width:620px){.archive-grid{grid-template-columns:minmax(0,1fr);gap:56px}}
 @media print{.case-study:not([open])>.case-body{display:block}}
 
 .asset-note,.case-copy .source-note{font-size:16px;max-width:65ch}.case-copy .source-note{max-width:60ch}

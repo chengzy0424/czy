@@ -1,16 +1,17 @@
 import * as T from 'three';
 import {mergeGeometries} from 'three/addons/utils/BufferGeometryUtils.js';
+import {GALLERY_DESCENT} from './space-path.js';
 
-export const GALLERY_SPINE_BOUNDS=Object.freeze({top:4.5,bottom:-9.9});
+export const GALLERY_SPINE_BOUNDS=Object.freeze({top:4.5,bottom:-GALLERY_DESCENT-4.5});
 // Unequal joints and swept processes keep the column organic at close range.
-// Thirty fixed joints continue below the original nineteen at the same spacing.
-// Scrolling only moves the viewpoint; the merged geometry never stretches.
+// Build the entire expanded column once. Lower radial tessellation keeps the
+// longer spine inside the existing geometry budget; scrolling never stretches it.
 export function vertebraeGeometry(mobile=false){
- const parts=[],joints=[],around=mobile?28:40,section=8,spurSegments=10;let vertexCursor=0;
- for(let layer=-11;layer<19;layer++){
+ const parts=[],joints=[],around=mobile?14:20,section=6,spurSegments=5;let vertexCursor=0;
+ for(let layer=Math.ceil(GALLERY_SPINE_BOUNDS.bottom/.56);layer<=Math.floor(GALLERY_SPINE_BOUNDS.top/.56);layer++){
   const jointStart=vertexCursor;
   const g=new T.TorusGeometry(1,.16,section,around),p=g.attributes.position;
-  const y=(layer-9)*.49+.045*Math.sin(layer*1.91),twist=layer*.31+.22*Math.sin(layer*.83);
+  const y=layer*.56+.045*Math.sin(layer*1.91),twist=layer*.31+.22*Math.sin(layer*.83);
   const sway=.23*Math.sin(y*.81),swayZ=.13*Math.cos(y*.67);
   const lobes=[.38+.09*Math.sin(layer*1.23),.24+.08*Math.cos(layer*.91),.46+.1*Math.sin(layer*.73+.8)];
   for(let i=0;i<p.count;i++){

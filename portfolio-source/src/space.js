@@ -99,25 +99,8 @@ export async function createSpace({container,state,onFailure=()=>{},onSelect=()=
  const water=createWater({mobile});scene.add(water);
  const plumes=createPlumes({mobile});plumes.group.position.y=SCENE_Y.confluence;scene.add(plumes.group);
  const descent=createDescent({mobile});scene.add(descent.points);
- const glassTarget=new T.WebGLRenderTarget(640,480,{depthBuffer:true});
- const glassUniforms={uGlassScene:{value:glassTarget.texture},uGlassResolution:{value:new T.Vector2()},uGlassTime:{value:0},uGlassActive:{value:0}};
- for(const card of world.cards){
-  card.base.material.onBeforeCompile=shader=>{
-   Object.assign(shader.uniforms,glassUniforms);
-   shader.fragmentShader='uniform sampler2D uGlassScene; uniform vec2 uGlassResolution; uniform float uGlassTime,uGlassActive;\n'+shader.fragmentShader;
-   shader.fragmentShader=shader.fragmentShader.replace('#include <color_fragment>',`#include <color_fragment>
-    if(uGlassActive>.5){
-     vec2 screenUV=gl_FragCoord.xy/uGlassResolution;
-     vec2 bend=vec2(sin(screenUV.y*27.+uGlassTime*.4),cos(screenUV.x*24.-uGlassTime*.3))*.008;
-     vec3 behind=texture2D(uGlassScene,screenUV+bend).rgb;
-     behind+=texture2D(uGlassScene,screenUV+bend+vec2(.003,0.)).rgb;
-     behind+=texture2D(uGlassScene,screenUV+bend-vec2(.003,0.)).rgb;
-     diffuseColor.rgb=mix(diffuseColor.rgb,behind/3.+diffuseColor.rgb*.18,uGlassActive*.78);
-    }
-   `);
-  };
-  card.base.material.customProgramCacheKey=()=> 'project-glass-v1';
- }
+ // Opaque project covers need one depth-correct render. The old refraction
+ // target redrew the whole scene behind surfaces that now hide it entirely.
  const key=new T.PointLight(0xb2ebf0,62,26,2),rim=new T.PointLight(0xde329a,55,22,2),fill=new T.PointLight(0x6db5b5,18,22,2);scene.add(key,rim,fill);
  const labAir=new T.Color(0x0c1718),baseAir=new T.Color(0x04090c),air=new T.Color();
  const lightColors={key:new T.Color(0xb2ebf0),rim:new T.Color(0xde329a),fill:new T.Color(0x6db5b5),machineKey:new T.Color(0xbdb9b7),machineRim:new T.Color(0xd8224a),labKey:new T.Color(0xd2caba),labRim:new T.Color(0x6b817d),labFill:new T.Color(0x88917e)};
@@ -146,7 +129,7 @@ export async function createSpace({container,state,onFailure=()=>{},onSelect=()=
   ray.setFromCamera(pointer,camera);const hit=ray.intersectObjects([...world.pickables,...world.opaque].filter(o=>{for(let p=o;p;p=p.parent)if(!p.visible)return false;return true;}),false)[0];
   if(hit?.object.userData.detail)hovered=world.cards.find(c=>c.spec.id===hit.object.userData.detail);
  }
- function resize(){const dpr=scenePixelRatio(innerWidth,innerHeight,devicePixelRatio||1,mobile,quality);renderer.setPixelRatio(dpr);renderer.setSize(innerWidth,innerHeight);uniforms.uDpr.value=dpr;renderer.getDrawingBufferSize(glassUniforms.uGlassResolution.value);glassTarget.setSize(Math.min(960,innerWidth),Math.round(Math.min(960,innerWidth)*innerHeight/innerWidth));camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix();wake();}
+ function resize(){const dpr=scenePixelRatio(innerWidth,innerHeight,devicePixelRatio||1,mobile,quality);renderer.setPixelRatio(dpr);renderer.setSize(innerWidth,innerHeight);uniforms.uDpr.value=dpr;camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix();wake();}
  function updateScene(dt){
   const reduced=state.reduced;
   const previous=progress;
@@ -206,7 +189,9 @@ export async function createSpace({container,state,onFailure=()=>{},onSelect=()=
    card.group.position.y+=exit*(.5+index*.13);
    card.group.rotation.fromArray(pose.rotation);
    card.group.rotation.x-=exit*.75;card.group.rotation.y-=card.hover*.025;
-   card.face.material.opacity=.55+pose.focus*.43;
+   // De-emphasize distant work with brightness, never transparency: the face
+   // must keep its depth coverage throughout forward and reverse scrolling.
+   card.face.material.color.setScalar(.72+pose.focus*.28);
    card.edge.material.emissive.set(0xa6e4d4);card.edge.material.emissiveIntensity=card.hover*.35+passage*.13;
   }
   scene.updateMatrixWorld(true);
@@ -228,9 +213,6 @@ export async function createSpace({container,state,onFailure=()=>{},onSelect=()=
   const dt=last?Math.min(.05,(now-last)/1000):1/60;if(last&&!state.reduced){frameTimes.push(now-last);if(frameTimes.length>180)frameTimes.shift();}last=now;
   if(!state.reduced)time+=dt;
   updateScene(dt);renderer.info.reset();const start=performance.now();
-  const refract=!mobile&&quality===1&&progress>1.65&&progress<3.5;
-  glassUniforms.uGlassActive.value=refract?1:0;glassUniforms.uGlassTime.value=state.reduced?0:time;
-  if(refract){world.cardDeck.visible=false;renderer.setRenderTarget(glassTarget);renderer.render(scene,camera);renderer.setRenderTarget(null);world.cardDeck.visible=true;}
   const pixelRatio=renderer.getPixelRatio();
   uniforms.uDpr.value=pixelRatio;descent.update(time,progress,state.reduced,travelEnergy,pixelRatio,quality);
   renderer.render(scene,camera);
@@ -251,6 +233,6 @@ export async function createSpace({container,state,onFailure=()=>{},onSelect=()=
  window.addEventListener('pointermove',onMove,{passive:true});window.addEventListener('pointerdown',onDown,{passive:true});window.addEventListener('pointerup',onUp,{passive:true});
  document.addEventListener('pointerleave',onLeave);document.addEventListener('visibilitychange',visibility);window.addEventListener('blur',onLeave);window.addEventListener('resize',resize);
  renderer.domElement.addEventListener('webglcontextlost',contextLost);renderer.domElement.addEventListener('webglcontextrestored',contextRestored);sceneInitialized=true;resize();
- return {wake,pause,metrics:()=>({frames,points:geo.drawRange.count===Infinity?count:geo.drawRange.count,dpr:renderer.getPixelRatio(),drawCalls:renderer.info.render.calls,triangles:renderer.info.render.triangles,lastDrawSubmissionMs:drawMs,frameTimesMs:[...frameTimes],quality,descentPoints:descent.points.visible?descent.points.geometry.drawRange.count:0,reduced:state.reduced,chapter:progress}),dispose(){disposed=true;pause();window.removeEventListener('pointermove',onMove);window.removeEventListener('pointerdown',onDown);window.removeEventListener('pointerup',onUp);document.removeEventListener('pointerleave',onLeave);document.removeEventListener('visibilitychange',visibility);window.removeEventListener('blur',onLeave);window.removeEventListener('resize',resize);renderer.domElement.removeEventListener('webglcontextlost',contextLost);renderer.domElement.removeEventListener('webglcontextrestored',contextRestored);world.dispose();plumes.dispose();descent.dispose();glassTarget.dispose();water.geometry.dispose();water.dispose();geo.dispose();pointMaterial.dispose();env.dispose();labEnvironment.dispose();renderer.dispose();renderer.domElement.remove();}};
+ return {wake,pause,metrics:()=>({frames,points:geo.drawRange.count===Infinity?count:geo.drawRange.count,dpr:renderer.getPixelRatio(),drawCalls:renderer.info.render.calls,triangles:renderer.info.render.triangles,lastDrawSubmissionMs:drawMs,frameTimesMs:[...frameTimes],quality,descentPoints:descent.points.visible?descent.points.geometry.drawRange.count:0,reduced:state.reduced,chapter:progress}),dispose(){disposed=true;pause();window.removeEventListener('pointermove',onMove);window.removeEventListener('pointerdown',onDown);window.removeEventListener('pointerup',onUp);document.removeEventListener('pointerleave',onLeave);document.removeEventListener('visibilitychange',visibility);window.removeEventListener('blur',onLeave);window.removeEventListener('resize',resize);renderer.domElement.removeEventListener('webglcontextlost',contextLost);renderer.domElement.removeEventListener('webglcontextrestored',contextRestored);world.dispose();plumes.dispose();descent.dispose();water.geometry.dispose();water.dispose();geo.dispose();pointMaterial.dispose();env.dispose();labEnvironment.dispose();renderer.dispose();renderer.domElement.remove();}};
 }
 

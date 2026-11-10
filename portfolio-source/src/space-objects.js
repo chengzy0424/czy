@@ -113,7 +113,6 @@ export async function buildWorld({mobile=false,documentRef=document,onTexture=()
  const cardTints=[0x63536e,0x496767,0x6e5544,0x455665,0x586751,0x67546b,0x4b6265];
  for(const [cardIndex,spec] of CARD_SPECS.entries()){
   const group=new T.Group();group.position.fromArray(spec.position);group.rotation.y=spec.rotation;group.scale.setScalar(mobile?1.05:1.22);cardDeck.add(group);
-  if(mobile&&spec.id==='tower')group.position.set(0,.6,3.2);
   const shape=roundedShape(3.5,2.3,.115),backMaterial=new T.MeshPhysicalMaterial({color:cardTints[cardIndex%cardTints.length],metalness:.24,roughness:.36,clearcoat:.85,clearcoatRoughness:.22,iridescence:.18,transparent:true,opacity:.31,depthWrite:false,envMapIntensity:.7});
   const base=mesh(extruded(shape,.055,.012,8),backMaterial,group,[0,0,-.04]);
   const frameShape=roundedShape(3.526,2.326,.128);frameShape.holes.push(roundedShape(3.5,2.3,.115));
@@ -121,8 +120,10 @@ export async function buildWorld({mobile=false,documentRef=document,onTexture=()
   const edge=mesh(extruded(frameShape,.032,.005,8),edgeMaterial,group,[0,0,-.05]);
   let cover;
   const draw=c=>{
-   c.clearRect(0,0,1280,840);c.fillStyle='rgba(25,35,43,.23)';c.fillRect(0,0,1280,840);
-   if(cover){const scale=Math.max(1280/cover.width,840/cover.height);c.globalAlpha=.3;c.drawImage(cover,(1280-cover.width*scale)/2,(840-cover.height*scale)/2,cover.width*scale,cover.height*scale);c.globalAlpha=1;}
+   // The rounded geometry supplies the silhouette. Keep the image fully opaque
+   // so background geometry and transparent particles cannot show through text.
+   c.fillStyle='#102025';c.fillRect(0,0,1280,840);
+   if(cover){const scale=Math.max(1280/cover.width,840/cover.height);c.globalAlpha=.85;c.drawImage(cover,(1280-cover.width*scale)/2,(840-cover.height*scale)/2,cover.width*scale,cover.height*scale);c.globalAlpha=1;}
    // Non-public HMI and planned work use honest typographic covers, never fabricated UI.
    if(!spec.image){c.strokeStyle=spec.id==='boe'?'#447b79':'#6a587b';c.lineWidth=1;for(let i=0;i<7;i++){c.beginPath();c.ellipse(940,410,110+i*45,160+i*27,-.3,0,Math.PI*2);c.stroke();}}
    const shade=c.createLinearGradient(0,0,0,840);shade.addColorStop(0,'rgba(4,10,14,.08)');shade.addColorStop(.48,'rgba(4,10,14,.48)');shade.addColorStop(1,'rgba(4,10,14,.15)');c.fillStyle=shade;c.fillRect(0,0,1280,840);
@@ -136,7 +137,7 @@ export async function buildWorld({mobile=false,documentRef=document,onTexture=()
    c.shadowBlur=0;c.fillStyle='#c3d5d1';c.font='25px "Microsoft YaHei", sans-serif';c.fillText(spec.note||'',640,637,1080);c.textAlign='left';
   };
   const surface=canvasTexture(1280,840,draw);
-  const face=mesh(setUV(new T.ShapeGeometry(shape,8),3.5,2.3),new T.MeshBasicMaterial({map:surface.texture,side:T.FrontSide,transparent:true,opacity:.96,depthWrite:false}),group,[0,0,.044]);
+  const face=mesh(setUV(new T.ShapeGeometry(shape,8),3.5,2.3),new T.MeshBasicMaterial({map:surface.texture,side:T.FrontSide,depthWrite:true}),group,[0,0,.044]);
   face.userData.detail=spec.id;pickables.push(face);opaque.push(base,edge);
   cards.push({group,face,edge,base,spec,hover:0,home:group.position.clone()});
   if(spec.image)coverLoaders.push(()=>{const img=new Image();img.crossOrigin='anonymous';img.decoding='async';img.onload=()=>{cover=img;draw(surface.ctx);surface.texture.needsUpdate=true;onTexture();};img.onerror=()=>console.warn('Gallery cover unavailable:',spec.image);img.src=spec.image;});

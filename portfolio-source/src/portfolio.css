@@ -133,15 +133,28 @@
 .hero-kicker,.explore-link,.motion-control,.hero-bottom,.footer-name>span,.dialog-close,.sculpture-note,.journey-nav span,.detail-cover figcaption,.game-picker small{font-size:13px}
 .media-recovery:not([hidden]){display:flex;flex-wrap:wrap;gap:12px;margin:0 0 14px}.media-recovery[hidden]{display:none}.media-recovery .media-retry{border:1px solid #607b75;border-radius:4px;font-size:13px}.media-recovery .media-retry:hover{background:#1b3933}.player-toolbar select:disabled{opacity:.55}
 
+/* Each project owns its reading space in the flat collection as well. */
+.game-work{column-gap:clamp(40px,6vw,104px);margin-bottom:120px}
+.game-work:last-child{margin-bottom:0}
+.game-work .project-copy,.films-panel>article{min-width:0}
+.films-panel{grid-template-columns:repeat(2,minmax(0,1fr));gap:64px 48px}
+.detail-layout{column-gap:44px}
+@media(max-width:760px){
+ .game-work,.game-work:nth-child(even){row-gap:30px;margin-bottom:80px}
+ .game-work:last-child{margin-bottom:0}
+ .films-panel{grid-template-columns:minmax(0,1fr);gap:48px}
+}
+
 /* Reference study, 2026-11-02: let the continuous world fill the viewport. */
 .site-header{background:linear-gradient(#04090c80,transparent);pointer-events:none}
 .site-header>a,.site-header>nav,.site-header>button{pointer-events:auto}
+.site-header nav a,.motion-control{white-space:nowrap}
 .site-header:after{display:none}
 .site-header nav{background:#04090c85;border-color:#a8b9b54a;gap:28px;backdrop-filter:blur(8px)}
 .reading-shade{background:linear-gradient(90deg,#04090c20,transparent 35%)}
 #visual::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at 0% 36%,#5c9eab1c,transparent 45%),radial-gradient(ellipse at 0% 100%,#754f9b20,transparent 38%),radial-gradient(ellipse at 100% 93%,#2b74611a,transparent 40%)}
-.gallery-stage{height:500svh}
-.gallery-stage .gallery-caption{top:108px;bottom:auto;background:none}
+.gallery-stage{height:900svh}
+.gallery-stage .gallery-caption{top:108px;bottom:auto;background:linear-gradient(90deg,#04090cf2 65%,#04090c00)}
 .spatial-menu{background:linear-gradient(90deg,#04090cbb,transparent)}
 @media(min-width:1101px){
  .lab-copy{left:32%;top:40%;width:46%;max-width:none;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:12vw;background:none;align-items:start}
@@ -153,9 +166,15 @@
  .machine-copy h2{font-size:clamp(28px,2.2vw,38px)}
 }
 @media(max-width:760px){
- .gallery-stage{height:470svh}.site-header nav{gap:12px;padding-inline:12px}
+ .gallery-stage{height:820svh}.site-header nav{gap:12px;padding-inline:12px}
  .site-header{gap:8px}.site-header .identity{min-width:44px;min-height:44px;justify-content:center}.motion-control{padding-left:8px;font-size:12px}
  .spatial-menu{background:#04090ce8}.lab-copy{max-width:290px}
+}
+@media(max-width:370px){
+ .site-header{padding-inline:12px;gap:6px}
+ .site-header nav{padding-inline:10px;gap:10px;flex-shrink:0}
+ .site-header nav a{font-size:12px}
+ .motion-control{font-size:11px;gap:5px;padding-left:7px}
 }
 
 

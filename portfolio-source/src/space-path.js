@@ -4,7 +4,12 @@ export const CHAPTERS=[0,1,2,3,4,5,6];
 // Hold each composition briefly at both ends; the middle carries the passage.
 export function chapterBlend(t){return smooth(clamp((t-.09)/.82));}
 export function passageStrength(p){return Math.sin(Math.PI*chapterBlend(p-Math.floor(p)))**2;}
-export const GALLERY_DESCENT=5.2;
+// A board is 2.81 units high at desktop scale. Reserve a real gap at every
+// level, including its tilt and hover travel, instead of stacking nine boards
+// inside two board heights. Camera, particles and following scenes share this.
+export const GALLERY_CARD_GAP=3.6;
+export const GALLERY_RADIUS=Object.freeze({desktop:5.9,mobile:5.3});
+export const GALLERY_DESCENT=GALLERY_CARD_GAP*8;
 export const SCENE_Y={gallery:-13,machine:-24-GALLERY_DESCENT,lab:-34-GALLERY_DESCENT,confluence:-45.5-GALLERY_DESCENT};
 const GALLERY_CARD_COUNT=9;
 // Fixed-height boards on a long spine. One scroll phase drives the viewing
@@ -18,8 +23,8 @@ export function galleryTurn(progress){return -galleryAdvance(progress)*Math.PI*2
 const KEYS=[
  {p:0, eye:[0,0,10.5], look:[0,0,0]},
  {p:1, eye:[2.1,.15,4.6], look:[1.65,-.1,0]},
- {p:2, eye:[0,SCENE_Y.gallery+.4,11.7], look:[0,SCENE_Y.gallery,0]},
- {p:3, eye:[0,SCENE_Y.gallery+.4-GALLERY_DESCENT,11.7], look:[0,SCENE_Y.gallery-GALLERY_DESCENT,0]},
+ {p:2, eye:[0,SCENE_Y.gallery+.4,13.8], look:[0,SCENE_Y.gallery,0]},
+ {p:3, eye:[0,SCENE_Y.gallery+.4-GALLERY_DESCENT,13.8], look:[0,SCENE_Y.gallery-GALLERY_DESCENT,0]},
  {p:4, eye:[.8,SCENE_Y.machine-.5,12], look:[0,SCENE_Y.machine-.6,0]},
  {p:5, eye:[-.4,SCENE_Y.lab,10.5], look:[0,SCENE_Y.lab,0]},
  {p:6, eye:[0,SCENE_Y.confluence,12], look:[0,SCENE_Y.confluence,0]}
@@ -41,6 +46,11 @@ export function cameraPose(progress,mobile=false,aspect=16/9){
   const introLift=1-smooth(clamp(p));
   eye[2]+=7+introLift+7*smooth(clamp(p-4));
   eye[2]+=2*smooth(Math.max(0,1-Math.abs(p-5)));
+  // Frame the focused board at 82% of the phone's width. A fixed extra
+  // camera distance made text tiny on normal phones and clipped tall phones.
+  const galleryWeight=smooth(clamp(p-1))*(1-smooth(clamp(p-3)));
+  const readingDistance=Math.max(8.8,(3.5*1.05/2)/(Math.tan(43*Math.PI/360)*Math.max(aspect,.2)*.82));
+  eye[2]+=(GALLERY_RADIUS.mobile+readingDistance-20.8)*galleryWeight;
   const readingInset=aspect<.45?1.1:0;
   eye[1]+=(2+readingInset)*introLift;look[1]+=(2+readingInset)*introLift;
  }else{
@@ -57,7 +67,7 @@ export function scrollToChapter(y,anchors){
 }
 // Every real project gets a short reading hold. The return scroll retraces the same helix.
 export function galleryCardPose(index,progress,mobile=false){
- const relative=index-galleryAdvance(progress),phase=index*Math.PI*2/GALLERY_CARD_COUNT+galleryTurn(progress),radius=mobile?3.3:3.8;
+ const relative=index-galleryAdvance(progress),phase=index*Math.PI*2/GALLERY_CARD_COUNT+galleryTurn(progress),radius=mobile?GALLERY_RADIUS.mobile:GALLERY_RADIUS.desktop;
  return {
   position:[(mobile?0:.65)+Math.sin(phase)*radius,-index*GALLERY_DESCENT/(GALLERY_CARD_COUNT-1),Math.cos(phase)*radius],
   rotation:[.035*Math.sin(phase),phase,.025*Math.sin(phase)],

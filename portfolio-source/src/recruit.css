@@ -54,3 +54,63 @@ dialog{width:min(1120px,calc(100% - 32px));max-width:none;max-height:calc(100svh
   .core-tools{margin-top:14px}
   .hero-actions{margin-top:16px}
 }
+
+.exhibition-invite {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  max-width: 520px;
+  min-height: 112px;
+  margin-top: 22px;
+  padding: 16px 18px;
+  border: 1px solid #54746d;
+  border-radius: 3px;
+  background-color: var(--surface);
+  color: var(--ink);
+}
+.exhibition-invite::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(95deg, #0b181c 8%, #0b181cf2 38%, #0b181c55 66%, #07101414),
+    url("./images/exhibition-invite.webp") right center / auto 100% no-repeat;
+}
+.exhibition-invite-copy { display: grid; gap: 3px; }
+.exhibition-invite-type { color: var(--accent); font-size: 13px; }
+.exhibition-invite strong { font-size: clamp(21px, 1.8vw, 27px); line-height: 1.35; }
+#exhibition-invite-description { color: #d1e0da; font-size: 13px; }
+.exhibition-invite-arrow {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--accent-ink);
+  font: 22px/1 "Segoe UI", sans-serif;
+}
+.exhibition-invite:focus-visible { outline-offset: 4px; }
+@media (hover: hover) {
+  .exhibition-invite:hover { border-color: var(--accent); }
+  .exhibition-invite:hover .exhibition-invite-arrow { background: var(--accent-hover); }
+}
+@media (prefers-reduced-motion: no-preference) and (hover: hover) {
+  .exhibition-invite-arrow { transition: transform .2s ease-out; }
+  .exhibition-invite:hover .exhibition-invite-arrow { transform: translateX(3px); }
+}
+@media (max-width: 620px) {
+  .exhibition-invite { min-height: 94px; margin-top: 16px; padding: 12px; gap: 8px; }
+  .exhibition-invite::before {
+    background-image: linear-gradient(95deg, #0b181c 4%, #0b181cf0 33%, #0b181c85 62%, #07101418),
+      url("./images/exhibition-invite.webp");
+    background-position: center, right -40px center;
+  }
+  .exhibition-invite-arrow { width: 30px; height: 30px; }
+}
+@media print { .exhibition-invite { display: none; } }
